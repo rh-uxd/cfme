@@ -1,0 +1,19 @@
+## .gitignore file for project
+## generic file ignore
+*.lock
+*.DS_Store
+*.swp
+*.out
+.tmp
+## IDE Specific ignores
+.idea/*
+*.iml
+*.sublime-project
+*.sublime-workspace
+atlassian-ide-plugin.xml
+## Node ignore
+node_modules/
+src/libraries/
+## Environmental ignore
+npm-debug.log
+describe.txt

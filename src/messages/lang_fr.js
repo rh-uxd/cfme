@@ -1,0 +1,7 @@
+{
+    "sampleApp": {
+        "header": {
+            "TITLE": "frêdeößüSelectors"
+        }
+    }
+}

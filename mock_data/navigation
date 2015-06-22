@@ -1,0 +1,14 @@
+[
+				{
+					"title": "Calendar",
+					"href": "#/calendar"
+				},
+				{
+					"title": "Messages",
+					"href": "#/messages"
+				},
+				{
+					"title": "Analytics",
+					"href": "#/analytics"
+				}
+			]

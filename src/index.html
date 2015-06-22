@@ -1,0 +1,102 @@
+<!doctype html>
+<html ng-app="cfme.appModule">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>CFME</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link rel="shortcut icon" href="favicon.ico?v=1"/>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+ 
+     <!-- build:css styles/css/libraries.css -->
+    <link rel="stylesheet" href="libraries/rcue/dist/css/rcue.min.css"/>
+     <!-- endbuild -->
+
+    <!-- build:css styles/css/app.css -->
+    <link rel="stylesheet" href="styles/app.css"/>
+    <!-- endbuild -->
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-pf" role="navigation" ng-controller="cfme.appController as vm">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      <img src="styles/images/brand.svg" alt="PatternFly" />
+    </a>
+  </div>
+  <div class="collapse navbar-collapse navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-utility">
+      <li class="dropdown">
+        <a href="#" data-toggle="dropdown">
+          <span class="pficon pficon-info"></span>
+          Messages: <strong>2</strong>
+        </a>
+        <div class="dropdown-menu infotip bottom-right">
+          <div class="arrow"></div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span class="i pficon pficon-info"></span>
+              Added Datasources TestDS
+            </li>
+            <li class="list-group-item">
+              <span class="i pficon pficon-info"></span>
+              Modified Datasources ExampleDS
+            </li>
+          </ul>
+          <div class="footer"><a href="#">Clear Messages</a></div>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="pficon pficon-user"></span>
+              {{ vm.username }} <b class="caret"></b>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-primary">
+      <li ng-repeat="item in vm.navigationItems">
+        <a href="{{item.href}}">{{ item.title }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+    <div ng-view></div>
+</div>
+
+
+<!-- build:js js/libraries.js -->
+<script src="libraries/jquery/dist/jquery.min.js"></script>
+<script src="libraries/lodash/dist/lodash.min.js"></script>
+<script src="libraries/angular/angular.min.js"></script>
+<script src="libraries/angular-route/angular-route.min.js"></script>
+<script src="libraries/angular-resource/angular-resource.min.js"></script>
+<script src="libraries/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="libraries/patternfly/dist/js/patternfly.min.js"></script>
+<script src="libraries/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="libraries/angular-translate/angular-translate.min.js"></script>
+<script src="libraries/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/app.js -->
+<script src="modules/app/app-module.js"></script>
+<script src="modules/app/controllers/app-controller.js"></script>
+<script src="modules/dashboard/dashboard-module.js"></script>
+<script src="modules/dashboard/controllers/dashboard-controller.js"></script>
+<!-- endbuild -->
+
+
+</body>
+</html>
