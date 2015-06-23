@@ -41,36 +41,46 @@
   </div>
   <div class="collapse navbar-collapse navbar-collapse-1">
     <ul class="nav navbar-nav navbar-utility">
-      <li class="dropdown">
-        <a href="#" data-toggle="dropdown">
-          <span class="pficon pficon-info"></span>
-          Messages: <strong>2</strong>
+      <li class="dropdown" dropdown>
+        <a href dropdown-toggle>
+          <span class="pficon pficon-info"></span> Messages: <strong>{{ vm.notifications.length }}</strong>
         </a>
         <div class="dropdown-menu infotip bottom-right">
           <div class="arrow"></div>
           <ul class="list-group">
-            <li class="list-group-item">
-              <span class="i pficon pficon-info"></span>
-              Added Datasources TestDS
-            </li>
-            <li class="list-group-item">
-              <span class="i pficon pficon-info"></span>
-              Modified Datasources ExampleDS
+            <li class="list-group-item" ng-repeat="notification in vm.notifications">
+              <span class="i pficon pficon-info"></span> {{ notification.text }}
             </li>
           </ul>
-          <div class="footer"><a href="#">Clear Messages</a></div>
+          <div class="footer">
+            <a ng-click="vm.clearNotifications()" ng-if="vm.notifications.length > 0">Clear Messages</a>
+            <span ng-if="vm.notifications.length === 0">No Messages</span>
+          </div>
         </div>
       </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <li class="dropdown" dropdown>
+        <a class="dropdown-toggle" dropdown-toggle>
             <span class="pficon pficon-user"></span>
               {{ vm.username }} <b class="caret"></b>
         </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a>About Me</a>
+          </li>
+          <li>
+            <a>Log Out</a>
+          </li>
+        </ul>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-primary">
-      <li ng-repeat="item in vm.navigationItems">
-        <a href="{{item.href}}">{{ item.title }}</a>
+    <ul class="nav navbar-nav navbar-primary persistent-secondary">
+      <li ng-repeat="item in vm.navigationItems" class="{{ item.class }}">
+        <a href="{{item.href}}" >{{ item.title }}</a>
+        <ul class="nav navbar-nav navbar-persistent" ng-if="item.children && item.class==='active'">
+          <li ng-repeat="child in item.children" class="{{ child.class }}">
+            <a href="{{ child.href }}">{{ child.title }}</a>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
