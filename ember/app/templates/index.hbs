@@ -1,0 +1,116 @@
+<div class="container-fluid container-tiles-pf">
+    <div class="row row-tile-pf" >
+        <div class="col-xs-6 col-sm-4 col-md-2">
+            {{providers-status-chart openShiftCount=model.providers.openshift.count kubernetesCount=model.providers.kubernetes.count}}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                  {{aggregate-status-chart aggregateType='Nodes' aggregateCount=model.nodes.count errorCount=model.nodes.errorCount aggregateTypeIconClass='pficon-container-node'}}
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                    {{object-status-chart objectType='Containers' objectCount=model.containers.count typeIconClass='fa-cube'}}
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                    {{object-status-chart objectType='Registries' objectCount=model.registries.count typeIconClass='pficon-registry'}}
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                    {{object-status-chart objectType='Projects' objectCount=model.projects.count typeIconClass='pficon-project' linkRoute='containers.projects'}}
+                </div>
+            </div><!-- /row -->
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                  {{aggregate-status-chart aggregateType='Container Groups' aggregateCount=model.containerGroups.count errorCount=model.containerGroups.errorCount aggregateTypeIconClass='fa-cubes'}}
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                    {{object-status-chart objectType='Services' objectCount=model.services.count typeIconClass='pficon-service'}}
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                    {{object-status-chart objectType='Images' objectCount=model.images.count typeIconClass='pficon-image'}}
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                    {{object-status-chart objectType='Routes' objectCount=model.routes.count typeIconClass='pficon-route'}}
+                </div>
+            </div><!-- /row -->
+        </div>
+    </div><!-- /row -->
+    <div class="row row-tile-pf">
+        <div class="col-xs-7 col-sm-8 col-md-8">
+            <div class="tile-pf">
+                <div class="tile-pf-heading">
+                    <h2 class="tile-pf-title">Utilization</h2>
+                </div>
+                <div class="tile-pf-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                          {{utilization-chart title='CPU' data=model.cpuUsage totalUnits='MHz'}}
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                          {{utilization-chart title='Memory' data=model.memoryUsage totalUnits='GB'}}
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                          {{utilization-chart title='Storage' data=model.storageUsage totalUnits='TB'}}
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                          {{utilization-chart title='Network' data=model.networkUsage totalUnits='Gbps'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5 col-sm-4 col-md-4">
+            <div style="width:100%;">
+              {{container-group-creation-trends data=model.containerGroupTrends}}
+            </div>
+            <div style="width:100%;">
+              {{image-creation-trends data=model.imageCreations}}
+            </div>
+        </div>
+    </div><!-- /row -->
+    <div class="row row-tile-pf row-tile-pf-last">
+        <div class="col-md-12">
+            <div class="tile-pf">
+                <div class="tile-pf-heading">
+                    <h2 class="tile-pf-title">Utilization By Nodes</h2>
+                </div>
+                <div class="container-heatmap-body">
+                    <div class="row">
+                        <div class="col-xs-18 col-sm-9 col-md-9 usage-heatmap-body flex-vertical-container">
+                            <div>
+                              <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                                <h3 class="h4 count-title">CPU</h3>
+                                <div style="width:100%; height:180px;">
+                                  {{heat-map data=model.nodeCpuUsage.data click="heatMapClicked"}}
+                                </div>
+                              </div>
+                              <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                                <h3 class="h4 count-title">Memory</h3>
+                                <div style="width:100%; height:180px;">
+                                  {{heat-map data=model.nodeMemoryUsage.data click="heatMapClicked"}}
+                                </div>
+                              </div>
+                              <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                                <h3 class="h4 count-title">Storage</h3>
+                                <div style="width:100%; height:180px;">
+                                  {{heat-map data=model.nodeStorageUsage.data click="heatMapClicked"}}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-xs-16 col-sm-8 col-md-8">
+                                  {{heat-map-legend legendLabels=nodeHeatMapUsageLegendLabels}}
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 container-heatmap-tile network-heatmap-body flex-vertical-container">
+                          <h3 class="h4 count-title">Network</h3>
+                          <div style="width:100%; height:180px;">
+                            {{heat-map data=model.nodeNetworkUsage.data click="heatMapClicked"}}
+                          </div>
+                          <div style="height:5px"></div>
+                          {{heat-map-legend legendLabels=nodeHeatMapNetworkLegendLabels}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /container -->

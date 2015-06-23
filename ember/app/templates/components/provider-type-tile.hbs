@@ -1,0 +1,13 @@
+<div class="tile-pf tile-pf-accented tile-pf-type flex-vertical-container" style="height:136px;">
+    <div class="flex-one"></div>
+    <div class="flex-horizontal-container">
+        <div class="flex-one"></div>
+          {{#if isOpenShift}}
+            <span class="tile-pf-single-type"><span class="fa pficon-openshift" style="color:#ff0000;"></span>{{openShiftCount}}</span>
+          {{else}}
+            <span class="tile-pf-single-type"><span class="fa pficon-kubernetes" style="color:#0000ff;"></span>{{kubernetesCount}}</span>
+          {{/if}}
+        <div class="flex-one"></div>
+    </div>
+    <div class="flex-one"></div>
+</div>

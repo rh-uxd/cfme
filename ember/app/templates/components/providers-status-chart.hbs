@@ -1,0 +1,28 @@
+<div class="providers-status tile-pf tile-pf-accented tile-pf-aggregate-status">
+    <h2 class="tile-pf-title flex-horizontal-container">
+        <div class="flex-one"></div>
+        <div class="tile-pf-aggregate-text flex-vertical-container">
+            <span class="tile-pf-status-count flex-one">{{numProviders}}</span>
+            <span class="tile-pf-status-type flex-one">Providers</span>
+
+        </div>
+        <div class="flex-one"></div>
+    </h2>
+    <div class="tile-pf-body">
+        <div class="tile-pf-aggregate-status-notifications flex-horizontal-container">
+            <div class="flex-one"></div>
+            {{#link-to 'containers.providers' (query-params provider_type='openshift')}}
+              <div title={{openshiftTooltip}}>
+                  <span class="tile-pf-aggregate-status-notification count"><span class="fa pficon-openshift" style="color:#ff0000;"></span>{{openShiftCount}}</span>
+              </div>
+            {{/link-to}}
+            <div class="aggregate-status-separator"></div>
+            {{#link-to 'containers.providers' (query-params provider_type='kubernetes')}}
+              <div title={{kubernetesTooltip}}>
+                  <span class="tile-pf-aggregate-status-notification count"><span class="fa pficon-kubernetes" style="color:#0000ff;"></span>{{kubernetesCount}}</span>
+              </div>
+            {{/link-to}}
+            <div class="flex-one"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="utilization-chart">
+  <h3 class="h4 count-title">{{title}}</h3>
+  <div class="count-utilization flex-horizontal-container">
+      <span>{{available}} {{availableUnits}}</span>
+      <div class="available-text flex-vertical-container">
+          <span class="title-small title-small-upper">Available</span>
+          <span class="title-small title-small-lower"> of {{total}} {{totalUnits}}</span>
+      </div>
+  </div>
+  <div id='radial-chart-containter' class="radial-chart flex-horizontal-container">
+      <div class="flex-one"></div>
+      {{c3-chart data=radial_data config=radial_config donut=radial_donut size=radial_size legend=radial_legend color=radial_color tooltip=radial_tooltip}}
+      <div class="flex-one"></div>
+  </div>
+  <div id="sparklineChart">
+    {{c3-chart data=sparkline_data config=sparkline_config area=sparkline_settings size=sparkline_size axis=sparkline_axis point=sparkline_point legend=sparkline_legend color=sparkline_color tooltip=sparkline_tooltip}}
+  </div>
+  <p class="pull-left legend-text">{{legendLeftText}}</p>
+</div>

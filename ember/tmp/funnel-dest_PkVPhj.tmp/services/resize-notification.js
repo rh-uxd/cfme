@@ -1,0 +1,1 @@
+/Users/jeffreyphillips/repositories/patternfly-cfme/ember/app/services/resize-notification.js

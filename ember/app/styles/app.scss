@@ -1,0 +1,370 @@
+$title-font-weight:  normal;
+
+.flex-row, .flex-horizontal-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-column, .flex-vertical-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-none, .flex-none-all > * {
+  -webkit-flex: none !important;
+  -ms-flex: none !important;
+  flex: none !important;
+}
+
+.flex-1, .flex-1-all > *, .flex-one {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+/* line 29, ../../app/styles/emc_ui_bootstrap/_base-layout.scss */
+.flex-2 {
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+/* line 30, ../../app/styles/emc_ui_bootstrap/_base-layout.scss */
+.flex-3 {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+}
+
+/* line 31, ../../app/styles/emc_ui_bootstrap/_base-layout.scss */
+.flex-4 {
+  -webkit-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
+}
+
+/* line 32, ../../app/styles/emc_ui_bootstrap/_base-layout.scss */
+.flex-5 {
+  -webkit-flex: 5;
+  -ms-flex: 5;
+  flex: 5;
+}
+
+/* line 33, ../../app/styles/emc_ui_bootstrap/_base-layout.scss */
+.flex-6 {
+  -webkit-flex: 6;
+  -ms-flex: 6;
+  flex: 6;
+}
+
+/* line 34, ../../app/styles/emc_ui_bootstrap/_base-layout.scss */
+.flex-7 {
+  -webkit-flex: 7;
+  -ms-flex: 7;
+  flex: 7;
+}
+
+/* line 35, ../../app/styles/emc_ui_bootstrap/_base-layout.scss */
+.flex-8 {
+  -webkit-flex: 8;
+  -ms-flex: 8;
+  flex: 8;
+}
+
+/* line 36, ../../app/styles/emc_ui_bootstrap/_base-layout.scss */
+.flex-9 {
+  -webkit-flex: 9;
+  -ms-flex: 9;
+  flex: 9;
+}
+body {
+  background: #f5f5f5;
+  padding-top: 105px;
+}
+
+.container-application-title {
+  font-size: 16px;
+  line-height: 9px;
+}
+
+.breadcrumb-bar {
+  background-color: #f5f5f5;
+  width: 100%;
+  padding-left: 15px;
+}
+
+.utilization-chart .radial-chart {
+  margin-top: 10px;
+}
+/* this is the value inside the donut */
+.utilization-chart-title-big {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: lighter;
+  color: #333;
+}
+.utilization-chart .title-small {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: $title-font-weight;
+  color: #333;
+}
+
+.utilization-chart .title-small-upper {
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 8px;
+}
+
+.utilization-chart .title-small-lower {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.utilization-chart .available-text {
+  padding-left:5px;
+}
+
+.utilization-chart .legend-text {
+  color: inherit;
+  display: block;
+  font-size: 11px;
+  font-weight: $title-font-weight;
+  margin-left: 5px;
+}
+
+.quota-chart-row {
+  margin-bottom: 6px;
+}
+
+.quota-chart-bar {
+  height:25px;
+  margin-bottom: 21px;
+}
+
+.quota-chart-used {
+  background-color: #0088CE;
+}
+
+.quota-chart-unused {
+  background-color: #D1D1D1;
+}
+.quota-chart-title {
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: $title-font-weight;
+  margin-bottom: 5px;
+}
+
+.tile-pf.tile-pf-aggregate-status {
+  min-height: 0px;
+}
+
+.container-font-color {
+  color: #1186C1 !important;
+}
+
+.object-image {
+  width: 26px;
+  height: 26px;
+}
+
+/* Missing from Patternfly */
+.tile-pf-subtitle {
+  font-size: 12px;
+  font-weight: $title-font-weight;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.container-heatmap-body {
+  margin: 0;
+  padding: 0;
+}
+
+.container-heatmap-tile {
+  padding-top: 10px;
+}
+
+.usage-heatmap-body {
+  padding: 0;
+}
+
+.network-heatmap-body {
+  border-left: 1px solid #d1d1d1;
+}
+
+.heatmap-legend  {
+  font-size: 11px;
+  font-weight: $title-font-weight;
+  line-height: 11px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.heatmap-legend .color-box {
+  width: 11px;
+  height: 11px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.heatmap-legend .legend-text {
+  font-size: 11px;
+  font-weight: $title-font-weight;
+  line-height: 11px;
+  padding-right: 5px;
+}
+
+.aggregate-status-separator {
+  width: 15px;
+}
+
+.providers-status {
+  padding-bottom: 9px !important;
+}
+
+.project-dashboard .tile-pf-aggregate-status {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+.project-dashboard .tile-pf-status {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+/* Patternfly Overrides */
+
+
+.container {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 0;
+  width: 100%;
+}
+
+.container-fluid {
+  padding-bottom: 5px;
+}
+
+.count-title {
+  font-weight: $title-font-weight;
+}
+
+.count-utilization {
+  font-size: 26px;
+}
+
+.tile-pf {
+  margin-bottom: 10px;
+}
+
+.tile-pf-body {
+  padding-bottom: 0px;
+}
+
+.tile-pf-heading {
+  margin-bottom: 0px;
+}
+
+.tile-pf-title {
+  font-weight: $title-font-weight;
+  font-size: 20px;
+}
+
+.tile-pf-title .tile-pf-aggregate-status-count,
+.tile-pf-title .tile-pf-status-count {
+  font-size: 24px;
+  vertical-align: bottom;
+  text-align: center;
+  line-height: 28px;
+}
+
+.row-tile-pf + .row-tile-pf + .row-tile-pf {
+  margin-top: 0px;
+}
+
+.tile-pf-single-type {
+  font-size: 96px;
+  line-height: 96px;
+}
+.tile-pf-aggregate-status .tile-pf-body {
+  margin-top: 13px;
+  margin-bottom: 0px;
+  padding-bottom: 14px;
+}
+
+.tile-pf-aggregate-text {
+  text-align: center;
+}
+
+.tile-pf-aggregate-status .tile-pf-title{
+  text-align: left;
+}
+
+.tile-pf-aggregate-status .tile-pf-title .fa, .tile-pf-aggregate-status .pficon {
+  font-size: 28px;
+  margin-top: 6px;
+}
+
+.tile-pf-title .tile-pf-aggregate-status-type {
+  text-align: center;
+  vertical-align: bottom;
+  line-height: 11px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.tile-pf-title .tile-pf-aggregate-text .tile-pf-status-type {
+  vertical-align: bottom;
+  line-height: 20px;
+  font-size: 14px;
+}
+.tile-pf-title .tile-pf-status-type {
+  vertical-align: bottom;
+  line-height: 12px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.tile-pf-aggregate-status-notifications {
+  font-size: 20px;
+  font-weight: $title-font-weight;
+  line-height: 2;
+  padding-left: 5px;
+}
+.tile-pf-aggregate-status-notifications .fa, .tile-pf-aggregate-status-notifications .pficon {
+  font-size: 24px;
+  line-height: 24px;
+  margin-right: 3px;
+  margin-top: 0px;
+}
+.tile-pf-aggregate-status .tile-pf-title .fa-status-icon {
+  font-size: 20px;
+  line-height: 2;
+}
+
+.tile-pf-aggregate-status .status-container {
+  padding-bottom: 11px;
+}
+
+.navbar-pf .navbar-primary.persistent-secondary > li > .navbar-persistent > li {
+  font-size: 12px;
+  padding-bottom: 1px;
+}
+
+.navbar-pf .navbar-primary.persistent-secondary>li>.navbar-persistent>li>a {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-pf .navbar-primary.persistent-secondary>li>.navbar-persistent>li.active .active>a {
+  color: #0099d3;
+}

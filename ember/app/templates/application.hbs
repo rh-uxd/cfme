@@ -1,0 +1,138 @@
+<nav id="appNavBar" class="navbar navbar-default navbar-fixed-top navbar-pf" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <img src="assets/images/cfme_logo.svg" alt="RED HAT Cloud Forms Management Engine">
+        </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-utility">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="pficon pficon-user"></span>
+                    Brian Johnson <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Another link</a>
+                    </li>
+                    <li>
+                        <a href="#">Something else here</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#">More options</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Another link</a>
+                            </li>
+                            <li>
+                                <a href="#">Something else here</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li>
+                                <a href="#">Separated link</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">One more separated link</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">One more separated link</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-primary persistent-secondary">
+            <li>
+                <a href="#">Cloud Intelligence</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Clouds</a>
+            </li>
+            <li>
+                <a href="#">Infrastructure</a>
+            </li>
+            <li class="active">
+                <a href="#">Containers</a>
+                <ul class="nav navbar-nav navbar-persistent">
+                    <li id="containersDashboardNavItem" class="active">
+                        {{#link-to 'index'}}
+                            <a href="#">Dashboard</a>
+                        {{/link-to}}
+                    </li>
+                    <li id="containersProvidersNavItem">
+                        {{#link-to 'containers.providers' (query-params provider_type='openshift')}}
+                            <a href="#">Container Providers</a>
+                        {{/link-to}}
+                    </li>
+                    <li id="containersProjectsNavItem">
+                        {{#link-to 'containers.projects'}}
+                            <a href="#">Projects</a>
+                        {{/link-to}}
+                    </li>
+                    <li>
+                        <a href="#">Nodes</a>
+                    </li>
+                    <li>
+                        <a href="#">Container Groups</a>
+                    </li>
+                    <li>
+                        <a href="#">Routes</a>
+                    </li>
+                    <li>
+                        <a href="#">Replicators</a>
+                    </li>
+                    <li>
+                        <a href="#">Images</a>
+                    </li>
+                    <li>
+                        <a href="#">Image Registries</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Containers</a>
+                    </li>
+                    <li>
+                        <a href="#">Topology</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Control</a>
+            </li>
+            <li>
+                <a href="#">Automate</a>
+            </li>
+            <li>
+                <a href="#">Optimize</a>
+            </li>
+            <li>
+                <a href="#">Configure</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="main" class="container">
+  {{outlet}}
+</div>

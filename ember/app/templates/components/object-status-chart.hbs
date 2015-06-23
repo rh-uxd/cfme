@@ -1,0 +1,15 @@
+<div class="tile-pf tile-pf-accented tile-pf-status">
+  <h2 class="tile-pf-title">
+      <span class="fa pficon {{typeIconClass}} container-font-color"></span>
+      {{#if hasRoute}}
+        {{#link-to linkRoute (query-params id=objectId)}}
+            <span class="tile-pf-status-count">{{objectCount}}</span>
+            <span class="tile-pf-status-type">{{objectType}}</span>
+        {{/link-to}}
+      {{else}}
+          <span class="tile-pf-status-count">{{objectCount}}</span>
+          <span class="tile-pf-status-type">{{objectType}}</span>
+      {{/if}}
+  </h2>
+</div>
+

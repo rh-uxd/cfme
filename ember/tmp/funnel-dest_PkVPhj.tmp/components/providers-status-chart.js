@@ -1,0 +1,1 @@
+/Users/jeffreyphillips/repositories/patternfly-cfme/ember/app/components/providers-status-chart.js

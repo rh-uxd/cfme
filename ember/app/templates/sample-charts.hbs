@@ -1,0 +1,25 @@
+<h2>Sample Charts</h2>
+
+<div class="row" style="background-color:#d0d0d0; padding-top: 10px;">
+    <div class="col-md-3">
+        <div style="background-color: #ffffff">
+          {{c3-chart data=model.sampleChartData}}
+        </div>
+    </div>
+    <div class="col-md-3">
+      {{utilization-chart title='CPU' used=model.cpuUsage.used total=model.cpuUsage.total totalUnits='MHz' usageData=model.cpuUsage.data}}
+    </div>
+    <div class="col-md-2">
+      {{aggregate-status-chart aggregateType='Nodes' aggregateCount=model.nodes.count errorCount=model.nodes.errorCount aggregateTypeIconClass='pficon-container-node'}}
+    </div>
+    <div class="col-md-2">
+      {{aggregate-status-chart aggregateType='Pods' aggregateCount=model.pods.count errorCount=model.pods.errorCount aggregateTypeIconClass='fa-cubes'}}
+    </div>
+    <div class="col-md-2">
+      {{object-status-chart objectType='Containers' objectCount=model.containers.count typeIconClass='fa-cube'}}
+    </div>
+    <div class="col-md-2">
+      {{object-status-chart objectType='Services' objectCount=model.services.count typeIconClass='pficon-service'}}
+    </div>
+</div>
+

@@ -1,0 +1,9 @@
+<div class="tile-pf">
+    <div class="tile-pf-heading">
+        <h2 class="tile-pf-title">{{title}}</h2>
+    </div>
+    <span class="tile-pf-subtitle">Last 30 Days</span>
+    <div id="sparklineChart" class="tile-pf-body">
+      {{c3-chart data=chart_data size=chart_size axis=chart_axis legend=chart_legend color=chart_color point=chart_point tooltip=chart_tooltip}}
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div id={{breadCrumbBarId}} class="navbar-fixed-top breadcrumb-bar" style="top:{{topPosition}}px;">
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+        {{#each crumb in breadCrumbs}}
+            {{#if crumb.isActive}}
+                <li class="active">
+                  {{#link-to crumb.route}}
+                    {{crumb.title}}
+                  {{/link-to}}
+                </li>
+            {{else}}
+                <li>
+                  {{crumb.title}}
+                </li>
+            {{/if}}
+            {{#if crumb.suffix}}
+                <span>:</span>
+                <i class="{{crumb.suffixIconClass}}"/>
+                {{crumb.suffix}}
+            {{/if}}
+        {{/each}}
+    </ol>
+</div>

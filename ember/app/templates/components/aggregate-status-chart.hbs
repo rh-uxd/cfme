@@ -1,0 +1,19 @@
+<div class="tile-pf tile-pf-accented tile-pf-aggregate-status">
+    <div class="tile-pf-title status-container flex-horizontal-container">
+        <span class="fa pficon {{aggregateTypeIconClass}} container-font-color"></span>
+        <div class="flex-one"></div>
+        <div class="flex-vertical-container">
+            <span class="tile-pf-aggregate-status-count">{{aggregateCount}}</span>
+            <span class="tile-pf-aggregate-status-type">{{aggregateType}}</span>
+        </div>
+        <div class="flex-one"></div>
+        <div class="tile-pf-aggregate-status-notifications flex-horizontal-container" style="width: 54px;">
+          {{#if allGood}}
+              <i class="fa-status-icon {{okStatusIconClass}}"/>
+          {{else}}
+              <i class="fa-status-icon {{errorStatusIconClass}}"/>
+              <span class="tile-pf-aggregate-status-notifications count">{{errorCount}}</span>
+          {{/if}}
+        </div>
+    </div>
+</div>

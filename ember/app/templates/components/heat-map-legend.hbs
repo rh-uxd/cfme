@@ -1,0 +1,8 @@
+<div class="heatmap-legend flex-horizontal-container">
+    {{#each item in _legendItems}}
+        <div class="flex-horizontal-container">
+            <span class="color-box" style="background-color: {{item.color}};"></span>
+            <span class="legend-text">{{item.text}}</span>
+        </div>
+    {{/each}}
+</div>

@@ -1,0 +1,1 @@
+/Users/jeffreyphillips/repositories/patternfly-cfme/ember/tmp/jshinter-tmp_dest_dir-tPEn8ISk.tmp/test-helper.jshint.js
