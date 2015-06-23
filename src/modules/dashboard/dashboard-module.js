@@ -1,4 +1,5 @@
 
 angular.module( 'cfme.dashboardModule',
     ['pascalprecht.translate',
-     'ui.bootstrap'] );
+     'ui.bootstrap',
+     'cfme.objStatusModule'] );
