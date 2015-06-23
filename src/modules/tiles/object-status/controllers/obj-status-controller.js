@@ -12,7 +12,7 @@ angular.module( 'cfme.objStatusModule' )
          $scope.projects = { typeName: 'Projects', typeIconClass: 'pficon-project', count: 510 };
          $scope.services = { typeName: 'Services', typeIconClass: 'pficon-service', count: 2500 };
          $scope.images = { typeName: 'Images', typeIconClass: 'pficon-image', count: 2500 };
-         $scope.routes = { typeName: 'Routes', typeIconClass: 'pficon-route', count: 2500 };
+         $scope.routes = { typeName: 'Routes', typeIconClass: 'pficon-route', count: 300 };
 
      }])
     .directive('pfObjStatus', function() {
