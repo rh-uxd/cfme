@@ -1,6 +1,6 @@
-'use strict';
-
 describe('Controller: appController', function () {
+
+  'use strict';
 
   // load the controller's module
   beforeEach(module('cfme.appModule'));
@@ -10,7 +10,7 @@ describe('Controller: appController', function () {
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
+    var scope = $rootScope.$new();
     appController = $controller('appController', {
       $scope: scope
     });

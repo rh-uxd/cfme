@@ -24,4 +24,4 @@ angular.module( 'cfme.appModule', [
                   $translateProvider.preferredLanguage( 'default' );
 
               }
-    ] )
+    ] );

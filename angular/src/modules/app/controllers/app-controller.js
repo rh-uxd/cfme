@@ -9,98 +9,98 @@ angular.module( 'cfme.appModule' )
 
          var vm = this;
 
-         vm.username = "Administrator";
+         vm.username = 'Administrator';
 
          vm.navigationItems = [
 			{
-				"title": "Cloud Intelligence",
-				"href": "#/ci"
+				'title': 'Cloud Intelligence',
+				'href': '#/ci'
 			},
 			{
-				"title": "Services",
-				"href": "#/services"
+				'title': 'Services',
+				'href': '#/services'
 			},
 			{
-				"title": "Clouds",
-				"href": "#/clouds"
+				'title': 'Clouds',
+				'href': '#/clouds'
 			},
 			{
-				"title": "Intrastructure",
-				"href": "#/intrastructure"
+				'title': 'Intrastructure',
+				'href': '#/intrastructure'
 			},
 			{
-				"title": "Containers",
-				"href": "#/containers",
-				"class": "active",
-				"children": [
+				'title': 'Containers',
+				'href': '#/containers',
+				'class': 'active',
+				'children': [
 					{
-						"title": "Nodes",
-						"href": "#/nodes"
+						'title': 'Nodes',
+						'href': '#/nodes'
 					},
 					{
-						"title": "Container Groups",
-						"href": "#/containergroups",
-						"class": "active"
+						'title': 'Container Groups',
+						'href': '#/containergroups',
+						'class': 'active'
 					},
 					{
-						"title": "Routes",
-						"href": "#/routes"
+						'title': 'Routes',
+						'href': '#/routes'
 					},
 					{
-						"title": "Replicators",
-						"href": "#/replicators"
+						'title': 'Replicators',
+						'href': '#/replicators'
 					},
 					{
-						"title": "Images",
-						"href": "#/images"
+						'title': 'Images',
+						'href': '#/images'
 					},
 					{
-						"title": "Image Registries",
-						"href": "#/imagereg"
+						'title': 'Image Registries',
+						'href': '#/imagereg'
 					},
 					{
-						"title": "Services",
-						"href": "#/serives"
+						'title': 'Services',
+						'href': '#/serives'
 					},
 					{
-						"title": "Containers",
-						"href": "#/containers"
+						'title': 'Containers',
+						'href': '#/containers'
 					},
 					{
-						"title": "Topology",
-						"href": "#/topology"
+						'title': 'Topology',
+						'href': '#/topology'
 					}
 				]
 			},
 			{
-				"title": "Control",
-				"href": "#/control"
+				'title': 'Control',
+				'href': '#/control'
 			},
 			{
-				"title": "Automate",
-				"href": "#/automate"
+				'title': 'Automate',
+				'href': '#/automate'
 			},
 			{
-				"title": "Optimize",
-				"href": "#/optimize"
+				'title': 'Optimize',
+				'href': '#/optimize'
 			},
 			{
-				"title": "Configure",
-				"href": "#/configure"
+				'title': 'Configure',
+				'href': '#/configure'
 			}
 		];
 
 		vm.notifications = [
 			{
-				"text": "Modified Datasources ExampleDS"
+				'text': 'Modified Datasources ExampleDS'
 			},
 			{
-				"text": "Error: System Failure"
+				'text': 'Error: System Failure'
 			}
 		];
 
 		vm.clearNotifications = function() {
 			vm.notifications = [];
-		}
+		};
 
      }] );

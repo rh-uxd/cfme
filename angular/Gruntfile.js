@@ -134,7 +134,7 @@ module.exports = function( grunt ) {
         // Make sure code styles are up to par and there are no obvious mistakes
         jshint:   {
             options: {
-                jshintrc: '<%= projectSettings.e2eTest %>/.jshintrc'
+                jshintrc: '.jshintrc'
             },
             src:     [
                 'Gruntfile.js',
