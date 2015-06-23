@@ -15,17 +15,17 @@
 atlassian-ide-plugin.xml
 
 ## Node ignore
-node_modules/
-src/libraries/
-bower_components/
+*/node_modules/
+*/src/libraries/
+*/bower_components/
 
 ## Environmental ignore
 npm-debug.log
 describe.txt
 
-#Ember Ignores
-/dist
-tmp/
-app.css
-app.css.map
+#Framework Ignores
+*/dist
+ember/tmp/
+ember/app.css
+ember/app.css.map
 json-server.log
