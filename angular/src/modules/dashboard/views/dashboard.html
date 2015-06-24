@@ -5,8 +5,8 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10">
             <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-3">
-                    aggregate-status-chart aggregateType='Nodes'
+                <div class="col-xs-6 col-sm-6 col-md-3" ng-controller="cfme.aggStatusController">
+                    <pf-agg-status type="nodes"></pf-agg-status>
                 </div>
                 <div ng-controller="cfme.objStatusController">
                     <div class="col-xs-6 col-sm-6 col-md-3" >
@@ -21,8 +21,8 @@
                 </div>
             </div><!-- /row -->
             <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-3">
-                    aggregate-status-chart aggregateType='Pods'
+                <div class="col-xs-6 col-sm-6 col-md-3" ng-controller="cfme.aggStatusController">
+                    <pf-agg-status type="pods"></pf-agg-status>
                 </div>
                 <div ng-controller="cfme.objStatusController">
                     <div class="col-xs-6 col-sm-6 col-md-3">

@@ -1,0 +1,15 @@
+<div class="tile-pf tile-pf-accented tile-pf-aggregate-status">
+    <div class="tile-pf-title status-container flex-horizontal-container">
+        <span class="fa pficon {{aggType.typeIconClass}} container-font-color"></span>
+        <div class="flex-one"></div>
+        <div class="flex-vertical-container">
+            <span class="tile-pf-aggregate-status-count">{{aggType.count}}</span>
+            <span class="tile-pf-aggregate-status-type">{{aggType.typeName}}</span>
+        </div>
+        <div class="flex-one"></div>
+        <div class="tile-pf-aggregate-status-notifications flex-horizontal-container" style="width: 54px;">
+            <i class="fa-status-icon {{aggType.errorIconClass}}"/>
+            <span class="tile-pf-aggregate-status-notifications count">{{aggType.errorCount}}</span>
+        </div>
+    </div>
+</div>
