@@ -9,7 +9,7 @@
   },
   "scripts": {
     "postinstall": "bower install",
-    "ember": "ember server",
+    "ember": "ember serve --port 4400 --live-reload-port 35829",
     "json": "json-server cfme-providers-db.json --port 3200  >> ./json-server.log 2>&1 < /dev/null",
     "build": "ember build",
     "test": "ember test"
