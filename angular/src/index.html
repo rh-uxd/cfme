@@ -75,16 +75,7 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-primary persistent-secondary">
-                    <li ng-repeat="item in vm.navigationItems" class="{{ item.class }}">
-                        <a href="{{item.href}}" >{{ item.title }}</a>
-                        <ul class="nav navbar-nav navbar-persistent" ng-if="item.children && item.class==='active'">
-                            <li ng-repeat="child in item.children" class="{{ child.class }}">
-                                <a href="{{ child.href }}">{{ child.title }}</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <div pf-navigation items="vm.navigationItems"></div>
             </div>
         </nav>
     </header>
@@ -113,12 +104,14 @@
 <!-- build:js js/app.js -->
 <script src="modules/app/app-module.js"></script>
 <script src="modules/app/controllers/app-controller.js"></script>
+<script src="modules/app/directives/navigation-directive.js"></script>
 <script src="modules/dashboard/dashboard-module.js"></script>
 <script src="modules/dashboard/controllers/dashboard-controller.js"></script>
 <script src="modules/tiles/object-status/obj-status-module.js"></script>
 <script src="modules/tiles/object-status/controllers/obj-status-controller.js"></script>
 <script src="modules/tiles/aggregate-status/agg-status-module.js"></script>
 <script src="modules/tiles/aggregate-status/controllers/agg-status-controller.js"></script>
+
 <!-- endbuild -->
 
 

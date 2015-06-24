@@ -2,6 +2,7 @@ angular.module( 'cfme.appModule', [
     'ngResource',
     'ngRoute',
     'ui.bootstrap',
+    'patternfly.navigation',
     'pascalprecht.translate',
     'cfme.dashboardModule',
 ] )
