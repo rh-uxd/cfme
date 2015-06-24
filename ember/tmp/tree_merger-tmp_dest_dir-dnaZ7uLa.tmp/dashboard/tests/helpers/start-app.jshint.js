@@ -1,1 +1,0 @@
-/Users/jeffreyphillips/repositories/patternfly-cfme/ember/tmp/funnel-dest_l9jyE8.tmp/dashboard/tests/helpers/start-app.jshint.js

@@ -23,7 +23,8 @@ atlassian-ide-plugin.xml
 npm-debug.log
 describe.txt
 
-#Framework Ignores
+##Framework Ignores
+angular/src/styles/app.css
 */dist
 ember/tmp/
 ember/app.css

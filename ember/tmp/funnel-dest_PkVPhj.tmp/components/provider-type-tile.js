@@ -1,1 +1,0 @@
-/Users/jeffreyphillips/repositories/patternfly-cfme/ember/app/components/provider-type-tile.js

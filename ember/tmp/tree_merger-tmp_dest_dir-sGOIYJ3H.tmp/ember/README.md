@@ -1,1 +1,0 @@
-/Users/jeffreyphillips/repositories/patternfly-cfme/ember/tmp/funnel-dest_9qgmbS.tmp/ember/README.md

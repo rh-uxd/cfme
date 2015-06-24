@@ -1,1 +1,0 @@
-/Users/jeffreyphillips/repositories/patternfly-cfme/ember/app/controllers/containers/providers.js

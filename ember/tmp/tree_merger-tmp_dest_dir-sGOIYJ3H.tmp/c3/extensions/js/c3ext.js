@@ -1,1 +1,0 @@
-/Users/jeffreyphillips/repositories/patternfly-cfme/ember/tmp/funnel-dest_eA6SaR.tmp/c3/extensions/js/c3ext.js
