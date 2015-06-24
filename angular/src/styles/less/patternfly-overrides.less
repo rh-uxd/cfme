@@ -34,97 +34,35 @@
 .tile-pf-title {
   font-weight: normal;
   font-size: 20px;
+
+  .tile-pf-status-count {
+    font-size: 24px;
+    vertical-align: bottom;
+    text-align: center;
+    line-height: 28px;
+  }
+
 }
 
-.tile-pf-title .tile-pf-aggregate-status-count,
-.tile-pf-title .tile-pf-status-count {
-  font-size: 24px;
-  vertical-align: bottom;
-  text-align: center;
-  line-height: 28px;
+.tile-pf-status {
+
+  .status-notifications {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -10px;
+    width: 54px;
+    font-size: 20px;
+
+    .count {
+      top: -2px;
+      position: relative;
+    }
+  }
+
 }
 
 .row-tile-pf + .row-tile-pf + .row-tile-pf {
   margin-top: 0px;
 }
 
-.tile-pf-single-type {
-  font-size: 96px;
-  line-height: 96px;
-}
-.tile-pf-aggregate-status .tile-pf-body {
-  margin-top: 13px;
-  margin-bottom: 0px;
-  padding-bottom: 14px;
-}
-
-.tile-pf-aggregate-text {
-  text-align: center;
-}
-
-.tile-pf-aggregate-status .tile-pf-title{
-  text-align: left;
-}
-
-.tile-pf-aggregate-status .tile-pf-title .fa, .tile-pf-aggregate-status .pficon {
-  font-size: 28px;
-  margin-top: 6px;
-}
-
-.tile-pf-title .tile-pf-aggregate-status-type {
-  text-align: center;
-  vertical-align: bottom;
-  line-height: 11px;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.tile-pf-title .tile-pf-aggregate-text .tile-pf-status-type {
-  vertical-align: bottom;
-  line-height: 20px;
-  font-size: 14px;
-}
-.tile-pf-title .tile-pf-status-type {
-  vertical-align: bottom;
-  line-height: 12px;
-  font-size: 14px;
-  white-space: nowrap;
-}
-.tile-pf-aggregate-status-notifications {
-  font-size: 20px;
-  font-weight: normal;
-  line-height: 2;
-  padding-left: 5px;
-}
-.tile-pf-aggregate-status-notifications .fa, .tile-pf-aggregate-status-notifications .pficon {
-  font-size: 24px;
-  line-height: 24px;
-  margin-right: 3px;
-  margin-top: 0px;
-}
-.tile-pf-aggregate-status .tile-pf-title .fa-status-icon {
-  font-size: 20px;
-  line-height: 2;
-}
-
-.tile-pf-aggregate-status .status-container {
-  padding-bottom: 11px;
-}
-
-.tile-pf.tile-pf-aggregate-status {
-  min-height: 0;
-}
-
-.navbar-pf .navbar-primary.persistent-secondary > li > .navbar-persistent > li {
-  font-size: 12px;
-  padding-bottom: 1px;
-}
-
-.navbar-pf .navbar-primary.persistent-secondary>li>.navbar-persistent>li>a {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.navbar-pf .navbar-primary.persistent-secondary>li>.navbar-persistent>li.active .active>a {
-  color: #0099d3;
-}
