@@ -25,69 +25,76 @@
     <!-- endbuild -->
 
 </head>
-<body>
+<body class="pf-body">
+<body id="pf-app" class="pf-body" ng-cloak>
 
-<nav class="navbar navbar-default navbar-pf" role="navigation" ng-controller="cfme.appController as vm">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="/">
-      <img src="styles/images/brand.svg" alt="PatternFly" />
-    </a>
-  </div>
-  <div class="collapse navbar-collapse navbar-collapse-1">
-    <ul class="nav navbar-nav navbar-utility">
-      <li class="dropdown" dropdown>
-        <a href dropdown-toggle>
-          <span class="pficon pficon-info"></span> Messages: <strong>{{ vm.notifications.length }}</strong>
-        </a>
-        <div class="dropdown-menu infotip bottom-right">
-          <div class="arrow"></div>
-          <ul class="list-group">
-            <li class="list-group-item" ng-repeat="notification in vm.notifications">
-              <span class="i pficon pficon-info"></span> {{ notification.text }}
-            </li>
-          </ul>
-          <div class="footer">
-            <a ng-click="vm.clearNotifications()" ng-if="vm.notifications.length > 0">Clear Messages</a>
-            <span ng-if="vm.notifications.length === 0">No Messages</span>
-          </div>
+<div class="pf-framework">
+    <header class="pf-framework-header">
+        <nav class="navbar navbar-default navbar-pf" role="navigation" ng-controller="cfme.appController as vm">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="styles/images/brand.svg" alt="PatternFly" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-utility">
+                    <li class="dropdown" dropdown>
+                        <a href dropdown-toggle>
+                            <span class="pficon pficon-info"></span> Messages: <strong>{{ vm.notifications.length }}</strong>
+                        </a>
+                        <div class="dropdown-menu infotip bottom-right">
+                            <div class="arrow"></div>
+                            <ul class="list-group">
+                                <li class="list-group-item" ng-repeat="notification in vm.notifications">
+                                    <span class="i pficon pficon-info"></span> {{ notification.text }}
+                                </li>
+                            </ul>
+                            <div class="footer">
+                                <a ng-click="vm.clearNotifications()" ng-if="vm.notifications.length > 0">Clear Messages</a>
+                                <span ng-if="vm.notifications.length === 0">No Messages</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown" dropdown>
+                        <a class="dropdown-toggle" dropdown-toggle>
+                            <span class="pficon pficon-user"></span>
+                            {{ vm.username }} <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a>About Me</a>
+                            </li>
+                            <li>
+                                <a>Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-primary persistent-secondary">
+                    <li ng-repeat="item in vm.navigationItems" class="{{ item.class }}">
+                        <a href="{{item.href}}" >{{ item.title }}</a>
+                        <ul class="nav navbar-nav navbar-persistent" ng-if="item.children && item.class==='active'">
+                            <li ng-repeat="child in item.children" class="{{ child.class }}">
+                                <a href="{{ child.href }}">{{ child.title }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="pf-framework-body" id="centralPanel">
+        <div class="pf-framework-content">
+            <main ng-view class="pf-framework-view"></main>
         </div>
-      </li>
-      <li class="dropdown" dropdown>
-        <a class="dropdown-toggle" dropdown-toggle>
-            <span class="pficon pficon-user"></span>
-              {{ vm.username }} <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <a>About Me</a>
-          </li>
-          <li>
-            <a>Log Out</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-primary persistent-secondary">
-      <li ng-repeat="item in vm.navigationItems" class="{{ item.class }}">
-        <a href="{{item.href}}" >{{ item.title }}</a>
-        <ul class="nav navbar-nav navbar-persistent" ng-if="item.children && item.class==='active'">
-          <li ng-repeat="child in item.children" class="{{ child.class }}">
-            <a href="{{ child.href }}">{{ child.title }}</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<div class="container-fluid">
-    <div ng-view></div>
+    </div>
 </div>
 
 
