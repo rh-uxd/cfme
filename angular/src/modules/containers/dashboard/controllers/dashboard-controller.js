@@ -1,4 +1,4 @@
-angular.module('cfme.dashboardModule').controller('dashboardController', ['$scope','$translate',
+angular.module('cfme.containers.dashboardModule').controller('dashboardController', ['$scope','$translate',
     function( $scope, $translate, panelValidation ) {
         'use strict';
 

@@ -1,4 +1,4 @@
 
-angular.module( 'cfme.dashboardModule',
+angular.module( 'cfme.containers.dashboardModule',
     ['pascalprecht.translate',
      'ui.bootstrap'] );

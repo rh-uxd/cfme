@@ -6,7 +6,7 @@ angular.module( 'cfme.appModule', [
     'patternfly.navigation',
     'patternfly.pf-components',
     'pascalprecht.translate',
-    'cfme.dashboardModule',
+    'cfme.containersModule',
 ] )
     .config( ['$routeProvider', '$translateProvider',
               function( $routeProvider, $translateProvider ) {
@@ -17,17 +17,17 @@ angular.module( 'cfme.appModule', [
                     redirectTo: '/containers/dashboard'
                   })
                   .when('/containers/dashboard', {
-                    templateUrl: 'modules/dashboard/views/dashboard.html',
+                    templateUrl: 'modules/containers/dashboard/views/dashboard.html',
                     controller: 'dashboardController',
                     controllerAs: 'vm'
                   })
                   .when('/containers/projects', {
-                    templateUrl: 'modules/dashboard/views/dashboard.html',
+                    templateUrl: 'modules/containers/dashboard/views/dashboard.html',
                     controller: 'dashboardController',
                     controllerAs: 'vm'
                   })
                   .when('/containers/providers', {
-                    templateUrl: 'modules/dashboard/views/dashboard.html',
+                    templateUrl: 'modules/containers/dashboard/views/dashboard.html',
                     controller: 'dashboardController',
                     controllerAs: 'vm'
                   })
