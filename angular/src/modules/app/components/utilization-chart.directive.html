@@ -1,18 +1,24 @@
 <div class="utilization-chart">
-    <h3 class="h4 count-title">{{title}}</h3>
-    <div class="count-utilization flex-horizontal-container">
-        <span>{{data.total - data.used}} {{config.available_units}}</span>
-        <div class="available-text flex-vertical-container">
-            <span class="title-small title-small-upper">Available</span>
-            <span class="title-small title-small-lower"> of {{data.total}} {{config.total_units}}</span>
+    <h3 class="h4 count-title">{{config.title}}</h3>
+    <div class="count-utilization col-xs-12">
+        <div class="available-text left col-xs-4">
+          <span>{{data.total - data.used}} {{config.available_units}}</span>
+        </div>
+        <div class="available-text right col-xs-8">
+            <div class="available-text col-xs-12 title-small title-small-upper">
+                <span>Available</span>
+            </div>
+            <div class="available-text col-xs-12 title-small title-small-lower">
+                <span> of {{data.total}} {{config.total_units}}</span>
+            </div>
         </div>
     </div>
-    <div id='radial-chart-container' class="radial-chart flex-horizontal-container">
-        <div class="flex-one"></div>
+    <div id='radial-chart-container' class="radial-chart">
             <div c3-chart id={{radialChartId}} config="config.radial_config"></div>
-        <div class="flex-one"></div>
     </div>
+    <div class="sparkline-chart">
         <div c3-chart id={{sparklineChartId}}  config="config.sparkline_config"></div>
+    </div>
     <p class="pull-left legend-text">{{config.legend_left_text}}</p>
     <p class="pull-right legend-text">{{config.legend_right_text}}</p>
 </div>

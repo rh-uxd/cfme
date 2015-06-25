@@ -69,14 +69,24 @@
 .utilization-chart .title-small-upper {
   font-size: 12px;
   line-height: 12px;
-  margin-top: 8px; }
+  margin-top: 9px; }
 
 .utilization-chart .title-small-lower {
   font-size: 12px;
   line-height: 14px; }
 
 .utilization-chart .available-text {
-  padding-left: 5px; }
+  padding-left: 5px;
+  padding-right: 5px;
+
+  &.left {
+    text-align: right;
+  }
+
+  &.right {
+    text-align: left;
+  }
+}
 
 .utilization-chart .legend-text {
   color: inherit;
@@ -84,6 +94,19 @@
   font-size: 11px;
   font-weight: normal;
   margin-left: 5px; }
+
+.utilization-chart .radial-chart {
+  width: 100%;
+  float: left;
+  padding-top: 10px;
+}
+
+.utilization-chart .sparkline-chart {
+  width: 100%;
+  float: left;
+  margin-left: -5px;
+  margin-right: -5px;
+}
 
 .quota-chart-row {
   margin-bottom: 6px; }

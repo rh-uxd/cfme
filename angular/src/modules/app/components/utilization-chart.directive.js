@@ -20,8 +20,6 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
                 $scope.radialChartId = $scope.config.chartId + $scope.radialChartId;
                 $scope.sparklineChartId = $scope.config.chartId + $scope.sparklineChartId;
             }
-            console.log($scope.radialChartId);
-            console.log($scope.sparklineChartId);
 
             var defaultRadialDonut = {
                 title: $scope.radial_title,
@@ -245,11 +243,17 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
                 scope.sparklineChartId = scope.config.chartId + scope.sparklineChartId;
             }
 
+            var setupRadialChartTitle = function () {
+                console.dir(element);
+                console.dir(element[0].querySelector('text.c3-chart-arcs-title'));
+                var radialChartTitle = element[0].querySelector('text.c3-chart-arcs-title');
+                radialChartTitle.innerHTML = '<tspan dy="0" x="0" class="utilization-chart-title-big">' + scope.data.used + '</tspan>' +
+                '<tspan dy="20" x="0" class="utilization-chart-title-small">' + scope.config.total_units + ' ' + scope.config.usage_data_name + '</tspan>';
+            };
+
             $timeout(function() {
-                console.log('#' + scope.sparklineChartId);
-                console.dir($('#' + scope.sparklineChartId)[0]);
-                console.dir(document.querySelector('#' + scope.sparklineChartId));
-            }, 100);
+                setupRadialChartTitle();
+            }, 300);
         }
     };
 }]);
