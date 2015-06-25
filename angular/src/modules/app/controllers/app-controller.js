@@ -14,19 +14,43 @@ angular.module( 'cfme.appModule' )
          vm.navigationItems = [
 			{
 				'title': 'Cloud Intelligence',
-				'href': '#/ci'
+				'href': '#/ci',
+				'children': [
+					{
+						'title': 'Dashboard',
+						'href': '#/ci'
+					}
+				]
 			},
 			{
 				'title': 'Services',
-				'href': '#/services'
+				'href': '#/services',
+				'children': [
+					{
+						'title': 'My Services',
+						'href': '#/services'
+					}
+				]
 			},
 			{
 				'title': 'Clouds',
-				'href': '#/clouds'
+				'href': '#/clouds',
+				'children': [
+					{
+						'title': 'Providers',
+						'href': '#/providers'
+					}
+				]
 			},
 			{
 				'title': 'Intrastructure',
-				'href': '#/intrastructure'
+				'href': '#/intrastructure',
+				'children': [
+					{
+						'title': 'Providers',
+						'href': '#/providers'
+					}
+				]
 			},
 			{
 				'title': 'Containers',
@@ -74,19 +98,43 @@ angular.module( 'cfme.appModule' )
 			},
 			{
 				'title': 'Control',
-				'href': '#/control'
+				'href': '#/control',
+				'children': [
+					{
+						'title': 'Explorer',
+						'href': '#/control'
+					}
+				]
 			},
 			{
 				'title': 'Automate',
-				'href': '#/automate'
+				'href': '#/automate',
+				'children': [
+					{
+						'title': 'Explorer',
+						'href': '#/automate'
+					}
+				]
 			},
 			{
 				'title': 'Optimize',
-				'href': '#/optimize'
+				'href': '#/optimize',
+				'children': [
+					{
+						'title': 'Utilize',
+						'href': '#/optimize'
+					}
+				]
 			},
 			{
 				'title': 'Configure',
-				'href': '#/configure'
+				'href': '#/configure',
+				'children': [
+					{
+						'title': 'My Settings',
+						'href': '#/configure'
+					}
+				]
 			}
 		];
 
