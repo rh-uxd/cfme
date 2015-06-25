@@ -3,9 +3,11 @@
         <span class="fa pficon {{objectType.typeIconClass}} container-font-color"></span>
         <span class="tile-pf-status-count">{{objectType.count}}</span>
         <span class="tile-pf-status-type">{{objectType.typeName}}</span>
-        <div class="status-notifications" ng-if="objectType.error">
-            <i class="fa-status-icon {{objectType.error.errorIconClass}}"/>
-            <span class="count">{{objectType.error.errorCount}}</span>
+        <div class="status-notifications">
+            <span ng-repeat="status in objectType.status">
+                <i class="fa-status-icon {{status.statusIconClass}}"/>
+                <span class="count">{{status.statusCount}}</span>
+            </span>
         </div>
     </h2>
 </div>
