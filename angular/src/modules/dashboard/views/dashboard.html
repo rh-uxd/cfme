@@ -1,14 +1,13 @@
 <div class="container-fluid container-tiles-pf">
     <div class="row row-tile-pf" >
         <div class="col-xs-6 col-sm-4 col-md-2">
-            providers-status-chart
-
+            <div pf-provider-tile providers="vm.providers"></div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10">
             <div class="row">
                 <div>
                     <div class="col-xs-6 col-sm-6 col-md-3" ng-repeat="widget in vm.status_widgets">
-                        <pf-obj-status type="widget"></pf-obj-status>
+                        <div pf-obj-status type="widget"></div>
                     </div>
                 </div>
             </div><!-- /row -->

@@ -10,14 +10,17 @@ angular.module( 'cfme.dashboardModule' )
         var vm = this;
         
         vm.status_widgets = [ 
-                { typeName: 'Nodes', typeIconClass: 'pficon-container-node', count: 52, status: [{statusIconClass: 'pficon-error-circle-o', statusCount: 3}]},
-                { typeName: 'Containers', typeIconClass: 'fa-cube', count: 300 },
-                { typeName: 'Registries', typeIconClass: 'pficon-registry', count: 4 },
-                { typeName: 'Projects', typeIconClass: 'pficon-project', count: 510 },
-                { typeName: 'Container Groups', typeIconClass: 'fa-cubes', count: 1200, status: [{statusIconClass: 'pficon-error-circle-o', statusCount: 3}]},
-                { typeName: 'Services', typeIconClass: 'pficon-service', count: 2500 },
-                { typeName: 'Images', typeIconClass: 'pficon-image', count: 2500 },
-                { typeName: 'Routes', typeIconClass: 'pficon-route', count: 300 }
+                { name: 'Nodes', iconClass: 'pficon-container-node', count: 52, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
+                { name: 'Containers', iconClass: 'fa-cube', count: 300 },
+                { name: 'Registries', iconClass: 'pficon-registry', count: 4 },
+                { name: 'Projects', iconClass: 'pficon-project', count: 510 },
+                { name: 'Container Groups', iconClass: 'fa-cubes', count: 1200, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
+                { name: 'Services', iconClass: 'pficon-service', count: 2500 },
+                { name: 'Images', iconClass: 'pficon-image', count: 2500 },
+                { name: 'Routes', iconClass: 'pficon-route', count: 300 }
             ];
         
+        vm.providers = { name: 'Providers', count: 3, providers: [{iconClass: 'pficon-openshift', count: 1, href: "#openshift"}, {iconClass: 'pficon-kubernetes', count: 2, href:"#kubernetes"}]};
+                
+
     }] );

@@ -46,12 +46,7 @@
 
 .tile-pf-status {
 
-  .status-notifications {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    margin-top: -10px;
-    width: 54px;
+  .indicator {
     font-size: 20px;
 
     .count {
@@ -60,6 +55,39 @@
     }
   }
 
+  .status {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -10px;
+    width: 54px;
+    font-size: 20px;
+  }
+
+}
+
+.tile-pf-providers {
+  min-height: 136px;
+
+  .providers {
+    padding-top: 30px;
+
+    .count {
+      margin: 0 5px;
+    }
+
+    .provider-icon {
+      font-size: 28px;
+      position: relative;
+      top: 5px;
+      padding-right: 5px;
+      opacity: .9;
+    }
+
+    &:hover .provider-icon {
+      opacity: 1;
+    }
+  }
 }
 
 .row-tile-pf + .row-tile-pf + .row-tile-pf {

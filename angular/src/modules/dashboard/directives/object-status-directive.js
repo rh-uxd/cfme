@@ -1,6 +1,6 @@
  angular.module( 'cfme.dashboardModule' ).directive('pfObjStatus', function() {
         return {
-            restrict: 'E',
+            restrict: 'A',
             scope: {
                 objectType: '=type'
             },

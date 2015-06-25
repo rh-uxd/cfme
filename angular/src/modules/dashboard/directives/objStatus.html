@@ -1,12 +1,12 @@
 <div class="tile-pf tile-pf-accented tile-pf-status">
     <h2 class="tile-pf-title">
-        <span class="fa pficon {{objectType.typeIconClass}} container-font-color"></span>
+        <span class="fa pficon {{objectType.iconClass}} container-font-color"></span>
         <span class="tile-pf-status-count">{{objectType.count}}</span>
-        <span class="tile-pf-status-type">{{objectType.typeName}}</span>
-        <div class="status-notifications">
+        <span class="tile-pf-status-type">{{objectType.name}}</span>
+        <div class="indicator status">
             <span ng-repeat="status in objectType.status">
-                <i class="fa-status-icon {{status.statusIconClass}}"/>
-                <span class="count">{{status.statusCount}}</span>
+                <i class="fa-status-icon {{status.iconClass}}"/>
+                <span class="count">{{status.count}}</span>
             </span>
         </div>
     </h2>
