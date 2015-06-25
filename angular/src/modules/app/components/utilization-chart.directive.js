@@ -1,5 +1,5 @@
 'use strict';
-angular.module('patternfly.pf-components', []).directive('pfUtilizationChart', ['$timeout', function($timeout) {
+angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$timeout', function($timeout) {
     return {
         restrict: 'A',
         scope: {
