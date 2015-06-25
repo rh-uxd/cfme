@@ -11,14 +11,27 @@ angular.module( 'cfme.appModule', [
                   'use strict';
 
                   $routeProvider
-                    .when('/dashboard', {
+                  .when('/', {
+                    redirectTo: '/containers/dashboard'
+                  })
+                  .when('/containers/dashboard', {
+                    templateUrl: 'modules/dashboard/views/dashboard.html',
+                    controller: 'dashboardController',
+                    controllerAs: 'vm'
+                  })
+                  .when('/containers/projects', {
+                    templateUrl: 'modules/dashboard/views/dashboard.html',
+                    controller: 'dashboardController',
+                    controllerAs: 'vm'
+                  })
+                  .when('/containers/providers', {
                     templateUrl: 'modules/dashboard/views/dashboard.html',
                     controller: 'dashboardController',
                     controllerAs: 'vm'
                   })
                   // Default
                   .otherwise({
-                    redirectTo: '/dashboard'
+                    redirectTo: '/todo'
                   });
 
                   $translateProvider.translations( 'default', 'en');

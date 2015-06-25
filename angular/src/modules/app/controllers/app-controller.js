@@ -14,125 +14,137 @@ angular.module( 'cfme.appModule' )
          vm.navigationItems = [
 			{
 				'title': 'Cloud Intelligence',
-				'href': '#/ci',
+				'href': '#/ci/dashboard',
 				'children': [
 					{
 						'title': 'Dashboard',
-						'href': '#/ci'
+						'href': '#/ci/dashboard'
 					}
 				]
 			},
 			{
 				'title': 'Services',
-				'href': '#/services',
+				'href': '#/services/myservices',
 				'children': [
 					{
 						'title': 'My Services',
-						'href': '#/services'
+						'href': '#/services/myservices'
 					}
 				]
 			},
 			{
 				'title': 'Clouds',
-				'href': '#/clouds',
+				'href': '#/clouds/clouds',
 				'children': [
 					{
 						'title': 'Providers',
-						'href': '#/providers'
+						'href': '#/clouds/providers'
 					}
 				]
 			},
 			{
 				'title': 'Intrastructure',
-				'href': '#/intrastructure',
+				'href': '#/infrastructure/providers',
 				'children': [
 					{
 						'title': 'Providers',
-						'href': '#/providers'
+						'href': '#/infrastructure/providers'
 					}
 				]
 			},
 			{
 				'title': 'Containers',
-				'href': '#/containers',
+				'href': '#/containers/dashboard',
 				'class': 'active',
 				'children': [
 					{
-						'title': 'Nodes',
-						'href': '#/nodes'
-					},
-					{
-						'title': 'Container Groups',
-						'href': '#/containergroups',
+						'title': 'Dashboard',
+						'href': '#/containers/dashboard',
 						'class': 'active'
 					},
 					{
+						'title': 'Container Providers',
+						'href': '#/containers/providers'
+					},
+					{
+						'title': 'Projects',
+						'href': '#/containers/projects'
+					},
+					{
+						'title': 'Nodes',
+						'href': '#/containers/nodes'
+					},
+					{
+						'title': 'Container Groups',
+						'href': '#/containers/groups'
+					},
+					{
 						'title': 'Routes',
-						'href': '#/routes'
+						'href': '#/containers/routes'
 					},
 					{
 						'title': 'Replicators',
-						'href': '#/replicators'
+						'href': '#/containers/replicators'
 					},
 					{
 						'title': 'Images',
-						'href': '#/images'
+						'href': '#/containers/images'
 					},
 					{
 						'title': 'Image Registries',
-						'href': '#/imagereg'
+						'href': '#/containers/imagereg'
 					},
 					{
 						'title': 'Services',
-						'href': '#/serives'
+						'href': '#/containers/serives'
 					},
 					{
 						'title': 'Containers',
-						'href': '#/containers'
+						'href': '#/containers/containers'
 					},
 					{
 						'title': 'Topology',
-						'href': '#/topology'
+						'href': '#/containers/topology'
 					}
 				]
 			},
 			{
 				'title': 'Control',
-				'href': '#/control',
+				'href': '#/control/explorer',
 				'children': [
 					{
 						'title': 'Explorer',
-						'href': '#/control'
+						'href': '#/control/explorer'
 					}
 				]
 			},
 			{
 				'title': 'Automate',
-				'href': '#/automate',
+				'href': '#/automate/explorer',
 				'children': [
 					{
 						'title': 'Explorer',
-						'href': '#/automate'
+						'href': '#/automate/explorer'
 					}
 				]
 			},
 			{
 				'title': 'Optimize',
-				'href': '#/optimize',
+				'href': '#/optimize/utilize',
 				'children': [
 					{
 						'title': 'Utilize',
-						'href': '#/optimize'
+						'href': '#/optimize/utilize'
 					}
 				]
 			},
 			{
 				'title': 'Configure',
-				'href': '#/configure',
+				'href': '#/configure/settings',
 				'children': [
 					{
 						'title': 'My Settings',
-						'href': '#/configure'
+						'href': '#/configure/settings'
 					}
 				]
 			}
