@@ -4,6 +4,6 @@
             scope: {
                 objectType: '=type'
             },
-            templateUrl: 'modules/dashboard/directives/partials/objStatus.html'
+            templateUrl: 'modules/dashboard/directives/objStatus.html'
         };
     });
