@@ -1,26 +1,28 @@
 'use strict';
 
-angular.module('patternfly.navigation', []).directive('pfNavigation', ['$location', function(location) {
-	var self = this;
+angular.module('patternfly.navigation', []).directive('pfNavigation', ['$location', '$rootScope', function(location, rootScope) {
 
 	var navigationController = function($scope) {
-		$scope.select = function(item, parent) {
-		
-			//Set its parent to be active too
-			if (typeof(parent) !== "undefined") {
-				clearActiveItems($scope);
-				parent.class = "active";
-			} else {
-				clearActiveItems($scope);
 
-				//Set the first child to be active if nothing is set
-				if(item.children) {
-					item.children[0].class = "active";
-				}
-			}
-			//Set the child to be active
-			item.class = "active";
-		}
+		rootScope.$on( "$routeChangeSuccess", function(event, next, current) {
+ 			
+			clearActiveItems($scope);
+
+ 			var updatedRoute = "#" + location.path();
+
+			//Setting active state on load
+			$scope.items.forEach(function (topLevel) {
+				if (topLevel.children) {	
+					topLevel.children.forEach(function (secondLevel) {
+						if (updatedRoute.indexOf(secondLevel.href) > -1) {
+							secondLevel.class="active";
+							topLevel.class="active";
+						}
+					});
+				} 
+			});
+
+		});
 	};
 
 	var clearActiveItems = function($scope) {
@@ -45,16 +47,19 @@ angular.module('patternfly.navigation', []).directive('pfNavigation', ['$locatio
 		link: function($scope) {
 			var updatedRoute = "#" + location.path();
 
+			//Setting active state on load
 			$scope.items.forEach(function (topLevel) {
 				if (topLevel.children) {	
 					topLevel.children.forEach(function (secondLevel) {
-						if (secondLevel.href === updatedRoute) {
+						if (updatedRoute.indexOf(secondLevel.href) > -1) {
 							secondLevel.class="active";
 							topLevel.class="active";
 						}
 					});
 				} 
 			});
+
+
 
 		},
 		controller: navigationController

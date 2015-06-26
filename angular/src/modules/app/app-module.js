@@ -20,7 +20,7 @@ angular.module( 'cfme.appModule', [
                   
                   // Default
                   .otherwise({
-                    redirectTo: '/todo'
+                    redirectTo: '/'
                   });
 
                   $translateProvider.translations( 'default', 'en');
