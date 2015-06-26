@@ -8,16 +8,18 @@
     <div class="row row-tile-pf" >
         <div class="col-xs-7 col-sm-8 col-md-8">
              <div class="row">
-                <div>
-                    <div class="col-xs-6 col-sm-3 col-md-4" ng-repeat="widget in vm.status_widgets">
+                <div class="pf-obj-status-large">
+                    <div class="col-xs-6 col-sm-3 col-md-4" ng-repeat="widget in vm.status_widgets"> 
                         <div pf-obj-status type="widget"></div>
                     </div>
                 </div>
             </div><!-- /row -->
         </div>
         <div class="col-xs-5 col-sm-4 col-md-4">
-            <div pf-tile title="Group Trends">
-                Chart Goes Here
+            <div style="width:100%;">
+                <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
+                    <div cfme-group-trends id="cgTrends"  data="containerGroupTrends"></div>
+                </div>
             </div>
         </div>
     </div><!-- /row -->
