@@ -275,5 +275,12 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
             ],
             "dates": []
         };
+
+        $scope.quotas = [
+            {"title": "CPU", "start": "26", "end": "25", "percentUsed": "58"},
+            {"title": "Memory", "start": "8", "end": "16", "percentUsed": "50"},
+            {"title": "Container Groups", "start": "5", "end": "8", "percentUsed": "63"},
+            {"title": "Services", "start": "2", "end": "2", "percentUsed": "100"}
+        ]
     }
 ]);

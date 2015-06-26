@@ -108,24 +108,45 @@
   margin-right: -5px;
 }
 
-.quota-chart-row {
-  margin-bottom: 6px; }
+.quota-charts-wrapper {
+  padding-bottom: 8px;
+}
+
+.quota-chart {
+  margin-bottom: 25px;  
+}
 
 .quota-chart-bar {
   height: 25px;
-  margin-bottom: 21px; }
+}
 
 .quota-chart-used {
-  background-color: #0088CE; }
+  background-color: #0088CE;
+  height: 25px;
+  position: relative;
+  z-index: 1001;
+}
 
 .quota-chart-unused {
-  background-color: #D1D1D1; }
+  background-color: #D1D1D1;
+  width: 100%;
+  height: 25px;
+  position: relative;
+  top: -25px;
+  z-index: 1000;
+}
 
 .quota-chart-title {
   font-size: 15px;
   line-height: 15px;
   font-weight: normal;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+
+  .used {
+    float: right;
+  }
+
+}
 
 .tile-pf.tile-pf-aggregate-status {
   min-height: 0px; }
