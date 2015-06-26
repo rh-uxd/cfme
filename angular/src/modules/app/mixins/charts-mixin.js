@@ -4,7 +4,6 @@ angular.module('patternfly.pf-mixins')
     .factory('ChartsMixin', function() {
 
         var ChartsMixin = function() {
-
         };
 
 
@@ -49,16 +48,15 @@ angular.module('patternfly.pf-mixins')
 
         var getDefaultRadialConfig = function(title) {
             return {
-                donut:   this.getDefaultRadialDonut(title),
-                size:    this.getDefaultRadialSize(),
-                legend:  this.getDefaultRadialLegend(),
-                color:   this.getDefaultRadialColor(),
-                tooltip: this.getDefaultRadialTooltip()
+                donut:   getDefaultRadialDonut(title),
+                size:    getDefaultRadialSize(),
+                legend:  getDefaultRadialLegend(),
+                color:   getDefaultRadialColor(),
+                tooltip: getDefaultRadialTooltip()
             }
         };
 
         // Area Chart Defaults
-
         var getDefaultAreaArea = function() {
             return {
                 zerobased: true
@@ -100,14 +98,15 @@ angular.module('patternfly.pf-mixins')
             };
         };
 
+
         var getDefaultAreaConfig = function() {
             return {
-                area:    this.getDefaultAreaArea(),
-                size:    this.getDefaultAreaSize(),
-                point:   this.getDefaultAreaPoint(),
-                color:   this.getDefaultAreaColor(),
-                legend:  this.getDefaultAreaLegend(),
-                tooltip: this.getDefaultRadialTooltip()
+                area:    getDefaultAreaArea(),
+                size:    getDefaultAreaSize(),
+                point:   getDefaultAreaPoint(),
+                color:   getDefaultAreaColor(),
+                legend:  getDefaultAreaLegend(),
+                tooltip: getDefaultRadialTooltip()
             }
         };
 
@@ -200,8 +199,8 @@ angular.module('patternfly.pf-mixins')
             getDefaultRadialLegend: getDefaultRadialLegend,
 
             getDefaultAreaConfig: getDefaultAreaConfig,
-            getDefaultAreaSettings: getDefaultAreaArea,
-            getDefaultArea_Size: getDefaultAreaSize,
+            getDefaultAreaArea: getDefaultAreaArea,
+            getDefaultAreaSize: getDefaultAreaSize,
             getDefaultAreaPoint: getDefaultAreaPoint,
             getDefaultAreaColor: getDefaultAreaColor,
             getDefaultAreaLegend: getDefaultAreaLegend,
@@ -218,7 +217,7 @@ angular.module('patternfly.pf-mixins')
 
             getDefaultHeatmapColorPattern: getDefaultHeatmapColorPattern,
             defaultHeatmapBlockPadding: defaultHeatmapBlockPadding,
-            getDefaultHeatmapColor: getDefaultHeatmapColor,
+            getDefaultHeatmapColor: getDefaultHeatmapColor
         }
     }
 );
