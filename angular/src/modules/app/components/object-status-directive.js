@@ -2,7 +2,8 @@
         return {
             restrict: 'A',
             scope: {
-                objectType: '=type'
+                objectType: '=type',
+                url: '='
             },
             templateUrl: 'modules/app/components/objStatus.html'
         };
