@@ -207,14 +207,12 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['Cha
             scope.config.sparkline_config.data = scope.getSparklineData(scope);
 
             var setupRadialChartTitle = function () {
-                var radialChartTitle = element[0].querySelector('text.c3-chart-arcs-title');
-                radialChartTitle.innerHTML = '<tspan dy="0" x="0" class="utilization-chart-title-big">' + scope.data.used + '</tspan>' +
-                '<tspan dy="20" x="0" class="utilization-chart-title-small">' + scope.config.total_units + ' ' + scope.config.usage_data_name + '</tspan>';
+                $timeout(function () {
+                    var radialChartTitle = element[0].querySelector('text.c3-chart-arcs-title');
+                    radialChartTitle.innerHTML = '<tspan dy="0" x="0" class="utilization-chart-title-big">' + scope.data.used + '</tspan>' +
+                    '<tspan dy="20" x="0" class="utilization-chart-title-small">' + scope.config.total_units + ' ' + scope.config.usage_data_name + '</tspan>';
+                }, 100);
             };
-
-            $timeout(function() {
-                setupRadialChartTitle();
-            }, 100);
         }
     };
 }]);
