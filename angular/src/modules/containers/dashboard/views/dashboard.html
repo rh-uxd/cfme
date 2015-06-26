@@ -15,7 +15,7 @@
     </div><!-- /row -->
     <div class="row row-tile-pf">
         <div class="col-xs-7 col-sm-8 col-md-8">
-            <div pf-tile title="Utilization">
+            <div pf-tile headtitle="Utilization">
                 <div class="row">
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div pf-utilization-chart config="cpuUsageConfig" data="cpuUsageData"></div>
@@ -34,20 +34,20 @@
         </div>
         <div class="col-xs-5 col-sm-4 col-md-4">
             <div style="width:100%;">
-                <div pf-tile title="Container Group Trends" subtitle="Last 30 Days">
-                    pod-creation-trends data=model.podTrends
+                <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
+                    <div cfme-group-trends id="cgTrends"  data="containerGroupTrends"></div>
                 </div>
             </div>
             <div style="width:100%;">
-                <div pf-tile title="Image Creation Trends" subtitle="Last 30 Days">
-                    image-creation-trends
+                <div pf-tile headtitle="Image Creation Trends" subtitle="Last 30 Days">
+                    <div cfme-image-trends id="iamgeTrends"  data="imageCreations"></div>
                 </div>
             </div>
         </div>
     </div><!-- /row -->
     <div class="row row-tile-pf row-tile-pf-last">
         <div class="col-md-12">
-            <div pf-tile title="Utilization By Nodes">
+            <div pf-tile headtitle="Utilization By Nodes">
                 <div class="container-heatmap-body">
                     <div class="row">
                         <div class="col-xs-18 col-sm-9 col-md-9 usage-heatmap-body flex-vertical-container">
