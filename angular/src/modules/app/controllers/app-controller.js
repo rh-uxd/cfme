@@ -55,12 +55,10 @@ angular.module( 'cfme.appModule' )
 			{
 				'title': 'Containers',
 				'href': '#/containers/dashboard',
-				'class': 'active',
 				'children': [
 					{
 						'title': 'Dashboard',
 						'href': '#/containers/dashboard',
-						'class': 'active'
 					},
 					{
 						'title': 'Container Providers',

@@ -11,7 +11,7 @@ angular.module( 'cfme.containersModule', ['cfme.containers.dashboardModule', 'cf
                 controller: 'containers.projectsController',
                 controllerAs: 'vm'
              })
-            .when('/containers/providers/', {
+            .when('/containers/providers', {
            		templateUrl: 'modules/containers/providers/views/providers.html',
                 controller: 'containers.providersController',
                 controllerAs: 'vm'
