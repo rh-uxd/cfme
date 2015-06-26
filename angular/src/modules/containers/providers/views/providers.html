@@ -1,0 +1,101 @@
+<div class="container-fluid container-tiles-pf">
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+        <li class="active"><a href="#">Container Providers</a></li>
+        <li>
+            {{ vm.navigaition }}
+        </li>
+   </ol>
+    <div class="row row-tile-pf" >
+        <div class="col-xs-6 col-sm-4 col-md-2">
+            <div pf-provider-tile providers="vm.providers"></div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10">
+            <div class="row">
+                <div>
+                    <div class="col-xs-6 col-sm-6 col-md-3" ng-repeat="widget in vm.status_widgets">
+                        <div pf-obj-status type="widget"></div>
+                    </div>
+                </div>
+            </div><!-- /row -->
+        </div>
+    </div><!-- /row -->
+    <div class="row row-tile-pf">
+        <div class="col-xs-7 col-sm-8 col-md-8">
+            <div class="tile-pf">
+                <div class="tile-pf-heading">
+                    <h2 class="tile-pf-title">Utilization</h2>
+                </div>
+                <div class="tile-pf-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                            <div pf-utilization-chart config="cpuUsageConfig" data="cpuUsageData"></div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                            <div pf-utilization-chart config="memoryUsageConfig" data="memoryUsageData"></div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                            <div pf-utilization-chart config="storageUsageConfig" data="storageUsageData"></div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                            <div pf-utilization-chart config="networkUsageConfig" data="networkUsageData"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5 col-sm-4 col-md-4">
+            <div style="width:100%;">
+                Quota Chart
+            </div>
+            <div style="width:100%;">
+                image-creation-trends
+            </div>
+        </div>
+    </div><!-- /row -->
+    <div class="row row-tile-pf row-tile-pf-last">
+        <div class="col-md-12">
+            <div class="tile-pf">
+                <div class="tile-pf-heading">
+                    <h2 class="tile-pf-title">Utilization By Nodes</h2>
+                </div>
+                <div class="container-heatmap-body">
+                    <div class="row">
+                        <div class="col-xs-18 col-sm-9 col-md-9 usage-heatmap-body flex-vertical-container">
+                            <div>
+                                <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                                    <h3 class="h4 count-title">CPU</h3>
+                                    <div style="width:100%; height:180px;">
+                                        heat-map data=model.nodeCpuUsage.data
+                                    </div>
+                                </div>
+                                <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                                    <h3 class="h4 count-title">Memory</h3>
+                                    <div style="width:100%; height:180px;">
+                                        heat-map data=model.nodeMemoryUsage.data
+                                    </div>
+                                </div>
+                                <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                                    <h3 class="h4 count-title">Storage</h3>
+                                    <div style="width:100%; height:180px;">
+                                        heat-map data=model.nodeStorageUsage.data
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-16 col-sm-8 col-md-8">
+                                heat-map-legend legendLabels=nodeHeatMapUsageLegendLabels
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 container-heatmap-tile network-heatmap-body flex-vertical-container">
+                            <h3 class="h4 count-title">Network</h3>
+                            <div style="width:100%; height:180px;">
+                                heat-map data=model.nodeNetworkUsage.data
+                            </div>
+                            <div style="height:5px"></div>
+                            heat-map-legend legendLabels=nodeHeatMapNetworkLegendLabels
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /container -->

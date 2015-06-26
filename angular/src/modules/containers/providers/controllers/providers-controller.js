@@ -1,22 +1,24 @@
-angular.module('cfme.containers.dashboardModule').controller('containers.dashboardController', ['$scope','$translate',
+angular.module('cfme.containers.providersModule').controller('containers.providersController', ['$scope','$translate',
     function( $scope, $translate, panelValidation ) {
         'use strict';
 
         // stash a ref to the controller object, and the various parent objects
         var vm = this;
 
+        vm.navigaition = "Providers";
+
         vm.status_widgets = [ 
-                { name: 'Nodes', iconClass: 'pficon-container-node', count: 52, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
-                { name: 'Containers', iconClass: 'fa-cube', count: 300 },
-                { name: 'Registries', iconClass: 'pficon-registry', count: 4 },
-                { name: 'Projects', iconClass: 'pficon-project', count: 510 },
-                { name: 'Container Groups', iconClass: 'fa-cubes', count: 1200, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
-                { name: 'Services', iconClass: 'pficon-service', count: 2500 },
-                { name: 'Images', iconClass: 'pficon-image', count: 2500 },
-                { name: 'Routes', iconClass: 'pficon-route', count: 300 }
+                { name: 'Nodes', iconClass: 'pficon-container-node', count: 25, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
+                { name: 'Containers', iconClass: 'fa-cube', count: 180 },
+                { name: 'Registries', iconClass: 'pficon-registry', count: 2 },
+                { name: 'Projects', iconClass: 'pficon-project', count: 310 },
+                { name: 'Container Groups', iconClass: 'fa-cubes', count: 700, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
+                { name: 'Services', iconClass: 'pficon-service', count: 1000 },
+                { name: 'Images', iconClass: 'pficon-image', count: 1250 },
+                { name: 'Routes', iconClass: 'pficon-route', count: 125 }
             ];
         
-        vm.providers = { name: 'Providers', count: 3, providers: [{iconClass: 'pficon-openshift', count: 1, id: 'openshift'}, {iconClass: 'pficon-kubernetes', count: 2, id:'kubernetes'}]};
+        vm.providers = { name: 'Providers', count: 1, providers: [{iconClass: 'pficon-openshift', count: 1}]};
 
         $scope.cpuUsageConfig = {
             chartId: 'cpuUsageChart',

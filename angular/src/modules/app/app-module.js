@@ -16,21 +16,7 @@ angular.module( 'cfme.appModule', [
                   .when('/', {
                     redirectTo: '/containers/dashboard'
                   })
-                  .when('/containers/dashboard', {
-                    templateUrl: 'modules/containers/dashboard/views/dashboard.html',
-                    controller: 'dashboardController',
-                    controllerAs: 'vm'
-                  })
-                  .when('/containers/projects', {
-                    templateUrl: 'modules/containers/dashboard/views/dashboard.html',
-                    controller: 'dashboardController',
-                    controllerAs: 'vm'
-                  })
-                  .when('/containers/providers', {
-                    templateUrl: 'modules/containers/dashboard/views/dashboard.html',
-                    controller: 'dashboardController',
-                    controllerAs: 'vm'
-                  })
+                  
                   // Default
                   .otherwise({
                     redirectTo: '/todo'
