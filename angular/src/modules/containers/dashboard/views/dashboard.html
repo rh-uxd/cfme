@@ -15,43 +15,39 @@
     </div><!-- /row -->
     <div class="row row-tile-pf">
         <div class="col-xs-7 col-sm-8 col-md-8">
-            <div class="tile-pf">
-                <div class="tile-pf-heading">
-                    <h2 class="tile-pf-title">Utilization</h2>
-                </div>
-                <div class="tile-pf-body">
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-3 col-md-3">
-                            <div pf-utilization-chart config="cpuUsageConfig" data="cpuUsageData"></div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3">
-                            <div pf-utilization-chart config="memoryUsageConfig" data="memoryUsageData"></div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3">
-                            <div pf-utilization-chart config="storageUsageConfig" data="storageUsageData"></div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3">
-                            <div pf-utilization-chart config="networkUsageConfig" data="networkUsageData"></div>
-                        </div>
+            <div pf-tile title="Utilization">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div pf-utilization-chart config="cpuUsageConfig" data="cpuUsageData"></div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div pf-utilization-chart config="memoryUsageConfig" data="memoryUsageData"></div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div pf-utilization-chart config="storageUsageConfig" data="storageUsageData"></div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div pf-utilization-chart config="networkUsageConfig" data="networkUsageData"></div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-xs-5 col-sm-4 col-md-4">
             <div style="width:100%;">
-                pod-creation-trends data=model.podTrends
+                <div pf-tile title="Container Group Trends">
+                    pod-creation-trends data=model.podTrends
+                </div>
             </div>
             <div style="width:100%;">
-                image-creation-trends
+                <div pf-tile title="Image Creation Trends">
+                    image-creation-trends
+                </div>
             </div>
         </div>
     </div><!-- /row -->
     <div class="row row-tile-pf row-tile-pf-last">
         <div class="col-md-12">
-            <div class="tile-pf">
-                <div class="tile-pf-heading">
-                    <h2 class="tile-pf-title">Utilization By Nodes</h2>
-                </div>
+            <div pf-tile title="Utilization By Nodes">
                 <div class="container-heatmap-body">
                     <div class="row">
                         <div class="col-xs-18 col-sm-9 col-md-9 usage-heatmap-body flex-vertical-container">
