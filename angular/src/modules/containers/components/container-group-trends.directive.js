@@ -1,15 +1,13 @@
 'use strict';
-angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['ChartsMixin', '$timeout', function(chartsMixin, $timeout) {
+angular.module('cfme.containersModule').directive('cfmeGroupTrends', ['ChartsMixin', '$timeout', function(chartsMixin, $timeout) {
     return {
         restrict: 'A',
         scope: {
             config: '=',
-            data: '=',
-            radial_config: '=',
-            sparkline_config: '='
+            data: '='
         },
         replace: true,
-        templateUrl: 'modules/app/components/utilization-chart.directive.html',
+        templateUrl: 'modules/app/containers/components/container-group-trends.directive.html',
         controller: function($scope, $rootScope) {
 
             if ($scope.data.available === undefined) {

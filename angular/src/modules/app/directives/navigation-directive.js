@@ -9,7 +9,6 @@ angular.module('patternfly.navigation', []).directive('pfNavigation', function()
 		replace: true,
 		templateUrl: 'modules/app/directives/templates/navigation.html',
 		link: function($scope){
-			console.log('items:' + $scope.items);
 		},
 		controller: function($scope) {
 

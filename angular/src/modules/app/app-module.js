@@ -4,6 +4,7 @@ angular.module( 'cfme.appModule', [
     'ui.bootstrap',
     'angular-c3',
     'patternfly.navigation',
+    'patternfly.pf-mixins',
     'patternfly.pf-components',
     'pascalprecht.translate',
     'cfme.containersModule',
