@@ -3,7 +3,7 @@ angular.module( 'patternfly.pf-components' ).directive('pfTile', function() {
         restrict: 'A',
         transclude: true,
         scope: {
-            title: '@',
+            headtitle: '@',
             subtitle: '@'
         },
         templateUrl: 'modules/app/components/tile.directive.html'
