@@ -45,13 +45,13 @@
         </div>
         <div class="col-xs-5 col-sm-4 col-md-4">
             <div style="width:100%;">
-                <div pf-tile title="Container Group Trends" subtitle="Last 30 Days">
-                    pod-creation-trends data=model.podTrends
+                <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
+                    <div cfme-group-trends id="cgTrends"  data="containerGroupTrends"></div>
                 </div>
             </div>
             <div style="width:100%;">
-                <div pf-tile title="Image Creation Trends" subtitle="Last 30 Days">
-                    image-creation-trends
+                <div pf-tile headtitle="Image Creation Trends" subtitle="Last 30 Days">
+                    <div cfme-image-trends id="iamgeTrends"  data="imageCreations"></div>
                 </div>
             </div>
         </div>
