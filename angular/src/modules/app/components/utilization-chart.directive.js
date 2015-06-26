@@ -1,5 +1,5 @@
 'use strict';
-angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$timeout', function($timeout) {
+angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['ChartsMixin', '$timeout', function(chartsMixin, $timeout) {
     return {
         restrict: 'A',
         scope: {
@@ -11,8 +11,11 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
         replace: true,
         templateUrl: 'modules/app/components/utilization-chart.directive.html',
         controller: function($scope, $rootScope) {
-            $scope.data.available = $scope.data.total - $scope.data.used;
-            $scope.config.available_units = $scope.total_units;
+
+            if ($scope.data.available === undefined) {
+                $scope.data.available = $scope.data.total - $scope.data.used;
+            }
+            $scope.config.available_units = $scope.config.available_units || $scope.total_units;
 
             $scope.radialChartId = 'radialChart';
             $scope.sparklineChartId = 'sparklineChart';
@@ -20,20 +23,6 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
                 $scope.radialChartId = $scope.config.chartId + $scope.radialChartId;
                 $scope.sparklineChartId = $scope.config.chartId + $scope.sparklineChartId;
             }
-
-            var defaultRadialDonut = {
-                title: $scope.radial_title,
-                    label: {
-                    show: false
-                },
-                width: 10
-            };
-            var defaultRadialSize = {
-                height: 130
-            };
-            var defaultRadialLegend = {
-                show: false
-            };
 
             $scope.getStatusColor = function(used) {
                 if (used >= 90.0)
@@ -49,7 +38,7 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
                 }
             };
 
-            $scope.defaultRadialColor = function(scope) {
+            $scope.statusRadialColor = function(scope) {
                 var color = {
                     pattern: []
                 };
@@ -60,7 +49,7 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
                 return color;
             };
 
-            var defaultRadialTooltip = {
+            var utilizationRadialTooltip = {
                 contents: function (d) {
                     return '<span class="c3-tooltip-sparkline" style="white-space: nowrap;">' + Math.round(d[0].ratio * 100) + '%:</span>' +
                         '<span class="c3-tooltip-sparkline" style="white-space: nowrap;">' + d[0].value + ' ' + $scope.config.total_units + ' ' + d[0].name + '</span>';
@@ -86,41 +75,12 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
                 };
             };
 
-            $scope.defaultRadialConfig = {
-                donut: defaultRadialDonut,
-                size: defaultRadialSize,
-                legend: defaultRadialLegend,
-                color: $scope.defaultRadialColor($scope),
-                tooltip: defaultRadialTooltip
-            };
+            $scope.defaultRadialConfig = chartsMixin.getDefaultRadialConfig($scope.config.total_units);
+            $scope.defaultRadialConfig.color =  $scope.statusRadialColor($scope);
+            $scope.defaultRadialConfig.tooltip = utilizationRadialTooltip;
 
 
-            var defaultSparklineArea = {
-                zerobased: true
-            };
-            var defaultSparklineColor = {
-                pattern: ['#0088ce', '#00659c', '#3f9c35', '#ec7a08', '#cc0000']
-            };
-            var defaultSparklineLegend = {
-                show: false
-            };
-            var defaultSparklinePoint = {
-                r: 1,
-                focus: {
-                    expand: {
-                        r: 4
-                    }
-                }
-            };
-            var defaultSparklineSize = {
-                height: 40
-            };
-
-            var defaultSparklinePoint = {
-                show: false,
-                r: 20
-            };
-            var defaultSparklineTooltip = function(scope) {
+            var utilizationSparklineTooltip = function(scope) {
                 return {
                     contents: function (d) {
                         var percentUsed = Math.round(d[0].value / scope.data.total * 100.0);
@@ -158,7 +118,7 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
                 };
             };
 
-            var defaultSparklineAxis = {
+            var utilizationSparklineAxis = {
                 x: {
                     show: false,
                     type: 'timeseries',
@@ -203,15 +163,9 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
                 };
             };
 
-            $scope.defaultSparklineConfig = {
-                area: defaultSparklineArea,
-                size: defaultSparklineSize,
-                axis: defaultSparklineAxis,
-                point: defaultSparklinePoint,
-                legend: defaultSparklineLegend,
-                color: defaultSparklineColor,
-                tooltip: defaultSparklineTooltip($scope)
-            };
+            $scope.defaultSparklineConfig = chartsMixin.getDefaultSparklineConfig($scope.config.total_units);
+            $scope.defaultSparklineConfig.axis = utilizationSparklineAxis;
+            $scope.defaultSparklineConfig.tooltip = utilizationSparklineTooltip($scope);
 
             $scope.config.radial_config = $.extend(true, angular.copy($scope.defaultRadialConfig), $scope.config.radial_config);
             $scope.config.radial_config.data = $scope.getRadialData($scope);
@@ -221,14 +175,30 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
         },
 
         link: function(scope, element, attrs){
+
             attrs.$observe('radial_config', function(){
                 scope.config.radial_config = $.extend(true, angular.copy(scope.defaultRadialConfig), scope.config.radial_config);
                 scope.config.radial_config.data = scope.getRadialData(scope);
+                setupRadialChartTitle();
             });
 
             attrs.$observe('sparkline_config', function(){
-                scope.sparkline_config = $.extend(true, angular.copy(scope.defaultSparklineConfig), scope.config.sparkline_config);
-                scope.sparkline_config.data = scope.getSparklineData(scope);
+                scope.config.sparkline_config = $.extend(true, angular.copy(scope.defaultSparklineConfig), scope.config.sparkline_config);
+                scope.config.sparkline_config.data = scope.getSparklineData(scope);
+            });
+
+            attrs.$observe('data', function(){
+                scope.config.radial_config.data = scope.getRadialData(scope);
+                scope.config.sparkline_config.data = scope.getSparklineData(scope);
+                setupRadialChartTitle();
+            });
+
+            attrs.$observe('config', function(){
+                scope.config.radial_config = $.extend(true, angular.copy(scope.defaultRadialConfig), scope.config.radial_config);
+                scope.config.radial_config.data = scope.getRadialData(scope);
+                scope.config.sparkline_config = $.extend(true, angular.copy(scope.defaultSparklineConfig), scope.config.sparkline_config);
+                scope.config.sparkline_config.data = scope.getSparklineData(scope);
+                setupRadialChartTitle();
             });
 
             scope.config.radial_config = $.extend(true, angular.copy(scope.defaultRadialConfig), scope.config.radial_config);
@@ -236,16 +206,7 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
             scope.config.sparkline_config = $.extend(true, angular.copy(scope.defaultSparklineConfig), scope.config.sparkline_config);
             scope.config.sparkline_config.data = scope.getSparklineData(scope);
 
-            scope.radialChartId = 'radialChart';
-            scope.sparklineChartId = 'sparklineChart';
-            if(scope.config.chartId) {
-                scope.radialChartId = scope.config.chartId + scope.radialChartId;
-                scope.sparklineChartId = scope.config.chartId + scope.sparklineChartId;
-            }
-
             var setupRadialChartTitle = function () {
-                console.dir(element);
-                console.dir(element[0].querySelector('text.c3-chart-arcs-title'));
                 var radialChartTitle = element[0].querySelector('text.c3-chart-arcs-title');
                 radialChartTitle.innerHTML = '<tspan dy="0" x="0" class="utilization-chart-title-big">' + scope.data.used + '</tspan>' +
                 '<tspan dy="20" x="0" class="utilization-chart-title-small">' + scope.config.total_units + ' ' + scope.config.usage_data_name + '</tspan>';
@@ -253,7 +214,7 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['$ti
 
             $timeout(function() {
                 setupRadialChartTitle();
-            }, 300);
+            }, 100);
         }
     };
 }]);
