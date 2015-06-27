@@ -137,6 +137,14 @@
   height: 25px;
   position: relative;
   z-index: 1001;
+  -webkit-transition: width .75s ease-in-out;
+  -moz-transition: width .75s ease-in-out;
+  -o-transition: width .75s ease-in-out;
+  transition: width .75s ease-in-out;
+}
+
+.quota-chart-used.animate {
+  width: 0% !important;
 }
 
 .quota-chart-unused {

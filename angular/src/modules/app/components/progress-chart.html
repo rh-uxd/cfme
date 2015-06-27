@@ -5,7 +5,7 @@
         	<span class="used">{{chart.start}} of {{chart.end}}</span>
     	</div>
     	<div class="quota-chart-bar">
-        	<div class="quota-chart-used" style="width:{{chart.percentUsed}}%"></div>
+        	<div class="quota-chart-used" ng-class="{'animate': animate}" style="width:{{chart.percentageUsed}}%"></div>
         	<div class="quota-chart-unused"></div>
     	</div>
 	</div>

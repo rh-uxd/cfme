@@ -276,11 +276,31 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
             "dates": []
         };
 
+        // FAKE NODE USAGE FOR NOW
+        var openShiftCount = 25;
+        var kubernetesCount = 27;
+        $scope.nodeCpuUsage = {
+            data: randomizeData(openShiftCount, kubernetesCount)
+        };
+        $scope.nodeMemoryUsage = {
+            data: randomizeData(openShiftCount, kubernetesCount)
+        };
+        $scope.nodeStorageUsage = {
+            data: randomizeData(openShiftCount, kubernetesCount)
+        };
+        $scope.nodeNetworkUsage = {
+            data: randomizeData(openShiftCount, kubernetesCount)
+        };
+
+        $scope.nodeHeatMapUsageLegendLabels = ['< 70%', '70-80%' ,'80-90%', '> 90%'];
+        $scope.nodeHeatMapNetworkLegendLabels = ['Very High','High','Low', 'Very Low'];
+
         $scope.quotas = [
-            {"title": "CPU", "start": "26", "end": "25", "percentUsed": "58"},
-            {"title": "Memory", "start": "8", "end": "16", "percentUsed": "50"},
-            {"title": "Container Groups", "start": "5", "end": "8", "percentUsed": "63"},
-            {"title": "Services", "start": "2", "end": "2", "percentUsed": "100"}
-        ]
+            {"title": "CPU", "start": "25", "end": "46"},
+            {"title": "Memory", "start": "8", "end": "16"},
+            {"title": "Container Groups", "start": "5", "end": "8"},
+            {"title": "Services", "start": "2", "end": "2"}
+        ];
+
     }
 ]);

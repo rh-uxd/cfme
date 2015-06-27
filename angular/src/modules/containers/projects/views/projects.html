@@ -58,46 +58,43 @@
             </div>
         </div>
     </div><!-- /row -->
-    <div class="row row-tile-pf row-tile-pf-last">
+     <div class="row row-tile-pf row-tile-pf-last">
         <div class="col-md-12">
-            <div class="tile-pf">
-                <div class="tile-pf-heading">
-                    <h2 class="tile-pf-title">Utilization By Nodes</h2>
-                </div>
+            <div pf-tile headtitle="Utilization By Nodes">
                 <div class="container-heatmap-body">
                     <div class="row">
                         <div class="col-xs-18 col-sm-9 col-md-9 usage-heatmap-body flex-vertical-container">
                             <div>
                                 <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
                                     <h3 class="h4 count-title">CPU</h3>
-                                    <div style="width:100%; height:180px;">
-                                        heat-map data=model.nodeCpuUsage.data
+                                    <div id="nodeCpuUsage" style="width:100%; height:180px;">
+                                        <div pf-heat-map data="nodeCpuUsage.data" parentid="nodeCpuUsage"></div>
                                     </div>
                                 </div>
                                 <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
                                     <h3 class="h4 count-title">Memory</h3>
-                                    <div style="width:100%; height:180px;">
-                                        heat-map data=model.nodeMemoryUsage.data
+                                    <div id="nodeMemoryUsage" style="width:100%; height:180px;">
+                                        <div pf-heat-map data="nodeMemoryUsage.data" parentid="nodeMemoryUsage"></div>
                                     </div>
                                 </div>
                                 <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
                                     <h3 class="h4 count-title">Storage</h3>
-                                    <div style="width:100%; height:180px;">
-                                        heat-map data=model.nodeStorageUsage.data
+                                    <div id="nodeStorageUsage" style="width:100%; height:180px;">
+                                        <div pf-heat-map data="nodeStorageUsage.data" parentid="nodeStorageUsage"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-16 col-sm-8 col-md-8">
-                                heat-map-legend legendLabels=nodeHeatMapUsageLegendLabels
+                                <div pf-heat-map-legend legend="nodeHeatMapUsageLegendLabels"></div>
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-3 container-heatmap-tile network-heatmap-body flex-vertical-container">
                             <h3 class="h4 count-title">Network</h3>
-                            <div style="width:100%; height:180px;">
-                                heat-map data=model.nodeNetworkUsage.data
+                            <div id="nodeNetworkUsage" style="width:100%; height:180px;">
+                                <div pf-heat-map data="nodeNetworkUsage.data" parentid="nodeNetworkUsage"></div>
                             </div>
                             <div style="height:5px"></div>
-                            heat-map-legend legendLabels=nodeHeatMapNetworkLegendLabels
+                            <div pf-heat-map-legend legend="nodeHeatMapNetworkLegendLabels"></div>
                         </div>
                     </div>
                 </div>

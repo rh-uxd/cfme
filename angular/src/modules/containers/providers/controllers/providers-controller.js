@@ -343,5 +343,24 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             ],
             dates: []
         };
+
+        // FAKE NODE USAGE FOR NOW
+        var openShiftCount = 25;
+        var kubernetesCount = 27;
+        $scope.nodeCpuUsage = {
+            data: randomizeData(openShiftCount, kubernetesCount)
+        };
+        $scope.nodeMemoryUsage = {
+            data: randomizeData(openShiftCount, kubernetesCount)
+        };
+        $scope.nodeStorageUsage = {
+            data: randomizeData(openShiftCount, kubernetesCount)
+        };
+        $scope.nodeNetworkUsage = {
+            data: randomizeData(openShiftCount, kubernetesCount)
+        };
+
+        $scope.nodeHeatMapUsageLegendLabels = ['< 70%', '70-80%' ,'80-90%', '> 90%'];
+        $scope.nodeHeatMapNetworkLegendLabels = ['Very High','High','Low', 'Very Low'];
     }
 ]);
