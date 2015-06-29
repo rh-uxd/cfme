@@ -1,5 +1,5 @@
-angular.module('cfme.containers.dashboardModule').controller('containers.dashboardController', ['$scope','$translate',
-    function( $scope, $translate, panelValidation ) {
+angular.module('cfme.containers.dashboardModule').controller('containers.dashboardController', ['$scope','$translate', '$resource',
+    function( $scope, $translate, $resource, panelValidation ) {
         'use strict';
 
         // stash a ref to the controller object, and the various parent objects
@@ -7,18 +7,11 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
 
         vm.navigaition = "containers";
 
-        vm.status_widgets = [ 
-                { name: 'Nodes', iconClass: 'pficon-container-node', count: 52, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
-                { name: 'Containers', iconClass: 'fa-cube', count: 300 },
-                { name: 'Registries', iconClass: 'pficon-registry', count: 4 },
-                { name: 'Projects', 'type': 'projects', iconClass: 'pficon-project', count: 510 },
-                { name: 'Container Groups', iconClass: 'fa-cubes', count: 1200, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
-                { name: 'Services', iconClass: 'pficon-service', count: 2500 },
-                { name: 'Images', iconClass: 'pficon-image', count: 2500 },
-                { name: 'Routes', iconClass: 'pficon-route', count: 300 }
-            ];
-        
-        vm.providers = { name: 'Providers', count: 3, providers: [{iconClass: 'pficon-openshift', count: 1, id: 'openshift'}, {iconClass: 'pficon-kubernetes', count: 2, id:'kubernetes'}]};
+        var ContainersStatus = $resource('/containers/status');
+        ContainersStatus.get(function(data) {
+            vm.status_widgets = data.data.status;
+            vm.providers = data.data.providers;
+        });
 
         $scope.cpuUsageConfig = {
             chartId: 'cpuUsageChart',
@@ -29,6 +22,46 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
             legend_right_text: '',
             num_days: 30
         };
+
+        $scope.memoryUsageConfig = {
+            chartId: 'memoryUsageChart',
+            title: 'Memory',
+            total_units: 'GB',
+            usage_data_name: 'Used',
+            legend_left_text: 'Last 30 Days',
+            legend_right_text: '',
+            num_days: 30
+        };
+
+        $scope.storageUsageConfig = {
+            chartId: 'storageUsageChart',
+            title: 'Storage',
+            total_units: 'TB',
+            usage_data_name: 'Used',
+            legend_left_text: 'Last 30 Days',
+            legend_right_text: '',
+            num_days: 30
+        };
+
+        $scope.networkUsageConfig = {
+            chartId: 'networkUsageChart',
+            title: 'Network',
+            total_units: 'Gbps',
+            usage_data_name: 'Used',
+            legend_left_text: 'Last 30 Days',
+            legend_right_text: '',
+            num_days: 30
+        };
+
+        var ContainersUtilization = $resource('/containers/utilization');
+        ContainersUtilization.get(function(data) {
+            var response = data.data;
+            //$scope.cpuUsageData = response.cpuUsageData;
+            //$scope.memoryUsageData = response.memoryUsageData;
+            //$scope.storageUsageData = response.storageUsageData;
+            //$scope.networkUsageData = response.networkUsageData;
+        });
+
         $scope.cpuUsageData = {
             "used": 950,
             "total": 1000,
@@ -67,15 +100,6 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
             "dates": []
         };
 
-        $scope.memoryUsageConfig = {
-            chartId: 'memoryUsageChart',
-            title: 'Memory',
-            total_units: 'GB',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
         $scope.memoryUsageData = {
             used: 176,
             total: 432,
@@ -114,15 +138,6 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
             dates: []
         };
 
-        $scope.storageUsageConfig = {
-            chartId: 'storageUsageChart',
-            title: 'Storage',
-            total_units: 'TB',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
         $scope.storageUsageData = {
             used: 1.1,
             total: 1.6,
@@ -161,15 +176,6 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
             dates: []
         };
 
-        $scope.networkUsageConfig = {
-            chartId: 'networkUsageChart',
-            title: 'Network',
-            total_units: 'Gbps',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
         $scope.networkUsageData = {
             used: 1100,
             total: 1300,
