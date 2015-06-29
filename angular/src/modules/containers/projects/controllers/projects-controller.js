@@ -300,12 +300,10 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
         $scope.nodeHeatMapUsageLegendLabels = ['< 70%', '70-80%' ,'80-90%', '> 90%'];
         $scope.nodeHeatMapNetworkLegendLabels = ['Very High','High','Low', 'Very Low'];
 
-        $scope.quotas = [
-            {"title": "CPU", "start": "25", "end": "46"},
-            {"title": "Memory", "start": "8", "end": "16"},
-            {"title": "Container Groups", "start": "5", "end": "8"},
-            {"title": "Services", "start": "2", "end": "2"}
-        ];
-
+        //Get the container data
+        var Quotas = $resource('/containers/projects/quotas/:id');
+        Quotas.get({id: currentId}, function(data) {
+            vm.quotas = data.data;
+        });
     }
 ]);
