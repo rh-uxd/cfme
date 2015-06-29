@@ -24,7 +24,7 @@ npm-debug.log
 describe.txt
 
 ##Framework Ignores
-angular/src/styles/app.css
+#angular/src/styles/app.css
 appModuleTemplates.js
 */dist
 ember/tmp/
