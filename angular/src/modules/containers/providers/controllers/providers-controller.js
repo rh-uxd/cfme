@@ -1,5 +1,5 @@
-angular.module('cfme.containers.providersModule').controller('containers.providersController', ['$scope','$translate',
-    function( $scope, $translate, panelValidation ) {
+angular.module('cfme.containers.providersModule').controller('containers.providersController', ['$scope','$translate', '$resource', '$routeParams',
+    function( $scope, $translate, $resource, $routeParams, panelValidation ) {
         'use strict';
 
         // stash a ref to the controller object, and the various parent objects
@@ -7,18 +7,17 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
 
         vm.navigaition = "Providers";
 
-        vm.status_widgets = [ 
-                { name: 'Nodes', iconClass: 'pficon-container-node', count: 25, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
-                { name: 'Containers', iconClass: 'fa-cube', count: 180 },
-                { name: 'Registries', iconClass: 'pficon-registry', count: 2 },
-                { name: 'Projects', iconClass: 'pficon-project', count: 310 },
-                { name: 'Container Groups', iconClass: 'fa-cubes', count: 700, status: [{iconClass: 'pficon-error-circle-o', count: 3}]},
-                { name: 'Services', iconClass: 'pficon-service', count: 1000 },
-                { name: 'Images', iconClass: 'pficon-image', count: 1250 },
-                { name: 'Routes', iconClass: 'pficon-route', count: 125 }
-            ];
-        
-        vm.providers = { name: 'Providers', count: 1, providers: [{iconClass: 'pficon-openshift', count: 1}]};
+        var currentId = $routeParams.id;
+        if (typeof(currentId) === "undefined") {
+            currentId = "openshift"
+        }
+
+        //Get the container data
+        var ContainersStatus = $resource('/containers/providers/status/:id');
+        ContainersStatus.get({id: currentId}, function(data) {
+            vm.status_widgets = data.data.status;
+            vm.providers = data.data.providers;
+        });
 
         $scope.cpuUsageConfig = {
             chartId: 'cpuUsageChart',
@@ -29,6 +28,37 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             legend_right_text: '',
             num_days: 30
         };
+
+        $scope.memoryUsageConfig = {
+            chartId: 'memoryUsageChart',
+            title: 'Memory',
+            total_units: 'GB',
+            usage_data_name: 'Used',
+            legend_left_text: 'Last 30 Days',
+            legend_right_text: '',
+            num_days: 30
+        };
+
+        $scope.storageUsageConfig = {
+            chartId: 'storageUsageChart',
+            title: 'Storage',
+            total_units: 'TB',
+            usage_data_name: 'Used',
+            legend_left_text: 'Last 30 Days',
+            legend_right_text: '',
+            num_days: 30
+        };
+        
+        $scope.networkUsageConfig = {
+            chartId: 'networkUsageChart',
+            title: 'Network',
+            total_units: 'Gbps',
+            usage_data_name: 'Used',
+            legend_left_text: 'Last 30 Days',
+            legend_right_text: '',
+            num_days: 30
+        };
+
         $scope.cpuUsageData = {
             "used": 950,
             "total": 1000,
@@ -67,15 +97,6 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             "dates": []
         };
 
-        $scope.memoryUsageConfig = {
-            chartId: 'memoryUsageChart',
-            title: 'Memory',
-            total_units: 'GB',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
         $scope.memoryUsageData = {
             used: 176,
             total: 432,
@@ -114,15 +135,6 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             dates: []
         };
 
-        $scope.storageUsageConfig = {
-            chartId: 'storageUsageChart',
-            title: 'Storage',
-            total_units: 'TB',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
         $scope.storageUsageData = {
             used: 1.1,
             total: 1.6,
@@ -161,15 +173,6 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             dates: []
         };
 
-        $scope.networkUsageConfig = {
-            chartId: 'networkUsageChart',
-            title: 'Network',
-            total_units: 'Gbps',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
         $scope.networkUsageData = {
             used: 1100,
             total: 1300,

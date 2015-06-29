@@ -7,12 +7,14 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
 
         vm.navigaition = "containers";
 
-        var ContainersStatus = $resource('/containers/status');
+        //Get the container data
+        var ContainersStatus = $resource('/containers/dashboard/status');
         ContainersStatus.get(function(data) {
             vm.status_widgets = data.data.status;
             vm.providers = data.data.providers;
         });
 
+        //Utilization Chart Config
         $scope.cpuUsageConfig = {
             chartId: 'cpuUsageChart',
             title: 'CPU',
@@ -53,7 +55,8 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
             num_days: 30
         };
 
-        var ContainersUtilization = $resource('/containers/utilization');
+        //Call to get utilization data
+        var ContainersUtilization = $resource('/containers/dashboard/utilization');
         ContainersUtilization.get(function(data) {
             var response = data.data;
             //$scope.cpuUsageData = response.cpuUsageData;
@@ -62,6 +65,7 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
             //$scope.networkUsageData = response.networkUsageData;
         });
 
+        //ToDo - removes
         $scope.cpuUsageData = {
             "used": 950,
             "total": 1000,
