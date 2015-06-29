@@ -44,7 +44,7 @@ angular.module('patternfly.pf-components').directive('pfHeatMap', ['ChartsMixin'
                 scope.width = parentDiv.clientWidth;
                 scope.height = parentDiv.clientHeight;
                 scope.blockSize = scope.determineBlockSize();
-                scope.rows = (scope.blockSize === 0) ? 0 : Math.floor(scope.height) / scope.blockSize;
+                scope.rows = (scope.blockSize === 0) ? 0 : Math.floor(scope.height / scope.blockSize);
             };
 
             $timeout(function () {
