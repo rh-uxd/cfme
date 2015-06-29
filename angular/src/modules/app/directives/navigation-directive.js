@@ -45,22 +45,23 @@ angular.module('patternfly.navigation', []).directive('pfNavigation', ['$locatio
 		templateUrl: 'modules/app/directives/templates/navigation.html',
 		
 		link: function($scope) {
-			var updatedRoute = "#" + location.path();
-
-			//Setting active state on load
-			$scope.items.forEach(function (topLevel) {
-				if (topLevel.children) {	
-					topLevel.children.forEach(function (secondLevel) {
-						if (updatedRoute.indexOf(secondLevel.href) > -1) {
-							secondLevel.class="active";
-							topLevel.class="active";
-						}
+			//wrapping this in a watcher to make sure state is set correctly
+			$scope.$watch('items', function(newVal, oldVal){
+				if (oldVal.length === 0) {
+					var updatedRoute = "#" + location.path();
+					//Setting active state on load
+					$scope.items.forEach(function (topLevel) {
+						if (topLevel.children) {	
+							topLevel.children.forEach(function (secondLevel) {
+								if (updatedRoute.indexOf(secondLevel.href) > -1) {
+									secondLevel.class="active";
+									topLevel.class="active";
+								}
+							});
+						} 
 					});
-				} 
-			});
-
-
-
+				}	
+			}, true);
 		},
 		controller: navigationController
 	};
