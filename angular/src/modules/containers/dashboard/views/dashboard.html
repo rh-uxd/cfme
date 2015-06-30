@@ -16,20 +16,21 @@
     <div class="row row-tile-pf">
         <div class="col-xs-7 col-sm-8 col-md-8">
             <div pf-tile headtitle="Utilization">
-                <div class="row">
+                <div class="row" ng-if="vm.utilizationLoadingDone">
                     <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div pf-utilization-chart config="cpuUsageConfig" data="cpuUsageData"></div>
+                        <div pf-utilization-chart config="vm.cpuUsageConfig" data="vm.cpuUsageData"></div>
                     </div>
                     <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div pf-utilization-chart config="memoryUsageConfig" data="memoryUsageData"></div>
+                        <div pf-utilization-chart config="vm.memoryUsageConfig" data="vm.memoryUsageData"></div>
                     </div>
                     <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div pf-utilization-chart config="storageUsageConfig" data="storageUsageData"></div>
+                        <div pf-utilization-chart config="vm.storageUsageConfig" data="vm.storageUsageData"></div>
                     </div>
                     <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div pf-utilization-chart config="networkUsageConfig" data="networkUsageData"></div>
+                        <div pf-utilization-chart config="vm.networkUsageConfig" data="vm.networkUsageData"></div>
                     </div>
                 </div>
+                <div ng-if="!vm.utilizationLoadingDone">Loading...</div>
             </div>
         </div>
         <div class="col-xs-5 col-sm-4 col-md-4">

@@ -15,173 +15,22 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
         });
 
         //Utilization Chart Config
-        $scope.cpuUsageConfig = chartConfig.cpuUsageConfig;
-        $scope.memoryUsageConfig = chartConfig.memoryUsageConfig;
-        $scope.storageUsageConfig = chartConfig.storageUsageConfig;
-        $scope.networkUsageConfig = chartConfig.networkUsageConfig;
+        vm.cpuUsageConfig = chartConfig.cpuUsageConfig;
+        vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
+        vm.storageUsageConfig = chartConfig.storageUsageConfig;
+        vm.networkUsageConfig = chartConfig.networkUsageConfig;
 
         //Call to get utilization data
+        vm.utilizationLoadingDone = false;
         var ContainersUtilization = $resource('/containers/dashboard/utilization');
         ContainersUtilization.get(function(data) {
             var response = data.data;
-            //$scope.cpuUsageData = response.cpuUsageData;
-            //$scope.memoryUsageData = response.memoryUsageData;
-            //$scope.storageUsageData = response.storageUsageData;
-            //$scope.networkUsageData = response.networkUsageData;
+            vm.cpuUsageData = response.cpuUsageData;
+            vm.memoryUsageData = response.memoryUsageData;
+            vm.storageUsageData = response.storageUsageData;
+            vm.networkUsageData = response.networkUsageData;
+            vm.utilizationLoadingDone = true;
         });
-
-        //ToDo - removes
-        $scope.cpuUsageData = {
-            "used": 950,
-            "total": 1000,
-            "data": [
-                712,
-                725,
-                729,
-                710,
-                740,
-                742,
-                750,
-                825,
-                829,
-                810,
-                840,
-                842,
-                850,
-                825,
-                829,
-                810,
-                940,
-                942,
-                950,
-                925,
-                929,
-                910,
-                940,
-                942,
-                950,
-                925,
-                929,
-                910,
-                940,
-                950
-            ],
-            "dates": []
-        };
-
-        $scope.memoryUsageData = {
-            used: 176,
-            total: 432,
-            data: [
-                120,
-                137,
-                168,
-                142,
-                156,
-                131,
-                176,
-                137,
-                168,
-                142,
-                156,
-                131,
-                176,
-                137,
-                168,
-                142,
-                156,
-                131,
-                176,
-                137,
-                168,
-                142,
-                156,
-                131,
-                176,
-                137,
-                168,
-                142,
-                156,
-                176
-            ],
-            dates: []
-        };
-
-        $scope.storageUsageData = {
-            used: 1.1,
-            total: 1.6,
-            data: [
-                0.3,
-                0.35,
-                0.65,
-                0.72,
-                1,
-                1.1,
-                0.35,
-                0.65,
-                0.72,
-                1,
-                1.1,
-                0.35,
-                0.65,
-                0.72,
-                1,
-                1.1,
-                0.35,
-                0.65,
-                0.72,
-                1,
-                1.1,
-                0.35,
-                0.65,
-                0.72,
-                1,
-                1.1,
-                0.35,
-                0.65,
-                0.72,
-                1.1
-            ],
-            dates: []
-        };
-
-        $scope.networkUsageData = {
-            used: 1100,
-            total: 1300,
-            data: [
-                1100,
-                1050,
-                999,
-                800,
-                1025,
-                1050,
-                1100,
-                1050,
-                900,
-                800,
-                1025,
-                1050,
-                1100,
-                1050,
-                900,
-                800,
-                1025,
-                1050,
-                1100,
-                1050,
-                900,
-                800,
-                1025,
-                1050,
-                1100,
-                1050,
-                900,
-                800,
-                1025,
-                1100
-            ],
-            dates: []
-        };
 
         $scope.containerGroupTrends = {
             creations: [
