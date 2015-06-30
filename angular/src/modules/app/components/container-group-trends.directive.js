@@ -1,5 +1,5 @@
 'use strict';
-angular.module('cfme.containersModule').directive('cfmeImageTrends', ['ChartsMixin', '$timeout', function(chartsMixin, $timeout) {
+angular.module('patternfly.pf-components').directive('cfmeGroupTrends', ['ChartsMixin', '$timeout', function(chartsMixin, $timeout) {
     return {
         restrict: 'A',
         scope: {
@@ -7,7 +7,7 @@ angular.module('cfme.containersModule').directive('cfmeImageTrends', ['ChartsMix
             id: '@'
         },
         replace: true,
-        templateUrl: 'modules/containers/components/image-creation-trends.directive.html',
+        templateUrl: 'modules/app/components/trends-chart.directive.html',
         controller: function($scope, $rootScope) {
             var me = this;
 
@@ -21,7 +21,7 @@ angular.module('cfme.containersModule').directive('cfmeImageTrends', ['ChartsMix
             var chartTooltip = function(scope) {
                 return {
                     contents: function (d) {
-                        return '<div id="image-creation-trends-tooltip">' +
+                        return '<div id="container-group-trends-tooltip">' +
                             '<table class="c3-tooltip">' +
                             '  <tbody>' +
                             '    <tr>' +
@@ -33,7 +33,7 @@ angular.module('cfme.containersModule').directive('cfmeImageTrends', ['ChartsMix
                             d[0].name + ':' +
                             '      </td>' +
                             '      <td class="value" style="white-space: nowrap;">' +
-                            d[0].value +
+                            '         +' + d[0].value + ' Container Groups'  +
                             '      </td>' +
                             '    </tr>' +
                             '    <tr">' +
@@ -42,8 +42,9 @@ angular.module('cfme.containersModule').directive('cfmeImageTrends', ['ChartsMix
                             '        <span style="background-color:' + me.chartColor.pattern[1] + '"></span>' +
                             d[1].name + ':' +
                             '      </td>' +
+                            '      </td>' +
                             '      <td class="value" style="white-space: nowrap;">' +
-                            d[1].value + ' GB'  +
+                            '         -' + d[1].value + ' Container Groups'  +
                             '      </td>' +
                             '    </tr>' +
                             '  </tbody>' +
@@ -79,29 +80,25 @@ angular.module('cfme.containersModule').directive('cfmeImageTrends', ['ChartsMix
             };
 
             $scope.getChartData = function () {
-                var totalImages = ['Images'];
-                var totalSize = ['Total Size'];
+                var creations = ['Created'];
+                var deletions = ['Deleted'];
                 var dates = ['dates'];
                 var data = this.data;
 
                 if (data)
                 {
-                    totalImages = totalImages.concat(data.totalImages);
-                    totalSize = totalSize.concat(data.totalSize);
+                    creations = creations.concat(data.creations);
+                    deletions = deletions.concat(data.deletions);
 
-                    if (data.dates && data.dates.length > 0)
-                    {
-                        for (var i = 0; i < data.dates.length; i++)
-                        {
+                    if (data.dates && data.dates.length > 0) {
+                        for (var i=0; i<data.dates.length; i++) {
                             dates.push(new Date(data.dates[i]));
                         }
                     }
-                    else
-                    {
+                    else {
                         // Use fake dates
                         var today = new Date();
-                        for (var d = data.totalImages.length - 1; d >= 0; d--)
-                        {
+                        for (var d=data.creations.length - 1; d>=0; d--) {
                             dates.push(new Date(today.getTime() - (d * 24 * 60 * 60 * 1000)));
                         }
                     }
@@ -111,13 +108,9 @@ angular.module('cfme.containersModule').directive('cfmeImageTrends', ['ChartsMix
                     x: 'dates',
                     columns: [
                         dates,
-                        totalImages,
-                        totalSize
+                        creations,
+                        deletions
                     ],
-                    axes: {
-                        'Images': 'y',
-                        'Total Size': 'y2'
-                    },
                     type: 'area'
                 };
             };
@@ -129,6 +122,7 @@ angular.module('cfme.containersModule').directive('cfmeImageTrends', ['ChartsMix
             var chartSize = {
                 height: 71
             };
+
 
             $scope.chartConfig = {
                 point:   chartPoint,

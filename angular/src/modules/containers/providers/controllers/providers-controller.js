@@ -19,45 +19,11 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             vm.providers = data.data.providers;
         });
 
-        $scope.cpuUsageConfig = {
-            chartId: 'cpuUsageChart',
-            title: 'CPU',
-            total_units: 'MHz',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
-
-        $scope.memoryUsageConfig = {
-            chartId: 'memoryUsageChart',
-            title: 'Memory',
-            total_units: 'GB',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
-
-        $scope.storageUsageConfig = {
-            chartId: 'storageUsageChart',
-            title: 'Storage',
-            total_units: 'TB',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
-        
-        $scope.networkUsageConfig = {
-            chartId: 'networkUsageChart',
-            title: 'Network',
-            total_units: 'Gbps',
-            usage_data_name: 'Used',
-            legend_left_text: 'Last 30 Days',
-            legend_right_text: '',
-            num_days: 30
-        };
+        //Utilization Chart Config
+        $scope.cpuUsageConfig = chartConfig.cpuUsageConfig;
+        $scope.memoryUsageConfig = chartConfig.memoryUsageConfig;
+        $scope.storageUsageConfig = chartConfig.storageUsageConfig;
+        $scope.networkUsageConfig = chartConfig.networkUsageConfig;
 
         $scope.cpuUsageData = {
             "used": 950,
