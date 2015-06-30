@@ -38,73 +38,13 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
             vm.utilizationLoadingDone = true;
         });
         
-        $scope.containerGroupTrends = {
-            creations: [
-                10,
-                14,
-                12,
-                20,
-                31,
-                27,
-                44,
-                36,
-                52,
-                55,
-                62,
-                68,
-                69,
-                88,
-                74,
-                72,
-                76,
-                81,
-                88,
-                97,
-                99,
-                83,
-                83,
-                80,
-                74,
-                82,
-                88,
-                87,
-                89,
-                92
-            ],
-            deletions: [
-                8,
-                2,
-                7,
-                40,
-                20,
-                44,
-                18,
-                3,
-                20,
-                33,
-                14,
-                12,
-                7,
-                19,
-                9,
-                50,
-                2,
-                7,
-                40,
-                20,
-                44,
-                18,
-                3,
-                20,
-                33,
-                14,
-                12,
-                7,
-                19,
-                9
-            ],
-            "dates": []
-        };
+        //Call to get container group trends data
+        vm.containerGroupTrendsLoadingDone = false;
+        var ContainersGroupTrends = $resource('/containers/dashboard/container-groups');
+        ContainersGroupTrends.get(function(data) {
+            vm.containerGroupTrends = data.data.containerGroupTrends;
+            vm.containerGroupTrendsLoadingDone = true;
+        });
 
         // FAKE NODE USAGE FOR NOW
         var openShiftCount = 25;

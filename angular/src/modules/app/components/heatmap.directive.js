@@ -52,9 +52,16 @@ angular.module('patternfly.pf-components').directive('pfHeatMap', ['ChartsMixin'
                 scope.redraw();
             }, 100);
 
+            scope.didInsertElement = function () {
+                updateSizes();
+                scope.redraw();
+                this.resizeNotificationService.on( 'windowResizedLowLatency',
+                    this, this.handleResize );
+            };
+
             scope.willDestroyElement = function() {
-//                this.resizeNotificationService.off( 'windowResizedLowLatency',
-//                    this, this.handleResize );
+                this.resizeNotificationService.off( 'windowResizedLowLatency',
+                    this, this.handleResize );
             };
 
             scope.handleResize = function() {
@@ -108,7 +115,7 @@ angular.module('patternfly.pf-components').directive('pfHeatMap', ['ChartsMixin'
                     .on('click', function (d) {
                         component.sendAction('click', d);
                     });
-/*
+
                 blocks
                     .each(function (d) {
                         $(this).tooltip({
@@ -118,9 +125,9 @@ angular.module('patternfly.pf-components').directive('pfHeatMap', ['ChartsMixin'
                             trigger: 'hover',
                             html: true,
                             title: d.tooltip
-                        });
+                        })
                     });
-*/
+
                 svg
                     .on('mouseleave', function () {
                         blocks

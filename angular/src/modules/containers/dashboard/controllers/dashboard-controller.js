@@ -32,141 +32,22 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
             vm.utilizationLoadingDone = true;
         });
 
-        $scope.containerGroupTrends = {
-            creations: [
-                10,
-                14,
-                12,
-                20,
-                31,
-                27,
-                44,
-                36,
-                52,
-                55,
-                62,
-                68,
-                69,
-                88,
-                74,
-                72,
-                76,
-                81,
-                88,
-                97,
-                99,
-                83,
-                83,
-                80,
-                74,
-                82,
-                88,
-                87,
-                89,
-                92
-            ],
-            deletions: [
-                8,
-                2,
-                7,
-                40,
-                20,
-                44,
-                18,
-                3,
-                20,
-                33,
-                14,
-                12,
-                7,
-                19,
-                9,
-                50,
-                2,
-                7,
-                40,
-                20,
-                44,
-                18,
-                3,
-                20,
-                33,
-                14,
-                12,
-                7,
-                19,
-                9
-            ],
-            "dates": []
-        };
 
-        $scope.imageCreations = {
-            totalImages: [
-                10,
-                14,
-                12,
-                20,
-                31,
-                27,
-                44,
-                36,
-                52,
-                55,
-                62,
-                68,
-                69,
-                88,
-                74,
-                72,
-                76,
-                81,
-                88,
-                97,
-                99,
-                83,
-                83,
-                80,
-                74,
-                82,
-                88,
-                87,
-                89,
-                92
-            ],
-            totalSize: [
-                8000,
-                2000,
-                7000,
-                40000,
-                20000,
-                44000,
-                18000,
-                3000,
-                20000,
-                30003,
-                14000,
-                12000,
-                7000,
-                19000,
-                9000,
-                50000,
-                2000,
-                7000,
-                40000,
-                20000,
-                44000,
-                18000,
-                3000,
-                20000,
-                33000,
-                14000,
-                12000,
-                7000,
-                19000,
-                9000
-            ],
-            dates: []
-        };
+        //Call to get container group trends data
+        vm.containerGroupTrendsLoadingDone = false;
+        var ContainersGroupTrends = $resource('/containers/dashboard/container-groups');
+        ContainersGroupTrends.get(function(data) {
+            vm.containerGroupTrends = data.data.containerGroupTrends;
+            vm.containerGroupTrendsLoadingDone = true;
+        });
+        
+        //Call to get image creations data
+        vm.imageCreationsLoadingDone = false;
+        var ImageCreations = $resource('/containers/dashboard/image-creations');
+        ImageCreations.get(function(data) {
+            vm.imageCreations = data.data.imageCreations;
+            vm.imageCreationsLoadingDone = true;
+        });
 
         // FAKE NODE USAGE FOR NOW
         var openShiftCount = 25;
