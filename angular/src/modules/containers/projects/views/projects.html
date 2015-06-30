@@ -19,7 +19,7 @@
             <div style="width:100%;">
                 <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
                     <div cfme-group-trends id="cgTrends"  data="vm.containerGroupTrends" ng-if="vm.containerGroupTrendsLoadingDone"></div>
-                    <div ng-if="!vm.containerGroupTrendsLoadingDone">Loading...</div>
+                    <div ng-if="!vm.containerGroupTrendsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                             <div pf-utilization-chart config="vm.networkUsageConfig" data="vm.networkUsageData"></div>
                         </div>
                     </div>
-                    <div ng-if="!vm.utilizationLoadingDone">Loading...</div>
+                    <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>
             </div>
         </div>

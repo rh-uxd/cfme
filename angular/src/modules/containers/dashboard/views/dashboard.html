@@ -30,21 +30,21 @@
                         <div pf-utilization-chart config="vm.networkUsageConfig" data="vm.networkUsageData"></div>
                     </div>
                 </div>
-                <div ng-if="!vm.utilizationLoadingDone">Loading...</div>
+                <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
             </div>
         </div>
         <div class="col-xs-5 col-sm-4 col-md-4">
             <div style="width:100%;">
                 <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
                     <div cfme-group-trends id="cgTrends"  data="vm.containerGroupTrends" ng-if="vm.containerGroupTrendsLoadingDone"></div>
-                    <div ng-if="!vm.containerGroupTrendsLoadingDone">Loading...</div>
+                    <div ng-if="!vm.containerGroupTrendsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>
                 
             </div>
             <div style="width:100%;">
                 <div pf-tile headtitle="Image Creation Trends" subtitle="Last 30 Days">
                     <div cfme-image-trends id="iamgeTrends"  data="vm.imageCreations" ng-if="vm.imageCreationsLoadingDone"></div>
-                    <div ng-if="!vm.imageCreationsLoadingDone" class="loading">Loading...</div>
+                    <div ng-if="!vm.imageCreationsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>
             </div>
         </div>
