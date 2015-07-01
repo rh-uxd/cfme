@@ -33,6 +33,7 @@
     "jquery": "~1.11.3",
     "angular-translate": "2.1.0",
     "angular-translate-loader-static-files": "2.1.0",
+    "c3": "https://github.com/masayuki0812/c3.git#0.4.11-rc1",
     "angular-chart": "https://github.com/maseh87/c3-chart.git#master"
   },
   "devDependencies": {
