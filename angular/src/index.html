@@ -13,11 +13,9 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
  
      <!-- build:css styles/css/libraries.css -->
-    <link rel="stylesheet" href="libraries/rcue/dist/css/rcue.min.css"/>
-     <!-- endbuild -->
-
-    <!-- build:css styles/css/libraries.css -->
     <link rel="stylesheet" href="libraries/patternfly/dist/css/patternfly.min.css"/>
+    <link rel="stylesheet" href="libraries/rcue/dist/css/rcue.min.css"/>
+    <link rel="stylesheet" href="libraries/c3/c3.css" >
     <!-- endbuild -->
 
     <!-- build:css styles/css/app.css -->
@@ -99,7 +97,8 @@
 <script src="libraries/patternfly/components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="libraries/angular-translate/angular-translate.min.js"></script>
 <script src="libraries/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-<script src="libraries/angular-chart/dist/c3-chart.js"></script>
+<script src="libraries/d3/d3.js"></script>
+<script src="libraries/c3/c3.js"></script>
 <!-- endbuild -->
 
 <!-- build:js js/app.js -->
@@ -111,6 +110,7 @@
 <script src="modules/app/mixins/charts-mixin.js"></script>
 
 <script src="modules/app/components/components-config.js"></script>
+<script src="modules/app/components/angular-c3.directive.js"></script>
 <script src="modules/app/components/heatmap.directive.js"></script>
 <script src="modules/app/components/heatmap-legend.directive.js"></script>
 <script src="modules/app/components/utilization-chart.directive.js"></script>

@@ -2,7 +2,6 @@ angular.module( 'cfme.appModule', [
     'ngResource',
     'ngRoute',
     'ui.bootstrap',
-    'angular-c3',
     'patternfly.navigation',
     'patternfly.pf-mixins',
     'patternfly.pf-components',
