@@ -1,8 +1,10 @@
 'use strict';
-angular.module('patternfly.pf-components').directive('cfmeImageTrends', ['ChartsMixin', '$timeout', function(chartsMixin, $timeout) {
+angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin', '$timeout', function(chartsMixin, $timeout) {
     return {
         restrict: 'A',
         scope: {
+            trendLabels: '=',
+            trendTooltipSuffixes: '=',
             data: '=',
             id: '@'
         },
@@ -11,7 +13,7 @@ angular.module('patternfly.pf-components').directive('cfmeImageTrends', ['Charts
         controller: function($scope, $rootScope) {
             var me = this;
 
-            $scope.containerId = ($scope.id || 'containerGroupTrends').trim();
+            $scope.containerId = $scope.id.trim();
             $scope.chartId = $scope.containerId + 'Chart';
 
             this.chartColor = {
@@ -21,7 +23,7 @@ angular.module('patternfly.pf-components').directive('cfmeImageTrends', ['Charts
             var chartTooltip = function(scope) {
                 return {
                     contents: function (d) {
-                        return '<div id="image-creation-trends-tooltip">' +
+                        return '<div id="container-group-trends-tooltip">' +
                             '<table class="c3-tooltip">' +
                             '  <tbody>' +
                             '    <tr>' +
@@ -33,7 +35,7 @@ angular.module('patternfly.pf-components').directive('cfmeImageTrends', ['Charts
                             d[0].name + ':' +
                             '      </td>' +
                             '      <td class="value" style="white-space: nowrap;">' +
-                            d[0].value +
+                            '         +' + d[0].value + " " + scope.trendTooltipSuffixes[0] +
                             '      </td>' +
                             '    </tr>' +
                             '    <tr">' +
@@ -43,7 +45,7 @@ angular.module('patternfly.pf-components').directive('cfmeImageTrends', ['Charts
                             d[1].name + ':' +
                             '      </td>' +
                             '      <td class="value" style="white-space: nowrap;">' +
-                            d[1].value + ' GB'  +
+                            '         -' + d[1].value + " " + scope.trendTooltipSuffixes[1] +
                             '      </td>' +
                             '    </tr>' +
                             '  </tbody>' +
@@ -79,47 +81,59 @@ angular.module('patternfly.pf-components').directive('cfmeImageTrends', ['Charts
             };
 
             $scope.getChartData = function () {
-                var totalImages = ['Images'];
-                var totalSize = ['Total Size'];
+                var id = $scope.id.trim();
+                var trend_1 = [$scope.trendLabels[0]];
+                var trend_2 = [$scope.trendLabels[1]];
                 var dates = ['dates'];
                 var data = this.data;
 
                 if (data)
                 {
-                    totalImages = totalImages.concat(data.totalImages);
-                    totalSize = totalSize.concat(data.totalSize);
+                    var dateLength = 0;
+                    var keys = [];
+                    for (var key in data){
+                        keys.push(key);
+                    }
 
-                    if (data.dates && data.dates.length > 0)
-                    {
-                        for (var i = 0; i < data.dates.length; i++)
-                        {
+                    trend_1 = trend_1.concat(data[keys[0]]);
+                    trend_2 = trend_2.concat(data[keys[1]]);
+                    dateLength = data[keys[0]].length;
+
+                    if (data.dates && data.dates.length > 0) {
+                        for (var i=0; i<data.dates.length; i++) {
                             dates.push(new Date(data.dates[i]));
                         }
                     }
-                    else
-                    {
+                    else {
                         // Use fake dates
                         var today = new Date();
-                        for (var d = data.totalImages.length - 1; d >= 0; d--)
-                        {
+                        for (var d=dateLength - 1; d>=0; d--) {
                             dates.push(new Date(today.getTime() - (d * 24 * 60 * 60 * 1000)));
                         }
                     }
                 }
 
-                return {
+                var retVal = {
                     x: 'dates',
                     columns: [
                         dates,
-                        totalImages,
-                        totalSize
+                        trend_1,
+                        trend_2
                     ],
-                    axes: {
-                        'Images': 'y',
-                        'Total Size': 'y2'
-                    },
                     type: 'area'
                 };
+
+                // seems like a hack, but I don't know c3 well enough to
+                // make this generic
+                if (id === "imageTrends") {
+                    var axes = {};
+                    var imgs = $scope.trendLabels[0];
+                    var totSize = $scope.trendLabels[1];
+                    axes[imgs] = 'y';
+                    axes[totSize] = 'y2';
+                    retVal.axes = axes;
+                }
+                return retVal;
             };
 
             var chartPoint = {
@@ -129,6 +143,7 @@ angular.module('patternfly.pf-components').directive('cfmeImageTrends', ['Charts
             var chartSize = {
                 height: 71
             };
+
 
             $scope.chartConfig = {
                 point:   chartPoint,
