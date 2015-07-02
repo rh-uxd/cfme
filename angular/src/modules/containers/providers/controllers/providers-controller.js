@@ -44,7 +44,9 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             vm.containerGroupTrends = data.data.containerGroupTrends;
             vm.containerGroupTrendsLoadingDone = true;
         });
-        
+        vm.containerGroupTrendLabels = ['Created','Deleted'];
+        vm.containerGroupTrendTooltipSuffixes =['Container Group','Container Group'];
+
         //Call to get image creations data
         vm.imageCreationsLoadingDone = false;
         var ImageCreations = $resource('/containers/dashboard/image-creations');
@@ -52,6 +54,8 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             vm.imageCreations = data.data.imageCreations;
             vm.imageCreationsLoadingDone = true;
         });
+        vm.imageCreationsTrendLabels = ['Images','Total Size'];
+        vm.imageCreationsTrendTooltipSuffixes =['','GB'];
 
         // FAKE NODE USAGE FOR NOW
         var openShiftCount = 25;

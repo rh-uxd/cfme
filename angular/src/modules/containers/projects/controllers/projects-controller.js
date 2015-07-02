@@ -38,13 +38,15 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
             vm.utilizationLoadingDone = true;
         });
         
-        //Call to get container group trends data
+       //Call to get container group trends data
         vm.containerGroupTrendsLoadingDone = false;
         var ContainersGroupTrends = $resource('/containers/dashboard/container-groups');
         ContainersGroupTrends.get(function(data) {
             vm.containerGroupTrends = data.data.containerGroupTrends;
             vm.containerGroupTrendsLoadingDone = true;
         });
+        vm.containerGroupTrendLabels = ['Created','Deleted'];
+        vm.containerGroupTrendTooltipSuffixes =['Container Group','Container Group'];
 
         // FAKE NODE USAGE FOR NOW
         var openShiftCount = 25;
