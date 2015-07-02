@@ -42,7 +42,7 @@ angular.module('patternfly.navigation', []).directive('pfNavigation', ['$locatio
 			items: '='
 		},
 		replace: true,
-		templateUrl: 'modules/app/directives/templates/navigation.html',
+		templateUrl: 'modules/app/directives/navigation/navigation.html',
 		
 		link: function($scope) {
 			//wrapping this in a watcher to make sure state is set correctly

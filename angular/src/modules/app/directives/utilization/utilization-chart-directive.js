@@ -9,7 +9,7 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['Cha
             sparkline_config: '='
         },
         replace: true,
-        templateUrl: 'modules/app/components/utilization-chart.directive.html',
+        templateUrl: 'modules/app/directives/utilization/utilization-chart.html',
         controller: function($scope, $rootScope) {
 
             if ($scope.data.available === undefined) {

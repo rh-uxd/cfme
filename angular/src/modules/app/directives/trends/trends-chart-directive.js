@@ -9,7 +9,7 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
             id: '@'
         },
         replace: true,
-        templateUrl: 'modules/app/components/trends-chart.directive.html',
+        templateUrl: 'modules/app/directives/trends/trends-chart.html',
         controller: function($scope, $rootScope) {
             var me = this;
 

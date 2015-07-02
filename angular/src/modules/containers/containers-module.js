@@ -12,12 +12,12 @@ angular.module( 'cfme.containersModule', ['cfme.containers.dashboardModule', 'cf
                 controllerAs: 'vm'
              })
             .when('/containers/providers', {
-           		templateUrl: 'modules/containers/providers/views/providers.html',
+           		templateUrl: 'modules/containers/providers/views/providers-tile.html',
                 controller: 'containers.providersController',
                 controllerAs: 'vm'
              })
              .when('/containers/providers/:id', {
-           		templateUrl: 'modules/containers/providers/views/providers.html',
+           		templateUrl: 'modules/containers/providers/views/providers-tile.html',
                 controller: 'containers.providersController',
                 controllerAs: 'vm'
              })

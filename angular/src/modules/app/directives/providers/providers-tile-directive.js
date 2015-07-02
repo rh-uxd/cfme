@@ -4,6 +4,6 @@
             scope: {
                 providers: '=providers'
             },
-            templateUrl: 'modules/app/components/providers.html'
+            templateUrl: 'modules/app/directives/providers/providers-tile.html'
         };
     });

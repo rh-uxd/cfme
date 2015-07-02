@@ -5,6 +5,6 @@
                 objectType: '=type',
                 url: '='
             },
-            templateUrl: 'modules/app/components/objStatus.html'
+            templateUrl: 'modules/app/directives/objectstatus/object-status-tile.html'
         };
     });

@@ -6,6 +6,6 @@ angular.module( 'patternfly.pf-components' ).directive('pfTile', function() {
             headtitle: '@',
             subtitle: '@'
         },
-        templateUrl: 'modules/app/components/tile.directive.html'
+        templateUrl: 'modules/app/directives/tile/tile.html'
     };
 });
