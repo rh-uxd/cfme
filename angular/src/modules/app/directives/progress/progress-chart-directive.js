@@ -8,7 +8,7 @@ angular.module('patternfly.pf-components' ).directive('pfPercentageUsed', functi
         	charts: '=',
         },
         replace: true,
-        templateUrl: 'modules/app/components/progress-chart.html',
+        templateUrl: 'modules/app/directives/progress/progress-chart.html',
         link: function($scope) {
         	
             $scope.$watch('charts', function(newVal, oldVal){

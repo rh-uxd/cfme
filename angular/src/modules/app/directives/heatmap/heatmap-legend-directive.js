@@ -6,7 +6,7 @@ angular.module('patternfly.pf-components').directive('pfHeatMapLegend', ['Charts
             legend: '='
         },
         replace: true,
-        templateUrl: 'modules/app/components/heatmap-legend.html',
+        templateUrl: 'modules/app/directives/heatmap/heatmap-legend.html',
         controller: function ($scope, $rootScope) {
             var items = [];
             var legendColors = chartsMixin.getDefaultHeatmapColorPattern();
