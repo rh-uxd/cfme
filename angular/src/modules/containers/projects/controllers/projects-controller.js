@@ -48,24 +48,42 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
         vm.containerGroupTrendLabels = ['Created','Deleted'];
         vm.containerGroupTrendTooltipSuffixes =['Container Group','Container Group'];
 
-        // FAKE NODE USAGE FOR NOW
-        var openShiftCount = 25;
-        var kubernetesCount = 27;
-        $scope.nodeCpuUsage = {
-            data: randomizeData(openShiftCount, kubernetesCount)
-        };
-        $scope.nodeMemoryUsage = {
-            data: randomizeData(openShiftCount, kubernetesCount)
-        };
-        $scope.nodeStorageUsage = {
-            data: randomizeData(openShiftCount, kubernetesCount)
-        };
-        $scope.nodeNetworkUsage = {
-            data: randomizeData(openShiftCount, kubernetesCount)
-        };
+        // HeatMaps
 
-        $scope.nodeHeatMapUsageLegendLabels = ['< 70%', '70-80%' ,'80-90%', '> 90%'];
-        $scope.nodeHeatMapNetworkLegendLabels = ['Very High','High','Low', 'Very Low'];
+        //Call to get node cpu usage data
+        vm.nodeCpuUsageLoadingDone = false;
+        var NodeCpuUsage = $resource('/containers/dashboard/node-cpu-usage');
+        NodeCpuUsage.get(function(data) {
+            vm.nodeCpuUsage = data.data.nodeCpuUsage;
+            vm.nodeCpuUsageLoadingDone = true;
+        });
+
+        //Call to get node memory usage data
+        vm.nodeMemoryUsageLoadingDone = false;
+        var NodeMemoryUsage = $resource('/containers/dashboard/node-memory-usage');
+        NodeMemoryUsage.get(function(data) {
+            vm.nodeMemoryUsage = data.data.nodeMemoryUsage;
+            vm.nodeMemoryUsageLoadingDone = true;
+        });
+
+        //Call to get node storage usage data
+        vm.nodeStorageUsageLoadingDone = false;
+        var NodeStorageUsage = $resource('/containers/dashboard/node-storage-usage');
+        NodeStorageUsage.get(function(data) {
+            vm.nodeStorageUsage = data.data.nodeStorageUsage;
+            vm.nodeStorageUsageLoadingDone = true;
+        });
+
+        //Call to get node network usage data
+        vm.nodeNetworkUsageLoadingDone = false;
+        var NodeNetworkUsage = $resource('/containers/dashboard/node-network-usage');
+        NodeNetworkUsage.get(function(data) {
+            vm.nodeNetworkUsage = data.data.nodeNetworkUsage;
+            vm.nodeNetworkUsageLoadingDone = true;
+        });
+
+        vm.nodeHeatMapUsageLegendLabels = ['< 70%', '70-80%' ,'80-90%', '> 90%'];
+        vm.nodeHeatMapNetworkLegendLabels = ['Very High','High','Low', 'Very Low'];
 
         //Get the container data
         var Quotas = $resource('/containers/projects/quotas/:id');
