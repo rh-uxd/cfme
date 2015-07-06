@@ -45,6 +45,8 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
             vm.containerGroupTrends = data.data.containerGroupTrends;
             vm.containerGroupTrendsLoadingDone = true;
         });
+        vm.containerGroupTrendLabels = ['Created','Deleted'];
+        vm.containerGroupTrendTooltipSuffixes =['Container Group','Container Group'];
 
         // FAKE NODE USAGE FOR NOW
         var openShiftCount = 25;
