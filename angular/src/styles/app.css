@@ -84,6 +84,8 @@
 }
 .tile-pf-providers .providers .count {
   margin: 0 5px;
+  text-decoration: none;
+  color: #000000;
 }
 .tile-pf-providers .providers .provider-icon {
   font-size: 28px;
