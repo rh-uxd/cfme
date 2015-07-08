@@ -1,0 +1,47 @@
+<div pf-tile headtitle="Utilization By Nodes">
+    <div class="container-heatmap-body">
+        <div class="row">
+            <div class="col-xs-18 col-sm-9 col-md-9 usage-heatmap-body flex-vertical-container">
+                <div>
+                    <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                        <h3 class="h4 count-title">CPU</h3>
+                        <div id="nodeCpuUsage" style="width:100%; height:180px;">
+                            <div pf-heat-map data="vm.nodeCpuUsage" parentid="nodeCpuUsage"
+                                 ng-if="vm.nodeCpuUsageLoadingDone"></div>
+                        </div>
+                        <div ng-if="!vm.nodeCpuUsageLoadingDone" class="spinner spinner-lg loading"></div>
+                    </div>
+                    <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                        <h3 class="h4 count-title">Memory</h3>
+                        <div id="nodeMemoryUsage" style="width:100%; height:180px;">
+                            <div pf-heat-map data="vm.nodeMemoryUsage" parentid="nodeMemoryUsage"
+                                 ng-if="vm.nodeMemoryUsageLoadingDone"></div>
+                        </div>
+                        <div ng-if="!vm.nodeMemoryUsageLoadingDone" class="spinner spinner-lg loading"></div>
+                    </div>
+                    <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                        <h3 class="h4 count-title">Storage</h3>
+                        <div id="nodeStorageUsage" style="width:100%; height:180px;">
+                            <div pf-heat-map data="vm.nodeStorageUsage" parentid="nodeStorageUsage"
+                                 ng-if="vm.nodeStorageUsageLoadingDone"></div>
+                        </div>
+                        <div ng-if="!vm.nodeStorageUsageLoadingDone" class="spinner spinner-lg loading"></div>
+                    </div>
+                </div>
+                <div class="col-xs-16 col-sm-8 col-md-8">
+                    <div pf-heat-map-legend legend="vm.nodeHeatMapUsageLegendLabels"></div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-3 container-heatmap-tile network-heatmap-body flex-vertical-container">
+                <h3 class="h4 count-title">Network</h3>
+                <div id="nodeNetworkUsage" style="width:100%; height:180px;">
+                    <div pf-heat-map data="vm.nodeNetworkUsage" parentid="nodeNetworkUsage"
+                         ng-if="vm.nodeNetworkUsageLoadingDone"></div>
+                </div>
+                <div ng-if="!vm.nodeNetworkUsageLoadingDone" class="spinner spinner-lg loading"></div>
+                <div style="height:5px"></div>
+                <div pf-heat-map-legend legend="vm.nodeHeatMapNetworkLegendLabels"></div>
+            </div>
+        </div>
+    </div>
+</div>
