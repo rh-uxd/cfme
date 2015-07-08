@@ -26,7 +26,7 @@ describe.txt
 ##Framework Ignores
 #angular/src/styles/app.css
 appModuleTemplates.js
-*/dist
+ember/dist
 ember/tmp/
 ember/app.css
 ember/app.css.map
