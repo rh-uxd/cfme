@@ -286,6 +286,12 @@ module.exports = function( grunt ) {
                 src: ['modules/templates/appModuleTemplates.js'],
                 dest: 'dist'
             },
+            mockdata: {
+                expand: true,
+                cwd: 'mock_data',
+                src: ['**'],
+                dest: 'dist'
+            },
         },
 
         // grunt-karma plugin settings

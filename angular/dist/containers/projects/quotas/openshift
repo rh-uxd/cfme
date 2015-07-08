@@ -1,0 +1,24 @@
+{
+   "data":[
+      {
+         "title":"CPU",
+         "start":"25",
+         "end":"46"
+      },
+      {
+         "title":"Memory",
+         "start":"8",
+         "end":"16"
+      },
+      {
+         "title":"Container Groups",
+         "start":"5",
+         "end":"8"
+      },
+      {
+         "title":"Services",
+         "start":"2",
+         "end":"2"
+      }
+   ]
+}

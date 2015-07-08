@@ -1,5 +1,5 @@
 
-angular.module('patternfly.pf-components' ).directive('pfPercentageUsed', function($timeout) {
+angular.module('patternfly.pf-components' ).directive('pfPercentageUsed', ['$timeout', function($timeout) {
 	'use strict';
 
     return {
@@ -28,4 +28,4 @@ angular.module('patternfly.pf-components' ).directive('pfPercentageUsed', functi
             });
         }
     };
-});
+}]);

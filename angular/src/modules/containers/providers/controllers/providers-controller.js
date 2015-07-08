@@ -1,5 +1,5 @@
 angular.module('cfme.containers.providersModule').controller('containers.providersController', ['$scope','$translate', '$resource', '$routeParams',
-    function( $scope, $translate, $resource, $routeParams, panelValidation ) {
+    function( $scope, $translate, $resource, $routeParams ) {
         'use strict';
 
         // stash a ref to the controller object, and the various parent objects

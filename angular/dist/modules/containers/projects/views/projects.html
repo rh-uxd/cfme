@@ -1,0 +1,109 @@
+<div class="container-fluid container-tiles-pf">
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+        <li class="active"><a href="#/containers/dashboard">Projects</a></li>
+        <li>
+            {{ vm.navigaition }}
+        </li>
+   </ol>
+    <div class="row row-tile-pf" >
+        <div class="col-xs-7 col-sm-8 col-md-8">
+             <div class="row">
+                <div class="pf-obj-status-large">
+                    <div class="col-xs-6 col-sm-3 col-md-4" ng-repeat="widget in vm.status_widgets"> 
+                        <div pf-obj-status type="widget"></div>
+                    </div>
+                </div>
+            </div><!-- /row -->
+        </div>
+        <div class="col-xs-5 col-sm-4 col-md-4">
+            <div style="width:100%;">
+                <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
+                    <div cfme-trends id="cgTrends" trend-labels="vm.containerGroupTrendLabels"
+                         trend-tooltip-suffixes="vm.containerGroupTrendTooltipSuffixes"
+                         data="vm.containerGroupTrends" ng-if="vm.containerGroupTrendsLoadingDone"></div>
+                    <div ng-if="!vm.containerGroupTrendsLoadingDone" class="spinner spinner-lg loading"></div>
+                </div>
+                
+            </div>
+        </div>
+    </div><!-- /row -->
+    <div class="row row-tile-pf">
+        <div class="col-xs-7 col-sm-8 col-md-8">
+            <div class="tile-pf">
+                <div class="tile-pf-heading">
+                    <h2 class="tile-pf-title">Utilization</h2>
+                </div>
+                <div class="tile-pf-body">
+                    <div class="row" ng-if="vm.utilizationLoadingDone">
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                            <div pf-utilization-chart config="vm.cpuUsageConfig" data="vm.cpuUsageData"></div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                            <div pf-utilization-chart config="vm.memoryUsageConfig" data="vm.memoryUsageData"></div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                            <div pf-utilization-chart config="vm.storageUsageConfig" data="vm.storageUsageData"></div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3">
+                            <div pf-utilization-chart config="vm.networkUsageConfig" data="vm.networkUsageData"></div>
+                        </div>
+                    </div>
+                    <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5 col-sm-4 col-md-4">
+            <div class="tile-pf">
+                <div class="tile-pf-heading">
+                    <h2 class="tile-pf-title">Quotas</h2>
+                </div>
+                <div class="tile-pf-body">
+                    <div pf-percentage-used charts="vm.quotas"></div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /row -->
+     <div class="row row-tile-pf row-tile-pf-last">
+        <div class="col-md-12">
+            <div pf-tile headtitle="Utilization By Nodes">
+                <div class="container-heatmap-body">
+                    <div class="row">
+                        <div class="col-xs-18 col-sm-9 col-md-9 usage-heatmap-body flex-vertical-container">
+                            <div>
+                                <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                                    <h3 class="h4 count-title">CPU</h3>
+                                    <div id="nodeCpuUsage" style="width:100%; height:180px;">
+                                        <div pf-heat-map data="nodeCpuUsage.data" parentid="nodeCpuUsage"></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                                    <h3 class="h4 count-title">Memory</h3>
+                                    <div id="nodeMemoryUsage" style="width:100%; height:180px;">
+                                        <div pf-heat-map data="nodeMemoryUsage.data" parentid="nodeMemoryUsage"></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-8 col-sm-4 col-md-4 container-heatmap-tile">
+                                    <h3 class="h4 count-title">Storage</h3>
+                                    <div id="nodeStorageUsage" style="width:100%; height:180px;">
+                                        <div pf-heat-map data="nodeStorageUsage.data" parentid="nodeStorageUsage"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-16 col-sm-8 col-md-8">
+                                <div pf-heat-map-legend legend="nodeHeatMapUsageLegendLabels"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-md-3 container-heatmap-tile network-heatmap-body flex-vertical-container">
+                            <h3 class="h4 count-title">Network</h3>
+                            <div id="nodeNetworkUsage" style="width:100%; height:180px;">
+                                <div pf-heat-map data="nodeNetworkUsage.data" parentid="nodeNetworkUsage"></div>
+                            </div>
+                            <div style="height:5px"></div>
+                            <div pf-heat-map-legend legend="nodeHeatMapNetworkLegendLabels"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /container -->

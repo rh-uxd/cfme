@@ -1,5 +1,6 @@
 
-angular.module( 'cfme.containersModule', ['cfme.containers.dashboardModule', 'cfme.containers.providersModule', 'cfme.containers.projectsModule']).config(function ($routeProvider) {
+angular.module( 'cfme.containersModule', ['cfme.containers.projectsModule', 'cfme.containers.providersModule', 'cfme.containers.dashboardModule'])
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
         	.when('/containers/dashboard', {
             	templateUrl: 'modules/containers/dashboard/views/dashboard.html',
@@ -21,4 +22,4 @@ angular.module( 'cfme.containersModule', ['cfme.containers.dashboardModule', 'cf
                 controller: 'containers.providersController',
                 controllerAs: 'vm'
              })
-    	});
+    	}]);

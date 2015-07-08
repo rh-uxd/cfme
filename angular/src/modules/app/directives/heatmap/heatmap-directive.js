@@ -8,7 +8,7 @@ angular.module('patternfly.pf-components').directive('pfHeatMap', ['ChartsMixin'
         },
         replace: true,
         template: '<svg style="width:100%; height: 100%;"></svg>',
-        controller: function($scope, $rootScope) {
+        controller: ['$scope', '$rootScope', function($scope, $rootScope) {
             $scope.blockPadding = chartsMixin.defaultHeatmapBlockPadding;
             $scope.heatmapColor = chartsMixin.getDefaultHeatmapColor();
             $scope.heatmapColorPattern = chartsMixin.getDefaultHeatmapColorPattern();
@@ -35,7 +35,7 @@ angular.module('patternfly.pf-components').directive('pfHeatMap', ['ChartsMixin'
 
                 return Math.max(sx, sy);
             };
-        },
+        }],
         link: function(scope, element, attrs){
             var thisComponent = element[0];
 

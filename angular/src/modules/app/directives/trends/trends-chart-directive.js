@@ -10,7 +10,7 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
         },
         replace: true,
         templateUrl: 'modules/app/directives/trends/trends-chart.html',
-        controller: function($scope, $rootScope) {
+        controller: ['$scope', '$rootScope', function($scope, $rootScope) {
             var me = this;
 
             $scope.containerId = $scope.id.trim();
@@ -154,7 +154,7 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
                 data:    $scope.getChartData()
             };
 
-        },
+        }],
 
         link: function(scope, element, attrs){
 

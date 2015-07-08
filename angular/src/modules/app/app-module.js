@@ -2,11 +2,11 @@ angular.module( 'cfme.appModule', [
     'ngResource',
     'ngRoute',
     'ui.bootstrap',
+    'pascalprecht.translate',
     'patternfly.navigation',
     'patternfly.pf-mixins',
     'patternfly.pf-components',
-    'pascalprecht.translate',
-    'cfme.containersModule',
+    'cfme.containersModule'
 ] )
     .config( ['$routeProvider', '$translateProvider',
               function( $routeProvider, $translateProvider ) {

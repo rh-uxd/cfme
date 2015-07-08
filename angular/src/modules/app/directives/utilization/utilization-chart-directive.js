@@ -10,7 +10,7 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['Cha
         },
         replace: true,
         templateUrl: 'modules/app/directives/utilization/utilization-chart.html',
-        controller: function($scope, $rootScope) {
+        controller: ['$scope', '$rootScope', function($scope, $rootScope) {
 
             if ($scope.data.available === undefined) {
                 $scope.data.available = $scope.data.total - $scope.data.used;
@@ -172,7 +172,7 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['Cha
             $scope.config.sparkline_config = $.extend(true, angular.copy($scope.defaultSparklineConfig), $scope.config.sparkline_config);
             $scope.config.sparkline_config.data = $scope.getSparklineData($scope);
 
-        },
+        }],
 
         link: function(scope, element, attrs){
 

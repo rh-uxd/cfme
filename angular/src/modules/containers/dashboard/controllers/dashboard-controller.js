@@ -1,5 +1,5 @@
 angular.module('cfme.containers.dashboardModule').controller('containers.dashboardController', ['$scope','$translate', '$resource',
-    function( $scope, $translate, $resource, panelValidation ) {
+    function( $scope, $translate, $resource ) {
         'use strict';
 
         // stash a ref to the controller object, and the various parent objects
