@@ -34,5 +34,13 @@ var chartConfig = {
         'legend_left_text': 'Last 30 Days',
         'legend_right_text': '',
         'num_days': 30
+    },
+    'containerGroupTrendConfig': {
+        'labels': ['Created','Deleted'],
+        'tooltipSuffixes': ['Container Group','Container Group']
+    },
+    'imageCreationsTrendConfig': {
+        'labels': ['Images','Total Size'],
+        'tooltipSuffixes': ['','GB']
     }
 }

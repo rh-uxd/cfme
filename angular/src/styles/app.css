@@ -61,6 +61,14 @@
   text-align: center;
   line-height: 28px;
 }
+.tile-pf-status a {
+  color: #000000;
+  text-decoration: none;
+}
+.tile-pf-status a:hover {
+  color: #00618a;
+  text-decoration: underline;
+}
 .tile-pf-status .indicator {
   font-size: 20px;
 }
@@ -82,10 +90,16 @@
 .tile-pf-providers .providers {
   padding-top: 20px;
 }
+.tile-pf-providers .providers a {
+  color: #000000;
+  text-decoration: none;
+}
+.tile-pf-providers .providers a:hover {
+  color: #00618a;
+  text-decoration: underline;
+}
 .tile-pf-providers .providers .count {
   margin: 0 5px;
-  text-decoration: none;
-  color: #000000;
 }
 .tile-pf-providers .providers .provider-icon {
   font-size: 28px;

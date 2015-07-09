@@ -104,16 +104,19 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['Cha
                             '</div>';
                     },
                     position: function (data, width, height, element) {
-                        var center = parseInt(element.getAttribute('x'));
-                        var top = parseInt(element.getAttribute('y'));
-                        var chartBox = document.querySelector("#sparklineChart").getBoundingClientRect();
-                        var graphOffsetX = document.querySelector("#sparklineChart g.c3-axis-y").getBoundingClientRect().right;
+                        try {
+                            var center = parseInt(element.getAttribute('x'));
+                            var top = parseInt(element.getAttribute('y'));
+                            var chartBox = document.querySelector("#sparklineChart").getBoundingClientRect();
+                            var graphOffsetX = document.querySelector("#sparklineChart g.c3-axis-y").getBoundingClientRect().right;
 
-                        var x = Math.max(0, center + graphOffsetX - chartBox.left - Math.floor(width / 2));
-                        x = Math.min(x, chartBox.width - width);
-                        var y = top - height;
+                            var x = Math.max(0, center + graphOffsetX - chartBox.left - Math.floor(width / 2));
+                            x = Math.min(x, chartBox.width - width);
+                            var y = top - height;
 
-                        return {top: y, left: x};
+                            return {top: y, left: x};
+                        }
+                        catch (TypeError){};
                     }
                 };
             };

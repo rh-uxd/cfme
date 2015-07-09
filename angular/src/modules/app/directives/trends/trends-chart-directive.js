@@ -3,8 +3,7 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
     return {
         restrict: 'A',
         scope: {
-            trendLabels: '=',
-            trendTooltipSuffixes: '=',
+            config: '=',
             data: '=',
             id: '@'
         },
@@ -35,7 +34,7 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
                             d[0].name + ':' +
                             '      </td>' +
                             '      <td class="value" style="white-space: nowrap;">' +
-                            '         +' + d[0].value + " " + scope.trendTooltipSuffixes[0] +
+                            '         +' + d[0].value + " " + scope.config.tooltipSuffixes[0] +
                             '      </td>' +
                             '    </tr>' +
                             '    <tr">' +
@@ -45,7 +44,7 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
                             d[1].name + ':' +
                             '      </td>' +
                             '      <td class="value" style="white-space: nowrap;">' +
-                            '         -' + d[1].value + " " + scope.trendTooltipSuffixes[1] +
+                            '         -' + d[1].value + " " + scope.config.tooltipSuffixes[1] +
                             '      </td>' +
                             '    </tr>' +
                             '  </tbody>' +
@@ -82,8 +81,8 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
 
             $scope.getChartData = function () {
                 var id = $scope.id.trim();
-                var trend_1 = [$scope.trendLabels[0]];
-                var trend_2 = [$scope.trendLabels[1]];
+                var trend_1 = [$scope.config.labels[0]];
+                var trend_2 = [$scope.config.labels[1]];
                 var dates = ['dates'];
                 var data = this.data;
 
@@ -127,8 +126,8 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
                 // make this generic
                 if (id === "imageTrends") {
                     var axes = {};
-                    var imgs = $scope.trendLabels[0];
-                    var totSize = $scope.trendLabels[1];
+                    var imgs = $scope.config.labels[0];
+                    var totSize = $scope.config.labels[1];
                     axes[imgs] = 'y';
                     axes[totSize] = 'y2';
                     retVal.axes = axes;

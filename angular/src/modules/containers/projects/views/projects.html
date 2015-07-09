@@ -18,8 +18,7 @@
         <div class="col-xs-5 col-sm-4 col-md-4">
             <div style="width:100%;">
                 <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
-                    <div cfme-trends id="cgTrends" trend-labels="vm.containerGroupTrendLabels"
-                         trend-tooltip-suffixes="vm.containerGroupTrendTooltipSuffixes"
+                    <div cfme-trends id="cgTrends" config="vm.containerGroupTrendConfig"
                          data="vm.containerGroupTrends" ng-if="vm.containerGroupTrendsLoadingDone"></div>
                     <div ng-if="!vm.containerGroupTrendsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>
