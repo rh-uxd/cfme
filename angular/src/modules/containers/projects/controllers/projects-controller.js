@@ -39,14 +39,14 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
         });
         
        //Call to get container group trends data
+        vm.containerGroupTrendConfig = chartConfig.containerGroupTrendConfig;
+
         vm.containerGroupTrendsLoadingDone = false;
         var ContainersGroupTrends = $resource('/containers/dashboard/container-groups');
         ContainersGroupTrends.get(function(data) {
             vm.containerGroupTrends = data.data.containerGroupTrends;
             vm.containerGroupTrendsLoadingDone = true;
         });
-        vm.containerGroupTrendLabels = ['Created','Deleted'];
-        vm.containerGroupTrendTooltipSuffixes =['Container Group','Container Group'];
 
         // HeatMaps
 

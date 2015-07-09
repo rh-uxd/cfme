@@ -38,14 +38,16 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         });
 
         //Call to get container group trends data
+
+        vm.containerGroupTrendConfig = chartConfig.containerGroupTrendConfig;
+        vm.imageCreationsTrendConfig = chartConfig.imageCreationsTrendConfig;
+
         vm.containerGroupTrendsLoadingDone = false;
         var ContainersGroupTrends = $resource('/containers/dashboard/container-groups');
         ContainersGroupTrends.get(function(data) {
             vm.containerGroupTrends = data.data.containerGroupTrends;
             vm.containerGroupTrendsLoadingDone = true;
         });
-        vm.containerGroupTrendLabels = ['Created','Deleted'];
-        vm.containerGroupTrendTooltipSuffixes =['Container Group','Container Group'];
 
         //Call to get image creations data
         vm.imageCreationsLoadingDone = false;
@@ -54,8 +56,6 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             vm.imageCreations = data.data.imageCreations;
             vm.imageCreationsLoadingDone = true;
         });
-        vm.imageCreationsTrendLabels = ['Images','Total Size'];
-        vm.imageCreationsTrendTooltipSuffixes =['','GB'];
 
         // HeatMaps
 
