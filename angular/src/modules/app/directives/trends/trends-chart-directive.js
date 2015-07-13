@@ -5,12 +5,17 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
         scope: {
             config: '=',
             data: '=',
+            chartHeight: '=',
             id: '@'
         },
         replace: true,
         templateUrl: 'modules/app/directives/trends/trends-chart.html',
         controller: ['$scope', '$rootScope', function($scope, $rootScope) {
             var me = this;
+
+            if ($scope.chartHeight === undefined) {
+                $scope.chartHeight = 71;
+            }
 
             $scope.containerId = $scope.id.trim();
             $scope.chartId = $scope.containerId + 'Chart';
@@ -140,7 +145,7 @@ angular.module('patternfly.pf-components').directive('cfmeTrends', ['ChartsMixin
             };
 
             var chartSize = {
-                height: 71
+                height: $scope.chartHeight
             };
 
 
