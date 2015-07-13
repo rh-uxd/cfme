@@ -1,30 +1,22 @@
 <div class="container-fluid container-tiles-pf">
     <ol class="breadcrumb" style="margin-bottom: 0px;">
-        <li class="active"><a href="#/containers/dashboard">Projects</a></li>
+        <li class="active"><a href="#/containers/dashboard">Container Providers</a></li>
         <li>
             {{ vm.navigaition }}
         </li>
    </ol>
     <div class="row row-tile-pf" >
-        <div class="col-xs-7 col-sm-8 col-md-8">
-             <div class="row">
-                <div class="pf-obj-status-large">
-                    <div class="col-xs-6 col-sm-3 col-md-4" ng-repeat="widget in vm.status_widgets"> 
+        <div class="col-xs-6 col-sm-4 col-md-2">
+            <div pf-provider-tile providers="vm.providers"></div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-10">
+            <div class="row">
+                <div>
+                    <div class="col-xs-6 col-sm-6 col-md-3" ng-repeat="widget in vm.status_widgets">
                         <div pf-obj-status type="widget"></div>
                     </div>
                 </div>
             </div><!-- /row -->
-        </div>
-        <div class="col-xs-5 col-sm-4 col-md-4">
-            <div style="width:100%;">
-                <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
-                    <div cfme-trends id="cgTrends" trend-labels="vm.containerGroupTrendLabels"
-                         trend-tooltip-suffixes="vm.containerGroupTrendTooltipSuffixes"
-                         data="vm.containerGroupTrends" ng-if="vm.containerGroupTrendsLoadingDone"></div>
-                    <div ng-if="!vm.containerGroupTrendsLoadingDone" class="spinner spinner-lg loading"></div>
-                </div>
-                
-            </div>
         </div>
     </div><!-- /row -->
     <div class="row row-tile-pf">
@@ -53,17 +45,23 @@
             </div>
         </div>
         <div class="col-xs-5 col-sm-4 col-md-4">
-            <div class="tile-pf">
-                <div class="tile-pf-heading">
-                    <h2 class="tile-pf-title">Quotas</h2>
-                </div>
-                <div class="tile-pf-body">
-                    <div pf-percentage-used charts="vm.quotas"></div>
+           <div style="width:100%;">
+                <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
+                    <div cfme-trends id="cgTrends" config="vm.containerGroupTrendConfig" chart-height="116"
+                         data="vm.containerGroupTrends" ng-if="vm.containerGroupTrendsLoadingDone"></div>
+                    <div ng-if="!vm.containerGroupTrendsLoadingDone" class="spinner spinner-lg loading"></div>
+                </div>               
+            </div>
+            <div style="width:100%;">
+                <div pf-tile headtitle="Image Creation Trends" subtitle="Last 30 Days">
+                    <div cfme-trends id="imageTrends" config="vm.imageCreationsTrendConfig" chart-height="116"
+                         data="vm.imageCreations" ng-if="vm.imageCreationsLoadingDone"></div>
+                    <div ng-if="!vm.imageCreationsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>
             </div>
         </div>
     </div><!-- /row -->
-     <div class="row row-tile-pf row-tile-pf-last">
+    <div class="row row-tile-pf row-tile-pf-last">
         <div class="col-md-12">
             <ng-include src="'modules/containers/partials/heatmaps.html'"></ng-include>
         </div>
