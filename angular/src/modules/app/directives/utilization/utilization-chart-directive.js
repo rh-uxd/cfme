@@ -13,7 +13,7 @@ angular.module('patternfly.pf-components').directive('pfUtilizationChart', ['Cha
             if ($scope.data.available === undefined) {
                 $scope.data.available = $scope.data.total - $scope.data.used;
             }
-            $scope.config.available_units = $scope.config.available_units || $scope.total_units;
+            $scope.config.availableUnits = $scope.config.availableUnits || $scope.totalUnits;
         }]
 
     };
