@@ -5,7 +5,6 @@ angular.module( 'cfme.appModule', [
     'pascalprecht.translate',
     'patternfly.charts',
     'patternfly.navigation',
-    'patternfly.pf-mixins',
     'patternfly.pf-components',
     'cfme.containersModule'
 ] )

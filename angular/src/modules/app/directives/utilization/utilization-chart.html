@@ -13,12 +13,8 @@
             </div>
         </div>
     </div>
-    <div id='radial-chart-container' class="radial-chart">
-            <div c3-chart id={{radialChartId}} config="config.radial_config"></div>
-    </div>
-    <div class="sparkline-chart">
-        <div c3-chart id={{sparklineChartId}}  config="config.sparkline_config"></div>
-    </div>
+    <div pf-donut-pct-chart config="config" data="data"></div>
+    <div pf-sparkline-chart config="config" data="data"></div>
     <p class="pull-left legend-text">{{config.legend_left_text}}</p>
     <p class="pull-right legend-text">{{config.legend_right_text}}</p>
 </div>
