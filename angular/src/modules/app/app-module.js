@@ -3,6 +3,7 @@ angular.module( 'cfme.appModule', [
     'ngRoute',
     'ui.bootstrap',
     'pascalprecht.translate',
+    'patternfly.charts',
     'patternfly.navigation',
     'patternfly.pf-mixins',
     'patternfly.pf-components',
