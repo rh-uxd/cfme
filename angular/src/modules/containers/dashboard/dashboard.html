@@ -36,14 +36,14 @@
         <div class="col-xs-5 col-sm-4 col-md-4">
             <div style="width:100%;">
                 <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
-                    <div cfme-trends id="cgTrends" config="vm.containerGroupTrendConfig" chart-height="116"
+                    <div cfme-trends id="cgTrends" config="vm.containerGroupTrendConfig" chart-height="69"
                          data="vm.containerGroupTrends" ng-if="vm.containerGroupTrendsLoadingDone"></div>
                     <div ng-if="!vm.containerGroupTrendsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>               
             </div>
             <div style="width:100%;">
                 <div pf-tile headtitle="Image Creation Trends" subtitle="Last 30 Days">
-                    <div cfme-trends id="imageTrends" config="vm.imageCreationsTrendConfig"  chart-height="116"
+                    <div cfme-trends id="imageTrends" config="vm.imageCreationsTrendConfig"  chart-height="85"
                          data="vm.imageCreations" ng-if="vm.imageCreationsLoadingDone"></div>
                     <div ng-if="!vm.imageCreationsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>
