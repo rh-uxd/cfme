@@ -16,7 +16,7 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         var ContainersStatus = $resource('/containers/providers/status/:id');
         ContainersStatus.get({id: currentId}, function(data) {
             vm.status_widgets = data.data.status;
-            vm.providers = data.data.providers;
+            vm.providers = data.data.types;
         });
 
         //Utilization Chart Config

@@ -11,7 +11,7 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
         var ContainersStatus = $resource('/containers/dashboard/status');
         ContainersStatus.get(function(data) {
             vm.status_widgets = data.data.status;
-            vm.providers = data.data.providers;
+            vm.providers = data.data.types;
         });
 
         //Utilization Charts
