@@ -62,12 +62,14 @@
             {
                "iconClass":"pficon-openshift",
                "count":1,
-               "id":"openshift"
+               "id":"openshift",
+               "href":"#containers/providers/"
             },
             {
                "iconClass":"pficon-kubernetes",
                "count":2,
-               "id":"kubernetes"
+               "id":"kubernetes",
+               "href":"#containers/providers/"
             }
          ]
       }
