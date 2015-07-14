@@ -54,10 +54,10 @@
             "count":125
          }
       ],
-      "providers":{
+      "types":{
          "name":"Providers",
          "count":"1",
-         "providers":[
+         "types":[
             {
                "iconClass":"pficon-openshift",
                "count":"1"

@@ -54,10 +54,10 @@
             "count":175
          }
       ],
-      "providers":{
+      "types":{
          "name":"Providers",
          "count":"1",
-         "providers":[
+         "types":[
             {
                "iconClass":"pficon-kubernetes",
                "count":"1"

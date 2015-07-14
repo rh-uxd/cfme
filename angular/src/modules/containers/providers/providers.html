@@ -7,7 +7,7 @@
    </ol>
     <div class="row row-tile-pf" >
         <div class="col-xs-6 col-sm-4 col-md-2">
-            <div pf-provider-tile providers="vm.providers"></div>
+            <div pf-aggregate-type-card types="vm.providers"></div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10">
             <div class="row">
@@ -47,14 +47,14 @@
         <div class="col-xs-5 col-sm-4 col-md-4">
            <div style="width:100%;">
                 <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
-                    <div pf-trends id="cgTrends" config="vm.containerGroupTrendConfig" chart-height="116"
+                    <div pf-trends id="cgTrends" config="vm.containerGroupTrendConfig" chart-height="69"
                          data="vm.containerGroupTrends" ng-if="vm.containerGroupTrendsLoadingDone"></div>
                     <div ng-if="!vm.containerGroupTrendsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>               
             </div>
             <div style="width:100%;">
                 <div pf-tile headtitle="Image Creation Trends" subtitle="Last 30 Days">
-                    <div pf-trends id="imageTrends" config="vm.imageCreationsTrendConfig" chart-height="116"
+                    <div pf-trends id="imageTrends" config="vm.imageCreationsTrendConfig" chart-height="85"
                          data="vm.imageCreations" ng-if="vm.imageCreationsLoadingDone"></div>
                     <div ng-if="!vm.imageCreationsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>
