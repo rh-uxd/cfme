@@ -1,22 +1,3 @@
-<div class="utilization-chart">
-    <h3 class="h4 count-title">{{config.title}}</h3>
-    <div class="count-utilization col-xs-12">
-        <div class="available-text left col-xs-4">
-          <span>{{data.total - data.used}} {{config.available_units}}</span>
-        </div>
-        <div class="available-text right col-xs-8">
-            <div class="available-text col-xs-12 title-small title-small-upper">
-                <span>Available</span>
-            </div>
-            <div class="available-text col-xs-12 title-small title-small-lower">
-                <span> of {{data.total}} {{config.total_units}}</span>
-            </div>
-        </div>
-    </div>
-    <div pf-donut-chart config="config" data="data"></div>
-    <div class="sparkline-chart">
-        <div c3-chart id={{sparklineChartId}}  config="config.sparkline_config"></div>
-    </div>
-    <p class="pull-left legend-text">{{config.legend_left_text}}</p>
-    <p class="pull-right legend-text">{{config.legend_right_text}}</p>
+<div class="sparkline-chart">
+    <div c3-chart id={{sparklineChartId}}  config="config.sparkline_config"></div>
 </div>
