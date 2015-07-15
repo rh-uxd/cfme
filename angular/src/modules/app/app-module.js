@@ -3,9 +3,9 @@ angular.module( 'cfme.appModule', [
     'ngRoute',
     'ui.bootstrap',
     'pascalprecht.translate',
+    'patternfly',
     'patternfly.charts',
     'patternfly.navigation',
-    'patternfly.pf-components',
     'cfme.containersModule'
 ] )
     .config( ['$routeProvider', '$translateProvider',

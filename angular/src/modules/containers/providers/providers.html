@@ -21,39 +21,34 @@
     </div><!-- /row -->
     <div class="row row-tile-pf">
         <div class="col-xs-7 col-sm-8 col-md-8">
-            <div class="tile-pf">
-                <div class="tile-pf-heading">
-                    <h2 class="tile-pf-title">Utilization</h2>
-                </div>
-                <div class="tile-pf-body">
-                    <div class="row" ng-if="vm.utilizationLoadingDone">
-                        <div class="col-xs-6 col-sm-3 col-md-3">
-                            <div pf-utilization-chart config="vm.cpuUsageConfig" data="vm.cpuUsageData"></div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3">
-                            <div pf-utilization-chart config="vm.memoryUsageConfig" data="vm.memoryUsageData"></div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3">
-                            <div pf-utilization-chart config="vm.storageUsageConfig" data="vm.storageUsageData"></div>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 col-md-3">
-                            <div pf-utilization-chart config="vm.networkUsageConfig" data="vm.networkUsageData"></div>
-                        </div>
+           <div pf-card headtitle="Utilization">
+                <div class="row" ng-if="vm.utilizationLoadingDone">
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div pf-utilization-chart config="vm.cpuUsageConfig" data="vm.cpuUsageData"></div>
                     </div>
-                    <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div pf-utilization-chart config="vm.memoryUsageConfig" data="vm.memoryUsageData"></div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div pf-utilization-chart config="vm.storageUsageConfig" data="vm.storageUsageData"></div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div pf-utilization-chart config="vm.networkUsageConfig" data="vm.networkUsageData"></div>
+                    </div>
                 </div>
+                <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
             </div>
         </div>
         <div class="col-xs-5 col-sm-4 col-md-4">
            <div style="width:100%;">
-                <div pf-tile headtitle="Container Group Trends" subtitle="Last 30 Days">
+                <div pf-card headtitle="Container Group Trends" subtitle="Last 30 Days">
                     <div pf-trends id="cgTrends" config="vm.containerGroupTrendConfig" chart-height="69"
                          data="vm.containerGroupTrends" ng-if="vm.containerGroupTrendsLoadingDone"></div>
                     <div ng-if="!vm.containerGroupTrendsLoadingDone" class="spinner spinner-lg loading"></div>
                 </div>               
             </div>
             <div style="width:100%;">
-                <div pf-tile headtitle="Image Creation Trends" subtitle="Last 30 Days">
+                <div pf-card headtitle="Image Creation Trends" subtitle="Last 30 Days">
                     <div pf-trends id="imageTrends" config="vm.imageCreationsTrendConfig" chart-height="85"
                          data="vm.imageCreations" ng-if="vm.imageCreationsLoadingDone"></div>
                     <div ng-if="!vm.imageCreationsLoadingDone" class="spinner spinner-lg loading"></div>
