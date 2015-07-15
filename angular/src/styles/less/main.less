@@ -16,6 +16,10 @@
   padding-top: 125px;
 }
 
+.breadcrumb {
+  margin-top: -20px;
+}
+
 .cfme-body {
   background: #f5f5f5;
 }
@@ -23,4 +27,28 @@
 /* Override for default agg status icon color */
 .card-pf-status .card-pf-title .pficon {
   color: #1186C1 !important;
+}
+
+/* Setting height on chart */
+
+.utilization-chart {
+  height: 300px;
+}
+
+.containers-dashboard .utilization-chart, .container-providers .utilization-chart {
+  height: 354px;
+}
+
+.container-projects .card-pf-status {
+
+  .card-pf-title {
+    padding: 19px 0 30px 0;
+  }
+
+  .pficon {
+  }
+}
+
+.card-pf-providers {
+  min-height: 154px;
 }
