@@ -1,199 +1,26 @@
+.navbar-pf .navbar-primary.persistent-secondary > li > .navbar-persistent > li {
+  font-size: 12px;
+  padding-bottom: 1px;
+}
+
+.navbar-pf .navbar-primary.persistent-secondary>li>.navbar-persistent>li>a {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-pf .navbar-primary.persistent-secondary>li>.navbar-persistent>li.active .active>a {
+  color: #0099d3;
+}
+
+.pf-fixed-body {
+  padding-top: 100px;
+}
+
 .cfme-body {
   background: #f5f5f5;
 }
 
-.container-font-color {
+/* Override for default agg status icon color */
+.tile-pf-status .tile-pf-title .pficon {
   color: #1186C1 !important;
 }
-
-.object-image {
-  width: 26px;
-  height: 26px;
-}
-
-.container-heatmap-body {
-  margin: -20px 0 0 0;
-  padding: 0;
-}
-
-.container-heatmap-tile {
-  padding-top: 10px;
-}
-
-.usage-heatmap-body {
-  padding: 0;
-}
-
-.network-heatmap-body {
-  border-left: 1px solid #d1d1d1;
-}
-
-.heatmap-legend  {
-  font-size: 11px;
-  font-weight: normal;
-  line-height: 11px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  display: inline-block;
-  position: relative;
-}
-
-.heatmap-legend-container {
-  width: 100%;
-  position: relative;
-}
-
-.heatmap-legend-container ul{
-  list-style-type: none;
-}
-
-.heatmap-legend-container li{
-  display: inline;
-}
-
-.heatmap-legend .color-box {
-  width: 11px;
-  height: 11px;
-  margin-left: 5px;
-  margin-right: 5px;
-  list-style-type: none;
-  float: left;
-}
-.heatmap-legend .legend-text {
-  font-size: 11px;
-  font-weight: normal;
-  line-height: 11px;
-  padding-right: 5px;
-  list-style-type: none;
-  float: left;
-}
-
-.aggregate-status-separator {
-  width: 15px;
-}
-
-/* this is the value inside the donut */
-.utilization-chart-title-big {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 30px;
-  font-weight: lighter;
-  color: #333; }
-
-.utilization-chart .title-small {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  font-weight: normal;
-  color: #333; }
-
-.utilization-chart .title-small-upper {
-  font-size: 12px;
-  line-height: 12px;
-  margin-top: 9px; }
-
-.utilization-chart .title-small-lower {
-  font-size: 12px;
-  line-height: 14px; }
-
-.utilization-chart .available-text {
-  padding-left: 5px;
-  padding-right: 5px;
-
-  &.left {
-    text-align: right;
-  }
-
-  &.right {
-    text-align: left;
-  }
-}
-
-.utilization-chart .legend-text {
-  color: inherit;
-  display: block;
-  font-size: 11px;
-  font-weight: normal;
-  margin-left: 5px; }
-
-.utilization-chart .radial-chart {
-  width: 100%;
-  float: left;
-  padding-top: 10px;
-}
-
-.utilization-chart .sparkline-chart {
-  width: 100%;
-  float: left;
-  margin-left: -5px;
-  margin-right: -5px;
-}
-
-.quota-charts-wrapper {
-  padding-bottom: 8px;
-}
-
-.quota-chart {
-  margin-bottom: 25px;  
-}
-
-.quota-chart-bar {
-  height: 25px;
-}
-
-.quota-chart-used {
-  background-color: #0088CE;
-  height: 25px;
-  position: relative;
-  z-index: 1001;
-  -webkit-transition: width .75s ease-in-out;
-  -moz-transition: width .75s ease-in-out;
-  -o-transition: width .75s ease-in-out;
-  transition: width .75s ease-in-out;
-}
-
-.quota-chart-used.animate {
-  width: 0% !important;
-}
-
-.quota-chart-unused {
-  background-color: #D1D1D1;
-  width: 100%;
-  height: 25px;
-  position: relative;
-  top: -25px;
-  z-index: 1000;
-}
-
-.quota-chart-title {
-  font-size: 15px;
-  line-height: 15px;
-  font-weight: normal;
-  margin-bottom: 5px;
-
-  .used {
-    float: right;
-  }
-
-}
-
-.tile-pf.tile-pf-aggregate-status {
-  min-height: 0px; }
-
-.container-font-color {
-  color: #1186C1 !important; }
-
-.object-image {
-  width: 26px;
-  height: 26px; }
-
-/* Missing from Patternfly */
-
-.providers-status {
-  padding-bottom: 9px !important; }
-
-.pf-obj-status-large {
-  .tile-pf-title {
-    padding-top: 10px;
-    padding-bottom: 20px;
-  }
-}
-
