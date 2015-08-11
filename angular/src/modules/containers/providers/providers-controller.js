@@ -22,8 +22,6 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         //Utilization Chart Config
         vm.cpuUsageConfig = chartConfig.cpuUsageConfig;
         vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
-        vm.storageUsageConfig = chartConfig.storageUsageConfig;
-        vm.networkUsageConfig = chartConfig.networkUsageConfig;
 
         //Call to get utilization data
         vm.utilizationLoadingDone = false;
@@ -32,21 +30,40 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             var response = data.data;
             vm.cpuUsageData = response.cpuUsageData;
             vm.memoryUsageData = response.memoryUsageData;
-            vm.storageUsageData = response.storageUsageData;
-            vm.networkUsageData = response.networkUsageData;
             vm.utilizationLoadingDone = true;
         });
 
-        //Call to get container group trends data
+        vm.networkUtilizationCurrentConfig = chartConfig.currentNetworkUsageConfig;
+        vm.networkUtilizationCurrentConfig.legend = {show: false};
+        vm.networkUtilizationCurrentConfig.chartId = 'currentNetworkUtilizationChart';
 
-        vm.containerGroupTrendConfig = chartConfig.containerGroupTrendConfig;
+        vm.networkUtilizationDailyConfig = chartConfig.dailyNetworkUsageConfig;
+        vm.networkUtilizationDailyConfig.legend = {show: false};
+        vm.networkUtilizationDailyConfig.chartId = 'dailyNetworkUtilizationChart';
+
+        // Call to get network utilization
+        vm.networkUtilizationLoadingDone = false;
+        var networkUtilization = $resource('/containers/dashboard/utilization');
+        networkUtilization.get(function(data) {
+            console.dir(data.data);
+            vm.currentNetworkUtilization = {
+                creations: data.data.currentNetworkUsageData.data
+            };
+            vm.dailyNetworkUtilization = {
+                creations: data.data.dailyNetworkUsageData.data
+            };
+            vm.networkUtilizationLoadingDone = true;
+        });
+
+        vm.podTrendConfig = chartConfig.podTrendConfig;
         vm.imageCreationsTrendConfig = chartConfig.imageCreationsTrendConfig;
 
-        vm.containerGroupTrendsLoadingDone = false;
-        var ContainersGroupTrends = $resource('/containers/dashboard/container-groups');
-        ContainersGroupTrends.get(function(data) {
-            vm.containerGroupTrends = data.data.containerGroupTrends;
-            vm.containerGroupTrendsLoadingDone = true;
+        //Call to get pod trends data
+        vm.podTrendsLoadingDone = false;
+        var podTrends = $resource('/containers/dashboard/pods');
+        podTrends.get(function(data) {
+            vm.podTrends = data.data.podTrends;
+            vm.podTrendsLoadingDone = true;
         });
 
         //Call to get image creations data

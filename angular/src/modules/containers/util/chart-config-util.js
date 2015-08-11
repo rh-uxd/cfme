@@ -2,7 +2,7 @@ var chartConfig = {
 	'cpuUsageConfig' : {
     	'chartId': 'cpuUsageChart',
         'title': 'CPU',
-        'totalUnits': 'MHz',
+        'totalUnits': 'Cores',
         'usageDataName': 'Used',
         'legendLeftText': 'Last 30 Days',
         'legendRightText': '',
@@ -35,12 +35,20 @@ var chartConfig = {
         'legendRightText': '',
         'numDays': 30
     },
-    'containerGroupTrendConfig': {
-        'labels': ['Created','Deleted'],
-        'tooltipSuffixes': ['Container Group','Container Group']
+    'currentNetworkUsageConfig': {
+        'labels': ['% Used'],
+        'tooltipSuffixes': ['% Used']
+    },
+    'dailyNetworkUsageConfig': {
+        'labels': ['% Used'],
+        'tooltipSuffixes': ['% Used']
+    },
+    'podTrendConfig': {
+        'labels': ['Created'],
+        'tooltipSuffixes': ['Pods']
     },
     'imageCreationsTrendConfig': {
-        'labels': ['Images','Total Size'],
-        'tooltipSuffixes': ['','GB']
+        'labels': ['Images'],
+        'tooltipSuffixes': ['']
     }
 }

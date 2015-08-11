@@ -5,7 +5,7 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
         // stash a ref to the controller object, and the various parent objects
         var vm = this;
 
-        vm.navigaition = "containers";
+        vm.navigation = "containers";
 
         //Get the container data
         var ContainersStatus = $resource('/containers/dashboard/status');
@@ -18,8 +18,6 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
 
         vm.cpuUsageConfig = chartConfig.cpuUsageConfig;
         vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
-        vm.storageUsageConfig = chartConfig.storageUsageConfig;
-        vm.networkUsageConfig = chartConfig.networkUsageConfig;
 
         //Call to get utilization data
         vm.utilizationLoadingDone = false;
@@ -28,22 +26,42 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
             var response = data.data;
             vm.cpuUsageData = response.cpuUsageData;
             vm.memoryUsageData = response.memoryUsageData;
-            vm.storageUsageData = response.storageUsageData;
-            vm.networkUsageData = response.networkUsageData;
             vm.utilizationLoadingDone = true;
+        });
+
+        vm.networkUtilizationCurrentConfig = chartConfig.currentNetworkUsageConfig;
+        vm.networkUtilizationCurrentConfig.legend = {show: false};
+        vm.networkUtilizationCurrentConfig.chartId = 'currentNetworkUtilizationChart';
+
+        vm.networkUtilizationDailyConfig = chartConfig.dailyNetworkUsageConfig;
+        vm.networkUtilizationDailyConfig.legend = {show: false};
+        vm.networkUtilizationDailyConfig.chartId = 'dailyNetworkUtilizationChart';
+
+        // Call to get network utilization
+        vm.networkUtilizationLoadingDone = false;
+        var networkUtilization = $resource('/containers/dashboard/utilization');
+        networkUtilization.get(function(data) {
+            console.dir(data.data);
+            vm.currentNetworkUtilization = {
+                creations: data.data.currentNetworkUsageData.data
+            };
+            vm.dailyNetworkUtilization = {
+                creations: data.data.dailyNetworkUsageData.data
+            };
+            vm.networkUtilizationLoadingDone = true;
         });
 
         // Trends
 
-        vm.containerGroupTrendConfig = chartConfig.containerGroupTrendConfig;
+        vm.podTrendConfig = chartConfig.podTrendConfig;
         vm.imageCreationsTrendConfig = chartConfig.imageCreationsTrendConfig;
 
-        //Call to get container group trends data
-        vm.containerGroupTrendsLoadingDone = false;
-        var ContainersGroupTrends = $resource('/containers/dashboard/container-groups');
-        ContainersGroupTrends.get(function(data) {
-            vm.containerGroupTrends = data.data.containerGroupTrends;
-            vm.containerGroupTrendsLoadingDone = true;
+        //Call to get pod trends data
+        vm.podTrendsLoadingDone = false;
+        var podTrends = $resource('/containers/dashboard/pods');
+        podTrends.get(function(data) {
+            vm.podTrends = data.data.podTrends;
+            vm.podTrendsLoadingDone = true;
         });
 
         //Call to get image creations data
@@ -72,24 +90,7 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
             vm.nodeMemoryUsageLoadingDone = true;
         });
 
-        //Call to get node storage usage data
-        vm.nodeStorageUsageLoadingDone = false;
-        var NodeStorageUsage = $resource('/containers/dashboard/node-storage-usage');
-        NodeStorageUsage.get(function(data) {
-            vm.nodeStorageUsage = data.data.nodeStorageUsage;
-            vm.nodeStorageUsageLoadingDone = true;
-        });
-
-        //Call to get node network usage data
-        vm.nodeNetworkUsageLoadingDone = false;
-        var NodeNetworkUsage = $resource('/containers/dashboard/node-network-usage');
-        NodeNetworkUsage.get(function(data) {
-            vm.nodeNetworkUsage = data.data.nodeNetworkUsage;
-            vm.nodeNetworkUsageLoadingDone = true;
-        });
-
         vm.nodeHeatMapUsageLegendLabels = ['< 70%', '70-80%' ,'80-90%', '> 90%'];
-        vm.nodeHeatMapNetworkLegendLabels = ['Very High','High','Low', 'Very Low'];
 
     }
 ]);

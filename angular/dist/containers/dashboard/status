@@ -29,7 +29,7 @@
             "count":510
          },
          {
-            "name":"Container Groups",
+            "name":"Pods",
             "iconClass":"fa-cubes",
             "count":1200,
             "status":[

@@ -6,7 +6,8 @@ angular.module( 'cfme.appModule', [
     'patternfly',
     'patternfly.charts',
     'patternfly.navigation',
-    'cfme.containersModule'
+    'cfme.containersModule',
+    'cfme.charts'
 ] )
     .config( ['$routeProvider', '$translateProvider',
               function( $routeProvider, $translateProvider ) {

@@ -11,6 +11,11 @@ angular.module( 'cfme.containersModule', ['cfme.containers.projectsModule', 'cfm
                 templateUrl: 'modules/containers/projects/projects.html',
                 controller: 'containers.projectsController',
                 controllerAs: 'vm'
+            })
+            .when('/containers/projects/:id', {
+                templateUrl: 'modules/containers/projects/project.html',
+                controller: 'containers.projectController',
+                controllerAs: 'vm'
              })
             .when('/containers/providers', {
                 templateUrl: 'modules/containers/providers/providers.html',

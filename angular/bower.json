@@ -24,10 +24,10 @@
     "patternfly": "git://github.com/patternfly/patternfly.git#cfme-dashboard",
     "angular-patternfly": "https://github.com/patternfly/angular-patternfly.git#charts",
     "angular-bootstrap": "0.13.0",
-    "rcue": "https://github.com/patternfly/rcue.git",
     "angular-translate": "2.1.0",
     "angular-translate-loader-static-files": "2.1.0",
-    "jquery": "~1.11.3"
+    "jquery": "~1.11.3",
+    "underscore": "1.x"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"

@@ -1,0 +1,12 @@
+<div class="percentageUsedBarChartWrapper">
+    <div class="perentageUsedBarChart row" ng-repeat="chart in charts">
+        <div style="width:100%;">
+            <span class="percentageUsedBarTitle col-xs-2" style="text-align: right; padding-left: 5px; padding-right:5px;">{{ chart.title }}</span>
+            <div class="percentageUsedBar col-xs-8" style="text-align: right; padding-left: 5px; padding-right:5px;">
+                <div class="percentageUsedBarFilled" ng-class="{'animate': animate}" style="width:{{chart.percentageUsed}}%"></div>
+                <div class="percentageUsedBarUnused"></div>
+            </div>
+            <span class="percentageUsedBarTitle used col-xs-2" style="text-align: left; padding-left: 5px; padding-right:5px;">{{chart.start}} of {{chart.end}}</span>
+        </div>
+    </div>
+</div>

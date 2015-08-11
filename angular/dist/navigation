@@ -61,7 +61,7 @@
                "href":"#/containers/nodes"
             },
             {
-               "title":"Container Groups",
+               "title":"Pods",
                "href":"#/containers/groups"
             },
             {

@@ -13,8 +13,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
  
      <!-- build:css styles/css/libraries.css -->
-    <link rel="stylesheet" href="libraries/patternfly/dist/css/patternfly.min.css"/>
-    <link rel="stylesheet" href="libraries/rcue/dist/css/rcue.min.css"/>
     <!-- endbuild -->
 
     <!-- build:css styles/css/app.css -->
@@ -98,6 +96,7 @@
 <script src="libraries/d3/d3.js"></script>
 <script src="libraries/c3/c3.js"></script>
 <script src="libraries/angular-patternfly/dist/angular-patternfly.js"></script>
+<script src="libraries/underscore/underscore-min.js"></script>
 <!-- endbuild -->
 
 <!-- build:js js/app.js -->
@@ -107,6 +106,7 @@
 <script src="modules/containers/providers/providers-controller.js"></script>
 <script src="modules/containers/projects/projects-module.js"></script>
 <script src="modules/containers/projects/projects-controller.js"></script>
+<script src="modules/containers/projects/project-controller.js"></script>
 
 <script src="modules/containers/containers-module.js"></script>
 <script src="modules/containers/util/chart-config-util.js"></script>
@@ -114,6 +114,13 @@
 <script src="modules/app/app-module.js"></script>
 <script src="modules/app/controllers/app-controller.js"></script>
 <script src="modules/app/directives/navigation/navigation-directive.js"></script>
+<script src="modules/app/directives/charts/charts-module.js"></script>
+<script src="modules/app/directives/charts/data-list-usage-chart-directive.js"></script>
+<script src="modules/app/directives/charts/inline-object-status-directive.js"></script>
+<script src="modules/app/directives/charts/progress-chart-directive.js"></script>
+<script src="modules/app/directives/charts/trends-chart-directive.js"></script>
+<script src="modules/app/directives/charts/utilization-chart-directive.js"></script>
+
 
 <!-- endbuild -->
 
