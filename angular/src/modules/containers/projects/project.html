@@ -17,7 +17,7 @@
             </div><!-- /row -->
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
-            <div class="card-pf card-pf-accented" style="padding-bottom: 2px;">
+            <div class="card-pf card-pf-accented project-quota-card">
                 <div class="card-pf-heading">
                     <h2 class="card-pf-title">Quotas</h2>
                 </div>
@@ -40,13 +40,15 @@
             </div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
-                <div pf-card headtitle="Network Utilization" hidetopborder="true" subtitle="Last 15 Minutes">
+                <div pf-card headtitle="Network Utilization" hidetopborder="true">
+                    <span class="card-pf-subtitle" >Last 15 Minutes</span>
                     <div cfme-trends id="networkUtilizationCurrent" config="vm.networkUtilizationCurrentConfig"
-                         data="vm.currentNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="51"></div>
+                         data="vm.currentNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="73"></div>
                 </div>
-                <div pf-card headtitle="Network Utilization" hidetopborder="true" subtitle="Last 30 Days">
+                <div pf-card headtitle="Network Utilization" hidetopborder="true">
+                    <span class="card-pf-subtitle" >Last 30 Days</span>
                     <div cfme-trends id="networkUtilizationDaily" config="vm.networkUtilizationDailyConfig"
-                         data="vm.dailyNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="51"></div>
+                         data="vm.dailyNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="72"></div>
                 </div>
                 <div ng-if="!vm.networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
         </div>
@@ -60,7 +62,7 @@
                             <div>
                                 <div class="col-xs-8 col-sm-6 col-md-6 container-heatmap-tile">
                                     <h3 class="h4 count-title">CPU</h3>
-                                    <div id="nodeCpuUsage" style="width:100%; height:240px;">
+                                    <div id="nodeCpuUsage" style="width:100%; height:224px;">
                                         <div pf-heat-map data="vm.nodeCpuUsage" parentid="nodeCpuUsage"
                                              ng-if="vm.nodeCpuUsageLoadingDone"></div>
                                     </div>
@@ -68,7 +70,7 @@
                                 </div>
                                 <div class="col-xs-8 col-sm-6 col-md-6 container-heatmap-tile">
                                     <h3 class="h4 count-title">Memory</h3>
-                                    <div id="nodeMemoryUsage" style="width:100%; height:240px;">
+                                    <div id="nodeMemoryUsage" style="width:100%; height:224px;">
                                         <div pf-heat-map data="vm.nodeMemoryUsage" parentid="nodeMemoryUsage"
                                              ng-if="vm.nodeMemoryUsageLoadingDone"></div>
                                     </div>
@@ -76,7 +78,7 @@
                                 </div>
                             </div>
                             <div class="col-xs-16 col-sm-8 col-md-8">
-                                <div pf-heat-map-legend legend="vm.nodeHeatMapUsageLegendLabels"></div>
+                                <div pf-heat-map-legend legend="vm.nodeHeatMapUsageLegendLabels" style="padding-bottom: 0px;"></div>
                             </div>
                         </div>
                     </div>
@@ -84,14 +86,16 @@
             </div>     </div>
          <div class="col-xs-5 col-sm-4 col-md-5">
              <div style="width:100%;">
-                 <div pf-card headtitle="Total Pods Trends" hidetopborder="true" subtitle="Last 30 Days">
+                 <div pf-card headtitle="Total Pods Trends" hidetopborder="true">
+                     <span class="card-pf-subtitle" >Last 30 Days</span>
                      <div cfme-trends id="podTrends" config="vm.podTrendConfig"
-                          data="vm.podTrends" ng-if="vm.podTrendsLoadingDone" chart-height="52"></div>
+                          data="vm.podTrends" ng-if="vm.podTrendsLoadingDone" chart-height="73"></div>
                      <div ng-if="!vm.podTrendsLoadingDone" class="spinner spinner-lg loading"></div>
                  </div>
-                 <div pf-card headtitle="Total Images Trends" hidetopborder="true" subtitle="Last 30 Days">
+                 <div pf-card headtitle="Total Images Trends" hidetopborder="true">
+                     <span class="card-pf-subtitle" >Last 30 Days</span>
                      <div cfme-trends id="imageTrends" config="vm.imageCreationsTrendConfig"
-                          data="vm.imageCreations" ng-if="vm.imageCreationsLoadingDone" chart-height="52"></div>
+                          data="vm.imageCreations" ng-if="vm.imageCreationsLoadingDone" chart-height="73"></div>
                  </div>
                  <div ng-if="!vm.imageCreationsLoadingDone" class="spinner spinner-lg loading"></div>
              </div>
