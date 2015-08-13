@@ -36,19 +36,19 @@ var chartConfig = {
         'numDays': 30
     },
     'currentNetworkUsageConfig': {
-        'labels': ['% Used'],
-        'tooltipSuffixes': ['% Used']
+        'chartId': 'networkUsageCurrentChart',
+        'dataName': 'MHz'
     },
     'dailyNetworkUsageConfig': {
-        'labels': ['% Used'],
-        'tooltipSuffixes': ['% Used']
+        'chartId': 'networkUsageDailyChart',
+        'dataName': 'MHz'
     },
     'podTrendConfig': {
-        'labels': ['Created'],
-        'tooltipSuffixes': ['Pods']
+        'chartId': 'podTrendsChart',
+        'dataName': 'Pods'
     },
-    'imageCreationsTrendConfig': {
-        'labels': ['Images'],
-        'tooltipSuffixes': ['']
+    'imageTrendConfig': {
+        'chartId': 'imageTrendsChart',
+        'dataName': 'Images'
     }
 }

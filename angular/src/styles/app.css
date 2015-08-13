@@ -12272,7 +12272,7 @@ h2,
   margin-top: 5px;
 }
 .utilization-chart .legend-text {
-  margin-left: 12px;
+  margin-left: 0px;
   font-size: 12px;
 }
 .card-pf-status .status {
