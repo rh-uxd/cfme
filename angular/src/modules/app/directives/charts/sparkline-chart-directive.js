@@ -11,7 +11,7 @@ angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$
         showYAxis: '@'
       },
       replace: true,
-      templateUrl: 'modules/app/directives/charts/sparkline/sparkline-chart.html',
+      templateUrl: 'modules/app/directives/charts/sparkline-chart.html',
       controller: ['$scope',
         function($scope) {
           $scope.sparklineChartId = 'sparklineChart';
