@@ -15,9 +15,10 @@ angular.module('cfme.containers.projectsModule').controller('containers.projectC
 
         //Get the container data
         var ContainersStatus = $resource('/containers/projects/status/:id');
-        ContainersStatus.get({id: currentId}, function(data) {
-            vm.status_widgets = data.data;
-            vm.providers = data.data.providers;
+        ContainersStatus.get({id: currentId}, function(response) {
+            var data = response.data;
+            vm.status_widgets = data;
+            vm.providers = data.providers;
         });
 
           //Utilization Chart Config
@@ -35,52 +36,36 @@ angular.module('cfme.containers.projectsModule').controller('containers.projectC
         });
 
         vm.networkUtilizationCurrentConfig = chartConfig.currentNetworkUsageConfig;
-        vm.networkUtilizationCurrentConfig.legend = {show: false};
-        vm.networkUtilizationCurrentConfig.chartId = 'currentNetworkUtilizationChart';
-
         vm.networkUtilizationDailyConfig = chartConfig.dailyNetworkUsageConfig;
-        vm.networkUtilizationDailyConfig.legend = {show: false};
-        vm.networkUtilizationDailyConfig.chartId = 'dailyNetworkUtilizationChart';
 
         // Call to get network utilization
         vm.networkUtilizationLoadingDone = false;
         var networkUtilization = $resource('/containers/dashboard/utilization');
-        networkUtilization.get(function(data) {
-            console.dir(data.data);
-            vm.currentNetworkUtilization = {
-                creations: data.data.currentNetworkUsageData.data
-            };
-            vm.dailyNetworkUtilization = {
-                creations: data.data.dailyNetworkUsageData.data
-            };
+        networkUtilization.get(function(response) {
+            var data = response.data;
+            vm.currentNetworkUtilization = data.currentNetworkUsageData;
+            vm.dailyNetworkUtilization = data.dailyNetworkUsageData;
             vm.networkUtilizationLoadingDone = true;
         });
 
-        vm.podTrendConfig = chartConfig.podTrendConfig;
-        vm.podTrendConfig.legend = {show: false};
-        vm.podTrendConfig.chartId = 'podTrendsChart';
+        // Trends
 
-        //Call to get pod trends data
+        vm.podTrendConfig = chartConfig.podTrendConfig;
         vm.podTrendsLoadingDone = false;
         var podTrends = $resource('/containers/dashboard/pods');
-        podTrends.get(function(data) {
-            vm.podTrends = {
-                creations: data.data.podTrends.creations
-                };
+        podTrends.get(function(response) {
+            var data = response.data;
+            vm.podTrends = data.podTrends;
             vm.podTrendsLoadingDone = true;
         });
 
-        vm.imageCreationsTrendConfig = chartConfig.imageCreationsTrendConfig;
-        vm.imageCreationsTrendConfig.legend = {show: false};
-        vm.imageCreationsTrendConfig.chartId = 'imageTrendsChart';
-
-
-        //Call to get image creations data
-        vm.imageCreationsLoadingDone = false;
-        var ImageCreations = $resource('/containers/dashboard/image-creations');
-        ImageCreations.get(function(data) {
-            vm.imageCreations = data.data.imageCreations;
-            vm.imageCreationsLoadingDone = true;
+        vm.imageTrendConfig = chartConfig.imageTrendConfig;
+        vm.imageTrendLoadingDone = false;
+        var imageTrends = $resource('/containers/dashboard/image-trends');
+        imageTrends.get(function(response) {
+            var data = response.data;
+            vm.imageTrends = data.imageTrends;
+            vm.imageTrendLoadingDone = true;
         });
 
         // HeatMaps
@@ -96,8 +81,9 @@ angular.module('cfme.containers.projectsModule').controller('containers.projectC
         //Call to get node memory usage data
         vm.nodeMemoryUsageLoadingDone = false;
         var NodeMemoryUsage = $resource('/containers/dashboard/node-memory-usage');
-        NodeMemoryUsage.get(function(data) {
-            vm.nodeMemoryUsage = data.data.nodeMemoryUsage;
+        NodeMemoryUsage.get(function(response) {
+            var data = response.data;
+            vm.nodeMemoryUsage = data.nodeMemoryUsage;
             vm.nodeMemoryUsageLoadingDone = true;
         });
 
@@ -105,8 +91,9 @@ angular.module('cfme.containers.projectsModule').controller('containers.projectC
 
         //Get the container data
         var Quotas = $resource('/containers/projects/quotas/:id');
-        Quotas.get({id: currentId}, function(data) {
-            vm.quotas = data.data;
+        Quotas.get({id: currentId}, function(response) {
+            var data = response.data;
+            vm.quotas = data;
         });
     }
 ]);

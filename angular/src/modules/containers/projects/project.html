@@ -40,17 +40,17 @@
             </div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
-                <div pf-card headtitle="Network Utilization" hidetopborder="true">
-                    <span class="card-pf-subtitle" >Last 15 Minutes</span>
-                    <div cfme-trends id="networkUtilizationCurrent" config="vm.networkUtilizationCurrentConfig"
-                         data="vm.currentNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="73"></div>
-                </div>
-                <div pf-card headtitle="Network Utilization" hidetopborder="true">
-                    <span class="card-pf-subtitle" >Last 30 Days</span>
-                    <div cfme-trends id="networkUtilizationDaily" config="vm.networkUtilizationDailyConfig"
-                         data="vm.dailyNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="72"></div>
-                </div>
-                <div ng-if="!vm.networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
+            <div pf-card headtitle="Network Utilization" hidetopborder="true">
+                <div cfme-sparkline-chart id="networkUtilizationCurrent" config="vm.networkUtilizationCurrentConfig"
+                     data="vm.currentNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="73"></div>
+                <span class="card-pf-subtitle" >Last 15 Minutes</span>
+            </div>
+            <div pf-card headtitle="Network Utilization" hidetopborder="true">
+                <div cfme-sparkline-chart id="networkUtilizationDaily" config="vm.networkUtilizationDailyConfig"
+                     data="vm.dailyNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="72"></div>
+                <span class="card-pf-subtitle" >Last 30 Days</span>
+            </div>
+            <div ng-if="!vm.networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
         </div>
     </div><!-- /row -->
      <div class="row row-tile-pf row-tile-pf-last">
@@ -83,21 +83,22 @@
                         </div>
                     </div>
                 </div>
-            </div>     </div>
+            </div>
+         </div>
          <div class="col-xs-5 col-sm-4 col-md-5">
              <div style="width:100%;">
                  <div pf-card headtitle="Total Pods Trends" hidetopborder="true">
-                     <span class="card-pf-subtitle" >Last 30 Days</span>
-                     <div cfme-trends id="podTrends" config="vm.podTrendConfig"
+                     <div cfme-sparkline-chart id="podTrends" config="vm.podTrendConfig"
                           data="vm.podTrends" ng-if="vm.podTrendsLoadingDone" chart-height="73"></div>
+                     <span class="card-pf-subtitle" >Last 30 Days</span>
                      <div ng-if="!vm.podTrendsLoadingDone" class="spinner spinner-lg loading"></div>
                  </div>
                  <div pf-card headtitle="Total Images Trends" hidetopborder="true">
+                     <div cfme-sparkline-chart id="imageTrends" config="vm.imageTrendConfig"
+                          data="vm.imageTrends" ng-if="vm.imageTrendLoadingDone" chart-height="73"></div>
                      <span class="card-pf-subtitle" >Last 30 Days</span>
-                     <div cfme-trends id="imageTrends" config="vm.imageCreationsTrendConfig"
-                          data="vm.imageCreations" ng-if="vm.imageCreationsLoadingDone" chart-height="73"></div>
+                     <div ng-if="!vm.imageTrendLoadingDone" class="spinner spinner-lg loading"></div>
                  </div>
-                 <div ng-if="!vm.imageCreationsLoadingDone" class="spinner spinner-lg loading"></div>
              </div>
          </div>
     </div>
