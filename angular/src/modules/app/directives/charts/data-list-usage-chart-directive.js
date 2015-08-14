@@ -70,17 +70,21 @@ angular.module('cfme.charts').directive('inlineUsageChart', ['ChartsMixin', '$ti
                     $scope.config.donutConfig.data = $scope.getDonutData($scope);
                 }],
             link: function(scope, element, attrs) {
-                attrs.$observe('config', function() {
+                scope.$watch('config', function() {
                     scope.config.donutConfig = $.extend(true, angular.copy(scope.defaultDonutConfig), scope.config.donutConfig);
+                    setupDonutChartTitle();
+                }, true);
+
+                scope.$watch('data', function() {
                     scope.config.donutConfig.data = scope.getDonutData(scope);
                     setupDonutChartTitle();
-                });
+                }, true);
+
                 var setupDonutChartTitle = function() {
                     $timeout(function() {
                         var donutChartTitle = element[0].querySelector('text.c3-chart-arcs-title');
                         if (donutChartTitle)
                         {
-                            console.log(scope.iconContent);
                             var innerHtml = '<tspan dy="5" x="0" class="inline-utilization-chart-title fa pficon ' + scope.iconClass + '">' + scope.iconContent + '</tspan>';
                             donutChartTitle.innerHTML = innerHtml;
                         }

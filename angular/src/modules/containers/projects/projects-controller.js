@@ -39,7 +39,7 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
                 project.podsInfo = {
                     name: "Pods",
                     count: project.pods,
-                    iconClass: "fa-cubes"
+                    iconClass: "fa fa-cubes"
                 }
                 project.servicesInfo = {
                     name: "Services",
@@ -54,7 +54,7 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
                 project.replicatorsInfo = {
                     name: "Replicators",
                     count: project.replicators,
-                    iconClass: "fa-cubes"
+                    iconClass: "fa fa-cubes"
                 }
             });
         });

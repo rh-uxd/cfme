@@ -13,7 +13,7 @@
       },
       {
          "name":"Containers",
-         "iconClass":"fa-cube",
+         "iconClass":"ffa a-cube",
          "count":180
       },
       {
@@ -23,7 +23,7 @@
       },
       {
          "name":"Pods",
-         "iconClass":"fa-cubes",
+         "iconClass":"fa fa-cubes",
          "count":8,
          "status":[
             {

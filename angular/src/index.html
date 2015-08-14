@@ -13,6 +13,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
  
      <!-- build:css styles/css/libraries.css -->
+    <link rel="stylesheet" href="libraries/patternfly/dist/css/patternfly-additions.css"/>
     <!-- endbuild -->
 
     <!-- build:css styles/css/app.css -->
@@ -70,7 +71,7 @@
                         </ul>
                     </li>
                 </ul>
-                <div pf-navigation items="vm.navigationItems"></div>
+                <div cfme-navigation items="vm.navigationItems"></div>
             </div>
         </nav>
     </header>
@@ -109,18 +110,28 @@
 <script src="modules/containers/projects/project-controller.js"></script>
 
 <script src="modules/containers/containers-module.js"></script>
+<script src="modules/containers/mixins/chart-data-mixin.js"></script>
 <script src="modules/containers/util/chart-config-util.js"></script>
 
 <script src="modules/app/app-module.js"></script>
 <script src="modules/app/controllers/app-controller.js"></script>
 <script src="modules/app/directives/navigation/navigation-directive.js"></script>
+
+<script src="modules/app/directives/card/card.module.js"></script>
+<script src="modules/app/directives/card/aggregatetype/aggregate-type-directive.js"></script>
+<script src="modules/app/directives/card/objectstatus/object-status-tile-directive.js"></script>
+
 <script src="modules/app/directives/charts/charts-module.js"></script>
+<script src="modules/app/directives/charts/c3/c3.mixin.js"></script>
+<script src="modules/app/directives/charts/donut/donut-percent-chart-directive.js"></script>
+<script src="modules/app/directives/charts/heatmap/heatmap-directive.js"></script>
+<script src="modules/app/directives/charts/heatmap/heatmap-legend-directive.js"></script>
+<script src="modules/app/directives/charts/progress/progress-chart-directive.js"></script>
+<script src="modules/app/directives/charts/sparkline/sparkline-chart-directive.js"></script>
+<script src="modules/app/directives/charts/trends/trends-chart-directive.js"></script>
+<script src="modules/app/directives/charts/utilization/utilization-chart-directive.js"></script>
 <script src="modules/app/directives/charts/data-list-usage-chart-directive.js"></script>
 <script src="modules/app/directives/charts/inline-object-status-directive.js"></script>
-<script src="modules/app/directives/charts/progress-chart-directive.js"></script>
-<script src="modules/app/directives/charts/sparkline-chart-directive.js"></script>
-<script src="modules/app/directives/charts/trends-chart-directive.js"></script>
-<script src="modules/app/directives/charts/utilization-chart-directive.js"></script>
 
 
 <!-- endbuild -->

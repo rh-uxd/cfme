@@ -2,7 +2,7 @@
    "data":[
       {
          "name":"Pods",
-         "iconClass":"fa-cubes",
+         "iconClass":"fa fa-cubes",
          "count":8
       },
       {
@@ -17,7 +17,7 @@
       },
       {
          "name":"Containers",
-         "iconClass":"fa-cube",
+         "iconClass":"fa fa-cube",
          "count":180
       },
       {

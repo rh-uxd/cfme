@@ -1,10 +1,10 @@
 <div class="utilization-chart">
-    <h3 class="h4 count-title">{{config.title}}</h3>
-    <div class="count-utilization col-xs-12"  style="padding-left: 5px;">
-        <div class="available-text left col-xs-4">
+    <span class="card-pf-secondary-title">{{config.title}}</span>
+    <div class="count-utilization col-xs-12">
+        <div class="available-text pull-left">
           <span>{{data.total - data.used}} {{config.availableUnits}}</span>
         </div>
-        <div class="available-text right col-xs-8">
+        <div class="available-text pull-left">
             <div class="available-text col-xs-12 title-small title-small-upper">
                 <span>Available</span>
             </div>
@@ -13,8 +13,8 @@
             </div>
         </div>
     </div>
-    <div pf-donut-pct-chart config="config" data="data"></div>
+    <div cfme-donut-pct-chart config="config" data="data"></div>
     <div cfme-sparkline-chart config="config.sparklineConfig" data="data"></div>
-    <p class="pull-left legend-text">{{config.legendLeftText}}</p>
-    <p class="pull-right legend-text">{{config.legendRightText}}</p>
+    <span class="pull-left legend-text">{{config.legendLeftText}}</span>
+    <span class="pull-right legend-text">{{config.legendRightText}}</span>
 </div>

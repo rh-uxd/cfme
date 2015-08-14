@@ -1,11 +1,13 @@
-angular.module('cfme.containers.providersModule').controller('containers.providersController', ['$scope','$translate', '$resource', '$routeParams',
-    function( $scope, $translate, $resource, $routeParams ) {
+angular.module('cfme.containers.providersModule').controller('containers.providersController', ['$scope','ChartsDataMixin', '$translate', '$resource', '$routeParams',
+    function( $scope, chartsDataMixin, $translate, $resource, $routeParams ) {
         'use strict';
 
         // stash a ref to the controller object, and the various parent objects
         var vm = this;
 
         vm.navigaition = "Providers";
+        vm.chartHeight = chartsDataMixin.dashboardSparklineChartHeight;
+        vm.dashboardHeatmapChartHeight = chartsDataMixin.dashboardHeatmapChartHeight;
 
         var currentId = $routeParams.id;
         if (typeof(currentId) === "undefined") {
@@ -20,30 +22,33 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             vm.providers = data.types;
         });
 
-        //Utilization Chart Config
+        // Node Utilization
+
         vm.cpuUsageConfig = chartConfig.cpuUsageConfig;
         vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
 
-        //Call to get utilization data
         vm.utilizationLoadingDone = false;
         var ContainersUtilization = $resource('/containers/dashboard/utilization');
         ContainersUtilization.get(function(response) {
-            var data = response.data;
-            vm.cpuUsageData = data.cpuUsageData;
-            vm.memoryUsageData = data.memoryUsageData;
+            vm.cpuUsageData = chartsDataMixin.getCpuUsageDataFromResponse(response, vm.cpuUsageConfig.usageDataName);
+            vm.memoryUsageData = chartsDataMixin.getMemoryUsageDataFromResponse(response, vm.memoryUsageConfig.usageDataName);
             vm.utilizationLoadingDone = true;
         });
 
+        // Network Utilization
+
         vm.networkUtilizationCurrentConfig = chartConfig.currentNetworkUsageConfig;
+        vm.networkUtilizationCurrentConfig.tooltipFn = chartsDataMixin.sparklineTimeTooltip;
+
         vm.networkUtilizationDailyConfig = chartConfig.dailyNetworkUsageConfig;
 
-        // Call to get network utilization
         vm.networkUtilizationLoadingDone = false;
         var networkUtilization = $resource('/containers/dashboard/utilization');
         networkUtilization.get(function(response) {
             var data = response.data;
-            vm.currentNetworkUtilization = data.currentNetworkUsageData;
-            vm.dailyNetworkUtilization = data.dailyNetworkUsageData;
+            vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, true);
+            chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 10 * 1000);
+            vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName);
             vm.networkUtilizationLoadingDone = true;
         });
 
@@ -54,7 +59,7 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         var podTrends = $resource('/containers/dashboard/pods');
         podTrends.get(function(response) {
             var data = response.data;
-            vm.podTrends = data.podTrends;
+            vm.podTrends = chartsDataMixin.getSparklineData(data.podTrends, vm.podTrendConfig.dataName);
             vm.podTrendsLoadingDone = true;
         });
 
@@ -63,13 +68,12 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         var imageTrends = $resource('/containers/dashboard/image-trends');
         imageTrends.get(function(response) {
             var data = response.data;
-            vm.imageTrends = data.imageTrends;
+            vm.imageTrends = chartsDataMixin.getSparklineData(data.imageTrends, vm.imageTrendConfig.dataName);
             vm.imageTrendLoadingDone = true;
         });
 
         // HeatMaps
 
-        //Call to get node cpu usage data
         vm.nodeCpuUsageLoadingDone = false;
         var NodeCpuUsage = $resource('/containers/dashboard/node-cpu-usage');
         NodeCpuUsage.get(function(response) {
@@ -78,7 +82,6 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             vm.nodeCpuUsageLoadingDone = true;
         });
 
-        //Call to get node memory usage data
         vm.nodeMemoryUsageLoadingDone = false;
         var NodeMemoryUsage = $resource('/containers/dashboard/node-memory-usage');
         NodeMemoryUsage.get(function(response) {
@@ -87,25 +90,6 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
             vm.nodeMemoryUsageLoadingDone = true;
         });
 
-        //Call to get node storage usage data
-        vm.nodeStorageUsageLoadingDone = false;
-        var NodeStorageUsage = $resource('/containers/dashboard/node-storage-usage');
-        NodeStorageUsage.get(function(response) {
-            var data = response.data;
-            vm.nodeStorageUsage = data.nodeStorageUsage;
-            vm.nodeStorageUsageLoadingDone = true;
-        });
-
-        //Call to get node network usage data
-        vm.nodeNetworkUsageLoadingDone = false;
-        var NodeNetworkUsage = $resource('/containers/dashboard/node-network-usage');
-        NodeNetworkUsage.get(function(response) {
-            var data = response.data;
-            vm.nodeNetworkUsage = data.nodeNetworkUsage;
-            vm.nodeNetworkUsageLoadingDone = true;
-        });
-
-        vm.nodeHeatMapUsageLegendLabels = ['< 70%', '70-80%' ,'80-90%', '> 90%'];
-        vm.nodeHeatMapNetworkLegendLabels = ['Very High','High','Low', 'Very Low'];
+        vm.nodeHeatMapUsageLegendLabels = chartsDataMixin.nodeHeatMapUsageLegendLabels;
     }
 ]);

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('cfme.charts').directive('cfmeTrends', ['ChartsMixin', '$timeout',
-    function(chartsMixin, $timeout) {
+  function(chartsMixin, $timeout) {
     return {
       restrict: 'A',
       scope: {
@@ -10,18 +10,21 @@ angular.module('cfme.charts').directive('cfmeTrends', ['ChartsMixin', '$timeout'
         id: '@'
       },
       replace: true,
-      templateUrl: 'charts/trends/trends-chart.html',
+      templateUrl: 'modules/app/directives/charts/trends/trends-chart.html',
       controller: ['$scope', '$rootScope',
-                function($scope, $rootScope) {
+        function($scope, $rootScope) {
           var me = this;
           if ($scope.chartHeight === undefined) {
             $scope.chartHeight = 71;
           }
+
           $scope.containerId = $scope.id.trim();
           $scope.chartId = $scope.containerId + 'Chart';
+
           this.chartColor = {
             pattern: ['#0088ce', '#00659c', '#3f9c35', '#ec7a08', '#cc0000']
           };
+
           var chartTooltip = function(scope) {
             return {
               contents: function(d) {
@@ -42,6 +45,7 @@ angular.module('cfme.charts').directive('cfmeTrends', ['ChartsMixin', '$timeout'
               }
             };
           };
+
           var chartAxis = {
             x: {
               show: false,
@@ -54,19 +58,19 @@ angular.module('cfme.charts').directive('cfmeTrends', ['ChartsMixin', '$timeout'
               show: false
             }
           };
+
           $scope.getChartData = function() {
             var id = $scope.id.trim();
-            var trend1 = [$scope.config.labels[0]];
             var dates = ['dates'];
             var data = this.data;
+
             if (data) {
-              var dateLength = 0;
               var keys = [];
               for (var key in data) {
                 keys.push(key);
               }
-              trend1 = trend1.concat(data[keys[0]]);
-              dateLength = data[keys[0]].length;
+
+              var dateLength = data[keys[0]].length;
               if (data.dates && data.dates.length > 0) {
                 for (var i = 0; i < data.dates.length; i++) {
                   dates.push(new Date(data.dates[i]));
@@ -78,26 +82,37 @@ angular.module('cfme.charts').directive('cfmeTrends', ['ChartsMixin', '$timeout'
                   dates.push(new Date(today.getTime() - (d * 24 * 60 * 60 * 1000)));
                 }
               }
+              var columns = [dates];
+              if ($scope.config.labels.length > 0) {
+                $scope.config.labels.forEach(function (item, index) {
+                  var trend = [item];
+                  trend = trend.concat(data[keys[index]]);
+                  columns.push(trend);
+                });
+              }
             }
+
             var retVal = {
               x: 'dates',
-              columns: [
-                dates,
-                trend1
-              ],
+              columns: columns,
               type: 'area'
             };
+
             return retVal;
           };
+
           var chartPoint = {
             show: false
           };
+
           var chartSize = {
             height: $scope.chartHeight
           };
+
           var chartLegend = {
             show: false
           };
+
           $scope.chartConfig = {
             point: chartPoint,
             size: chartSize,

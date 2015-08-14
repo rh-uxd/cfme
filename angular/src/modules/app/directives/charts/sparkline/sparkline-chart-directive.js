@@ -1,5 +1,5 @@
-angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$timeout',
-  function(chartsMixin, $timeout) {
+angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin',
+  function(chartsMixin) {
     'use strict';
     return {
       restrict: 'A',
@@ -11,9 +11,11 @@ angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$
         showYAxis: '@'
       },
       replace: true,
-      templateUrl: 'modules/app/directives/charts/sparkline-chart.html',
+      templateUrl: 'modules/app/directives/charts/sparkline/sparkline-chart.html',
       controller: ['$scope',
         function($scope) {
+
+          // Create an ID for the chart based on the chartId in the config if given
           $scope.sparklineChartId = 'sparklineChart';
           if ($scope.config.chartId) {
             $scope.sparklineChartId = $scope.config.chartId + $scope.sparklineChartId;
@@ -23,7 +25,7 @@ angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$
             return {
               contents: function(d) {
                 if (scope.config.tooltipFn) {
-                  var tootipHtml = '<div id="utilization-sparkline-tooltip" class="module-triangle-bottom">' +
+                  var tootipHtml = '<div id="sparkline-tooltip" class="module-triangle-bottom">' +
                       '  <table class="c3-tooltip">' +
                       '    <tbody>' +
                           scope.config.tooltipFn(d) +
@@ -34,7 +36,7 @@ angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$
                 }
                 else if (scope.config.isUsageChart) {
                   var percentUsed = Math.round(d[0].value / scope.data.total * 100.0);
-                  return '<div id="utilization-sparkline-tooltip" class="module-triangle-bottom">' +
+                  return '<div id="sparkline-tooltip" class="module-triangle-bottom">' +
                       '  <table class="c3-tooltip">' +
                       '    <tbody>' +
                       '      <tr>' +
@@ -49,7 +51,7 @@ angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$
                       '</div>';
                 }
                 else {
-                  return '<div id="utilization-sparkline-tooltip" class="module-triangle-bottom">' +
+                  return '<div id="sparkline-tooltip" class="module-triangle-bottom">' +
                          '  <table class="c3-tooltip">' +
                          '    <tbody>' +
                          '      <tr>' +
@@ -75,11 +77,19 @@ angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$
                     left: x
                   };
                 } catch (TypeError) {
-                  console.dir(TypeError);
                 }
               }
             };
           };
+
+          /*
+           * Setup Axis options. Default is to not show either axis. This can be overridden in two ways:
+           *   1) in the config, setting showAxis to true will show both axis
+           *   2) in the attributes showXAxis and showYAxis will override the config if set
+           *
+           * By default only line and the tick marks are shown, no labels. This is a sparkline and should be used
+           * only to show a brief idea of trending. This cna be overridden by setting the config.axis options per C3
+           */
 
           if ($scope.showXAxis === undefined)
           {
@@ -89,6 +99,7 @@ angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$
           {
             $scope.showYAxis = ($scope.config.showAxis !== undefined) && $scope.config.showAxis;
           }
+
           var sparklineAxis = {
             x: {
               show: $scope.showXAxis,
@@ -104,32 +115,21 @@ angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$
               }
             }
           };
+
+          /*
+           * Convert the config data to C3 Data
+           */
           $scope.getSparklineData = function(scope) {
-            var sparklineData = [scope.config.dataName];
-            var dates = ['dates'];
-            if (scope.data) {
-              sparklineData = sparklineData.concat(scope.data.data);
-              if ($scope.data.dates && scope.data.dates.length > 0) {
-                for (var i = 0; i < scope.data.dates.length; i++) {
-                  dates.push(new Date(scope.data.dates[i]));
-                }
-              } else {
-                // Use fake dates
-                var today = new Date();
-                for (var d = scope.data.data.length - 1; d >= 0; d--) {
-                  dates.push(new Date(today.getTime() - (d * 24 * 60 * 60 * 1000)));
-                }
-              }
-            }
             return {
-              x: 'dates',
+              x: scope.data.xDataName,
               columns: [
-                dates,
-                sparklineData
+                scope.data.xData,
+                scope.data.data
               ],
               type: 'area'
             };
           };
+
           $scope.defaultConfig = chartsMixin.getDefaultSparklineConfig($scope.config.totalUnits);
           $scope.defaultConfig.axis = sparklineAxis;
           $scope.defaultConfig.tooltip = sparklineTooltip($scope);
@@ -137,13 +137,17 @@ angular.module('cfme.charts').directive('cfmeSparklineChart', ['ChartsMixin', '$
             $scope.defaultConfig.size.height = $scope.chartHeight;
           }
           $scope.config = $.extend(true, angular.copy($scope.defaultConfig), $scope.config);
+
           $scope.config.data = $scope.getSparklineData($scope);
-        }],
+        }
+      ],
       link: function(scope, element, attrs) {
         attrs.$observe('config', function() {
           scope.config = $.extend(true, angular.copy(scope.defaultConfig), scope.config);
-          scope.config.data = scope.getSparklineData(scope);
         });
+        scope.$watch('data', function() {
+          scope.config.data = scope.getSparklineData(scope);
+        }, true);
       }
     };
   }]);

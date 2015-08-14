@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('patternfly.navigation', []).directive('pfNavigation', ['$location', '$rootScope', function(location, rootScope) {
+angular.module('cfme.navigation', []).directive('cfmeNavigation', ['$location', '$rootScope', function(location, rootScope) {
 
 	var navigationController = ['$scope', function($scope) {
 

@@ -31,15 +31,15 @@
 
 angular.module('cfme.charts')
     .directive('cfmePercentageUsed', ['$timeout', function($timeout) {
-	'use strict';
+    'use strict';
 
   return {
     restrict: 'A',
     scope: {
-      charts: '=',
+      charts: '='
     },
     replace: true,
-    templateUrl: 'modules/app/directives/charts/progress-chart.html',
+    templateUrl: 'modules/app/directives/charts/progress/progress-chart.html',
     link: function($scope) {
       $scope.$watch('charts', function(newVal, oldVal){
         if (typeof(newVal) !== 'undefined') {
@@ -50,7 +50,7 @@ angular.module('cfme.charts')
 
           //Animate in the chart load.
           $scope.animate = true;
-		      $timeout(function(){
+              $timeout(function(){
                 $scope.animate = false;
               }, 0);
         }

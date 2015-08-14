@@ -5,8 +5,10 @@ angular.module( 'cfme.appModule', [
     'pascalprecht.translate',
     'patternfly',
     'patternfly.charts',
-    'patternfly.navigation',
+    'cfme.charts',
+    'cfme.navigation',
     'cfme.containersModule',
+    'cfme.card',
     'cfme.charts'
 ] )
     .config( ['$routeProvider', '$translateProvider',

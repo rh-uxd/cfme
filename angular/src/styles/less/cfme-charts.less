@@ -1,0 +1,159 @@
+//
+// Charts
+// --------------------------------------------------
+
+/* Radial */
+
+.chart-radial {
+  margin: @grid-gutter-width/2 0;
+}
+
+/* Heap map */
+.heatmap-legend  {
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 11px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.heatmap-legend-container {
+  width: 100%;
+  position: relative;
+}
+
+.heatmap-legend-container ul{
+  list-style-type: none;
+}
+
+.heatmap-legend-container li{
+  display: inline;
+}
+
+.heatmap-legend .color-box {
+  width: 11px;
+  height: 11px;
+  margin-left: 5px;
+  margin-right: 5px;
+  list-style-type: none;
+  float: left;
+}
+.heatmap-legend .legend-text {
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 11px;
+  padding-right: 5px;
+  list-style-type: none;
+  float: left;
+}
+
+/* Percentage Used Chart */
+.percentageUsedBarChartWrapper {
+  padding-bottom: 8px;
+}
+
+.perentageUsedBarChart {
+  margin-bottom: 14px;
+}
+
+.percentageUsedBar {
+  height: 15px;
+}
+
+.percentageUsedBarFilled {
+  background-color: #0088CE;
+  height: 15px;
+  position: relative;
+  z-index: 1001;
+  -webkit-transition: width .75s ease-in-out;
+  -moz-transition: width .75s ease-in-out;
+  -o-transition: width .75s ease-in-out;
+  transition: width .75s ease-in-out;
+}
+
+.percentageUsedBarFilled.animate {
+  width: 0% !important;
+}
+
+.percentageUsedBarUnused {
+  background-color: #D1D1D1;
+  width: 100%;
+  height: 15px;
+  position: relative;
+  top: -15px;
+  z-index: 1000;
+}
+
+.percentageUsedBarTitle {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: normal;
+  margin-bottom: 5px;
+
+  .used {
+    float: right;
+  }
+
+}
+
+/* this is the value inside the donut */
+.utilization-chart-title-big {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  color: #333;
+}
+
+.utilization-chart .title-small {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  color: #333;
+}
+
+.utilization-chart .title-small-upper {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.utilization-chart .title-small-lower {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.utilization-chart .available-text {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 2px;
+
+  &.left {
+    text-align: right;
+  }
+
+  &.right {
+    text-align: left;
+  }
+}
+
+.utilization-chart .legend-text {
+  color: inherit;
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 0px;
+}
+
+.utilization-chart .radial-chart {
+  width: 100%;
+  float: left;
+  padding-top: 10px;
+}
+
+.utilization-chart .sparkline-chart {
+  width: 100%;
+  float: left;
+  margin-left: -5px;
+  margin-right: -5px;
+}
