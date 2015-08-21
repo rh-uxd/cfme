@@ -2,7 +2,7 @@ var chartConfig = {
 	'cpuUsageConfig' : {
     	'chartId': 'cpuUsageChart',
         'title': 'CPU',
-        'totalUnits': 'Cores',
+        'units': 'Cores',
         'usageDataName': 'Used',
         'legendLeftText': 'Last 30 Days',
         'legendRightText': '',
@@ -11,7 +11,7 @@ var chartConfig = {
     'memoryUsageConfig': {
         'chartId': 'memoryUsageChart',
         'title': 'Memory',
-        'totalUnits': 'GB',
+        'units': 'GB',
         'usageDataName': 'Used',
         'legendLeftText': 'Last 30 Days',
         'legendRightText': '',
@@ -20,7 +20,7 @@ var chartConfig = {
     'storageUsageConfig': {
     	'chartId': 'storageUsageChart',
         'title': 'Storage',
-        'totalUnits': 'TB',
+        'units': 'TB',
         'usageDataName': 'Used',
         'legendLeftText': 'Last 30 Days',
         'legendRightText': '',
@@ -29,7 +29,7 @@ var chartConfig = {
     'networkUsageConfig': {
     	'chartId': 'networkUsageChart',
         'title': 'Network',
-        'totalUnits': '  Gbps',
+        'units': '  Gbps',
         'usageDataName': 'Used',
         'legendLeftText': 'Last 30 Days',
         'legendRightText': '',

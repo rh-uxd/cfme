@@ -1,5 +1,5 @@
-angular.module('cfme.charts').directive('cfmeHeatMap', ['ChartsMixin', '$timeout',
-  function(chartsMixin, $timeout) {
+angular.module('cfme.charts').directive('cfmeHeatMap', ['cfmeChartDefaults', '$timeout',
+  function(c3ChartDefaults, $timeout) {
     'use strict';
     return {
       restrict: 'A',
@@ -11,9 +11,9 @@ angular.module('cfme.charts').directive('cfmeHeatMap', ['ChartsMixin', '$timeout
       template: '<svg style="width:100%; height: 100%;"></svg>',
       controller: ['$scope', '$rootScope',
         function($scope, $rootScope) {
-          $scope.blockPadding = chartsMixin.defaultHeatmapBlockPadding;
-          $scope.heatmapColor = chartsMixin.getDefaultHeatmapColor();
-          $scope.heatmapColorPattern = chartsMixin.getDefaultHeatmapColorPattern();
+          $scope.blockPadding = c3ChartDefaults.defaultHeatmapBlockPadding;
+          $scope.heatmapColor = c3ChartDefaults.getDefaultHeatmapColor();
+          $scope.heatmapColorPattern = c3ChartDefaults.getDefaultHeatmapColorPattern();
           $scope.determineBlockSize = function() {
             var x = $scope.width;
             var y = $scope.height;
@@ -21,11 +21,14 @@ angular.module('cfme.charts').directive('cfmeHeatMap', ['ChartsMixin', '$timeout
             var px = Math.ceil(Math.sqrt(n * x / y));
             var py = Math.ceil(Math.sqrt(n * y / x));
             var sx, sy;
+
             if (Math.floor(px * y / x) * px < n) {
               sx = y / Math.ceil(px * y / x);
-            } else {
+            }
+            else {
               sx = x / px;
             }
+
             if (Math.floor(py * x / y) * py < n) {
               sy = x / Math.ceil(x * py / y);
             } else {
@@ -107,4 +110,5 @@ angular.module('cfme.charts').directive('cfmeHeatMap', ['ChartsMixin', '$timeout
         };
       }
     };
-  }]);
+  }
+]);

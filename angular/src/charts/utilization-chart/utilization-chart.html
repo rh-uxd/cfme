@@ -1,15 +1,15 @@
-<div class="utilization-chart">
+<div class="utilization-chart-pf">
     <span class="card-pf-secondary-title">{{config.title}}</span>
-    <div class="count-utilization col-xs-12">
-        <div class="available-text pull-left">
-          <span>{{chartData.total - chartData.used}} {{chartData.availableUnits}}</span>
+    <div class="current-values">
+        <div class="available-count pull-left">
+          <span>{{chartData.total - chartData.used}} {{config.availableUnits}}</span>
         </div>
         <div class="available-text pull-left">
-            <div class="available-text col-xs-12 title-small title-small-upper">
+            <div>
                 <span>Available</span>
             </div>
-            <div class="available-text col-xs-12 title-small title-small-lower">
-                <span> of {{data.total}} {{config.totalUnits}}</span>
+            <div>
+                <span> of {{chartData.total}} {{config.units}}</span>
             </div>
         </div>
     </div>

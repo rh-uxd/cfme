@@ -1,6 +1,6 @@
 'use strict';
-angular.module('cfme.charts').directive('cfmeTrends', ['ChartsMixin', '$timeout',
-  function(chartsMixin, $timeout) {
+angular.module('cfme.charts').directive('cfmeTrends', ['cfmeChartDefaults', '$timeout',
+  function(c3ChartDefaults, $timeout) {
     return {
       restrict: 'A',
       scope: {

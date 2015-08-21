@@ -1,5 +1,5 @@
-angular.module('cfme.charts').directive('cfmeHeatMapLegend', ['ChartsMixin', '$timeout',
-  function(chartsMixin, $timeout) {
+angular.module('cfme.charts').directive('cfmeHeatMapLegend', ['cfmeChartDefaults',
+  function(c3ChartDefaults) {
     'use strict';
     return {
       restrict: 'A',
@@ -11,7 +11,7 @@ angular.module('cfme.charts').directive('cfmeHeatMapLegend', ['ChartsMixin', '$t
       controller: ['$scope', '$rootScope',
         function($scope, $rootScope) {
           var items = [];
-          var legendColors = chartsMixin.getDefaultHeatmapColorPattern();
+          var legendColors = c3ChartDefaults.getDefaultHeatmapColorPattern();
           if ($scope.legend) {
             for (var i = $scope.legend.length - 1; i >= 0; i--) {
               items.push({
@@ -23,4 +23,5 @@ angular.module('cfme.charts').directive('cfmeHeatMapLegend', ['ChartsMixin', '$t
           $scope.legendItems = items;
         }]
     };
-  }]);
+  }
+]);

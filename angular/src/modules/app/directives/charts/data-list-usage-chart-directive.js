@@ -1,5 +1,5 @@
-angular.module('cfme.charts').directive('inlineUsageChart', ['ChartsMixin', '$timeout',
-    function(chartsMixin, $timeout) {
+angular.module('cfme.charts').directive('inlineUsageChart', ['c3ChartDefaults', '$timeout',
+    function(c3ChartDefaults, $timeout) {
         'use strict';
         return {
             restrict: 'A',
@@ -39,7 +39,7 @@ angular.module('cfme.charts').directive('inlineUsageChart', ['ChartsMixin', '$ti
                     };
                     var donutTooltip = {
                         contents: function(d) {
-                            return '<span class="c3-tooltip-sparkline" style="white-space: nowrap;">' + Math.round(d[0].ratio * 100) + '%:</span>' + '<span class="c3-tooltip-sparkline" style="white-space: nowrap;">' + d[0].value + ' ' + $scope.config.totalUnits + ' ' + d[0].name + '</span>';
+                            return '<span class="c3-tooltip-sparkline" style="white-space: nowrap;">' + Math.round(d[0].ratio * 100) + '%:</span>' + '<span class="c3-tooltip-sparkline" style="white-space: nowrap;">' + d[0].value + ' ' + $scope.config.units + ' ' + d[0].name + '</span>';
                         }
                     };
                     $scope.getDonutData = function(scope) {
@@ -63,7 +63,7 @@ angular.module('cfme.charts').directive('inlineUsageChart', ['ChartsMixin', '$ti
                             order: null
                         };
                     };
-                    $scope.defaultDonutConfig = chartsMixin.getDefaultRadialConfig($scope.config.totalUnits);
+                    $scope.defaultDonutConfig = c3ChartDefaults.getDefaultDonutConfig($scope.config.units);
                     $scope.defaultDonutConfig.color = $scope.statusDonutColor($scope);
                     $scope.defaultDonutConfig.tooltip = donutTooltip;
                     $scope.config.donutConfig = $.extend(true, angular.copy($scope.defaultDonutConfig), $scope.config.donutConfig);

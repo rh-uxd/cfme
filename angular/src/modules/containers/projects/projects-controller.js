@@ -1,10 +1,11 @@
-angular.module('cfme.containers.projectsModule').controller('containers.projectsController', ['$scope', '$resource', '$location', 'ChartsMixin',
-    function($scope, $resource, $location, hartsMixin) {
+angular.module('cfme.containers.projectsModule').controller('containers.projectsController', ['$scope', 'CfmeEventBus', '$resource', '$location',
+    function($scope, eventBus, $resource, $location) {
         'use strict';
 
         // stash a ref to the controller object, and the various parent objects
         var vm = this;
 
+        vm.listId = 'containersProjectsList';
         vm.donutConfig = {
             size: {
                 width: 55,
@@ -20,6 +21,15 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
             cpuUsageConfig.donutConfig = angular.copy(vm.donutConfig);
             return cpuUsageConfig;
         };
+
+        vm.listConfig = {
+            selectItems: false,
+            multiSelect: false,
+            selectionMatchProp: 'name',
+            selectedItems: [],
+            checkDisabled: false,
+            rowHeight: 64
+        }
 
         //Get the projects data
         var projects = $resource('/containers/projects/all');
@@ -56,62 +66,19 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
                     count: project.replicators,
                     iconClass: "fa fa-cubes"
                 }
+                project.cpuIconClass = "icon-";
+                project.cpuIconContent = "&#xf0fc";
+                project.memoryIconClass = "icon-";
+                project.memoryIconContent = "&#xf0eb";
+                project.storageIconClass = "icon-";
+                project.storageIconContent = "&#xf1c0";
+                project.networkIconClass = "icon-";
+                project.networkIconContent = "&#xf0e8";
             });
         });
 
-        vm.cpuIconClass = "icon-";
-        vm.cpuIconContent = "&#xf0fc";
-        vm.memoryIconClass = "icon-";
-        vm.memoryIconContent = "&#xf0eb";
-        vm.storageIconClass = "icon-";
-        vm.storageIconContent = "&#xf1c0";
-        vm.networkIconClass = "icon-";
-        vm.networkIconContent = "&#xf0e8";
-
-        $scope.selectItems = true;
-        $scope.selectionMatchProp = 'uuid';
-        $scope.selectedItems = [];
-        $scope.checkDisabled = false;
-        $scope.dblClick = function(item) {
+        eventBus.on('cfme:data-list:' + vm.listId + ':click', function(item, e) {
             $location.path('/containers/projects/' + item.name);
-        };
-        $scope.multiSelect = false;
-
-        vm.getUsageChartId = function(item) {
-            console.log("usageChart" + item.uuid);
-            return "usageChart" + item.uuid;
-        }
-        $scope.isSelected = function(item){
-            var matchProp = $scope.selectionMatchProp;
-            if ($scope.selectedItems.length) {
-                return _.find($scope.selectedItems, function(itemObj){return itemObj[matchProp] === item[matchProp]; });
-            }
-            return false;
-        };
-
-        $scope.doListItemSelect = function(e, item){
-            console.dir(item);
-            if ($scope.selectItems && item){
-                if ($scope.multiSelect && !$scope.dblClick){
-                    var selectMatch = _.find($scope.selectedItems, function(itemObj){return itemObj === item;});
-                    if (selectMatch) {
-                        $scope.selectedItems = _.without($scope.selectedItems, selectMatch);
-                    }
-                    else {
-                        $scope.selectedItems.push(item);
-                    }
-                }
-                else {
-                    if ($scope.selectedItems[0] === item) {
-                        if (!$scope.dblClick) {
-                            $scope.selectedItems = [];
-                        }
-                        return false;
-                    }
-                   $scope.selectedItems = [item];
-                }
-            }
-            console.dir($scope.selectedItems);
-        };
+        });
     }
 ]);

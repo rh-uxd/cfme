@@ -13,7 +13,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
  
      <!-- build:css styles/css/libraries.css -->
-    <link rel="stylesheet" href="libraries/patternfly/dist/css/patternfly-additions.css"/>
+    <link rel="stylesheet" href="libraries/angular-patternfly/dist/styles/angular-patternfly.css">
+   <link rel="stylesheet" href="libraries/patternfly/dist/css/patternfly-additions.min.css"/>
     <!-- endbuild -->
 
     <!-- build:css styles/css/app.css -->
@@ -97,10 +98,15 @@
 <script src="libraries/d3/d3.js"></script>
 <script src="libraries/c3/c3.js"></script>
 <script src="libraries/angular-patternfly/dist/angular-patternfly.js"></script>
-<script src="libraries/underscore/underscore-min.js"></script>
+<script src="libraries/lodash/lodash.min.js"></script>
+<script src="libraries/eventEmitter/EventEmitter.js"></script>
 <!-- endbuild -->
 
 <!-- build:js js/app.js -->
+
+<script src="charts/c3/c3-chart-defaults.js"></script>
+<script src="charts/utilization-chart/utilization-chart-directive.js"></script>
+
 <script src="modules/containers/dashboard/dashboard-module.js"></script>
 <script src="modules/containers/dashboard/dashboard-controller.js"></script>
 <script src="modules/containers/providers/providers-module.js"></script>
@@ -115,6 +121,10 @@
 
 <script src="modules/app/app-module.js"></script>
 <script src="modules/app/controllers/app-controller.js"></script>
+
+<script src="modules/app/services/services-module.js"></script>
+<script src="modules/app/services/eventBus.js"></script>
+
 <script src="modules/app/directives/navigation/navigation-directive.js"></script>
 
 <script src="modules/app/directives/card/card.module.js"></script>
@@ -122,16 +132,18 @@
 <script src="modules/app/directives/card/objectstatus/object-status-tile-directive.js"></script>
 
 <script src="modules/app/directives/charts/charts-module.js"></script>
-<script src="modules/app/directives/charts/c3/c3.mixin.js"></script>
-<script src="modules/app/directives/charts/donut/donut-percent-chart-directive.js"></script>
 <script src="modules/app/directives/charts/heatmap/heatmap-directive.js"></script>
 <script src="modules/app/directives/charts/heatmap/heatmap-legend-directive.js"></script>
 <script src="modules/app/directives/charts/progress/progress-chart-directive.js"></script>
-<script src="modules/app/directives/charts/sparkline/sparkline-chart-directive.js"></script>
-<script src="modules/app/directives/charts/trends/trends-chart-directive.js"></script>
 <script src="modules/app/directives/charts/utilization/utilization-chart-directive.js"></script>
 <script src="modules/app/directives/charts/data-list-usage-chart-directive.js"></script>
 <script src="modules/app/directives/charts/inline-object-status-directive.js"></script>
+
+<script src="modules/app/directives/utils/utils-module.js"></script>
+<script src="modules/app/directives/utils/cfmeTranscludeDirective.js"></script>
+
+<script src="modules/app/directives/views/views-module.js"></script>
+<script src="modules/app/directives/views/data-list/data-list-directive.js"></script>
 
 
 <!-- endbuild -->

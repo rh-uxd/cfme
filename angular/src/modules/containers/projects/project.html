@@ -30,10 +30,10 @@
             <div pf-card head-title="Node Utilization" hidetopborder="true">
                 <div class="row combination-card-body" ng-if="vm.utilizationLoadingDone">
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                        <div cfme-utilization-chart config="vm.cpuUsageConfig" data="vm.cpuUsageData"></div>
+                        <div pf-utilization-chart config="vm.cpuUsageConfig" chart-data="vm.cpuUsageData"></div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                        <div cfme-utilization-chart config="vm.memoryUsageConfig" data="vm.memoryUsageData"></div>
+                        <div pf-utilization-chart config="vm.memoryUsageConfig" chart-data="vm.memoryUsageData"></div>
                     </div>
                 </div>
                 <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
@@ -41,13 +41,13 @@
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div pf-card head-title="Network Utilization" hidetopborder="true">
-                <div cfme-sparkline-chart id="networkUtilizationCurrent" config="vm.networkUtilizationCurrentConfig"
-                     data="vm.currentNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight"></div>
+                <div pf-sparkline-chart id="networkUtilizationCurrent" config="vm.networkUtilizationCurrentConfig"
+                     chart-data="vm.currentNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight"></div>
                 <span class="card-pf-subtitle" >Last 15 Minutes</span>
             </div>
             <div pf-card head-title="Network Utilization" hidetopborder="true">
-                <div cfme-sparkline-chart id="networkUtilizationDaily" config="vm.networkUtilizationDailyConfig"
-                     data="vm.dailyNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight"></div>
+                <div pf-sparkline-chart id="networkUtilizationDaily" config="vm.networkUtilizationDailyConfig"
+                     chart-data="vm.dailyNetworkUtilization" ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight"></div>
                 <span class="card-pf-subtitle" >Last 30 Days</span>
             </div>
             <div ng-if="!vm.networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
@@ -88,14 +88,14 @@
          <div class="col-xs-5 col-sm-4 col-md-5">
              <div style="width:100%;">
                  <div pf-card head-title="Total Pods Trends" hidetopborder="true">
-                     <div cfme-sparkline-chart id="podTrends" config="vm.podTrendConfig"
-                          data="vm.podTrends" ng-if="vm.podTrendsLoadingDone" chart-height="vm.chartHeight"></div>
+                     <div pf-sparkline-chart id="podTrends" config="vm.podTrendConfig"
+                          chart-data="vm.podTrends" ng-if="vm.podTrendsLoadingDone" chart-height="vm.chartHeight"></div>
                      <span class="card-pf-subtitle" >Last 30 Days</span>
                      <div ng-if="!vm.podTrendsLoadingDone" class="spinner spinner-lg loading"></div>
                  </div>
                  <div pf-card head-title="Total Images Trends" hidetopborder="true">
-                     <div cfme-sparkline-chart id="imageTrends" config="vm.imageTrendConfig"
-                          data="vm.imageTrends" ng-if="vm.imageTrendLoadingDone" chart-height="vm.chartHeight"></div>
+                     <div pf-sparkline-chart id="imageTrends" config="vm.imageTrendConfig"
+                          chart-data="vm.imageTrends" ng-if="vm.imageTrendLoadingDone" chart-height="vm.chartHeight"></div>
                      <span class="card-pf-subtitle" >Last 30 Days</span>
                      <div ng-if="!vm.imageTrendLoadingDone" class="spinner spinner-lg loading"></div>
                  </div>

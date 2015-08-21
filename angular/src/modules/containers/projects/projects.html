@@ -3,55 +3,48 @@
         <li class="active"><a href="#/containers/dashboard">Containers</a></li>
          <li>Projects</li>
     </ol>
-    <div class="cfme-data-list">
-        <a class="list-group-item"
-             ng-repeat="item in vm.projects track by $index"
-             ng-click="doListItemSelect($event, item)"
-             ng-class="{'cfme-selectable': selectItems, 'active': isSelected(item), 'disabled': checkDisabled(item)}"
-             ng-dblclick="dblClick(item)">
-            <div class="row" style="width:100%;">
-                <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 cfme-row-column">
-                    <div class="cfme-row-column"></div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cfme-row-column" style="padding-top:10px;">
-                        <div class="col-xs-6 cfme-column cfme-icon-label">
-                            <span class="pficon pficon-project container-font-color cfme-icon-label"></span>
-                            <span class="cfme-icon-label">{{item.name}}</span>
-                        </div>
-                        <div class="col-xs-6 cfme-column" style="vertical-align: middle;height: 100%;">
-                          <span class="pficon {{item.provider.icon}} container-font-color cfme-icon-label"></span>
-                          <span class="cfme-icon-label">{{item.provider.name}}</span>
-                        </div>
+    <div cfme-data-list id="{{vm.listId}}" config="vm.listConfig" items="vm.projects">
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 cfme-row-column">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cfme-row-column" style="padding-top:10px;">
+                    <div class="col-xs-6 cfme-column cfme-icon-label">
+                        <span class="pficon pficon-project container-font-color cfme-icon-label"></span>
+                        <span class="cfme-icon-label">{{item.name}}</span>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cfme-row-column">
-                        <div class="cfme-column cfme-inline-chart">
-                            <div inline-usage-chart data="item.cpuUsageData" config="item.cpuUsageConfig" chart-id="{{'cpuChart-' + $index}}" icon-content="vm.cpuIconContent" icon-class="vm.cpuIconClass"></div>
-                        </div>
-                        <div class="cfme-column cfme-inline-chart">
-                            <div inline-usage-chart data="item.memoryUsageData" config="item.memoryUsageConfig" chart-id="{{'memoryChart-' + $index}}" icon-content="vm.memoryIconContent" icon-class="vm.memoryIconClass"></div>
-                        </div>
-                        <div class="cfme-column cfme-inline-chart">
-                            <div inline-usage-chart data="item.networkUsageData" config="item.networkUsageConfig" chart-id="{{'networkChart-' + $index}}" icon-content="vm.networkIconContent" icon-class="vm.networkIconClass"></div>
-                        </div>
-                        <div class="cfme-column cfme-inline-chart">
-                            <div inline-usage-chart data="item.storageUsageData" config="item.storageUsageConfig" chart-id="{{'storageChart-' + $index}}" icon-content="vm.storageIconContent" icon-class="vm.storageIconClass"></div>
-                        </div>
+                    <div class="col-xs-6 cfme-column" style="vertical-align: middle;height: 100%;">
+                        <span class="pficon {{item.provider.icon}} container-font-color cfme-icon-label"></span>
+                        <span class="cfme-icon-label">{{item.provider.name}}</span>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 cfme-row-column">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
-                        <div inline-object-status type="item.podsInfo" style="max-width:165px;"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cfme-row-column">
+                    <div class="cfme-column cfme-inline-chart">
+                        <div inline-usage-chart data="item.cpuUsageData" config="item.cpuUsageConfig" chart-id="{{'cpuChart-' + $index}}" icon-content="item.cpuIconContent" icon-class="item.cpuIconClass"></div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
-                        <div inline-object-status type="item.servicesInfo" style="max-width:115px";></div>
+                    <div class="cfme-column cfme-inline-chart">
+                        <div inline-usage-chart data="item.memoryUsageData" config="item.memoryUsageConfig" chart-id="{{'memoryChart-' + $index}}" icon-content="item.memoryIconContent" icon-class="item.memoryIconClass"></div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
-                        <div inline-object-status type="item.routesInfo" style="max-width:105px;"></div>
+                    <div class="cfme-column cfme-inline-chart">
+                        <div inline-usage-chart data="item.networkUsageData" config="item.networkUsageConfig" chart-id="{{'networkChart-' + $index}}" icon-content="item.networkIconContent" icon-class="item.networkIconClass"></div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
-                        <div inline-object-status type="item.replicatorsInfo" style="max-width:140px;"></div>
+                    <div class="cfme-column cfme-inline-chart">
+                        <div inline-usage-chart data="item.storageUsageData" config="item.storageUsageConfig" chart-id="{{'storageChart-' + $index}}" icon-content="item.storageIconContent" icon-class="item.storageIconClass"></div>
                     </div>
                 </div>
             </div>
-        </a>
+            <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 cfme-row-column">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
+                    <div inline-object-status type="item.podsInfo" style="max-width:165px;"></div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
+                    <div inline-object-status type="item.servicesInfo" style="max-width:115px";></div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
+                    <div inline-object-status type="item.routesInfo" style="max-width:105px;"></div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
+                    <div inline-object-status type="item.replicatorsInfo" style="max-width:140px;"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
