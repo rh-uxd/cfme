@@ -21,7 +21,19 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
         // Node Utilization
 
         vm.cpuUsageConfig = chartConfig.cpuUsageConfig;
+        vm.cpuUsageSparklineConfig = {
+          chartId: 'cpuSparklineChart'
+        };
+        vm.cpuUsageDonutConfig = {
+          chartId: 'cpuDonutChart'
+        };
         vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
+        vm.memoryUsageSparklineConfig = {
+          chartId: 'memorySparklineChart'
+        };
+        vm.memoryUsageDonutConfig = {
+          chartId: 'memoryDonutChart'
+        };
 
         vm.utilizationLoadingDone = false;
         var ContainersUtilization = $resource('/containers/dashboard/utilization');
