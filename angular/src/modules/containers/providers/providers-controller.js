@@ -5,7 +5,6 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         // stash a ref to the controller object, and the various parent objects
         var vm = this;
 
-        vm.navigaition = "Providers";
         vm.chartHeight = chartsDataMixin.dashboardSparklineChartHeight;
         vm.dashboardHeatmapChartHeight = chartsDataMixin.dashboardHeatmapChartHeight;
 
@@ -13,6 +12,7 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         if (typeof(currentId) === "undefined") {
             currentId = "openshift"
         }
+        vm.navigaition = currentId;
 
         //Get the container data
         var ContainersStatus = $resource('/containers/providers/status/:id');

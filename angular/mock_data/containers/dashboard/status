@@ -63,13 +63,13 @@
                "iconClass":"pficon-openshift",
                "count":1,
                "id":"openshift",
-               "href":"#containers/providers/"
+               "href":"#containers/providers?id=openshift"
             },
             {
                "iconClass":"pficon-kubernetes",
                "count":2,
                "id":"kubernetes",
-               "href":"#containers/providers/"
+               "href":"#containers/providers/?id=kubernetes"
             }
          ]
       }

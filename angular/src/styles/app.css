@@ -9841,7 +9841,7 @@ h2,
   width: 15px;
 }
 .card-pf.card-pf-aggregate-status {
-  min-height: 0px;
+  min-height: 144px;
 }
 .providers-status {
   padding-bottom: 9px !important;
