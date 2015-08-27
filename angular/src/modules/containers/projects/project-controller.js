@@ -39,14 +39,28 @@ angular.module('cfme.containers.projectsModule').controller('containers.projectC
           chartId: 'cpuSparklineChart'
         };
         vm.cpuUsageDonutConfig = {
-          chartId: 'cpuDonutChart'
+          chartId: 'cpuDonutChart',
+          donut: {
+            width: 12
+          },
+          size: {
+            height: 185
+          }
+
         };
         vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
         vm.memoryUsageSparklineConfig = {
           chartId: 'memorySparklineChart'
         };
         vm.memoryUsageDonutConfig = {
-          chartId: 'memoryDonutChart'
+          chartId: 'memoryDonutChart',
+          donut: {
+            width: 12
+          },
+          size: {
+            height: 185
+          }
+
         };
 
         vm.utilizationLoadingDone = false;
@@ -96,20 +110,31 @@ angular.module('cfme.containers.projectsModule').controller('containers.projectC
 
         // HeatMaps
 
-        vm.nodeCpuUsageLoadingDone = false;
+        vm.nodeCpuUsage = {
+          title: 'CPU',
+          id: 'nodeCpuUsageMap',
+          loadingDone: false
+        };
+        vm.nodeMemoryUsage = {
+          title: 'Memory',
+          id: 'nodeMemoryUsageMap',
+          loadingDone: false
+        };
+
+        vm.heatmaps = [vm.nodeCpuUsage, vm.nodeMemoryUsage];
+
         var NodeCpuUsage = $resource('/containers/dashboard/node-cpu-usage');
         NodeCpuUsage.get(function(response) {
             var data = response.data;
-            vm.nodeCpuUsage = data.nodeCpuUsage;
-            vm.nodeCpuUsageLoadingDone = true;
+            vm.nodeCpuUsage.data = data.nodeCpuUsage;
+            vm.nodeCpuUsage.loadingDone = true;
         });
 
-        vm.nodeMemoryUsageLoadingDone = false;
         var NodeMemoryUsage = $resource('/containers/dashboard/node-memory-usage');
         NodeMemoryUsage.get(function(response) {
             var data = response.data;
-            vm.nodeMemoryUsage = data.nodeMemoryUsage;
-            vm.nodeMemoryUsageLoadingDone = true;
+            vm.nodeMemoryUsage.data = data.nodeMemoryUsage;
+            vm.nodeMemoryUsage.loadingDone = true;
         });
 
         vm.nodeHeatMapUsageLegendLabels = chartsDataMixin.nodeHeatMapUsageLegendLabels;

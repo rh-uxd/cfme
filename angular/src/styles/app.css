@@ -9748,24 +9748,15 @@ h2,
 /*
 @import "cfme-cards.less";
 */
-.combination-card-body {
-  margin-top: -10px;
-}
 .container-heatmap-card {
   padding-top: 10px;
+  width: 100%;
 }
 .usage-heatmap-body {
   padding: 0;
 }
-.network-heatmap-body {
-  border-left: 1px solid #d1d1d1;
-}
 .card-pf .loading {
   margin: 10px auto;
-}
-.card-pf .count-title {
-  font-weight: 300;
-  margin-top: 0;
 }
 .card-pf-status .card-pf-title {
   margin: 0;
@@ -9829,7 +9820,7 @@ h2,
   margin: 0 5px;
 }
 .card-pf-providers .providers .provider-icon {
-  font-size: 24px;
+  font-size: 22px;
   position: relative;
   top: 5px;
   padding-right: 5px;
@@ -9842,6 +9833,9 @@ h2,
   font-size: 100px;
   position: relative;
   padding-bottom: 14px;
+}
+.card-heatmap-body {
+  padding: 0;
 }
 .aggregate-status-separator {
   width: 15px;
@@ -10431,7 +10425,7 @@ h2,
 }
 /* Override for default title font weight and lessen the top and bottom margins */
 .card-pf-title {
-  font-weight: normal;
+  font-weight: 400;
 }
 /* Override for default agg status icon color */
 .card-pf-status .card-pf-title .pficon {
@@ -10453,13 +10447,6 @@ iframe,
 .cfme-body {
   background: #f5f5f5;
 }
-.card-pf-secondary-title {
-  font-size: 15px;
-  font-weight: normal;
-}
-.count-title {
-  font-weight: normal;
-}
 .card-pf-status .status {
   font-size: 22px;
 }
@@ -10472,17 +10459,13 @@ iframe,
 .card-pf-providers .providers .provider-icon {
   font-size: 22px;
 }
-/* Radial */
-.chart-radial {
-  margin: 20px 0;
-}
 /* Heap map */
 .heatmap-legend {
   font-size: 11px;
   font-weight: normal;
   line-height: 11px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 0;
   display: inline-block;
   position: relative;
 }
@@ -10514,10 +10497,13 @@ iframe,
 }
 /* Percentage Used Chart */
 .percentageUsedBarChartWrapper {
-  padding-bottom: 3px;
+  padding-bottom: 8px;
 }
-.perentageUsedBarChart {
-  margin-bottom: 10px;
+.percentageUsedBarChart {
+  margin-bottom: 12px;
+}
+.percentageUsedBarChart:last-of-type {
+  margin-bottom: 0;
 }
 .percentageUsedBar {
   height: 15px;
@@ -10552,93 +10538,45 @@ iframe,
 .percentageUsedBarTitle .used {
   float: right;
 }
-.cfme-data-list {
-  background: #fff;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-bottom: 1px;
-}
-.cfme-data-list .list-row {
-  position: relative;
-  padding-right: 0px;
-}
-.cfme-data-list .list-content {
-  position: relative;
-  left: 15px;
-}
-.cfme-data-list .list-content.with-check-box {
-  left: 30px;
-  border-left: solid 2px #d2d2d2;
-  margin-left: 10px;
-}
-.cfme-data-list .list-content.with-menu {
-  right: 15px;
-  margin-right: 30px;
-}
-.cfme-data-list .list-check-box {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 20px;
-  width: 20px;
-}
-.list-menu {
+.data-list-pf .list-menu {
   position: absolute;
   top: 0px;
   bottom: 0px;
   right: -20px;
 }
-.list-menu ul {
+.data-list-pf .list-menu ul {
   cursor: pointer;
   padding: 0;
   font-size: 12px;
   line-height: 7px;
   -webkit-padding-start: 23px;
 }
-.list-menu li {
+.data-list-pf .list-menu li {
   color: #000000;
 }
-.cfme-data-list .cfme-data-list-loading {
-  background: rgba(0, 0, 0, 0.05);
-}
-.cfme-data-list .list-group-item.inline-charts {
+.data-list-pf .list-group-item.inline-charts {
   padding-bottom: 0px;
 }
-.cfme-data-list .list-group-item:first-of-type {
-  margin-top: 0;
-}
-.cfme-data-list .list-group-item .pficon {
-  -webkit-align-items: center;
-  align-items: center;
-  font-size: 26px;
-  color: #1186C1 !important;
-  width: 26px;
-}
-.list-group-item.active .pficon,
-.list-group-item.active:hover .pficon,
-.list-group-item.active:focus .pficon {
-  color: #ffffff !important;
-}
-.cfme-data-list .cfme-row-column {
+.data-list-pf .cfme-row-column {
   padding-right: 5px;
 }
-.cfme-data-list .list-group-item .cfme-column {
+.data-list-pf .list-group-item .cfme-column {
   float: left;
   padding: 5px 0px;
 }
-.cfme-data-list .list-group-item .cfme-column .cfme-icon-label {
+.data-list-pf .list-group-item .cfme-column .cfme-icon-label {
   vertical-align: middle;
   white-space: nowrap;
 }
-.cfme-data-list .list-group-item .cfme-column.cfme-inline-chart {
+.data-list-pf .list-group-item .cfme-column.cfme-inline-chart {
   padding-top: 0px;
   width: 4em;
   margin: 0;
 }
-.cfme-data-list .list-group-item .cfme-column .cfme-item-title {
+.data-list-pf .list-group-item .cfme-column .cfme-item-title {
   font-weight: bold;
 }
-.cfme-data-list .list-group-item .utilization-chart-title-big {
+.data-list-pf .list-group-item .utilization-chart-title-big {
   font-size: 14px;
   font-weight: 500;
 }

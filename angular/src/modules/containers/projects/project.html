@@ -28,7 +28,7 @@
     <div class="row row-tile-pf">
         <div class="col-xs-7 col-sm-7 col-md-7">
             <div pf-card head-title="Node Utilization" hidetopborder="true">
-                <div class="row combination-card-body" ng-if="vm.utilizationLoadingDone">
+                <div class="row" ng-if="vm.utilizationLoadingDone">
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div pf-utilization-chart config="vm.cpuUsageConfig" donut-config="vm.cpuUsageDonutConfig" sparkline-config="vm.cpuUsageSparklineConfig" chart-data="vm.cpuUsageData"></div>
                     </div>
@@ -55,34 +55,9 @@
     </div><!-- /row -->
      <div class="row row-tile-pf row-tile-pf-last">
         <div class="col-md-7">
-            <div pf-card head-title="Utilization per Node used by Project" hidetopborder="true">
-                <div class="card-border-body">
-                    <div class="row combination-card-body">
-                        <div class="col-xs-12 col-sm-12 col-md-12 usage-heatmap-body">
-                            <div>
-                                <div class="col-xs-8 col-sm-6 col-md-6 container-heatmap-tile">
-                                    <span class="card-pf-secondary-title">CPU</span>
-                                    <div id="nodeCpuUsage" style="width:100%; height:{{vm.dashboardHeatmapChartHeight}};">
-                                        <div cfme-heat-map data="vm.nodeCpuUsage" parentid="nodeCpuUsage"
-                                             ng-if="vm.nodeCpuUsageLoadingDone"></div>
-                                    </div>
-                                    <div ng-if="!vm.nodeCpuUsageLoadingDone" class="spinner spinner-lg loading"></div>
-                                </div>
-                                <div class="col-xs-8 col-sm-6 col-md-6 container-heatmap-tile">
-                                    <span class="card-pf-secondary-title">Memory</span>
-                                    <div id="nodeMemoryUsage" style="width:100%; height:{{vm.dashboardHeatmapChartHeight}};">
-                                        <div cfme-heat-map data="vm.nodeMemoryUsage" parentid="nodeMemoryUsage"
-                                             ng-if="vm.nodeMemoryUsageLoadingDone"></div>
-                                    </div>
-                                    <div ng-if="!vm.nodeMemoryUsageLoadingDone" class="spinner spinner-lg loading"></div>
-                                </div>
-                            </div>
-                            <div class="col-xs-16 col-sm-8 col-md-8">
-                                <div cfme-heat-map-legend legend="vm.nodeHeatMapUsageLegendLabels" style="padding-bottom: 0px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div cfme-heatmaps-card title="Utilization per Node used by Project" hidetopborder="true"
+                 heatmaps="vm.heatmaps" heatmap-chart-height="vm.dashboardHeatmapChartHeight" columnSizingClass="col-xs-8 col-sm-6 col-md-6"
+                 heat-map-usage-legend-labels="vm.nodeHeatMapUsageLegendLabels">
             </div>
          </div>
          <div class="col-xs-5 col-sm-4 col-md-5">

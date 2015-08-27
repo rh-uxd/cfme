@@ -1,5 +1,5 @@
-angular.module('cfme.containers.projectsModule').controller('containers.projectsController', ['$scope', 'CfmeEventBus', '$resource', '$location',
-  function($scope, eventBus, $resource, $location) {
+angular.module('cfme.containers.projectsModule').controller('containers.projectsController', ['$scope', '$resource', '$location',
+  function($scope, $resource, $location) {
     'use strict';
 
     // stash a ref to the controller object, and the various parent objects
@@ -22,13 +22,18 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
       return cpuUsageConfig;
     };
 
+    var handleClick = function(item) {
+      $location.path('/containers/projects/' + item.name);
+    };
+
     vm.listConfig = {
       selectItems: false,
       multiSelect: false,
       selectionMatchProp: 'name',
       selectedItems: [],
       checkDisabled: false,
-      rowHeight: 64
+      rowHeight: 64,
+      onClick: handleClick
     }
 
     //Get the projects data
@@ -77,10 +82,6 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
 
         project.menuItems = ["Do Something", "Do Something Else", "Print"];
       });
-    });
-
-    eventBus.on('cfme:data-list:' + vm.listId + ':click', function(item, e) {
-      $location.path('/containers/projects/' + item.name);
     });
   }
 ]);

@@ -50,5 +50,6 @@ var chartConfig = {
     'imageTrendConfig': {
         'chartId': 'imageTrendsChart',
         'dataName': 'Images'
-    }
+    },
+
 }

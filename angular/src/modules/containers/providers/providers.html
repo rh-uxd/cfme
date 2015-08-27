@@ -22,7 +22,7 @@
     <div class="row row-tile-pf">
         <div class="col-xs-7 col-sm-7 col-md-7">
             <div pf-card head-title="Node Utilization" hidetopborder="true">
-                <div class="row combination-card-body" ng-if="vm.utilizationLoadingDone">
+                <div class="row" ng-if="vm.utilizationLoadingDone">
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div pf-utilization-chart config="vm.cpuUsageConfig" donut-config="vm.cpuUsageDonutConfig" sparkline-config="vm.cpuUsageSparklineConfig" chart-data="vm.cpuUsageData"></div>
                     </div>
@@ -49,7 +49,10 @@
     </div><!-- /row -->
     <div class="row row-tile-pf row-tile-pf-last">
         <div class="col-md-7">
-            <ng-include src="'modules/containers/partials/heatmaps.html'"></ng-include>
+          <div cfme-heatmaps-card title="Node Utilization" hidetopborder="true"
+               heatmaps="vm.heatmaps" heatmap-chart-height="vm.dashboardHeatmapChartHeight" columnSizingClass="col-xs-8 col-sm-6 col-md-6"
+               heat-map-usage-legend-labels="vm.nodeHeatMapUsageLegendLabels">
+          </div>
         </div>
         <div class="col-xs-5 col-sm-4 col-md-5">
             <div style="width:100%;">

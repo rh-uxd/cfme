@@ -4,10 +4,10 @@ angular.module( 'cfme.appModule', [
     'ui.bootstrap',
     'pascalprecht.translate',
     'patternfly',
+  'patternfly.views',
+  'patternfly.utils',
     'patternfly.charts',
     'cfme.services',
-    'cfme.utils',
-    'cfme.views',
     'cfme.charts',
     'cfme.navigation',
     'cfme.containersModule',
@@ -22,7 +22,7 @@ angular.module( 'cfme.appModule', [
                   .when('/', {
                     redirectTo: '/containers/dashboard'
                   })
-                  
+
                   // Default
                   .otherwise({
                     redirectTo: '/'
