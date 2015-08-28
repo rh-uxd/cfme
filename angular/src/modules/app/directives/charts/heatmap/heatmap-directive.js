@@ -1,5 +1,5 @@
-angular.module('cfme.charts').directive('cfmeHeatMap', ['cfmeChartDefaults', '$timeout',
-  function(c3ChartDefaults, $timeout) {
+angular.module('cfme.charts').directive('cfmeHeatMap', ['$timeout',
+  function($timeout) {
     'use strict';
     return {
       restrict: 'A',
@@ -11,9 +11,21 @@ angular.module('cfme.charts').directive('cfmeHeatMap', ['cfmeChartDefaults', '$t
       template: '<svg style="width:100%; height: 100%;"></svg>',
       controller: ['$scope', '$rootScope',
         function($scope, $rootScope) {
-          $scope.blockPadding = c3ChartDefaults.defaultHeatmapBlockPadding;
-          $scope.heatmapColor = c3ChartDefaults.getDefaultHeatmapColor();
-          $scope.heatmapColorPattern = c3ChartDefaults.getDefaultHeatmapColorPattern();
+
+          var defaultHeatmapBlockPadding = 1;
+
+          var getDefaultHeatmapColorPattern = function() {
+            return ['#d4f0fa', '#F9D67A', '#EC7A08', '#CE0000'];
+          };
+
+          var getDefaultHeatmapColor = function() {
+            return d3.scale.threshold().domain([0.7, 0.8, 0.9]).range(getDefaultHeatmapColorPattern());
+          };
+
+          $scope.blockPadding = defaultHeatmapBlockPadding;
+          $scope.heatmapColor = getDefaultHeatmapColor();
+          $scope.heatmapColorPattern = getDefaultHeatmapColorPattern();
+
           $scope.determineBlockSize = function() {
             var x = $scope.width;
             var y = $scope.height;
@@ -65,7 +77,7 @@ angular.module('cfme.charts').directive('cfmeHeatMap', ['cfmeChartDefaults', '$t
           updateSizes();
           scope.redraw();
         };
-        
+
         scope.redraw = function() {
           var data = scope.data;
           var rows = scope.rows;

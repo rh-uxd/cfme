@@ -28,7 +28,6 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
           href: item.href
         })
       });
-      console.dir(vm.providers);
     });
 
     // Node Utilization
