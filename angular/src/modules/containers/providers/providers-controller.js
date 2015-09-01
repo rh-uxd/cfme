@@ -19,7 +19,19 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         ContainersStatus.get({id: currentId}, function(response) {
             var data = response.data;
             vm.status_widgets = data.status;
-            vm.providers = data.types;
+            var types = data.types;
+            vm.providers = {
+              title: types.name,
+              count: types.count,
+              notifications: []
+            };
+            types.types.forEach(function(item) {
+              vm.providers.notifications.push({
+                iconClass: item.iconClass,
+                count: item.count,
+                href: item.href
+              })
+            });
         });
 
         // Node Utilization
