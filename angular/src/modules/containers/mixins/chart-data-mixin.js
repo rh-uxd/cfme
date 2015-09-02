@@ -73,8 +73,7 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
     };
   };
 
-  var getCpuUsageDataFromResponse = function(response, usageDataName) {
-    var data = response.data;
+  var getCpuUsageDataFromData = function(data, usageDataName) {
 
     var cpuUsageData = data.cpuUsageData;
     var sparklineData = getSparklineData(data.cpuUsageData, usageDataName);
@@ -83,6 +82,11 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
     cpuUsageData.yData = sparklineData.yData;
 
     return cpuUsageData;
+  };
+
+  var getCpuUsageDataFromResponse = function(response, usageDataName) {
+    var data = response.data;
+    return getCpuUsageDataFromData(data, usageDataName);
   };
 
   var getMemoryUsageDataFromResponse = function(response, usageDataName) {
@@ -114,6 +118,7 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
   return {
     continuouslyUpdateData:         continuouslyUpdateData,
     getSparklineData:               getSparklineData,
+    getCpuUsageDataFromData:        getCpuUsageDataFromData,
     getCpuUsageDataFromResponse:    getCpuUsageDataFromResponse,
     getMemoryUsageDataFromResponse: getMemoryUsageDataFromResponse,
     sparklineTimeTooltip:           sparklineTimeTooltip,

@@ -4,7 +4,7 @@
     <li>Projects</li>
   </ol>
   <div pf-data-toolbar config="vm.toolbarConfig"></div>
-  <div pf-data-list id="{{vm.listId}}" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType.id == 'listView'">
+  <div pf-data-list class="row" id="{{vm.listId}}" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType.id == 'listView'">
     <div class="row">
       <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 cfme-row-column">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cfme-row-column" style="padding-top:10px;">
@@ -19,16 +19,16 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cfme-row-column">
           <div class="cfme-column cfme-inline-chart">
-            <div inline-usage-chart data="item.cpuUsageData" config="item.cpuUsageConfig" chart-id="{{'cpuChart-' + $index}}" icon-content="item.cpuIconContent" icon-class="item.cpuIconClass"></div>
+            <div inline-usage-chart data="item.cpuUsageData" config="item.cpuListUsageConfig" chart-id="{{'cpuChart-' + $index}}" icon-content="item.cpuIconContent" icon-class="item.cpuIconClass"></div>
           </div>
           <div class="cfme-column cfme-inline-chart">
-            <div inline-usage-chart data="item.memoryUsageData" config="item.memoryUsageConfig" chart-id="{{'memoryChart-' + $index}}" icon-content="item.memoryIconContent" icon-class="item.memoryIconClass"></div>
+            <div inline-usage-chart data="item.memoryUsageData" config="item.memoryListUsageConfig" chart-id="{{'memoryChart-' + $index}}" icon-content="item.memoryIconContent" icon-class="item.memoryIconClass"></div>
           </div>
           <div class="cfme-column cfme-inline-chart">
-            <div inline-usage-chart data="item.networkUsageData" config="item.networkUsageConfig" chart-id="{{'networkChart-' + $index}}" icon-content="item.networkIconContent" icon-class="item.networkIconClass"></div>
+            <div inline-usage-chart data="item.networkUsageData" config="item.networkListUsageConfig" chart-id="{{'networkChart-' + $index}}" icon-content="item.networkIconContent" icon-class="item.networkIconClass"></div>
           </div>
           <div class="cfme-column cfme-inline-chart">
-            <div inline-usage-chart data="item.storageUsageData" config="item.storageUsageConfig" chart-id="{{'storageChart-' + $index}}" icon-content="item.storageIconContent" icon-class="item.storageIconClass"></div>
+            <div inline-usage-chart data="item.storageUsageData" config="item.storageListUsageConfig" chart-id="{{'storageChart-' + $index}}" icon-content="item.storageIconContent" icon-class="item.storageIconClass"></div>
           </div>
         </div>
       </div>
@@ -52,6 +52,11 @@
     <div class="tile-title">
       <span class="pficon pficon-project container-font-color cfme-icon-label"></span>
       <span class="cfme-icon-label">{{item.name}}</span>
+    </div>
+    <div class="row" style="margin-top: 5px; margin-left:10px;">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div pf-utilization-chart config="item.cpuUsageConfig" donut-config="item.cpuUsageDonutConfig" sparkline-config="item.cpuUsageSparklineConfig" chart-data="item.cpuUsageData"></div>
+      </div>
     </div>
   </div>
 </div>

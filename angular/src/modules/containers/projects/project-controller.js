@@ -40,13 +40,7 @@ angular.module('cfme.containers.projectsModule').controller('containers.projectC
         };
         vm.cpuUsageDonutConfig = {
           chartId: 'cpuDonutChart',
-          donut: {
-            width: 12
-          },
-          size: {
-            height: 185
-          }
-
+          thresholds: {'warning':'60','error':'90'}
         };
         vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
         vm.memoryUsageSparklineConfig = {
@@ -54,13 +48,7 @@ angular.module('cfme.containers.projectsModule').controller('containers.projectC
         };
         vm.memoryUsageDonutConfig = {
           chartId: 'memoryDonutChart',
-          donut: {
-            width: 12
-          },
-          size: {
-            height: 185
-          }
-
+          thresholds: {'warning':'60','error':'90'}
         };
 
         vm.utilizationLoadingDone = false;

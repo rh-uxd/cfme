@@ -1,92 +1,62 @@
 //
-// Panels
+// Toolbar (Filter and view options)
 // --------------------------------------------------
 
-.panel-title {
-  font-weight: 700;
-}
-
-//
-// Collapsable panels (aka, accordion)
-// --------------------------------------------------
-
-
-.toolbar-pf{
+.toolbar-pf {
   background: #fff;
-  border-bottom: 1px solid @gray-lighter;
-  padding: @grid-gutter-width/4;
-
-  .form-group{
+  border-bottom: 1px solid @sidebar-pf-border-color;
+  box-shadow: 0 1px 0px rgba(0,0,0,0.045);
+  padding-top: @grid-gutter-width/4;
+  .form-group {
     margin-bottom: 0;
-    width: 300px;
-  }
-}
-
-.toolbar-pf-view-selector{
-  font-size: @font-size-h3;
-  li{
-    &.active a{
-      color: @link-color;
-      cursor: default;
-    }
-    a{
-      color: @gray-darker;
-      &:hover{
-        color: @link-color;
-      }
+    width: 200px;
+    @media (min-width: @screen-sm-min){
+      width: 300px;
     }
   }
 }
-
-
-
-
-.filter-results-pf{
-  border-bottom: 1px solid @gray-lighter;
-  padding: @grid-gutter-width/4;
-  .clearfix();
-
-
-  ul, h5, p{
-    float: left;
+.toolbar-pf-results {
+  border-top: 1px solid @sidebar-pf-border-color;
+  margin-top: @grid-gutter-width/4;
+  h5, p, ul {
+    display: inline-block;
+    line-height: @grid-gutter-width/1.5;
     margin-bottom: 0;
     margin-top: 0;
-    line-height: 20px;
+    @media (min-width: @screen-sm-min){
+      line-height: @grid-gutter-width;
+    }
   }
-
-  h5{
+  h5 {
     font-weight: 700;
     margin-right: 20px;
   }
-
-  .label{
-    font-size: 11px!important;
-    display: block;
-    line-height: 18px;
-    margin-top: 1px;
-    padding-bottom: 0;
-    padding-top: 0;
-    a{
+  .label {
+    font-size: @font-size-base - 1;
+    a {
       color: #fff;
       display: inline-block;
       margin-left: 5px;
     }
   }
-
-
-  ul{
-    .clearfix();
-    margin-right: 20px;
-  }
-  li{
-    float: left;
-    margin-right: 7px;
-    &:last-child{
-      margin-right: 0;
+  .list-inline {
+    margin: 0 10px 0 5px;
+    li {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
-
-  p{
+}
+.toolbar-pf-view-selector {
+  font-size: @font-size-base + 4;
+  .active a {
+    color: @link-color;
+    cursor: default;
   }
-
+  a {
+    color: @gray-darker;
+    &:hover{
+      color: @link-color;
+    }
+  }
 }

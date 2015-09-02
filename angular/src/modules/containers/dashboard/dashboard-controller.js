@@ -38,26 +38,15 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
     };
     vm.cpuUsageDonutConfig = {
       chartId: 'cpuDonutChart',
-      donut: {
-        width: 12
-      },
-      size: {
-        height: 185
-      }
+      thresholds: {'warning':'60','error':'90'}
     };
     vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
     vm.memoryUsageSparklineConfig = {
       chartId: 'memorySparklineChart'
     };
     vm.memoryUsageDonutConfig = {
-      chartId: 'memoryDonutChart'
-      ,
-      donut: {
-        width: 12
-      },
-      size: {
-        height: 185
-      }
+      chartId: 'memoryDonutChart',
+      thresholds: {'warning':'60','error':'90'}
     };
 
     vm.utilizationLoadingDone = false;

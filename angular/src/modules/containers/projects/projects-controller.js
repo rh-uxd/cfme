@@ -1,5 +1,5 @@
-angular.module('cfme.containers.projectsModule').controller('containers.projectsController', ['$rootScope', '$scope', '$resource', '$location', 'pfViewUtils',
-  function($rootScope, $scope, $resource, $location, pfViewUtils) {
+angular.module('cfme.containers.projectsModule').controller('containers.projectsController', ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'pfViewUtils',
+  function($rootScope, $scope, $resource, $location, chartsDataMixin, pfViewUtils) {
     'use strict';
 
     // stash a ref to the controller object, and the various parent objects
@@ -16,7 +16,7 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
       }
     };
 
-    vm.createUsageConfig = function(usageConfig) {
+    vm.createListUsageConfig = function(usageConfig) {
       var cpuUsageConfig = angular.copy(usageConfig);
       cpuUsageConfig.donutConfig = angular.copy(vm.donutConfig);
       return cpuUsageConfig;
@@ -142,10 +142,33 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
         else {
           project.provider.icon = 'pficon-kubernetes';
         }
-        project.cpuUsageConfig = vm.createUsageConfig(chartConfig.cpuUsageConfig);
-        project.memoryUsageConfig = vm.createUsageConfig(chartConfig.memoryUsageConfig);
-        project.storageUsageConfig = vm.createUsageConfig(chartConfig.storageUsageConfig);
-        project.networkUsageConfig = vm.createUsageConfig(chartConfig.networkUsageConfig);
+
+        project.cpuUsageConfig = {
+          'chartId': project.name + '_cpuUsageChart',
+          'title': 'CPU Utilization',
+          'units': 'Cores',
+          'usageDataName': 'Used',
+          'legendLeftText': 'Last 30 Days',
+          'legendRightText': '',
+          'numDays': 30
+        };
+        project.cpuUsageSparklineConfig = {
+          chartId: project.name + '_cpuSparklineChart'
+        };
+        project.cpuUsageDonutConfig = {
+          chartId: project.name + '_cpuDonutChart',
+          donut: {
+            width: 12
+          },
+          size: {
+            height: 125
+          }
+        };
+        project.cpuListUsageConfig = vm.createListUsageConfig(chartConfig.cpuUsageConfig);
+        project.cpuUsageData = chartsDataMixin.getCpuUsageDataFromData(project, project.cpuUsageConfig.usageDataName);
+        project.memoryListUsageConfig = vm.createListUsageConfig(chartConfig.memoryUsageConfig);
+        project.storageListUsageConfig = vm.createListUsageConfig(chartConfig.storageUsageConfig);
+        project.networkListUsageConfig = vm.createListUsageConfig(chartConfig.networkUsageConfig);
         project.podsInfo = {
           name: "Pods",
           count: project.pods,
