@@ -1,0 +1,92 @@
+//
+// Panels
+// --------------------------------------------------
+
+.panel-title {
+  font-weight: 700;
+}
+
+//
+// Collapsable panels (aka, accordion)
+// --------------------------------------------------
+
+
+.toolbar-pf{
+  background: #fff;
+  border-bottom: 1px solid @gray-lighter;
+  padding: @grid-gutter-width/4;
+
+  .form-group{
+    margin-bottom: 0;
+    width: 300px;
+  }
+}
+
+.toolbar-pf-view-selector{
+  font-size: @font-size-h3;
+  li{
+    &.active a{
+      color: @link-color;
+      cursor: default;
+    }
+    a{
+      color: @gray-darker;
+      &:hover{
+        color: @link-color;
+      }
+    }
+  }
+}
+
+
+
+
+.filter-results-pf{
+  border-bottom: 1px solid @gray-lighter;
+  padding: @grid-gutter-width/4;
+  .clearfix();
+
+
+  ul, h5, p{
+    float: left;
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 20px;
+  }
+
+  h5{
+    font-weight: 700;
+    margin-right: 20px;
+  }
+
+  .label{
+    font-size: 11px!important;
+    display: block;
+    line-height: 18px;
+    margin-top: 1px;
+    padding-bottom: 0;
+    padding-top: 0;
+    a{
+      color: #fff;
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+
+
+  ul{
+    .clearfix();
+    margin-right: 20px;
+  }
+  li{
+    float: left;
+    margin-right: 7px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+
+  p{
+  }
+
+}

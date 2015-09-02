@@ -14,8 +14,10 @@
 
      <!-- build:css styles/css/libraries.css -->
     <link rel="stylesheet" href="libraries/patternfly/dist/css/patternfly-additions.min.css"/>
-  <link rel="stylesheet" href="libraries/angular-patternfly/dist/styles/angular-patternfly.css">
+    <link rel="stylesheet" href="libraries/angular-patternfly/dist/styles/angular-patternfly.css">
     <!-- endbuild -->
+
+    <link rel="stylesheet" href="patternfly-next/patternfly-next.css"/>
 
     <!-- build:css styles/css/app.css -->
     <link rel="stylesheet" href="styles/app.css"/>
@@ -86,6 +88,7 @@
 
 <!-- build:js js/libraries.js -->
 <script src="libraries/jquery/dist/jquery.min.js"></script>
+<script src="libraries/patternfly/components/bootstrap-select/js/bootstrap-select.js"></script>
 <script src="libraries/angular/angular.js"></script>
 <script src="libraries/angular-route/angular-route.min.js"></script>
 <script src="libraries/angular-resource/angular-resource.min.js"></script>
@@ -102,6 +105,13 @@
 <!-- endbuild -->
 
 <!-- build:js js/app.js -->
+<script src="patternfly-next/components/components.module.js"></script>
+<script src="patternfly-next/components/filter/simple-filter-directive.js"></script>
+
+<script src="patternfly-next/views/views.module.js"></script>
+<script src="patternfly-next/views/view-utils.js"></script>
+<script src="patternfly-next/views/toolbar/data-toolbar-directive.js"></script>
+<script src="patternfly-next/views/data-tiles/data-tiles-directive.js"></script>
 
 <script src="modules/containers/dashboard/dashboard-module.js"></script>
 <script src="modules/containers/dashboard/dashboard-controller.js"></script>

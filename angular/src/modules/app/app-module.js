@@ -1,34 +1,38 @@
 angular.module( 'cfme.appModule', [
-    'ngResource',
-    'ngRoute',
-    'ui.bootstrap',
-    'pascalprecht.translate',
-    'patternfly',
-    'patternfly.views',
-    'patternfly.utils',
-    'patternfly.charts',
-    'cfme.charts',
-    'cfme.navigation',
-    'cfme.containersModule',
-    'cfme.card',
-    'cfme.charts'
+  'ngResource',
+  'ngRoute',
+  'ui.bootstrap',
+  'pascalprecht.translate',
+  'patternfly',
+  'patternfly.views',
+  'patternfly.utils',
+  'patternfly.select',
+  'patternfly.charts',
+  'patternfly-next.components',
+  'patternfly-next.views',
+  'cfme.charts',
+  'cfme.navigation',
+  'cfme.containersModule',
+  'cfme.card',
+  'cfme.charts'
 ] )
-    .config( ['$routeProvider', '$translateProvider',
-              function( $routeProvider, $translateProvider ) {
-                  'use strict';
+  .config( ['$routeProvider', '$translateProvider',
+    function( $routeProvider, $translateProvider ) {
+      'use strict';
 
-                  $routeProvider
-                  .when('/', {
-                    redirectTo: '/containers/dashboard'
-                  })
+      $routeProvider
+        .when('/', {
+          redirectTo: '/containers/dashboard'
+        })
 
-                  // Default
-                  .otherwise({
-                    redirectTo: '/'
-                  });
+        // Default
+        .otherwise({
+          redirectTo: '/'
+        });
 
-                  $translateProvider.translations( 'default', 'en');
-                  $translateProvider.preferredLanguage( 'default' );
+      $translateProvider.translations( 'default', 'en');
+      $translateProvider.preferredLanguage( 'default' );
 
-              }
-    ] );
+    }
+  ]
+);

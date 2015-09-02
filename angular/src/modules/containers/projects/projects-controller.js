@@ -1,5 +1,5 @@
-angular.module('cfme.containers.projectsModule').controller('containers.projectsController', ['$scope', '$resource', '$location',
-  function($scope, $resource, $location) {
+angular.module('cfme.containers.projectsModule').controller('containers.projectsController', ['$rootScope', '$scope', '$resource', '$location', 'pfViewUtils',
+  function($rootScope, $scope, $resource, $location, pfViewUtils) {
     'use strict';
 
     // stash a ref to the controller object, and the various parent objects
@@ -26,6 +26,100 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
       $location.path('/containers/projects/' + item.name);
     };
 
+    var viewSelected = function(view) {
+      $rootScope.projectsViewType = view
+    };
+
+    var viewsConfig = {
+      views: [pfViewUtils.getListView(), pfViewUtils.getTilesView()],
+      onViewSelect: viewSelected
+    };
+
+    var matchesFilter = function (project, filter) {
+      var match = true;
+
+      if (filter.id === 'name') {
+        match = project.name.match(filter.value) !== null;
+      } else if (filter.id === 'provider') {
+        match = project.provider.name.match(filter.value) !== null;
+      } else if (filter.id === 'providerType') {
+        match = project.provider.providerType.toLowerCase() === filter.value.toLowerCase();
+      }
+      return match;
+    };
+
+    var matchesFilters = function (project, filters) {
+      var matches = true;
+
+      filters.forEach(function(filter) {
+        if (!matchesFilter(project, filter)) {
+          matches = false;
+          return false;
+        }
+      });
+      return matches;
+    };
+
+    vm.applyFilters = function (projects) {
+      if (vm.toolbarConfig.filterConfig.appliedFilters && vm.toolbarConfig.filterConfig.appliedFilters.length > 0) {
+        vm.projects = [];
+        vm.allProjects.forEach(function (project) {
+         if (matchesFilters(project, vm.toolbarConfig.filterConfig.appliedFilters)) {
+           vm.projects.push(project);
+         }
+        });
+      } else {
+        vm.projects = projects;
+      }
+      vm.toolbarConfig.filterConfig.resultsCount = vm.projects.length;
+    };
+
+    var filterChange = function (filters) {
+      $rootScope.projectsViewFilters = filters;
+      vm.applyFilters(vm.allProjects);
+    };
+
+    var filterConfig = {
+      fields: [
+        {
+          id: 'name',
+          title:  'Name',
+          placeholder: 'Filter by Name',
+          filterType: 'text'
+        },
+        {
+          id: 'provider',
+          title:  'Provider',
+          placeholder: 'Filter by Provider',
+          filterType: 'text'
+        },
+        {
+          id: 'providerType',
+          title:  'Provider Type',
+          placeholder: 'Filter by Provider Type',
+          filterType: 'select',
+          filterValues: ['Kubernetes', 'OpenShift']
+        }
+      ],
+      resultsCount: 0,
+      appliedFilters: [],
+      onFilterChange: filterChange
+    };
+
+    vm.toolbarConfig = {
+      viewsConfig: viewsConfig,
+      filterConfig: filterConfig
+    };
+
+    if (!$rootScope.projectsViewType) {
+      $rootScope.projectsViewType = vm.toolbarConfig.viewsConfig.views[0];
+    }
+    vm.toolbarConfig.viewsConfig.currentView = $rootScope.projectsViewType;
+
+    if ($rootScope.projectsViewFilters) {
+      vm.toolbarConfig.filterConfig.appliedFilters = $rootScope.projectsViewFilters;
+    }
+
     vm.listConfig = {
       selectItems: false,
       multiSelect: false,
@@ -34,13 +128,14 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
       checkDisabled: false,
       rowHeight: 64,
       onClick: handleClick
-    }
+    };
 
     //Get the projects data
+    vm.projectsLoaded = false;
     var projects = $resource('/containers/projects/all');
     projects.get(function(data) {
-      vm.projects = data.data;
-      vm.projects.forEach(function(project){
+      vm.allProjects = data.data;
+      vm.allProjects.forEach(function(project){
         if (project.provider.providerType === 'openshift') {
           project.provider.icon = 'pficon-openshift';
         }
@@ -82,6 +177,10 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
 
         project.menuItems = ["Do Something", "Do Something Else", "Print"];
       });
+
+      vm.applyFilters(vm.allProjects);
+
+      vm.projectsLoaded = true;
     });
   }
 ]);

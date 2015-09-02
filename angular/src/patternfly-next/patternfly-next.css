@@ -1,0 +1,121 @@
+.data-toolbar-pf {
+  background: #d1d1d1;
+  padding: .5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.data-toolbar-pf .toolbar-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.3em;
+  padding: .35em 1em .35em 0;
+  line-height: 1rem;
+}
+
+.data-toolbar-pf .toolbar-controls {
+}
+
+.data-toolbar-pf .toolbar-count {
+  text-align: right;
+  white-space: nowrap;
+  padding: .5em 0 .5em 1em;
+  line-height: 1rem;
+  opacity: .85;
+}
+
+.data-toolbar-pf .toolbar-button {
+  margin-top: 0;
+}
+
+.data-toolbar-pf .toolbar-button-group + .search {
+  margin-left: .5em;
+}
+
+.data-toolbar-pf .toolbar-views {
+  position: relative;
+  right: 0;
+  height: 30px;
+  margin: 3px 5px;
+}
+.data-toolbar-pf .view-buttons {
+  float: right;
+}
+
+.data-toolbar-pf .view-buttons .btn {
+  font-size: 18px;
+}
+
+.data-toolbar-pf .toolbar-view-item:hover {
+}
+
+.data-toolbar-pf .toolbar-view-item.active,
+.data-toolbar-pf .toolbar-view-item.active:hover,
+.data-toolbar-pf .toolbar-view-item.active:focus {
+  background-color: #8b8d8f;
+}
+
+.tiles-view-pf {
+  overflow: auto;
+  padding-top: 20px;
+}
+.tiles-view-pf .tile {
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.175);
+  cursor: pointer;
+  float: left;
+  height: 290px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: center;
+  width: 260px;
+  display: block;
+  position: relative;
+}
+
+.tiles-view-pf .tile-check-box {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  z-index: 1000;
+  width: 20px;
+}
+
+.tiles-view-pf .tile-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  margin: 10px;
+  padding-right: 40px;
+}
+
+.tiles-view-pf .tile-title {
+  margin-top: 0px;
+  font-size: 16px;
+  line-height: 1.1;
+  font-weight: 500;
+  color: #1186C1;
+}
+
+.tiles-view-pf .tile .logo {
+  display: block;
+  margin: 22px auto;
+}
+.tiles-view-pf .tile .more {
+  background: #fff;
+  border: none;
+  opacity: 0;
+  transition: opacity 0s .2s, opacity .2s linear;
+}
+.tiles-view-pf .tile .more .fa {
+  font-size: 16px;
+  margin-right: 5px;
+}
+.tiles-view-pf .tile:hover .more {
+  opacity: 1;
+}
