@@ -36,20 +36,28 @@ var chartConfig = {
         'numDays': 30
     },
     'currentNetworkUsageConfig': {
-        'chartId': 'networkUsageCurrentChart',
-        'dataName': 'MHz'
+        'chartId'    : 'networkUsageCurrentChart',
+        'title'      : 'Current Network Utilization',
+        'timeFrame'  : 'Last 15 Minutes',
+        'dataName'   : 'MHz'
     },
     'dailyNetworkUsageConfig': {
-        'chartId': 'networkUsageDailyChart',
-        'dataName': 'MHz'
+        'chartId'  : 'networkUsageDailyChart',
+        'title'    : 'Network Utilization Trends',
+        'timeFrame': 'Last 30 Days',
+        'dataName' : 'MHz'
     },
     'podTrendConfig': {
-        'chartId': 'podTrendsChart',
-        'dataName': 'Pods'
+        'chartId'  : 'podTrendsChart',
+        'title'    : 'Total Pods Trends',
+        'timeFrame': 'Last 30 Days',
+        'dataName' : 'Pods'
     },
     'imageTrendConfig': {
-        'chartId': 'imageTrendsChart',
-        'dataName': 'Images'
+        'chartId'  : 'imageTrendsChart',
+        'title'    : 'Total Images Trends',
+        'timeFrame': 'Last 30 Days',
+        'dataName' : 'Images'
     },
 
 }

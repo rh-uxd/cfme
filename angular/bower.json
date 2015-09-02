@@ -22,7 +22,7 @@
     "angular-route": "1.3.*",
     "angular-sanitize": "1.3.*",
     "patternfly": "2.1.0",
-    "angular-patternfly": "2.1.0",
+    "angular-patternfly": "2.1.1",
     "angular-bootstrap": "0.13.0",
     "angular-translate": "2.1.0",
     "angular-translate-loader-static-files": "2.1.0",
