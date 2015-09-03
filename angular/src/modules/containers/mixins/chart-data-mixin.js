@@ -110,7 +110,7 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
         '  </table>';
   };
 
-  var dashboardSparklineChartHeight = 29;
+  var dashboardSparklineChartHeight = 39;
   var dashboardHeatmapChartHeight = "264px";
 
   var nodeHeatMapUsageLegendLabels = ['< 70%', '70-80%' ,'80-90%', '> 90%'];

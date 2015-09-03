@@ -35,11 +35,15 @@
             </div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
-            <div pf-trends-chart config="vm.networkUtilizationCurrentConfig" chart-data="vm.currentNetworkUtilization"
-                 ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
+            <div pf-card head-title="{{vm.networkUtilizationCurrentConfig.headTitle}}">
+              <div pf-trends-chart config="vm.networkUtilizationCurrentConfig" chart-data="vm.currentNetworkUtilization"
+                   ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
+              </div>
             </div>
-            <div pf-trends-chart config="vm.networkUtilizationDailyConfig" chart-data="vm.dailyNetworkUtilization"
-                 ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
+            <div pf-card head-title="{{vm.networkUtilizationDailyConfig.headTitle}}">
+              <div pf-trends-chart config="vm.networkUtilizationDailyConfig" chart-data="vm.dailyNetworkUtilization"
+                   ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
+              </div>
             </div>
             <div ng-if="!vm.networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
         </div>
@@ -53,12 +57,16 @@
         </div>
         <div class="col-xs-5 col-sm-4 col-md-5">
             <div style="width:100%;">
-              <div pf-trends-chart config="vm.podTrendConfig" chart-data="vm.podTrends"
-                   ng-if="vm.podTrendsLoadingDone" chart-height="vm.chartHeight">
+              <div pf-card head-title="{{vm.podTrendConfig.headTitle}}">
+                <div pf-trends-chart config="vm.podTrendConfig" chart-data="vm.podTrends"
+                     ng-if="vm.podTrendsLoadingDone" chart-height="vm.chartHeight">
+                </div>
               </div>
               <div ng-if="!vm.podTrendsLoadingDone" class="spinner spinner-lg loading"></div>
-              <div pf-trends-chart config="vm.imageTrendConfig" chart-data="vm.imageTrends"
-                   ng-if="vm.imageTrendLoadingDone" chart-height="vm.chartHeight">
+              <div pf-card head-title="{{vm.podTrendConfig.headTitle}}">
+                <div pf-trends-chart config="vm.imageTrendConfig" chart-data="vm.imageTrends"
+                     ng-if="vm.imageTrendLoadingDone" chart-height="vm.chartHeight">
+                </div>
               </div>
               <div ng-if="!vm.imageTrendLoadingDone" class="spinner spinner-lg loading"></div>
             </div>

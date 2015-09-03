@@ -119,15 +119,3 @@
 .tiles-view-pf .tile:hover .more {
   opacity: 1;
 }
-
-.trend-title-big-pf {
-  font-size: 30px;
-  font-weight: 300;
-  color: #333;
-}
-
-.trend-title-small-pf {
-  font-size: 12px;
-  font-weight: 400;
-  color: #333;
-}

@@ -37,27 +37,27 @@ var chartConfig = {
     },
     'currentNetworkUsageConfig': {
         'chartId'    : 'networkUsageCurrentChart',
-        'title'      : 'Current Network Utilization',
+        'headTitle'  : 'Current Network Utilization',
         'timeFrame'  : 'Last 15 Minutes',
-        'dataName'   : 'MHz'
+        'units'      : 'MHz'
     },
     'dailyNetworkUsageConfig': {
         'chartId'  : 'networkUsageDailyChart',
-        'title'    : 'Network Utilization Trends',
+        'headTitle': 'Network Utilization Trends',
         'timeFrame': 'Last 30 Days',
-        'dataName' : 'MHz'
+        'units'    : 'MHz'
     },
     'podTrendConfig': {
         'chartId'  : 'podTrendsChart',
-        'title'    : 'Total Pods Trends',
+        'headTitle': 'Total Pods Trends',
         'timeFrame': 'Last 30 Days',
-        'dataName' : 'Pods'
+        'units'    : 'Pods'
     },
     'imageTrendConfig': {
         'chartId'  : 'imageTrendsChart',
-        'title'    : 'Total Images Trends',
+        'headTitle': 'Total Images Trends',
         'timeFrame': 'Last 30 Days',
-        'dataName' : 'Images'
+        'units'    : 'Images'
     },
 
 }
