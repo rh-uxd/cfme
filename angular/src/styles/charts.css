@@ -1,6 +1,6 @@
-//
-// Charts
-// --------------------------------------------------
+/*
+ * Charts
+ */
 
 /* Heap map */
 .heatmap-legend  {
@@ -34,6 +34,7 @@
   list-style-type: none;
   float: left;
 }
+
 .heatmap-legend .legend-text {
   font-size: 11px;
   font-weight: normal;
@@ -89,9 +90,8 @@
   line-height: 15px;
   font-weight: normal;
   margin-bottom: 5px;
+}
 
-  .used {
-    float: right;
-  }
-
+.percentageUsedBarTitle .used {
+  float: right;
 }

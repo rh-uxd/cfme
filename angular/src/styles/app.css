@@ -9744,114 +9744,6 @@ h2,
     margin-right: 20px;
   }
 }
-/*
-@import "cfme-cards.less";
-*/
-.container-heatmap-card {
-  padding-top: 10px;
-  width: 100%;
-}
-.usage-heatmap-body {
-  padding: 0;
-}
-.card-pf .loading {
-  margin: 10px auto;
-}
-.card-pf-status .card-pf-title {
-  margin: 0;
-  padding: 10px 0;
-  text-align: center;
-}
-.card-pf-status .card-pf-title .card-pf-status-count {
-  display: block;
-  font-size: 24px;
-  vertical-align: bottom;
-  text-align: center;
-  line-height: 28px;
-}
-.card-pf-status a {
-  color: #000000;
-  text-decoration: none;
-}
-.card-pf-status a:hover {
-  color: #00618a;
-  text-decoration: underline;
-}
-.card-pf-status .pficon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  margin-top: -20px;
-  width: 54px;
-  font-size: 26px;
-}
-.card-pf-status .indicator {
-  font-size: 20px;
-}
-.card-pf-status .indicator .count {
-  top: -2px;
-  position: relative;
-  padding-left: 5px;
-}
-.card-pf-status .status {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  margin-top: -15px;
-  width: 54px;
-  font-size: 20px;
-}
-.card-pf-providers {
-  padding-top: 10px;
-}
-.card-pf-providers .providers {
-  padding: 20px 0;
-}
-.card-pf-providers .providers a {
-  color: #000000;
-  text-decoration: none;
-}
-.card-pf-providers .providers a:hover {
-  color: #00618a;
-  text-decoration: underline;
-}
-.card-pf-providers .providers .count {
-  margin: 0 5px;
-}
-.card-pf-providers .providers .provider-icon {
-  font-size: 22px;
-  position: relative;
-  top: 5px;
-  padding-right: 5px;
-  opacity: .9;
-}
-.card-pf-providers .providers .provider-icon:hover {
-  opacity: 1;
-}
-.card-pf-providers .provider-icon-large {
-  font-size: 100px;
-  position: relative;
-  padding-bottom: 14px;
-}
-.card-heatmap-body {
-  padding: 0;
-}
-.card-pf.card-pf-aggregate-status {
-  min-height: 144px;
-}
-.providers-status {
-  padding-bottom: 9px !important;
-}
-.pf-obj-status-large .card-pf-title {
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-.pficon-kubernetes::before {
-  color: #326de6;
-}
-.pficon-openshift::before {
-  color: #da2430;
-}
 .navbar-pf {
   background: #063451;
   border: 0;
@@ -10443,18 +10335,6 @@ iframe,
 .cfme-body {
   background: #f5f5f5;
 }
-.card-pf-status .status {
-  font-size: 22px;
-}
-.card-pf-status .card-pf-title .card-pf-status-count {
-  font-size: 22px;
-}
-.card-pf-providers {
-  min-height: 144px;
-}
-.card-pf-providers .providers .provider-icon {
-  font-size: 22px;
-}
 .projects-tiles .tiles-view-pf .tile {
   height: 323px;
   width: 257px;
@@ -10463,84 +10343,57 @@ iframe,
 .projects-tiles .tiles-view-pf .tile-content {
   overflow: hidden;
 }
-/* Heap map */
-.heatmap-legend {
-  font-size: 11px;
-  font-weight: normal;
-  line-height: 11px;
-  padding-top: 15px;
-  padding-bottom: 0;
-  display: inline-block;
+.card-pf .loading {
+  margin: 10px auto;
+}
+.card-pf-providers {
+  padding-top: 10px;
+  min-height: 144px;
+}
+.card-pf-providers .providers {
+  padding: 20px 0;
+}
+.card-pf-providers .providers a {
+  color: #000000;
+  text-decoration: none;
+}
+.card-pf-providers .providers a:hover {
+  color: #00618a;
+  text-decoration: underline;
+}
+.card-pf-providers .providers .count {
+  margin: 0 5px;
+}
+.card-pf-providers .providers .provider-icon {
+  font-size: 22px;
   position: relative;
-}
-.heatmap-legend-container {
-  width: 100%;
-  position: relative;
-}
-.heatmap-legend-container ul {
-  list-style-type: none;
-}
-.heatmap-legend-container li {
-  display: inline;
-}
-.heatmap-legend .color-box {
-  width: 11px;
-  height: 11px;
-  margin-left: 5px;
-  margin-right: 5px;
-  list-style-type: none;
-  float: left;
-}
-.heatmap-legend .legend-text {
-  font-size: 11px;
-  font-weight: normal;
-  line-height: 11px;
+  top: 5px;
   padding-right: 5px;
-  list-style-type: none;
-  float: left;
+  opacity: .9;
 }
-/* Percentage Used Chart */
-.percentageUsedBarChartWrapper {
-  padding-bottom: 8px;
+.card-pf-providers .providers .provider-icon:hover {
+  opacity: 1;
 }
-.percentageUsedBarChart {
-  margin-bottom: 12px;
-}
-.percentageUsedBarChart:last-of-type {
-  margin-bottom: 0;
-}
-.percentageUsedBar {
-  height: 15px;
-}
-.percentageUsedBarFilled {
-  background-color: #0088CE;
-  height: 15px;
+.card-pf-providers .provider-icon-large {
+  font-size: 100px;
   position: relative;
-  z-index: 1001;
-  -webkit-transition: width 0.75s ease-in-out;
-  -moz-transition: width 0.75s ease-in-out;
-  -o-transition: width 0.75s ease-in-out;
-  transition: width 0.75s ease-in-out;
+  padding-bottom: 14px;
 }
-.percentageUsedBarFilled.animate {
-  width: 0% !important;
+.card-pf.card-pf-aggregate-status {
+  min-height: 144px;
 }
-.percentageUsedBarUnused {
-  background-color: #D1D1D1;
-  width: 100%;
-  height: 15px;
-  position: relative;
-  top: -15px;
-  z-index: 1000;
+.providers-status {
+  padding-bottom: 9px !important;
 }
-.percentageUsedBarTitle {
-  font-size: 12px;
-  line-height: 15px;
-  font-weight: normal;
-  margin-bottom: 5px;
+.pf-obj-status-large .card-pf-title {
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
-.percentageUsedBarTitle .used {
-  float: right;
+.pficon-kubernetes::before {
+  color: #326de6;
+}
+.pficon-openshift::before {
+  color: #da2430;
 }
 .data-list-pf .list-menu {
   position: absolute;
