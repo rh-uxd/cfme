@@ -112,7 +112,7 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
     };
 
     if (!$rootScope.projectsViewType) {
-      $rootScope.projectsViewType = vm.toolbarConfig.viewsConfig.views[0];
+      $rootScope.projectsViewType = vm.toolbarConfig.viewsConfig.views[0].id;
     }
     vm.toolbarConfig.viewsConfig.currentView = $rootScope.projectsViewType;
 

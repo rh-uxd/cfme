@@ -4,7 +4,7 @@
     <li>Projects</li>
   </ol>
   <div pf-data-toolbar config="vm.toolbarConfig"></div>
-  <div pf-data-list class="row" id="{{vm.listId}}" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType.id == 'listView'">
+  <div pf-data-list class="row" id="{{vm.listId}}" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType == 'listView'">
     <div class="row">
       <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 cfme-row-column">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cfme-row-column" style="padding-top:10px;">
@@ -48,12 +48,12 @@
       </div>
     </div>
   </div>
-  <div pf-data-tiles id="{{vm.listId}}" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType.id == 'tilesView'">
+  <div pf-data-tiles id="{{vm.listId}}" class="projects-tiles" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType == 'tilesView'">
     <div class="tile-title">
       <span class="pficon pficon-project container-font-color cfme-icon-label"></span>
       <span class="cfme-icon-label">{{item.name}}</span>
     </div>
-    <div class="row" style="margin-top: 5px; margin-left:10px;">
+    <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div pf-utilization-chart config="item.cpuUsageConfig" donut-config="item.cpuUsageDonutConfig" sparkline-config="item.cpuUsageSparklineConfig" chart-data="item.cpuUsageData"></div>
       </div>
