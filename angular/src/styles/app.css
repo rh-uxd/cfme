@@ -14394,7 +14394,7 @@ iframe,
   width: 125px;
 }
 .projects-list .network-usage-column {
-  width: 200px;
+  width: 220px;
 }
 .projects-list .network-usage-column .cfme-title {
   text-align: right;
@@ -14416,6 +14416,9 @@ iframe,
   width: 150px;
   padding-top: 1px !important;
 }
+.pods-list {
+  height: 100%;
+}
 .pods-list .name-column {
   width: 120px;
 }
@@ -14429,11 +14432,52 @@ iframe,
 .pods-list .cpu-usage-column {
   width: 150px;
 }
-.pods-list .cpu-limit-column {
-  width: 150px;
+.pods-list .cpu-usage-column .cfme-title {
+  text-align: right;
+  width: 95px;
 }
 .pods-list .memory-usage-column {
   width: 180px;
+}
+.pods-list .memory-usage-column .cfme-title {
+  text-align: right;
+  width: 135px;
+}
+.pods-containers-info .card-pf-heading {
+  padding: 0;
+  border: none;
+}
+.pods-containers-info .card-pf-title {
+  margin: 0;
+}
+.pods-containers-info .containers-heading {
+  text-align: center;
+}
+.pods-containers-info .containers-heading .pficon {
+  color: #1186C1;
+  font-size: 64px;
+  padding: 10px 20px;
+}
+.pods-containers-info .containers-heading .containers-count {
+  border-left: 1px solid #d1d1d1;
+  color: #515151;
+  font-weight: 300;
+}
+.pods-containers-info .containers-heading .containers-counter {
+  font-size: 32px;
+}
+.pods-containers-info .containers-heading .containers-label {
+  font-size: 26px;
+}
+.pods-containers-info .containers-list {
+  margin-top: 10px;
+  border: 1px solid #d1d1d1;
+}
+.pods-containers-info .containers-list .toolbar-pf {
+  padding-bottom: 10px;
+}
+.pods-containers-info .containers-list .list-view-container {
+  height: 260px;
 }
 .data-list-pf .list-menu {
   position: absolute;

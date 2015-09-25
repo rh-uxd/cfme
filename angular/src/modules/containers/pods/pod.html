@@ -1,79 +1,89 @@
 <div class="container-fluid container-tiles-pf">
-    <ol class="breadcrumb" style="margin-bottom: 0px;">
-        <li class="active"><a href="#/containers/dashboard">Containers</a></li>
-        <li class="active"><a href="#/containers/pods">Pods</a></li>
-        <li>
-            {{ vm.navigation }}
-        </li>
-   </ol>
-    <div class="row row-tile-pf" >
-        <div class="col-xs-7 col-sm-7 col-md-7 ">
-             <div class="row">
-                <div class="pf-obj-status-large">
-                    <div class="col-xs-6 col-sm-3 col-md-4" ng-repeat="widget in vm.status_widgets">
-                        <div cfme-obj-status type="widget"></div>
-                    </div>
-                </div>
-            </div><!-- /row -->
-        </div>
-        <div class="col-xs-5 col-sm-5 col-md-5">
-            <div class="card-pf card-pf-accented project-quota-card">
-                <div class="card-pf-heading">
-                    <h2 class="card-pf-title">Quotas</h2>
-                </div>
-                    <div cfme-percentage-used charts="vm.quotas"></div>
-            </div>
-        </div>
-    </div><!-- /row -->
-    <div class="row row-tile-pf">
-        <div class="col-xs-7 col-sm-7 col-md-7">
-            <div pf-card head-title="Node Utilization" hidetopborder="true">
-                <div class="row" ng-if="vm.utilizationLoadingDone">
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                        <div pf-utilization-chart config="vm.cpuUsageConfig" donut-config="vm.cpuUsageDonutConfig" sparkline-config="vm.cpuUsageSparklineConfig" chart-data="vm.cpuUsageData"></div>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                        <div pf-utilization-chart config="vm.memoryUsageConfig" donut-config="vm.memoryUsageDonutConfig" sparkline-config="vm.memoryUsageSparklineConfig" chart-data="vm.memoryUsageData"></div>
-                    </div>
-                </div>
-                <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
-            </div>
-        </div>
-        <div class="col-xs-5 col-sm-5 col-md-5">
-          <div pf-card head-title="{{vm.networkUtilizationCurrentConfig.headTitle}}" show-top-border="{{vm.networkUtilizationCurrentConfig.showTopBorder}}">
-            <div pf-trends-chart config="vm.networkUtilizationCurrentConfig" chart-data="vm.currentNetworkUtilization"
-                 ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
-            </div>
+  <ol class="breadcrumb" style="margin-bottom: 0px;">
+    <li class="active"><a href="#/containers/dashboard">Containers</a></li>
+    <li class="active"><a href="#/containers/pods">Pods</a></li>
+    <li>
+      {{ vm.navigation }}
+    </li>
+  </ol>
+  <div class="row row-tile-pf">
+    <div class="col-xs-7 col-sm-7 col-md-7">
+      <div pf-card head-title="Node Utilization" hidetopborder="true">
+        <div class="row" ng-if="vm.utilizationLoadingDone">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-chart config="vm.cpuUsageConfig" donut-config="vm.cpuUsageDonutConfig" sparkline-config="vm.cpuUsageSparklineConfig" chart-data="vm.cpuUsageData"></div>
           </div>
-          <div pf-card head-title="{{vm.networkUtilizationDailyConfig.headTitle}}" show-top-border="{{vm.networkUtilizationDailyConfig.showTopBorder}}">
-            <div pf-trends-chart config="vm.networkUtilizationDailyConfig" chart-data="vm.dailyNetworkUtilization"
-                 ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
-            </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-chart config="vm.memoryUsageConfig" donut-config="vm.memoryUsageDonutConfig" sparkline-config="vm.memoryUsageSparklineConfig" chart-data="vm.memoryUsageData"></div>
           </div>
-            <div ng-if="!vm.networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
         </div>
-    </div><!-- /row -->
-     <div class="row row-tile-pf row-tile-pf-last">
-        <div class="col-md-7">
-            <div cfme-heatmaps-card title="Utilization per Node used by Project" hidetopborder="true"
-                 heatmaps="vm.heatmaps" heatmap-chart-height="vm.dashboardHeatmapChartHeight" columnSizingClass="col-xs-8 col-sm-6 col-md-6"
-                 heat-map-usage-legend-labels="vm.nodeHeatMapUsageLegendLabels">
-            </div>
-         </div>
-         <div class="col-xs-5 col-sm-4 col-md-5">
-             <div style="width:100%;">
-               <div pf-card head-title="{{vm.podTrendConfig.headTitle}}" show-top-border="{{vm.podTrendConfig.showTopBorder}}">
-                 <div pf-trends-chart config="vm.podTrendConfig" chart-data="vm.podTrends"
-                      ng-if="vm.podTrendsLoadingDone" chart-height="vm.chartHeight">
-                 </div>
-               </div>
-               <div ng-if="!vm.podTrendsLoadingDone" class="spinner spinner-lg loading"></div>
-               <div pf-card head-title="{{vm.imageTrendConfig.headTitle}}" show-top-border="{{vm.imageTrendConfig.showTopBorder}}">
-                 <div pf-trends-chart config="vm.imageTrendConfig" chart-data="vm.imageTrends"
-                      ng-if="vm.imageTrendLoadingDone" chart-height="vm.chartHeight">
-                 </div>
-               </div>
-             </div>
-         </div>
+        <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
+      </div>
     </div>
-</div><!-- /container -->
+    <div class="col-xs-5 col-sm-5 col-md-5">
+      <div pf-card head-title="{{vm.networkUtilizationCurrentConfig.headTitle}}" show-top-border="{{vm.networkUtilizationCurrentConfig.showTopBorder}}">
+        <div pf-trends-chart config="vm.networkUtilizationCurrentConfig" chart-data="vm.currentNetworkUtilization"
+             ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
+        </div>
+      </div>
+      <div pf-card head-title="{{vm.networkUtilizationDailyConfig.headTitle}}" show-top-border="{{vm.networkUtilizationDailyConfig.showTopBorder}}">
+        <div pf-trends-chart config="vm.networkUtilizationDailyConfig" chart-data="vm.dailyNetworkUtilization"
+             ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
+        </div>
+      </div>
+      <div ng-if="!vm.networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
+    </div>
+  </div>
+  <div class="row row-tile-pf">
+    <div class="col-xs-12 col-md-7 pods-containers-info">
+      <div pf-card show-top-border="true">
+        <div>
+          <div class="row containers-heading">
+            <div class="col-md-6">
+              <span class="pficon fa fa-cube pull-right"></span>
+            </div>
+            <div class="col-md-3 containers-count">
+                <div class="containers-counter">{{vm.containers.length || 0}}</div>
+                <div class="containers-label">Containers</div>
+            </div>
+          </div>
+        </div>
+        <div class="containers-list">
+          <div pf-data-toolbar config="vm.toolbarConfig"></div>
+          <div class="list-view-container">
+            <div pf-data-list class="pods-list" id="{{vm.listId}}" config="vm.listConfig" items="vm.containers" ng-if="vm.containersLoaded">
+              <div class="row">
+                <div class="cfme-column name-column">
+                  <span class="cfme-label cfme-title">{{item.name}}</span>
+                </div>
+                <div class="cfme-column uptime-column">
+                  <span class="cfme-label cfme-title">Up Time</span>
+                  <span class="cfme-label">{{item.uptime}}</span>
+                </div>
+                <div class="cfme-column cpu-usage-column">
+                  <div>
+                    <span class="cfme-label cfme-title">CPU Usage (mc)</span>
+                    <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
+                  </div>
+                  <div>
+                    <span class="cfme-label cfme-title">Limit (mc)</span>
+                    <span class="cfme-label cfme-count">{{item.milliCoresTotal}}</span>
+                  </div>
+                </div>
+                <div class="cfme-column memory-usage-column">
+                  <div>
+                    <span class="cfme-label cfme-title">Memory Usage (MB)</span>
+                    <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
+                  </div>
+                  <div>
+                    <span class="cfme-label cfme-title">Limit (MB)</span>
+                    <span class="cfme-label cfme-count">{{item.memoryTotal}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

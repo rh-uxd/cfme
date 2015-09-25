@@ -19,22 +19,24 @@
         <span class="cfme-label">Containers</span>
       </div>
       <div class="cfme-column cpu-usage-column">
+        <div>
           <span class="cfme-label cfme-title">CPU Usage (mc)</span>
-          <div class="cfme-count">
-            <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
-          </div>
-      </div>
-      <div class="cfme-column cpu-limit-column">
-        <span class="cfme-label cfme-title">CPU Limit (mc)</span>
-        <span class="cfme-label cfme-count">{{item.milliCoresTotal}}</span>
-      </div>
-      <div class="cfme-column memory-usage-column">
-        <span class="cfme-label cfme-title">Memory Usage (MB)</span>
-        <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
+          <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
+        </div>
+        <div>
+          <span class="cfme-label cfme-title">Limit (mc)</span>
+          <span class="cfme-label cfme-count">{{item.milliCoresTotal}}</span>
+        </div>
       </div>
       <div class="cfme-column memory-usage-column">
-        <span class="cfme-label cfme-title">Memory Limit (MB)</span>
-        <span class="cfme-label cfme-count">{{item.memoryTotal}}</span>
+        <div>
+          <span class="cfme-label cfme-title">Memory Usage (MB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
+        </div>
+        <div>
+          <span class="cfme-label cfme-title">Limit (MB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryTotal}}</span>
+        </div>
       </div>
     </div>
   </div>
