@@ -27,6 +27,7 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
     };
 
     var viewSelected = function(view) {
+      console.log("View: " + view);
       $rootScope.projectsViewType = view
     };
 

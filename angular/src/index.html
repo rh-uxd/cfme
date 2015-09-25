@@ -13,6 +13,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
      <!-- build:css styles/css/libraries.css -->
+    <link rel="stylesheet" href="libraries/patternfly/dist/css/patternfly.min.css"/>
     <link rel="stylesheet" href="libraries/patternfly/dist/css/patternfly-additions.min.css"/>
     <link rel="stylesheet" href="libraries/angular-patternfly/dist/styles/angular-patternfly.css">
     <!-- endbuild -->
@@ -26,7 +27,7 @@
     <!-- endbuild -->
 
 </head>
-<body id="pf-app" class="pf-body cfme-body" ng-cloak>
+<body id="pf-app" class="pf-body cfme-body ng-cloak>
 
 <div class="pf-framework">
     <header class="pf-framework-header">
@@ -114,6 +115,9 @@
 <script src="modules/containers/projects/projects-module.js"></script>
 <script src="modules/containers/projects/projects-controller.js"></script>
 <script src="modules/containers/projects/project-controller.js"></script>
+<script src="modules/containers/pods/pods-module.js"></script>
+<script src="modules/containers/pods/pods-controller.js"></script>
+<script src="modules/containers/pods/pod-controller.js"></script>
 
 <script src="modules/containers/containers-module.js"></script>
 <script src="modules/containers/mixins/chart-data-mixin.js"></script>

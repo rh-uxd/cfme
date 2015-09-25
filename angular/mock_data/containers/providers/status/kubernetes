@@ -3,11 +3,11 @@
       "status":[
          {
             "name":"Nodes",
-            "iconClass":"pficon-container-node",
+            "iconClass":"pficon pficon-container-node",
             "count":27,
             "status":[
                {
-                  "iconClass":"pficon-error-circle-o",
+                  "iconClass":"pficon pficon-error-circle-o",
                   "count":2
                }
             ]
@@ -59,7 +59,7 @@
          "count":"1",
          "types":[
             {
-               "iconClass":"pficon-kubernetes",
+               "iconClass":"pficon pficon-kubernetes",
                "count":"1"
             }
          ]

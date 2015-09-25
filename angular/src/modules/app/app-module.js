@@ -22,7 +22,6 @@ angular.module( 'cfme.appModule', [
 
         // Default
         .otherwise({
-          redirectTo: '/'
         });
 
       $translateProvider.translations( 'default', 'en');

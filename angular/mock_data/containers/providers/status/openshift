@@ -59,7 +59,7 @@
          "count":"1",
          "types":[
             {
-               "iconClass":"pficon-openshift",
+               "iconClass":"pficon pficon-openshift",
                "count":"1"
             }
          ]

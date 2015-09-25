@@ -30,6 +30,7 @@
          },
          {
             "name":"Pods",
+            "type":"pods",
             "iconClass":"fa fa-cubes",
             "count":1200,
             "status":[
@@ -60,13 +61,13 @@
          "count":3,
          "types":[
             {
-               "iconClass":"pficon-openshift",
+               "iconClass":"pficon pficon-openshift",
                "count":1,
                "id":"openshift",
                "href":"#containers/providers?id=openshift"
             },
             {
-               "iconClass":"pficon-kubernetes",
+               "iconClass":"pficon pficon-kubernetes",
                "count":2,
                "id":"kubernetes",
                "href":"#containers/providers/?id=kubernetes"

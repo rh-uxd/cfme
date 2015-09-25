@@ -62,7 +62,7 @@
             },
             {
                "title":"Pods",
-               "href":"#/containers/groups"
+               "href":"#/containers/pods"
             },
             {
                "title":"Routes",
