@@ -108,7 +108,7 @@ angular.module('cfme.containers.podsModule').controller('containers.podsControll
         },
         {
           id: 'uptime',
-          title:  'Up Time',
+          title:  'Uptime',
           sortType: 'numeric'
         },
         {
@@ -127,7 +127,7 @@ angular.module('cfme.containers.podsModule').controller('containers.podsControll
           sortType: 'numeric'
         }
       ],
-      onSortChange: sortChange,
+      onSortChange: sortChange
     };
 
     vm.toolbarConfig = {

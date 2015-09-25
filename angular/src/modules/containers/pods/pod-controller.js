@@ -52,8 +52,9 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
 
     vm.left_metrics = [
       {title: 'Uptime', value: '02:31:54'},
+      {title: 'Node', value: 'My Node'},
+      {title: 'Replicator', value: 'Default Replicator'},
       {title: 'CPU Used (mc)', value: '11 milliCores'},
-      {title: 'Memory Working Set', value: 'No idea'},
       {title: 'Memory Page Faults', value: 201},
       {title: 'Memory Major Page Faults', value: 3},
       {title: 'Network Received', value: 712},
@@ -62,9 +63,6 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
       {title: 'File System Used', value: '192 GB'},
     ];
     vm.right_metrics = [
-      {title: 'Node', value: 'My Node'},
-      {title: 'Replicator', value: 'Default Replicator'}
-
     ];
 
     vm.utilizationLoadingDone = false;
@@ -80,15 +78,15 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
     vm.networkUtilizationCurrentConfig = chartConfig.currentNetworkUsageConfig;
     vm.networkUtilizationCurrentConfig.tooltipFn = chartsDataMixin.sparklineTimeTooltip;
 
-    vm.networkUtilizationDailyConfig = chartConfig.dailyNetworkUsageConfig;
+    vm.networkUtilizationDailyConfig = chartConfig.podDailyNetworkUsageConfig;
 
     vm.networkUtilizationLoadingDone = false;
-    var networkUtilization = $resource('/containers/dashboard/utilization');
+    var networkUtilization = $resource('/containers/pods/utilization');
     networkUtilization.get(function(response) {
       var data = response.data;
       vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, true);
       chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 10 * 1000);
-      vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName);
+      vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.hourlyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName);
       vm.networkUtilizationLoadingDone = true;
     });
 
@@ -145,7 +143,7 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
         },
         {
           id: 'uptime',
-          title:  'Up Time',
+          title:  'Uptime',
           sortType: 'numeric'
         },
         {

@@ -81,5 +81,13 @@ var chartConfig = {
     'legendLeftText': 'Last 30 Days',
     'legendRightText': '',
     'numDays': 30
-  }
+  },
+  'podDailyNetworkUsageConfig': {
+    'chartId'  : 'networkUsageDailyChart',
+    'headTitle': 'Network Utilization Trends',
+    'timeFrame': 'Last 24 Hours',
+    'units'    : 'MHz',
+    'dataName': 'MHz'
+
+  },
 }
