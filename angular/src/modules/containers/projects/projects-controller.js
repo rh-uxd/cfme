@@ -188,7 +188,7 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
         project.replicatorsInfo = {
           name: "Replicators",
           count: project.replicators,
-          iconClass: "fa fa-cubes"
+          iconClass: "fa fa-copy"
         };
         project.cpuIconClass = "icon-";
         project.cpuIconContent = "&#xf0fc";

@@ -4,47 +4,74 @@
     <li>Projects</li>
   </ol>
   <div pf-data-toolbar class="row" config="vm.toolbarConfig"></div>
-  <div pf-data-list class="row" id="{{vm.listId}}" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType == 'listView'">
+  <div pf-data-list class="projects-list row" id="{{vm.listId}}" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType == 'listView'">
     <div class="row">
-      <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 cfme-row-column">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cfme-row-column" style="padding-top:10px;">
-          <div class="col-xs-6 cfme-column cfme-icon-label">
-            <span class="pficon pficon-project container-font-color cfme-icon-label"></span>
-            <span class="cfme-icon-label">{{item.name}}</span>
-          </div>
-          <div class="col-xs-6 cfme-column" style="vertical-align: middle;height: 100%;">
-            <span class="pficon {{item.provider.icon}} container-font-color cfme-icon-label"></span>
-            <span class="cfme-icon-label">{{item.provider.name}}</span>
-          </div>
+      <div class="cfme-column name-column">
+        <span class="cfme-label cfme-title">{{item.name}}</span>
+      </div>
+      <div class="cfme-column provider-column">
+        <span class="pficon fa {{item.provider.icon}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-label">{{item.provider.name}}</span>
+      </div>
+      <div class="cfme-column cpu-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">CPU Usage (c)</span>
+          <span class="cfme-label cfme-count">{{item.cpuUsageData.used}}</span>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cfme-row-column">
-          <div class="cfme-column cfme-inline-chart">
-            <div inline-usage-chart data="item.cpuUsageData" config="item.cpuListUsageConfig" chart-id="{{'cpuChart-' + $index}}" icon-content="item.cpuIconContent" icon-class="item.cpuIconClass"></div>
-          </div>
-          <div class="cfme-column cfme-inline-chart">
-            <div inline-usage-chart data="item.memoryUsageData" config="item.memoryListUsageConfig" chart-id="{{'memoryChart-' + $index}}" icon-content="item.memoryIconContent" icon-class="item.memoryIconClass"></div>
-          </div>
-          <div class="cfme-column cfme-inline-chart">
-            <div inline-usage-chart data="item.networkUsageData" config="item.networkListUsageConfig" chart-id="{{'networkChart-' + $index}}" icon-content="item.networkIconContent" icon-class="item.networkIconClass"></div>
-          </div>
-          <div class="cfme-column cfme-inline-chart">
-            <div inline-usage-chart data="item.storageUsageData" config="item.storageListUsageConfig" chart-id="{{'storageChart-' + $index}}" icon-content="item.storageIconContent" icon-class="item.storageIconClass"></div>
-          </div>
+        <div>
+          <span class="cfme-label cfme-title">Limit (c)</span>
+          <span class="cfme-label cfme-count">{{item.cpuUsageData.total}}</span>
         </div>
       </div>
-      <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 cfme-row-column">
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
-          <div inline-object-status type="item.podsInfo" style="max-width:165px;"></div>
+      <div class="cfme-column memory-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">Memory Usage (MB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryUsageData.used}}</span>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
-          <div inline-object-status type="item.servicesInfo" style="max-width:115px";></div>
+        <div>
+          <span class="cfme-label cfme-title">Limit (MB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryUsageData.total}}</span>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
-          <div inline-object-status type="item.routesInfo" style="max-width:105px;"></div>
+      </div>
+      <div class="cfme-column storage-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">Storage Usage (GB)</span>
+          <span class="cfme-label cfme-count">{{item.storageUsageData.used}}</span>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 cfme-column">
-          <div inline-object-status type="item.replicatorsInfo" style="max-width:140px;"></div>
+        <div>
+          <span class="cfme-label cfme-title">Limit (MB)</span>
+          <span class="cfme-label cfme-count">{{item.storageUsageData.total}}</span>
         </div>
+      </div>
+      <div class="cfme-column network-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">Network Usage (Gbps)</span>
+          <span class="cfme-label cfme-count">{{item.networkUsageData.used}}</span>
+        </div>
+        <div>
+          <span class="cfme-label cfme-title">Limit (Gbps)</span>
+          <span class="cfme-label cfme-count">{{item.networkUsageData.total}}</span>
+        </div>
+      </div>
+      <div class="cfme-column pods-column">
+        <span class="pficon {{item.podsInfo.iconClass}}  container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.podsInfo.count}}</span>
+        <span class="cfme-label">Pods</span>
+      </div>
+      <div class="cfme-column services-column">
+        <span class="pficon {{item.servicesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.servicesInfo.count}}</span>
+        <span class="cfme-label">Services</span>
+      </div>
+      <div class="cfme-column routes-column">
+        <span class="pficon {{item.routesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.routesInfo.count}}</span>
+        <span class="cfme-label">Routes</span>
+      </div>
+      <div class="cfme-column replicators-column">
+        <span class="pficon {{item.replicatorsInfo.iconClass}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.replicatorsInfo.count}}</span>
+        <span class="cfme-label">Replicators</span>
       </div>
     </div>
   </div>

@@ -4,39 +4,37 @@
     <li>Pods</li>
   </ol>
   <div pf-data-toolbar class="row" config="vm.toolbarConfig"></div>
-  <div pf-data-list class="row" id="{{vm.listId}}" config="vm.listConfig" items="vm.pods" ng-if="vm.podsLoaded && podsViewType == 'listView'">
+  <div pf-data-list class="pods-list row" id="{{vm.listId}}" config="vm.listConfig" items="vm.pods" ng-if="vm.podsLoaded && podsViewType == 'listView'">
     <div class="row">
-      <div class="col-xs-1">
-        <span class="cfme-label cfme-title" style="margin-left: 5px;">{{item.name}}</span>
+      <div class="cfme-column name-column">
+        <span class="cfme-label cfme-title">{{item.name}}</span>
       </div>
-      <div class="col-xs-2">
+      <div class="cfme-column uptime-column">
         <span class="cfme-label cfme-title">Up Time</span>
         <span class="cfme-label">{{item.uptime}}</span>
       </div>
-      <div class="col-xs-2">
+      <div class="cfme-column container-column">
         <span class="pficon fa fa-cube container-font-color cfme-icon-label"></span>
         <span class="cfme-icon-label cfme-count">{{item.containersCount}}</span>
         <span class="cfme-label">Containers</span>
       </div>
-      <div class="col-xs-3">
-        <div class="col-xs-6">
+      <div class="cfme-column cpu-usage-column">
           <span class="cfme-label cfme-title">CPU Usage (mc)</span>
-          <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
-        </div>
-        <div class="col-xs-6">
-          <span class="cfme-label cfme-title">CPU Limit (mc)</span>
-          <span class="cfme-label cfme-count">{{item.milliCoresTotal}}</span>
-        </div>
+          <div class="cfme-count">
+            <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
+          </div>
       </div>
-      <div class="col-xs-4">
-        <div class="col-xs-6">
-          <span class="cfme-label cfme-title">Memory Usage (MB)</span>
-          <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
-        </div>
-        <div class="col-xs-6">
-          <span class="cfme-label cfme-title">Memory Limit (MB)</span>
-          <span class="cfme-label cfme-count">{{item.memoryTotal}}</span>
-        </div>
+      <div class="cfme-column cpu-limit-column">
+        <span class="cfme-label cfme-title">CPU Limit (mc)</span>
+        <span class="cfme-label cfme-count">{{item.milliCoresTotal}}</span>
+      </div>
+      <div class="cfme-column memory-usage-column">
+        <span class="cfme-label cfme-title">Memory Usage (MB)</span>
+        <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
+      </div>
+      <div class="cfme-column memory-usage-column">
+        <span class="cfme-label cfme-title">Memory Limit (MB)</span>
+        <span class="cfme-label cfme-count">{{item.memoryTotal}}</span>
       </div>
     </div>
   </div>

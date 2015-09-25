@@ -14365,6 +14365,76 @@ iframe,
 .pficon-openshift::before {
   color: #da2430;
 }
+.projects-list .name-column {
+  width: 120px;
+}
+.projects-list .provider-column {
+  width: 150px;
+  padding-top: 4px !important;
+}
+.projects-list .cpu-usage-column {
+  width: 150px;
+}
+.projects-list .cpu-usage-column .cfme-title {
+  text-align: right;
+  width: 95px;
+}
+.projects-list .memory-usage-column {
+  width: 180px;
+}
+.projects-list .memory-usage-column .cfme-title {
+  text-align: right;
+  width: 135px;
+}
+.projects-list .storage-usage-column {
+  width: 180px;
+}
+.projects-list .storage-usage-column .cfme-title {
+  text-align: right;
+  width: 125px;
+}
+.projects-list .network-usage-column {
+  width: 200px;
+}
+.projects-list .network-usage-column .cfme-title {
+  text-align: right;
+  width: 150px;
+}
+.projects-list .pods-column {
+  width: 100px;
+  padding-top: 1px !important;
+}
+.projects-list .services-column {
+  width: 120px;
+  padding-top: 1px !important;
+}
+.projects-list .routes-column {
+  width: 120px;
+  padding-top: 1px !important;
+}
+.projects-list .replicators-column {
+  width: 150px;
+  padding-top: 1px !important;
+}
+.pods-list .name-column {
+  width: 120px;
+}
+.pods-list .uptime-column {
+  width: 150px;
+}
+.pods-list .container-column {
+  width: 160px;
+  padding-top: 1px !important;
+}
+.pods-list .cpu-usage-column {
+  width: 150px;
+}
+.pods-list .cpu-limit-column {
+  width: 150px;
+}
+.pods-list .memory-usage-column {
+  width: 180px;
+}
 .data-list-pf .list-menu {
   position: absolute;
   top: 0px;
@@ -14389,7 +14459,10 @@ iframe,
 }
 .data-list-pf .list-group-item .cfme-column {
   float: left;
-  padding: 5px 0px;
+  padding: 5px 5px;
+}
+.data-list-pf .list-group-item .cfme-column:first-of-type {
+  padding-left: 25px;
 }
 .data-list-pf .list-group-item .cfme-icon-label {
   color: #515151;
@@ -14401,7 +14474,7 @@ iframe,
 .data-list-pf .list-group-item .pficon.cfme-icon-label {
   color: #1186C1;
 }
-.data-list-pf .list-group-item .cfme-label {
+.cfme-label {
   color: #515151;
   font-size: 12px;
   vertical-align: middle;
@@ -14421,22 +14494,22 @@ iframe,
   font-weight: 500;
 }
 .cfme-label.cfme-title {
+  float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
 .cfme-icon-label.cfme-title {
+  float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-.cfme-icon-label.cfme-count {
+.cfme-label.cfme-count {
+  float: left;
+  line-height: 24px;
   text-align: right;
   width: 32px;
-}
-.cfme-label.cfme-count {
-  text-align: right;
-  width: 120px;
 }
 .inline-card-status {
   background: transparent;

@@ -25,8 +25,11 @@
 
 .data-list-pf .list-group-item .cfme-column {
   float: left;
-  padding: 5px 0px;
+  padding: 5px 5px;
 
+}
+.data-list-pf .list-group-item .cfme-column:first-of-type {
+  padding-left: 25px;
 }
 
 .data-list-pf .list-group-item .cfme-icon-label {
@@ -40,7 +43,7 @@
   color: #1186C1;
 }
 
-.data-list-pf .list-group-item .cfme-label {
+.cfme-label {
   color: #515151;
   font-size: 12px;
   vertical-align: middle;
@@ -63,24 +66,25 @@
 }
 
 .cfme-label.cfme-title {
+  float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
 
 .cfme-icon-label.cfme-title {
+  float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
 
-.cfme-icon-label.cfme-count {
+.cfme-label.cfme-count {
+  float: left;
+  text-align: right;
+  line-height: 24px;
   text-align: right;
   width: 32px;
-}
-.cfme-label.cfme-count {
-  text-align: right;
-  width: 120px;
 }
 
 .inline-card-status {
