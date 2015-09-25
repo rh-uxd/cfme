@@ -14392,13 +14392,18 @@ iframe,
   padding: 5px 0px;
 }
 .data-list-pf .list-group-item .cfme-icon-label {
+  color: #515151;
+  font-size: 18px;
   vertical-align: middle;
   white-space: nowrap;
   padding-left: 5px;
 }
 .data-list-pf .list-group-item .cfme-label {
+  color: #515151;
+  font-size: 12px;
   vertical-align: middle;
   white-space: nowrap;
+  padding-left: 5px;
 }
 .data-list-pf .list-group-item .cfme-column.cfme-inline-chart {
   padding-top: 0px;
@@ -14411,6 +14416,16 @@ iframe,
 .data-list-pf .list-group-item .utilization-chart-title-big {
   font-size: 14px;
   font-weight: 500;
+}
+.cfme-label.cfme-title {
+  color: #515151;
+  font-size: 13px;
+  font-weight: 700;
+}
+.cfme-icon-label.cfme-title {
+  color: #515151;
+  font-size: 13px;
+  font-weight: 700;
 }
 .cfme-icon-label.cfme-count {
   text-align: right;

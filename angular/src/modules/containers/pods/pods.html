@@ -7,16 +7,16 @@
   <div pf-data-list class="row" id="{{vm.listId}}" config="vm.listConfig" items="vm.pods" ng-if="vm.podsLoaded && podsViewType == 'listView'">
     <div class="row">
       <div class="col-xs-1">
-        <span class="cfme-label cfme-title">{{item.name}}</span>
+        <span class="cfme-label cfme-title" style="margin-left: 5px;">{{item.name}}</span>
       </div>
       <div class="col-xs-2">
-        <span class="cfme-label cfme-title">Up Time:</span>
+        <span class="cfme-label cfme-title">Up Time</span>
         <span class="cfme-label">{{item.uptime}}</span>
       </div>
       <div class="col-xs-2">
         <span class="pficon fa fa-cube container-font-color cfme-icon-label"></span>
         <span class="cfme-icon-label cfme-count">{{item.containersCount}}</span>
-        <span class="cfme-icon-label">Containers</span>
+        <span class="cfme-label">Containers</span>
       </div>
       <div class="col-xs-3">
         <div class="col-xs-6">
