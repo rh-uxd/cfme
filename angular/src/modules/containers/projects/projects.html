@@ -61,6 +61,12 @@
       <span class="cfme-icon-label">{{item.name}}</span>
     </div>
     <div class="row tile-row">
+      <div class="status-object provider-object">
+        <span class="pficon {{item.provider.icon}}  container-font-color cfme-icon-label"></span>
+        <span class="status-text" style="vertical-align: middle;">{{item.provider.name}}</span>
+      </div>
+    </div>
+    <div class="row tile-row">
       <div class="tile-column cpu-usage-column">
         <div>
           <span class="cfme-label cfme-title">CPU Used (c)</span>
@@ -82,7 +88,7 @@
         </div>
       </div>
     </div>
-    <div class="tile-row">
+    <div class="row tile-row">
       <div class="tile-column">
         <div class="status-object">
           <span class="pficon {{item.podsInfo.iconClass}}  container-font-color cfme-icon-label"></span>

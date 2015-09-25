@@ -14289,6 +14289,11 @@ table.datatable th:active {
 .data-list-pf .list-group-item .pficon {
   font-size: 18px;
 }
+.tiles-view-pf .tile.active .pficon,
+.tiles-view-pf .tile.active:hover .pficon,
+.tiles-view-pf .tile.active:focus .pficon {
+  color: #1186C1;
+}
 iframe,
 .iframe {
   width: 100%;
@@ -14314,7 +14319,7 @@ iframe,
   overflow: hidden;
 }
 .projects-tiles .tile-row {
-  padding: 10px 0;
+  padding: 0;
   margin: 0;
 }
 .projects-tiles .tile-column {
@@ -14325,8 +14330,12 @@ iframe,
   text-align: left;
   margin: 5px 20px;
 }
+.projects-tiles .status-object.provider-object {
+  text-align: center;
+}
 .projects-tiles .status-object .pficon {
   font-size: 20px;
+  vertical-align: middle;
   width: 26px;
   color: #1186C1;
 }
