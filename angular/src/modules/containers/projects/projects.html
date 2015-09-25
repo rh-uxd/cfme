@@ -55,14 +55,57 @@
       </div>
     </div>
   </div>
-  <div pf-data-tiles id="{{vm.listId}}" class="projects-tiles row" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType == 'tilesView'">
+  <div pf-data-tiles id="{{vm.listId}}" class="projects-tiles" config="vm.listConfig" items="vm.projects" ng-if="vm.projectsLoaded && projectsViewType == 'tilesView'">
     <div class="tile-title">
       <span class="pficon pficon-project container-font-color cfme-icon-label"></span>
       <span class="cfme-icon-label">{{item.name}}</span>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div pf-utilization-chart config="item.cpuUsageConfig" donut-config="item.cpuUsageDonutConfig" sparkline-config="item.cpuUsageSparklineConfig" chart-data="item.cpuUsageData"></div>
+    <div class="row tile-row">
+      <div class="tile-column cpu-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">CPU Used (c)</span>
+          <span class="cfme-label cfme-count">{{item.cpuUsageData.used}}</span>
+        </div>
+        <div>
+          <span class="cfme-label cfme-title">Total (c)</span>
+          <span class="cfme-label cfme-count">{{item.cpuUsageData.total}}</span>
+        </div>
+      </div>
+      <div class="tile-column memory-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">Memory Used (GB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryUsageData.used}}</span>
+        </div>
+        <div>
+          <span class="cfme-label cfme-title">Total (GB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryUsageData.total}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="tile-row">
+      <div class="tile-column">
+        <div class="status-object">
+          <span class="pficon {{item.podsInfo.iconClass}}  container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.podsInfo.count}}</span>
+          <span class="status-text">Pods</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.servicesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.servicesInfo.count}}</span>
+          <span class="status-text">Services</span>
+        </div>
+      </div>
+      <div class="tile-column">
+        <div class="status-object">
+          <span class="pficon {{item.routesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.routesInfo.count}}</span>
+          <span class="status-text">Routes</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.replicatorsInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.replicatorsInfo.count}}</span>
+          <span class="status-text">Replicators</span>
+        </div>
       </div>
     </div>
   </div>
