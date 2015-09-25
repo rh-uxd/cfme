@@ -110,11 +110,6 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
         '  </table>';
   };
 
-  var dashboardSparklineChartHeight = 54;
-  var dashboardHeatmapChartHeight = "300px";
-
-  var nodeHeatMapUsageLegendLabels = ['< 70%', '70-80%' ,'80-90%', '> 90%'];
-
   return {
     continuouslyUpdateData:         continuouslyUpdateData,
     getSparklineData:               getSparklineData,
@@ -122,8 +117,8 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
     getCpuUsageDataFromResponse:    getCpuUsageDataFromResponse,
     getMemoryUsageDataFromResponse: getMemoryUsageDataFromResponse,
     sparklineTimeTooltip:           sparklineTimeTooltip,
-    dashboardSparklineChartHeight:  dashboardSparklineChartHeight,
-    dashboardHeatmapChartHeight:    dashboardHeatmapChartHeight,
-    nodeHeatMapUsageLegendLabels:   nodeHeatMapUsageLegendLabels
+    dashboardSparklineChartHeight:  64,
+    dashboardHeatmapChartHeight:    "320px",
+    nodeHeatMapUsageLegendLabels:   ['< 70%', '70-80%' ,'80-90%', '> 90%']
   };
 }]);

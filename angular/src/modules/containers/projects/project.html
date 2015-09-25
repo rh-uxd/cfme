@@ -28,9 +28,11 @@
                 <div class="row" ng-if="vm.utilizationLoadingDone">
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div pf-utilization-chart config="vm.cpuUsageConfig" donut-config="vm.cpuUsageDonutConfig" sparkline-config="vm.cpuUsageSparklineConfig" chart-data="vm.cpuUsageData"></div>
+                      <span class="trend-footer-pf">Last 30 Days</span>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div pf-utilization-chart config="vm.memoryUsageConfig" donut-config="vm.memoryUsageDonutConfig" sparkline-config="vm.memoryUsageSparklineConfig" chart-data="vm.memoryUsageData"></div>
+                      <span class="trend-footer-pf">Last 30 Days</span>
                     </div>
                 </div>
                 <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
