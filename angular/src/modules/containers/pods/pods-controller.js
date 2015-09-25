@@ -118,12 +118,12 @@ angular.module('cfme.containers.podsModule').controller('containers.podsControll
         },
         {
           id: 'cpuUsage',
-          title:  'CPU Usage',
+          title:  'CPU Used',
           sortType: 'numeric'
         },
         {
           id: 'memoryUsage',
-          title:  'Memory Usage',
+          title:  'Memory Used',
           sortType: 'numeric'
         }
       ],

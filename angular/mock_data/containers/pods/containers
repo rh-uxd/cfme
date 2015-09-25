@@ -1,0 +1,508 @@
+{
+   "data": [
+       {
+          "uuid": "100001",
+          "name": "Container 1",
+          "uptime": "02:36:44",
+          "milliCoresUsed": 11,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 176,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100002",
+          "name": "Container 2",
+          "uptime": "12:21:18",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 8,
+          "memoryUsed" : 128,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100003",
+          "name": "Container 3",
+          "uptime": "09:16:23",
+          "milliCoresUsed": 14,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 542,
+          "memoryTotal" : 1024
+       },
+       {
+          "uuid": "100004",
+          "name": "Container 4",
+          "uptime": "01:21:09",
+          "milliCoresUsed": 8,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 123,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100005",
+          "name": "Container 5",
+          "uptime": "17:23_21",
+          "milliCoresUsed": 9,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 187,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100006",
+          "name": "Container 6",
+          "uptime": "23:19:08",
+          "milliCoresUsed": 7,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 110,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100007",
+          "name": "Container 7",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100008",
+          "name": "Container 8",
+          "uptime": "01:41:02",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 81,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100009",
+          "name": "Container 9",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100010",
+          "name": "Container 10",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100011",
+          "name": "Container 11",
+          "uptime": "02:36:44",
+          "milliCoresUsed": 11,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 176,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100012",
+          "name": "Container 12",
+          "uptime": "12:21:18",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 8,
+          "memoryUsed" : 128,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100013",
+          "name": "Container 13",
+          "uptime": "09:16:23",
+          "milliCoresUsed": 14,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 542,
+          "memoryTotal" : 1024
+       },
+       {
+          "uuid": "100014",
+          "name": "Container 14",
+          "uptime": "01:21:09",
+          "milliCoresUsed": 8,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 123,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100015",
+          "name": "Container 15",
+          "uptime": "17:23_21",
+          "milliCoresUsed": 9,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 187,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100016",
+          "name": "Container 16",
+          "uptime": "23:19:08",
+          "milliCoresUsed": 7,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 110,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100017",
+          "name": "Container 17",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100018",
+          "name": "Container 18",
+          "uptime": "01:41:02",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 81,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100019",
+          "name": "Container 19",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100020",
+          "name": "Container 20",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100021",
+          "name": "Container 21",
+          "uptime": "02:36:44",
+          "milliCoresUsed": 11,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 176,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100022",
+          "name": "Container 22",
+          "uptime": "12:21:18",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 8,
+          "memoryUsed" : 128,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100023",
+          "name": "Container 23",
+          "uptime": "09:16:23",
+          "milliCoresUsed": 14,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 542,
+          "memoryTotal" : 1024
+       },
+       {
+          "uuid": "100024",
+          "name": "Container 24",
+          "uptime": "01:21:09",
+          "milliCoresUsed": 8,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 123,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100025",
+          "name": "Container 25",
+          "uptime": "17:23_21",
+          "milliCoresUsed": 9,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 187,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100026",
+          "name": "Container 26",
+          "uptime": "23:19:08",
+          "milliCoresUsed": 7,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 110,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100027",
+          "name": "Container 27",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100028",
+          "name": "Container 28",
+          "uptime": "01:41:02",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 81,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100029",
+          "name": "Container 29",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100030",
+          "name": "Container 30",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100031",
+          "name": "Container 31",
+          "uptime": "02:36:44",
+          "milliCoresUsed": 11,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 176,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100032",
+          "name": "Container 32",
+          "uptime": "12:21:18",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 8,
+          "memoryUsed" : 128,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100033",
+          "name": "Container 33",
+          "uptime": "09:16:23",
+          "milliCoresUsed": 14,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 542,
+          "memoryTotal" : 1024
+       },
+       {
+          "uuid": "100034",
+          "name": "Container 34",
+          "uptime": "01:21:09",
+          "milliCoresUsed": 8,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 123,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100035",
+          "name": "Container 35",
+          "uptime": "17:23_21",
+          "milliCoresUsed": 9,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 187,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100036",
+          "name": "Container 36",
+          "uptime": "23:19:08",
+          "milliCoresUsed": 7,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 110,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100037",
+          "name": "Container 37",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100038",
+          "name": "Container 38",
+          "uptime": "01:41:02",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 81,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100039",
+          "name": "Container 39",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100040",
+          "name": "Container 40",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100041",
+          "name": "Container 41",
+          "uptime": "02:36:44",
+          "milliCoresUsed": 11,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 176,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100042",
+          "name": "Container 42",
+          "uptime": "12:21:18",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 8,
+          "memoryUsed" : 128,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100043",
+          "name": "Container 43",
+          "uptime": "09:16:23",
+          "milliCoresUsed": 14,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 542,
+          "memoryTotal" : 1024
+       },
+       {
+          "uuid": "100044",
+          "name": "Container 44",
+          "uptime": "01:21:09",
+          "milliCoresUsed": 8,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 123,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100045",
+          "name": "Container 45",
+          "uptime": "17:23_21",
+          "milliCoresUsed": 9,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 187,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100046",
+          "name": "Container 46",
+          "uptime": "23:19:08",
+          "milliCoresUsed": 7,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 110,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100047",
+          "name": "Container 47",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100048",
+          "name": "Container 48",
+          "uptime": "01:41:02",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 81,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100049",
+          "name": "Container 49",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100050",
+          "name": "Container 50",
+          "uptime": "18:32:41",
+          "milliCoresUsed": 21,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 187,
+          "memoryTotal" : 512
+       },
+       {
+          "uuid": "100051",
+          "name": "Container 51",
+          "uptime": "02:36:44",
+          "milliCoresUsed": 11,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 176,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100052",
+          "name": "Container 52",
+          "uptime": "12:21:18",
+          "milliCoresUsed": 2,
+          "milliCoresTotal": 8,
+          "memoryUsed" : 128,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100053",
+          "name": "Container 53",
+          "uptime": "09:16:23",
+          "milliCoresUsed": 14,
+          "milliCoresTotal": 24,
+          "memoryUsed" : 542,
+          "memoryTotal" : 1024
+       },
+       {
+          "uuid": "100054",
+          "name": "Container 54",
+          "uptime": "01:21:09",
+          "milliCoresUsed": 8,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 123,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100055",
+          "name": "Container 55",
+          "uptime": "17:23_21",
+          "milliCoresUsed": 9,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 187,
+          "memoryTotal" : 256
+       },
+       {
+          "uuid": "100056",
+          "name": "Container 56",
+          "uptime": "23:19:08",
+          "milliCoresUsed": 7,
+          "milliCoresTotal": 12,
+          "memoryUsed" : 110,
+          "memoryTotal" : 256
+       }
+   ]
+}

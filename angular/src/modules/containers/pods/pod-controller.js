@@ -34,6 +34,39 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
       thresholds: {'warning':'60','error':'90'}
     };
 
+    vm.containersStatus = {
+      name: "Containers",
+      iconClass: "fa fa-cube",
+      count: 56
+    };
+    vm.imagesStatus = {
+      name: "Images",
+      iconClass: "pficon-image",
+      count: 84
+    };
+    vm.servicesStatus = {
+      name: "Services",
+      iconClass: "pficon-service",
+      count: 127
+    };
+
+    vm.left_metrics = [
+      {title: 'Uptime', value: '02:31:54'},
+      {title: 'CPU Used (mc)', value: '11 milliCores'},
+      {title: 'Memory Working Set', value: 'No idea'},
+      {title: 'Memory Page Faults', value: 201},
+      {title: 'Memory Major Page Faults', value: 3},
+      {title: 'Network Received', value: 712},
+      {title: 'Network Sent', value: 192},
+      {title: '# Network Errors', value: 31},
+      {title: 'File System Used', value: '192 GB'},
+    ];
+    vm.right_metrics = [
+      {title: 'Node', value: 'My Node'},
+      {title: 'Replicator', value: 'Default Replicator'}
+
+    ];
+
     vm.utilizationLoadingDone = false;
     var ContainersUtilization = $resource('/containers/dashboard/utilization');
     ContainersUtilization.get(function(response) {
@@ -117,12 +150,12 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
         },
         {
           id: 'cpuUsage',
-          title:  'CPU Usage',
+          title:  'CPU Used',
           sortType: 'numeric'
         },
         {
           id: 'memoryUsage',
-          title:  'Memory Usage',
+          title:  'Memory Used',
           sortType: 'numeric'
         }
       ],
@@ -142,7 +175,7 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
 
     //Get the containers data
     vm.containersLoaded = false;
-    var containers = $resource('/containers/pods/all');
+    var containers = $resource('/containers/pods/containers');
     containers.get(function(data) {
       vm.containers = data.data;
       vm.containersLoaded = true

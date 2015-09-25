@@ -7,6 +7,78 @@
     </li>
   </ol>
   <div class="row row-tile-pf">
+    <div class="col-xs-12 col-md-7">
+      <div class="row">
+        <div class="col-md-12 pods-containers-info">
+          <div class="row">
+            <div>
+              <div class="col-xs-6 col-md-4">
+                <div cfme-obj-status type="vm.containersStatus"></div>
+              </div>
+              <div class="col-xs-6 col-md-4">
+                <div cfme-obj-status type="vm.imagesStatus"></div>
+              </div>
+              <div class="col-xs-6 col-md-4">
+                <div cfme-obj-status type="vm.servicesStatus"></div>
+              </div>
+            </div>
+          </div><!-- /row -->
+        </div>
+        <div class="col-xs-12 col-md-12 pods-containers-info">
+          <div pf-card head-title="Containers">
+            <div class="containers-list">
+              <div pf-data-toolbar config="vm.toolbarConfig"></div>
+              <div class="list-view-container">
+                <div pf-data-list class="pods-list" id="{{vm.listId}}" config="vm.listConfig" items="vm.containers" ng-if="vm.containersLoaded">
+                  <div class="row">
+                    <div class="cfme-column name-column">
+                      <span class="cfme-label cfme-title">{{item.name}}</span>
+                    </div>
+                    <div class="cfme-column uptime-column">
+                      <span class="cfme-label cfme-title">Up Time</span>
+                      <span class="cfme-label">{{item.uptime}}</span>
+                    </div>
+                    <div class="cfme-column cpu-usage-column">
+                      <div>
+                        <span class="cfme-label cfme-title">CPU Used (mc)</span>
+                        <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
+                        <span class="cfme-label">of {{item.milliCoresTotal}}</span>
+                      </div>
+                    </div>
+                    <div class="cfme-column memory-usage-column">
+                      <div>
+                        <span class="cfme-label cfme-title">Memory Used (MB)</span>
+                        <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
+                        <span class="cfme-label">of {{item.memoryTotal}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-5">
+      <div pf-card head-title="Pod Metrics" hidetopborder="true">
+        <div class="row pod-metrics">
+          <div class="metric-col">
+            <div class="metric-row row" ng-repeat="metric in vm.left_metrics">
+              <span class="metric-title">{{metric.title}}</span>
+              <span class="metric-value">{{metric.value}}</span>
+            </div>
+          </div>
+          <div class="metric-col">
+            <div class="metric-row row" ng-repeat="metric in vm.right_metrics">
+              <span class="metric-title">{{metric.title}}</span>
+              <span class="metric-value">{{metric.value}}</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row row-tile-pf">
     <div class="col-xs-7 col-sm-7 col-md-7">
       <div pf-card head-title="Node Utilization" hidetopborder="true">
         <div class="row" ng-if="vm.utilizationLoadingDone">
@@ -34,56 +106,4 @@
       <div ng-if="!vm.networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
     </div>
   </div>
-  <div class="row row-tile-pf">
-    <div class="col-xs-12 col-md-7 pods-containers-info">
-      <div pf-card show-top-border="true">
-        <div>
-          <div class="row containers-heading">
-            <div class="col-md-6">
-              <span class="pficon fa fa-cube pull-right"></span>
-            </div>
-            <div class="col-md-3 containers-count">
-                <div class="containers-counter">{{vm.containers.length || 0}}</div>
-                <div class="containers-label">Containers</div>
-            </div>
-          </div>
-        </div>
-        <div class="containers-list">
-          <div pf-data-toolbar config="vm.toolbarConfig"></div>
-          <div class="list-view-container">
-            <div pf-data-list class="pods-list" id="{{vm.listId}}" config="vm.listConfig" items="vm.containers" ng-if="vm.containersLoaded">
-              <div class="row">
-                <div class="cfme-column name-column">
-                  <span class="cfme-label cfme-title">{{item.name}}</span>
-                </div>
-                <div class="cfme-column uptime-column">
-                  <span class="cfme-label cfme-title">Up Time</span>
-                  <span class="cfme-label">{{item.uptime}}</span>
-                </div>
-                <div class="cfme-column cpu-usage-column">
-                  <div>
-                    <span class="cfme-label cfme-title">CPU Usage (mc)</span>
-                    <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
-                  </div>
-                  <div>
-                    <span class="cfme-label cfme-title">Limit (mc)</span>
-                    <span class="cfme-label cfme-count">{{item.milliCoresTotal}}</span>
-                  </div>
-                </div>
-                <div class="cfme-column memory-usage-column">
-                  <div>
-                    <span class="cfme-label cfme-title">Memory Usage (MB)</span>
-                    <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
-                  </div>
-                  <div>
-                    <span class="cfme-label cfme-title">Limit (MB)</span>
-                    <span class="cfme-label cfme-count">{{item.memoryTotal}}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 </div>
