@@ -58,7 +58,7 @@
       ],
       "types":{
          "name":"Providers",
-         "count":3,
+         "count":2,
          "types":[
             {
                "iconClass":"pficon pficon-openshift",
@@ -68,7 +68,7 @@
             },
             {
                "iconClass":"pficon pficon-kubernetes",
-               "count":2,
+               "count":1,
                "id":"kubernetes",
                "href":"#containers/providers/?id=kubernetes"
             }

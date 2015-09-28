@@ -39,14 +39,14 @@ var chartConfig = {
         'chartId'    : 'networkUsageCurrentChart',
         'headTitle'  : 'Current Network Utilization',
         'timeFrame'  : 'Last 15 Minutes',
-        'units'      : 'MHz',
+        'units'      : 'KBps',
         'dataName': 'MHz'
     },
     'dailyNetworkUsageConfig': {
         'chartId'  : 'networkUsageDailyChart',
         'headTitle': 'Network Utilization Trends',
         'timeFrame': 'Last 30 Days',
-        'units'    : 'MHz',
+        'units'    : 'KBps',
         'dataName': 'MHz'
 
     },
@@ -86,7 +86,7 @@ var chartConfig = {
     'chartId'  : 'networkUsageDailyChart',
     'headTitle': 'Network Utilization Trends',
     'timeFrame': 'Last 24 Hours',
-    'units'    : 'MHz',
+    'units'    : 'KBps',
     'dataName': 'MHz'
 
   },
