@@ -37,17 +37,17 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
     vm.containersStatus = {
       name: "Containers",
       iconClass: "fa fa-cube",
-      count: 56
+      count: 3
     };
     vm.imagesStatus = {
       name: "Images",
       iconClass: "pficon-image",
-      count: 84
+      count: 3
     };
     vm.servicesStatus = {
       name: "Services",
       iconClass: "pficon-service",
-      count: 127
+      count: 2
     };
 
     vm.left_metrics = [
