@@ -19,6 +19,7 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
     // Node Utilization
     vm.cpuUsageConfig = chartConfig.podCpuUsageConfig;
     vm.cpuUsageSparklineConfig = {
+      tooltipType: 'valuePerDay',
       chartId: 'cpuSparklineChart'
     };
     vm.cpuUsageDonutConfig = {
@@ -27,6 +28,7 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
     };
     vm.memoryUsageConfig = chartConfig.podMemoryUsageConfig;
     vm.memoryUsageSparklineConfig = {
+      tooltipType: 'valuePerDay',
       chartId: 'memorySparklineChart'
     };
     vm.memoryUsageDonutConfig = {
@@ -79,14 +81,15 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
     vm.networkUtilizationCurrentConfig.tooltipFn = chartsDataMixin.sparklineTimeTooltip;
 
     vm.networkUtilizationDailyConfig = chartConfig.podDailyNetworkUsageConfig;
+    vm.networkUtilizationDailyConfig.tooltipFn = chartsDataMixin.sparklineHourTooltip;
 
     vm.networkUtilizationLoadingDone = false;
     var networkUtilization = $resource('/containers/pods/utilization');
     networkUtilization.get(function(response) {
       var data = response.data;
-      vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, true);
+      vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, 60);
       chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 10 * 1000);
-      vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.hourlyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName);
+      vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.hourlyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName, 60 * 60);
       vm.networkUtilizationLoadingDone = true;
     });
 

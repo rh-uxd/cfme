@@ -39,9 +39,12 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
     updateAfterDelayPromise(data).then(fulfill);
   };
 
-  var getSparklineData = function (data, dataName, isMinutes) {
+  var getSparklineData = function (data, dataName, incrementSecs) {
     var sparklineData = [dataName || 'data'];
     var dates = ['dates'];
+    if (incrementSecs === undefined) {
+      incrementSecs = 24 * 60 * 60;
+    }
 
     if (data) {
       // Add the data to the sparkline data
@@ -57,12 +60,7 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
         // Use fake dates
         var today = new Date();
         for (var d = data.data.length - 1; d >= 0; d--) {
-          if (isMinutes === true) {
-            dates.push(new Date(today.getTime() - (d * 60 * 1000)));
-          }
-          else {
-            dates.push(new Date(today.getTime() - (d * 24 * 60 * 60 * 1000)));
-          }
+          dates.push(new Date(today.getTime() - (d * incrementSecs * 1000)));
         }
       }
     }
@@ -102,10 +100,21 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
   };
 
   var sparklineTimeTooltip = function(d) {
+    var theMoment = moment(d[0].x);
+    return '  <table class="c3-tooltip">' +
+      '    <tbody>' +
+      '      <td class="value text-nowrap">' +  theMoment.format('h:mm A') + '</td>' +
+      '      <td class="value text-nowrap">' +  d[0].value + ' ' + d[0].name + '</td>' +
+      '    </tbody>' +
+      '  </table>';
+  };
+
+  var sparklineHourTooltip = function(d) {
+    var theMoment = moment(d[0].x);
     return '  <table class="c3-tooltip">' +
         '    <tbody>' +
-        '      <td class="value">' +  d[0].x.toLocaleTimeString() + '</td>' +
-        '      <td class="value text-nowrap">' +  d[0].value + ' ' + d[0].name + '</td>' +
+        '      <td class="value text-nowrap">' + theMoment.format('h A') + '</td>' +
+        '      <td class="value text-nowrap">' + d[0].value + ' ' + d[0].name + '</td>' +
         '    </tbody>' +
         '  </table>';
   };
@@ -117,6 +126,7 @@ angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', 
     getCpuUsageDataFromResponse:    getCpuUsageDataFromResponse,
     getMemoryUsageDataFromResponse: getMemoryUsageDataFromResponse,
     sparklineTimeTooltip:           sparklineTimeTooltip,
+    sparklineHourTooltip:           sparklineHourTooltip,
     dashboardSparklineChartHeight:  64,
     dashboardHeatmapChartHeight:    "320px",
     nodeHeatMapUsageLegendLabels:   ['< 70%', '70-80%' ,'80-90%', '> 90%']

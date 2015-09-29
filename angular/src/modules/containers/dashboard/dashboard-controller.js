@@ -34,6 +34,7 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
 
     vm.cpuUsageConfig = chartConfig.cpuUsageConfig;
     vm.cpuUsageSparklineConfig = {
+      tooltipType: 'valuePerDay',
       chartId: 'cpuSparklineChart'
     };
     vm.cpuUsageDonutConfig = {
@@ -42,6 +43,7 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
     };
     vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
     vm.memoryUsageSparklineConfig = {
+      tooltipType: 'valuePerDay',
       chartId: 'memorySparklineChart'
     };
     vm.memoryUsageDonutConfig = {
@@ -68,7 +70,7 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
     var networkUtilization = $resource('/containers/dashboard/utilization');
     networkUtilization.get(function(response) {
       var data = response.data;
-      vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, true);
+      vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, 60);
       chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 10 * 1000);
       vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName);
       vm.networkUtilizationLoadingDone = true;
