@@ -10,24 +10,105 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
     vm.chartHeight = chartsDataMixin.dashboardSparklineChartHeight;
     vm.dashboardHeatmapChartHeight = chartsDataMixin.dashboardHeatmapChartHeight;
 
+    vm.providers = {
+      title: "Providers",
+      count: 0,
+      href: "#containers/providers",
+      notifications: []
+    };
+    vm.nodesStatus = {
+      name: "Nodes",
+      iconClass: "pficon-container-node",
+      count: 0,
+      href: "containers/providers"
+    };
+    vm.containersStatus = {
+      name: "Containers",
+      iconClass: "fa fa-cube",
+      count: 0
+    };
+    vm.registriesStatus = {
+      name:  "Registries",
+      iconClass: "pficon-registry",
+      count: 0
+    };
+    vm.projectsStatus = {
+      name: "Projects",
+      iconClass: "pficon-project",
+      count: 0,
+      href: "containers/projects"
+    };
+    vm.podsStatus = {
+      name: "Pods",
+      iconClass: "fa fa-cubes",
+      count: 0,
+      href: "containers/pods"
+    };
+    vm.servicesStatus = {
+      name: "Services",
+      iconClass: "pficon-service",
+      count: 0
+    };
+    vm.imagesStatus = {
+      name: "Images",
+      iconClass: "pficon-image",
+      count: 0
+    };
+    vm.routesStatus = {
+      name: "Routes",
+      iconClass: "pficon-route",
+      count: 0
+    };
+
+    var updateStatus = function (statusObject, data) {
+      statusObject.status = [];
+      if (data) {
+        statusObject.count = data.count;
+        if (data.errorCount > 0) {
+          statusObject.status.push(
+            {
+              iconClass: "pficon-error-circle-o",
+              count: data.errorCount
+            }
+          );
+        }
+        if (data.warningCount > 0) {
+          statusObject.status.push(
+            {
+              iconClass: "pficon-warning-triangle-o",
+              count: data.warningCount
+            }
+          );
+        }
+      } else {
+        statusObject.count = 0;
+      }
+    };
+
     //Get the container data
     var ContainersStatus = $resource('/containers/dashboard/status');
     ContainersStatus.get(function(response) {
       var data = response.data;
-      vm.status_widgets = data.status;
-      var types = data.types;
-      vm.providers = {
-        title: types.name,
-        count: types.count,
-        notifications: []
-      };
-      types.types.forEach(function(item) {
-        vm.providers.notifications.push({
-          iconClass: item.iconClass,
-          count: item.count,
-          href: item.href
-        })
-      });
+      var providers = data.providers;
+      if (providers)
+      {
+        vm.providers.count = providers.length;
+        providers.forEach(function (item) {
+          vm.providers.notifications.push({
+            iconClass: item.iconClass,
+            count: item.count,
+            href: "#containers/providers/?filter=" + item.providerType
+          })
+        });
+      }
+      updateStatus(vm.nodesStatus, data.nodes);
+      updateStatus(vm.containersStatus, data.containers);
+      updateStatus(vm.registriesStatus, data.registries);
+      updateStatus(vm.projectsStatus, data.projects);
+      updateStatus(vm.podsStatus, data.pods);
+      updateStatus(vm.servicesStatus, data.services);
+      updateStatus(vm.imagesStatus, data.images);
+      updateStatus(vm.routesStatus, data.routes);
     });
 
     // Node Utilization
@@ -128,3 +209,4 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
     vm.nodeHeatMapUsageLegendLabels = chartsDataMixin.nodeHeatMapUsageLegendLabels;
   }
 ]);
+

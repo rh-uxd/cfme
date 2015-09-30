@@ -14310,6 +14310,228 @@ iframe,
 .cfme-body {
   background: #f5f5f5;
 }
+.card-pf .loading {
+  margin: 10px auto;
+}
+.card-pf-providers {
+  min-height: 144px;
+}
+.card-pf-providers .providers {
+  padding: 20px 0;
+}
+.card-pf-providers .providers a {
+  color: #000000;
+  text-decoration: none;
+}
+.card-pf-providers .providers a:hover {
+  color: #00618a;
+  text-decoration: underline;
+}
+.card-pf-providers .providers .count {
+  margin: 0 5px;
+}
+.card-pf-providers .providers .provider-icon {
+  font-size: 22px;
+  position: relative;
+  top: 5px;
+  padding-right: 5px;
+  opacity: .9;
+}
+.card-pf-providers .providers .provider-icon:hover {
+  opacity: 1;
+}
+.card-pf-providers .provider-icon-large {
+  font-size: 100px;
+  position: relative;
+  padding-bottom: 4px;
+  width: 100%;
+  text-align: center;
+}
+.card-pf.card-pf-aggregate-status {
+  min-height: 144px;
+}
+.providers-status {
+  padding-bottom: 9px !important;
+}
+.pf-obj-status-large .card-pf-title {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.pficon-kubernetes::before {
+  color: #326de6;
+}
+.pficon-openshift::before {
+  color: #da2430;
+}
+.providers-list .name-column {
+  width: 150px;
+}
+.providers-list .cpu-usage-column {
+  width: 150px;
+}
+.providers-list .cpu-usage-column .cfme-title {
+  text-align: right;
+  width: 95px;
+}
+.providers-list .memory-usage-column {
+  width: 180px;
+}
+.providers-list .memory-usage-column .cfme-title {
+  text-align: right;
+  width: 135px;
+}
+.providers-list .storage-usage-column {
+  width: 180px;
+}
+.providers-list .storage-usage-column .cfme-title {
+  text-align: right;
+  width: 125px;
+}
+.providers-list .network-usage-column {
+  width: 220px;
+}
+.providers-list .network-usage-column .cfme-title {
+  text-align: right;
+  width: 150px;
+}
+.providers-list .nodes-column {
+  width: 120px;
+  padding-top: 1px !important;
+}
+.providers-list .pods-column {
+  width: 130px;
+  padding-top: 1px !important;
+}
+.providers-list .containers-column {
+  width: 160px;
+  padding-top: 1px !important;
+}
+.providers-list .services-column {
+  width: 140px;
+  padding-top: 1px !important;
+}
+.providers-list .registries-column {
+  width: 130px;
+  padding-top: 1px !important;
+}
+.providers-list .images-column {
+  width: 140px;
+  padding-top: 1px !important;
+}
+.providers-list .projects-column {
+  width: 140px;
+  padding-top: 1px !important;
+}
+.providers-list .routes-column {
+  width: 130px;
+  padding-top: 1px !important;
+}
+.providers-tiles .tiles-view-pf .tile {
+  height: 240px;
+  width: 355px;
+  overflow: hidden;
+}
+.providers-tiles .tiles-view-pf .tile-content {
+  overflow: hidden;
+}
+.providers-tiles .tile-title .cfme-icon-label {
+  padding-left: 5px;
+  padding-bottom: 15px;
+}
+.providers-tiles .tile-row {
+  padding: 0;
+  margin: 0;
+}
+.providers-tiles .tile-column {
+  width: 50%;
+  float: left;
+}
+.providers-tiles .status-object {
+  text-align: left;
+  margin: 5px 20px;
+}
+.providers-tiles .status-object.provider-object {
+  text-align: center;
+}
+.providers-tiles .status-object .pficon {
+  font-size: 20px;
+  vertical-align: middle;
+  width: 26px;
+  color: #1186C1;
+}
+.providers-tiles .status-object .status-count {
+  font-size: 18px;
+  color: #515151;
+}
+.providers-tiles .status-object .status-text {
+  font-size: 12px;
+  color: #515151;
+}
+.providers-tiles .cpu-usage-column {
+  width: 150px;
+}
+.providers-tiles .cpu-usage-column .cfme-title {
+  text-align: right;
+  width: 95px;
+}
+.providers-tiles .memory-usage-column {
+  width: 180px;
+}
+.providers-tiles .memory-usage-column .cfme-title {
+  text-align: right;
+  width: 135px;
+}
+.projects-list .name-column {
+  width: 120px;
+}
+.projects-list .provider-column {
+  width: 150px;
+  padding-top: 4px !important;
+}
+.projects-list .cpu-usage-column {
+  width: 150px;
+}
+.projects-list .cpu-usage-column .cfme-title {
+  text-align: right;
+  width: 95px;
+}
+.projects-list .memory-usage-column {
+  width: 180px;
+}
+.projects-list .memory-usage-column .cfme-title {
+  text-align: right;
+  width: 135px;
+}
+.projects-list .storage-usage-column {
+  width: 180px;
+}
+.projects-list .storage-usage-column .cfme-title {
+  text-align: right;
+  width: 125px;
+}
+.projects-list .network-usage-column {
+  width: 220px;
+}
+.projects-list .network-usage-column .cfme-title {
+  text-align: right;
+  width: 150px;
+}
+.projects-list .pods-column {
+  width: 100px;
+  padding-top: 1px !important;
+}
+.projects-list .services-column {
+  width: 120px;
+  padding-top: 1px !important;
+}
+.projects-list .routes-column {
+  width: 120px;
+  padding-top: 1px !important;
+}
+.projects-list .replicators-column {
+  width: 150px;
+  padding-top: 1px !important;
+}
 .projects-tiles .tiles-view-pf .tile {
   height: 200px;
   width: 355px;
@@ -14363,109 +14585,6 @@ iframe,
 .projects-tiles .memory-usage-column .cfme-title {
   text-align: right;
   width: 135px;
-}
-.card-pf .loading {
-  margin: 10px auto;
-}
-.card-pf-providers {
-  padding-top: 10px;
-  min-height: 144px;
-}
-.card-pf-providers .providers {
-  padding: 20px 0;
-}
-.card-pf-providers .providers a {
-  color: #000000;
-  text-decoration: none;
-}
-.card-pf-providers .providers a:hover {
-  color: #00618a;
-  text-decoration: underline;
-}
-.card-pf-providers .providers .count {
-  margin: 0 5px;
-}
-.card-pf-providers .providers .provider-icon {
-  font-size: 22px;
-  position: relative;
-  top: 5px;
-  padding-right: 5px;
-  opacity: .9;
-}
-.card-pf-providers .providers .provider-icon:hover {
-  opacity: 1;
-}
-.card-pf-providers .provider-icon-large {
-  font-size: 100px;
-  position: relative;
-  padding-bottom: 14px;
-}
-.card-pf.card-pf-aggregate-status {
-  min-height: 144px;
-}
-.providers-status {
-  padding-bottom: 9px !important;
-}
-.pf-obj-status-large .card-pf-title {
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-.pficon-kubernetes::before {
-  color: #326de6;
-}
-.pficon-openshift::before {
-  color: #da2430;
-}
-.projects-list .name-column {
-  width: 120px;
-}
-.projects-list .provider-column {
-  width: 150px;
-  padding-top: 4px !important;
-}
-.projects-list .cpu-usage-column {
-  width: 150px;
-}
-.projects-list .cpu-usage-column .cfme-title {
-  text-align: right;
-  width: 95px;
-}
-.projects-list .memory-usage-column {
-  width: 180px;
-}
-.projects-list .memory-usage-column .cfme-title {
-  text-align: right;
-  width: 135px;
-}
-.projects-list .storage-usage-column {
-  width: 180px;
-}
-.projects-list .storage-usage-column .cfme-title {
-  text-align: right;
-  width: 125px;
-}
-.projects-list .network-usage-column {
-  width: 220px;
-}
-.projects-list .network-usage-column .cfme-title {
-  text-align: right;
-  width: 150px;
-}
-.projects-list .pods-column {
-  width: 100px;
-  padding-top: 1px !important;
-}
-.projects-list .services-column {
-  width: 120px;
-  padding-top: 1px !important;
-}
-.projects-list .routes-column {
-  width: 120px;
-  padding-top: 1px !important;
-}
-.projects-list .replicators-column {
-  width: 150px;
-  padding-top: 1px !important;
 }
 .pods-list {
   height: 100%;

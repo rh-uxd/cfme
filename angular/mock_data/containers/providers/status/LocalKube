@@ -1,0 +1,48 @@
+{
+  "data":{
+    "providers" : {
+      "count" : 2,
+      "type" : "kubernetes"
+    },
+    "nodes" : {
+      "count": 27,
+      "errorCount": 1,
+      "warningCount": 0
+    },
+    "pods" : {
+      "count": 500,
+      "errorCount": 2,
+      "warningCount": 0
+    },
+    "containers" : {
+      "count": 120,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "registries" : {
+      "count": 2,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "projects" : {
+      "count": 200,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "services" : {
+      "count": 1500,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "images" : {
+      "count": 1250,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "routes" : {
+      "count": 175,
+      "errorCount": 0,
+      "warningCount": 0
+    }
+  }
+}

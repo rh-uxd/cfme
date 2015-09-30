@@ -31,6 +31,11 @@ angular.module( 'cfme.containersModule',
         controller: 'containers.providersController',
         controllerAs: 'vm'
       })
+      .when('/containers/providers/provider/:id', {
+        templateUrl: 'modules/containers/providers/provider.html',
+        controller: 'containers.providerController',
+        controllerAs: 'vm'
+      })
       .when('/containers/pods', {
         templateUrl: 'modules/containers/pods/pods.html',
         controller: 'containers.podsController',

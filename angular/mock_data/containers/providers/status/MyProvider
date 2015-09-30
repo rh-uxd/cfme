@@ -1,0 +1,48 @@
+{
+  "data":{
+    "providers" : {
+      "count" : 1,
+      "type" : "openshift"
+    },
+    "nodes" : {
+      "count": 25,
+      "errorCount": 2,
+      "warningCount": 0
+    },
+    "pods" : {
+      "count": 700,
+      "errorCount": 1,
+      "warningCount": 0
+    },
+    "containers" : {
+      "count": 180,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "registries" : {
+      "count": 2,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "projects" : {
+      "count": 310,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "services" : {
+      "count": 1000,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "images" : {
+      "count": 1250,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "routes" : {
+      "count": 125,
+      "errorCount": 0,
+      "warningCount": 0
+    }
+  }
+}

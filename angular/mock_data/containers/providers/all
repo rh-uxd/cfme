@@ -1,0 +1,204 @@
+{
+  "data": [
+     {
+        "uuid": "100001",
+        "name": "LocalKube",
+        "providerType": "kubernetes",
+        "cpuUsageData":{
+           "used":11,
+           "total":12,
+           "data":[
+              12,
+              10,
+              8,
+              10,
+              9,
+              11,
+              8,
+              6,
+              6,
+              6,
+              8,
+              10,
+              10,
+              10,
+              11,
+              11,
+              11,
+              12,
+              12,
+              10,
+              8,
+              8,
+              8,
+              4,
+              4,
+              6,
+              8,
+              10,
+              10,
+              11
+           ],
+           "dates":[
+
+           ]
+        },
+        "memoryUsageData":{
+           "used":176,
+           "total":432
+        },
+        "storageUsageData":{
+           "used":1.1,
+           "total":1.6
+        },
+        "networkUsageData":{
+           "used":1100,
+           "total":1300
+        },
+        "providers" : {
+          "count" : 2,
+          "type" : "kubernetes"
+        },
+        "nodes" : {
+          "count": 27,
+          "errorCount": 1,
+          "warningCount": 0
+        },
+        "pods" : {
+          "count": 500,
+          "errorCount": 2,
+          "warningCount": 0
+        },
+        "containers" : {
+          "count": 120,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "registries" : {
+          "count": 2,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "projects" : {
+          "count": 200,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "services" : {
+          "count": 1500,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "images" : {
+          "count": 1250,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "routes" : {
+          "count": 175,
+          "errorCount": 0,
+          "warningCount": 0
+        }
+     },
+     {
+        "uuid": "100002",
+        "name": "MyProvider",
+        "providerType": "openshift",
+        "cpuUsageData":{
+           "used":11,
+           "total":12,
+           "data":[
+              12,
+              10,
+              8,
+              10,
+              9,
+              11,
+              8,
+              6,
+              6,
+              6,
+              8,
+              10,
+              10,
+              10,
+              11,
+              11,
+              11,
+              12,
+              12,
+              10,
+              8,
+              8,
+              8,
+              4,
+              4,
+              6,
+              8,
+              10,
+              10,
+              11
+           ],
+           "dates":[
+
+           ]
+        },
+        "memoryUsageData":{
+           "used":176,
+           "total":432
+        },
+        "storageUsageData":{
+           "used":1.1,
+           "total":1.6
+        },
+        "networkUsageData":{
+           "used":1100,
+           "total":1300
+        },
+        "providers" : {
+          "count" : 1,
+          "type" : "openshift"
+        },
+        "nodes" : {
+          "count": 25,
+          "errorCount": 2,
+          "warningCount": 0
+        },
+        "pods" : {
+          "count": 700,
+          "errorCount": 1,
+          "warningCount": 0
+        },
+        "containers" : {
+          "count": 180,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "registries" : {
+          "count": 2,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "projects" : {
+          "count": 310,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "services" : {
+          "count": 1000,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "images" : {
+          "count": 1250,
+          "errorCount": 0,
+          "warningCount": 0
+        },
+        "routes" : {
+          "count": 125,
+          "errorCount": 0,
+          "warningCount": 0
+        }
+     }
+  ]
+}

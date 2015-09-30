@@ -1,35 +1,46 @@
-<div class="container-fluid container-tiles-pf containers-dashboard">
+<div class="container-fluid container-tiles-pf container-providers">
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+        <li class="active"><a href="#/containers/dashboard">Containers</a></li>
+        <li class="active"><a href="#/containers/providers">Providers</a></li>
+        <li>
+            {{ vm.navigaition }}
+        </li>
+   </ol>
     <div class="row row-tile-pf" >
         <div class="col-xs-6 col-sm-4 col-md-2">
-            <div pf-aggregate-status-card status="vm.providers" show-top-border="true" alt-layout="true"></div>
+          <div class="row">
+            <div pf-card class="col-xs-12 card-pf-providers" show-top-border="true">
+              <span class="provider-icon-large pficon {{vm.getProviderTypeIconClass()}}"></span>
+            </div>
+          </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10">
-            <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-3">
-                <div cfme-obj-status type="vm.nodesStatus" url="vm.navigation"></div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3">
-                  <div cfme-obj-status type="vm.containersStatus" url="vm.navigation"></div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3">
-                  <div cfme-obj-status type="vm.registriesStatus" url="vm.navigation"></div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3">
-                  <div cfme-obj-status type="vm.projectsStatus" url="vm.navigation"></div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3">
-                  <div cfme-obj-status type="vm.podsStatus" url="vm.navigation"></div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3">
-                  <div cfme-obj-status type="vm.servicesStatus" url="vm.navigation"></div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3">
-                  <div cfme-obj-status type="vm.imagesStatus" url="vm.navigation"></div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-3">
-                  <div cfme-obj-status type="vm.routesStatus" url="vm.navigation"></div>
-              </div>
-            </div><!-- /row -->
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3">
+              <div cfme-obj-status type="vm.nodesStatus" url="vm.navigation"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3">
+              <div cfme-obj-status type="vm.containersStatus" url="vm.navigation"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3">
+              <div cfme-obj-status type="vm.registriesStatus" url="vm.navigation"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3">
+              <div cfme-obj-status type="vm.projectsStatus" url="vm.navigation"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3">
+              <div cfme-obj-status type="vm.podsStatus" url="vm.navigation"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3">
+              <div cfme-obj-status type="vm.servicesStatus" url="vm.navigation"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3">
+              <div cfme-obj-status type="vm.imagesStatus" url="vm.navigation"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3">
+              <div cfme-obj-status type="vm.routesStatus" url="vm.navigation"></div>
+            </div>
+          </div><!-- /row -->
         </div>
     </div><!-- /row -->
     <div class="row row-tile-pf">
@@ -38,11 +49,11 @@
                 <div class="row" ng-if="vm.utilizationLoadingDone">
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div pf-utilization-chart config="vm.cpuUsageConfig" donut-config="vm.cpuUsageDonutConfig" sparkline-config="vm.cpuUsageSparklineConfig" chart-data="vm.cpuUsageData"></div>
-                      <span class="trend-footer-pf">Last 30 Days</span>
+                        <span class="trend-footer-pf">Last 30 Days</span>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div pf-utilization-chart config="vm.memoryUsageConfig" donut-config="vm.memoryUsageDonutConfig" sparkline-config="vm.memoryUsageSparklineConfig" chart-data="vm.memoryUsageData"></div>
-                      <span class="trend-footer-pf">Last 30 Days</span>
+                        <span class="trend-footer-pf">Last 30 Days</span>
                     </div>
                 </div>
                 <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>

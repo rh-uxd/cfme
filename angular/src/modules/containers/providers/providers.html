@@ -1,77 +1,149 @@
-<div class="container-fluid container-tiles-pf container-providers">
-    <ol class="breadcrumb" style="margin-bottom: 0px;">
-        <li class="active"><a href="#/containers/dashboard">Containers</a></li>
-        <li>Providers</li>
-        <li>
-            {{ vm.navigaition }}
-        </li>
-   </ol>
-    <div class="row row-tile-pf" >
-        <div class="col-xs-6 col-sm-4 col-md-2">
-            <div pf-aggregate-status-card status="vm.providers" show-top-border="true" alt-layout="true"></div>
+<div class="container-fluid container-tiles-pf">
+  <ol class="breadcrumb" style="margin-bottom: 0px;">
+    <li class="active"><a href="#/containers/dashboard">Containers</a></li>
+    <li>Providers</li>
+  </ol>
+  <div pf-data-toolbar class="row" config="vm.toolbarConfig"></div>
+  <div pf-data-list class="providers-list row" id="{{vm.listId}}" config="vm.listConfig" items="vm.providers" ng-if="vm.providersLoaded && providersViewType == 'listView'">
+    <div class="row">
+      <div class="cfme-column name-column">
+        <span class="pficon fa {{item.icon}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-label">{{item.name}}</span>
+      </div>
+      <div class="cfme-column cpu-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">CPU Used (c)</span>
+          <span class="cfme-label cfme-count">{{item.cpuUsageData.used}}</span>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-10">
-            <div class="row">
-                <div>
-                    <div class="col-xs-6 col-sm-6 col-md-3" ng-repeat="widget in vm.status_widgets">
-                        <div cfme-obj-status type="widget"></div>
-                    </div>
-                </div>
-            </div><!-- /row -->
+        <div>
+          <span class="cfme-label cfme-title">Total (c)</span>
+          <span class="cfme-label cfme-count">{{item.cpuUsageData.total}}</span>
         </div>
-    </div><!-- /row -->
-    <div class="row row-tile-pf">
-        <div class="col-xs-7 col-sm-7 col-md-7">
-            <div pf-card head-title="Node Utilization" hidetopborder="true">
-                <div class="row" ng-if="vm.utilizationLoadingDone">
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                        <div pf-utilization-chart config="vm.cpuUsageConfig" donut-config="vm.cpuUsageDonutConfig" sparkline-config="vm.cpuUsageSparklineConfig" chart-data="vm.cpuUsageData"></div>
-                        <span class="trend-footer-pf">Last 30 Days</span>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6">
-                        <div pf-utilization-chart config="vm.memoryUsageConfig" donut-config="vm.memoryUsageDonutConfig" sparkline-config="vm.memoryUsageSparklineConfig" chart-data="vm.memoryUsageData"></div>
-                        <span class="trend-footer-pf">Last 30 Days</span>
-                    </div>
-                </div>
-                <div ng-if="!vm.utilizationLoadingDone" class="spinner spinner-lg loading"></div>
-            </div>
+      </div>
+      <div class="cfme-column memory-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">Memory Used (GB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryUsageData.used}}</span>
         </div>
-        <div class="col-xs-5 col-sm-5 col-md-5">
-            <div pf-card head-title="{{vm.networkUtilizationCurrentConfig.headTitle}}">
-              <div pf-trends-chart config="vm.networkUtilizationCurrentConfig" chart-data="vm.currentNetworkUtilization"
-                   ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
-              </div>
-            </div>
-            <div pf-card head-title="{{vm.networkUtilizationDailyConfig.headTitle}}">
-              <div pf-trends-chart config="vm.networkUtilizationDailyConfig" chart-data="vm.dailyNetworkUtilization"
-                   ng-if="vm.networkUtilizationLoadingDone" chart-height="vm.chartHeight">
-              </div>
-            </div>
-            <div ng-if="!vm.networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
+        <div>
+          <span class="cfme-label cfme-title">Total (GB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryUsageData.total}}</span>
         </div>
-    </div><!-- /row -->
-    <div class="row row-tile-pf row-tile-pf-last">
-        <div class="col-md-7">
-          <div cfme-heatmaps-card title="Node Utilization" hidetopborder="true"
-               heatmaps="vm.heatmaps" heatmap-chart-height="vm.dashboardHeatmapChartHeight" columnSizingClass="col-xs-8 col-sm-6 col-md-6"
-               heat-map-usage-legend-labels="vm.nodeHeatMapUsageLegendLabels">
-          </div>
-        </div>
-        <div class="col-xs-5 col-sm-4 col-md-5">
-            <div style="width:100%;">
-              <div pf-card head-title="{{vm.podTrendConfig.headTitle}}">
-                <div pf-trends-chart config="vm.podTrendConfig" chart-data="vm.podTrends"
-                     ng-if="vm.podTrendsLoadingDone" chart-height="vm.chartHeight">
-                </div>
-              </div>
-              <div ng-if="!vm.podTrendsLoadingDone" class="spinner spinner-lg loading"></div>
-              <div pf-card head-title="{{vm.imageTrendConfig.headTitle}}">
-                <div pf-trends-chart config="vm.imageTrendConfig" chart-data="vm.imageTrends"
-                     ng-if="vm.imageTrendLoadingDone" chart-height="vm.chartHeight">
-                </div>
-              </div>
-              <div ng-if="!vm.imageTrendLoadingDone" class="spinner spinner-lg loading"></div>
-            </div>
-        </div>
+      </div>
+      <div class="cfme-column nodes-column">
+        <span class="pficon {{item.nodesInfo.iconClass}}  container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.nodesInfo.count}}</span>
+        <span class="cfme-label">{{item.nodesInfo.name}}</span>
+      </div>
+      <div class="cfme-column pods-column">
+        <span class="pficon {{item.podsInfo.iconClass}}  container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.podsInfo.count}}</span>
+        <span class="cfme-label">{{item.podsInfo.name}}</span>
+      </div>
+      <div class="cfme-column containers-column">
+        <span class="pficon {{item.containersInfo.iconClass}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.containersInfo.count}}</span>
+        <span class="cfme-label">{{item.containersInfo.name}}</span>
+      </div>
+      <div class="cfme-column services-column">
+        <span class="pficon {{item.servicesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.servicesInfo.count}}</span>
+        <span class="cfme-label">{{item.servicesInfo.name}}</span>
+      </div>
+      <div class="cfme-column registries-column">
+        <span class="pficon {{item.registriesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.registriesInfo.count}}</span>
+        <span class="cfme-label">{{item.registriesInfo.name}}</span>
+      </div>
+      <div class="cfme-column images-column">
+        <span class="pficon {{item.imagesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.imagesInfo.count}}</span>
+        <span class="cfme-label">{{item.imagesInfo.name}}</span>
+      </div>
+      <div class="cfme-column projects-column">
+        <span class="pficon {{item.projectsInfo.iconClass}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.projectsInfo.count}}</span>
+        <span class="cfme-label">{{item.projectsInfo.name}}</span>
+      </div>
+      <div class="cfme-column routes-column">
+        <span class="pficon {{item.routesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+        <span class="cfme-icon-label cfme-count">{{item.routesInfo.count}}</span>
+        <span class="cfme-label">{{item.routesInfo.name}}</span>
+      </div>
     </div>
-</div><!-- /container -->
+  </div>
+  <div pf-data-tiles id="{{vm.listId}}" class="providers-tiles" config="vm.listConfig" items="vm.providers" ng-if="vm.providersLoaded && providersViewType == 'tilesView'">
+    <div class="tile-title">
+      <span class="pficon {{item.icon}} container-font-color cfme-icon-label"></span>
+      <span class="cfme-icon-label">{{item.name}}</span>
+    </div>
+    <div class="row tile-row">
+      <div class="tile-column cpu-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">CPU Used (c)</span>
+          <span class="cfme-label cfme-count">{{item.cpuUsageData.used}}</span>
+        </div>
+        <div>
+          <span class="cfme-label cfme-title">Total (c)</span>
+          <span class="cfme-label cfme-count">{{item.cpuUsageData.total}}</span>
+        </div>
+      </div>
+      <div class="tile-column memory-usage-column">
+        <div>
+          <span class="cfme-label cfme-title">Memory Used (GB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryUsageData.used}}</span>
+        </div>
+        <div>
+          <span class="cfme-label cfme-title">Total (GB)</span>
+          <span class="cfme-label cfme-count">{{item.memoryUsageData.total}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row tile-row">
+      <div class="tile-column">
+        <div class="status-object">
+          <span class="pficon {{item.nodesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.nodesInfo.count}}</span>
+          <span class="status-text">{{item.nodesInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.containersInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.containersInfo.count}}</span>
+          <span class="status-text">{{item.containersInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.registriesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.registriesInfo.count}}</span>
+          <span class="status-text">{{item.registriesInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.projectsInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.projectsInfo.count}}</span>
+          <span class="status-text">{{item.projectsInfo.name}}</span>
+        </div>
+      </div>
+      <div class="tile-column">
+        <div class="status-object">
+          <span class="pficon {{item.podsInfo.iconClass}}  container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.podsInfo.count}}</span>
+          <span class="status-text">{{item.podsInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.servicesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.servicesInfo.count}}</span>
+          <span class="status-text">{{item.servicesInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.imagesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.imagesInfo.count}}</span>
+          <span class="status-text">{{item.imagesInfo.name}}</span>
+        </div>
+        <div class="status-object">
+          <span class="pficon {{item.routesInfo.iconClass}} container-font-color cfme-icon-label"></span>
+          <span class="status-count">{{item.routesInfo.count}}</span>
+          <span class="status-text">{{item.routesInfo.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

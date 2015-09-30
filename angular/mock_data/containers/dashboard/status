@@ -1,78 +1,58 @@
 {
-   "data":{
-      "status":[
-         {
-            "name":"Nodes",
-            "iconClass":"pficon-container-node",
-            "count":"52",
-            "status":[
-               {
-                  "iconClass":"pficon-error-circle-o",
-                  "count":"3"
-               }
-            ]
-         },
-         {
-            "name":"Containers",
-            "iconClass":"fa fa-cube",
-            "count":300
-         },
-         {
-            "name":"Registries",
-            "iconClass":"pficon-registry",
-            "count":4
-         },
-         {
-            "name":"Projects",
-            "type":"projects",
-            "iconClass":"pficon-project",
-            "count":510
-         },
-         {
-            "name":"Pods",
-            "type":"pods",
-            "iconClass":"fa fa-cubes",
-            "count":1200,
-            "status":[
-               {
-                  "iconClass":"pficon-error-circle-o",
-                  "count":3
-               }
-            ]
-         },
-         {
-            "name":"Services",
-            "iconClass":"pficon-service",
-            "count":2500
-         },
-         {
-            "name":"Images",
-            "iconClass":"pficon-image",
-            "count":2500
-         },
-         {
-            "name":"Routes",
-            "iconClass":"pficon-route",
-            "count":300
-         }
-      ],
-      "types":{
-         "name":"Providers",
-         "count":2,
-         "types":[
-            {
-               "iconClass":"pficon pficon-openshift",
-               "count":1,
-               "id":"openshift",
-               "href":"#containers/providers?id=openshift"
-            },
-            {
-               "iconClass":"pficon pficon-kubernetes",
-               "count":1,
-               "id":"kubernetes",
-               "href":"#containers/providers/?id=kubernetes"
-            }
-         ]
-      }
-   }
+  "data":{
+    "providers": [
+        {
+          "iconClass": "pficon pficon-openshift",
+          "count": 1,
+          "id": "openshift",
+          "providerType": "OpenShift"
+        },
+        {
+          "iconClass": "pficon pficon-kubernetes",
+          "count": 1,
+          "id":" kubernetes",
+          "providerType": "Kubernetes"
+        }
+    ],
+    "nodes" : {
+      "count": 52,
+      "errorCount": 3,
+      "warningCount": 0
+    },
+    "pods" : {
+      "count": 1200,
+      "errorCount": 3,
+      "warningCount": 0
+    },
+    "containers" : {
+      "count": 300,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "registries" : {
+      "count": 4,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "projects" : {
+      "count": 510,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "services" : {
+      "count": 2500,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "images" : {
+      "count": 2500,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "routes" : {
+      "count": 300,
+      "errorCount": 0,
+      "warningCount": 0
+    }
+  }
 }
