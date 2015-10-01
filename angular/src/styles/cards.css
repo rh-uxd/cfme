@@ -10,9 +10,10 @@
   text-align: center;
   line-height: 28px;
 }
-.card-pf-status a {
+.card-pf-status span {
   color: #000000;
   text-decoration: none;
+  font-weight: 300;
 }
 .card-pf-status a:hover {
   color: #00618a;

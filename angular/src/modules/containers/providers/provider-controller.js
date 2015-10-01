@@ -146,7 +146,7 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         networkUtilization.get(function(response) {
             var data = response.data;
             vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, 60);
-            chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 10 * 1000);
+            chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 60 * 1000);
             vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName);
             vm.networkUtilizationLoadingDone = true;
         });

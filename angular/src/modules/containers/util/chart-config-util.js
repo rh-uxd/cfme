@@ -58,14 +58,16 @@ var chartConfig = {
     headTitle: 'Total Pods Trends',
     timeFrame: 'Last 30 Days',
     units    : 'Pods',
-    dataName: 'Pods'
+    dataName: 'Pods',
+    tooltipType: 'valuePerDay'
   },
   imageTrendConfig: {
     chartId  : 'imageTrendsChart',
     headTitle: 'Total Images Trends',
     timeFrame: 'Last 30 Days',
     units    : 'Images',
-    dataName: 'Images'
+    dataName: 'Images',
+    tooltipType: 'valuePerDay'
   },
   podCpuUsageConfig: {
     chartId: 'cpuUsageChart',

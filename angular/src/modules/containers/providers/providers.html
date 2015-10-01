@@ -7,7 +7,7 @@
   <div pf-data-list class="providers-list row" id="{{vm.listId}}" config="vm.listConfig" items="vm.providers" ng-if="vm.providersLoaded && providersViewType == 'listView'">
     <div class="row">
       <div class="cfme-column name-column">
-        <span class="pficon fa {{item.icon}} container-font-color cfme-icon-label"></span>
+        <span class="pficon {{item.icon}} container-font-color cfme-icon-label"></span>
         <span class="cfme-label">{{item.name}}</span>
       </div>
       <div class="cfme-column cpu-usage-column">

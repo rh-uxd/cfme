@@ -45,7 +45,9 @@ angular.module('cfme.charts')
         if (typeof(newVal) !== 'undefined') {
           //Calculate the percentage used
           angular.forEach($scope.charts, function(chart, index) {
-            chart.percentageUsed = 100 * (chart.start/chart.end);
+            chart.percentageUsed = Math.round(100 * (chart.start/chart.end));
+            chart.usedTooltip = chart.percentageUsed + "%: " + chart.start + " of " + chart.end;
+            chart.availableTooltip = (100 - chart.percentageUsed) + "%: " + (chart.end - chart.start) + " of " + chart.end;
           }, $scope.charts);
 
           //Animate in the chart load.
@@ -54,7 +56,11 @@ angular.module('cfme.charts')
                 $scope.animate = false;
               }, 0);
         }
-      });
+      }, true);
+      $timeout(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+      }, 100);
+
     }
   };
 }]);

@@ -2,23 +2,27 @@
    "data":[
       {
          "title":"CPU",
-         "start":"25",
-         "end":"46"
+         "start":"11",
+         "end":"12",
+         "units": "Cores"
       },
       {
          "title":"Memory",
-         "start":"8",
-         "end":"16"
+         "start":"176",
+         "end":"432",
+         "units": "GB"
       },
       {
          "title":"Pods",
-         "start":"5",
-         "end":"8"
+         "start":"8",
+         "end":"16",
+         "units": "Pods"
       },
       {
          "title":"Services",
          "start":"2",
-         "end":"2"
+         "end":"50",
+         "units": "Services"
       }
    ]
 }

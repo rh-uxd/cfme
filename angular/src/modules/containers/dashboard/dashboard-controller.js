@@ -152,7 +152,7 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
     networkUtilization.get(function(response) {
       var data = response.data;
       vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, 60);
-      chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 10 * 1000);
+      chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 60 * 1000);
       vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName);
       vm.networkUtilizationLoadingDone = true;
     });
@@ -162,7 +162,9 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
     vm.podTrendConfig = chartConfig.podTrendConfig;
     vm.podTrendsLoadingDone = false;
     var podTrends = $resource('/containers/dashboard/pods');
-    podTrends.get(function(response) {
+    podTrends.tooltipType = 'valuePerDay';
+
+      podTrends.get(function(response) {
       var data = response.data;
       vm.podTrends = chartsDataMixin.getSparklineData(data.podTrends, vm.podTrendConfig.dataName);
       vm.podTrendsLoadingDone = true;

@@ -88,7 +88,7 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
     networkUtilization.get(function(response) {
       var data = response.data;
       vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, 60);
-      chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 10 * 1000);
+      chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 60 * 1000);
       vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.hourlyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName, 60 * 60);
       vm.networkUtilizationLoadingDone = true;
     });
