@@ -131,7 +131,7 @@ angular.module('cfme.containers.podsModule').controller('containers.podsControll
     };
 
     vm.toolbarConfig = {
-//      viewsConfig: vm.viewsConfig,
+      viewsConfig: vm.viewsConfig,
       filterConfig: filterConfig,
       sortConfig: vm.sortConfig
     };

@@ -2453,259 +2453,148 @@ iframe,
 .pficon-openshift::before {
   color: #da2430;
 }
-.providers-list .name-column {
+.cfme-objects-view .tiles-view-pf .tile {
+  overflow: hidden;
+}
+.cfme-objects-view .tiles-view-pf .tile-content {
+  overflow: hidden;
+}
+.cfme-objects-view .tile-title .cfme-icon-label {
+  padding-left: 5px;
+  padding-bottom: 15px;
+}
+.cfme-objects-view .tile-row {
+  padding: 0;
+  margin: 0;
+}
+.cfme-objects-view .tile-column {
+  width: 50%;
+  float: left;
+}
+.cfme-objects-view .status-object {
+  text-align: left;
+  margin: 5px 20px;
+}
+.cfme-objects-view .status-object .pficon {
+  font-size: 20px;
+  vertical-align: middle;
+  width: 26px;
+  color: #1186C1;
+}
+.cfme-objects-view .status-object .status-count {
+  font-size: 18px;
+  color: #515151;
+}
+.cfme-objects-view .status-object .status-text {
+  font-size: 12px;
+  color: #515151;
+}
+.cfme-objects-view .cpu-usage-column {
   width: 150px;
 }
-.providers-list .cpu-usage-column {
-  width: 150px;
-}
-.providers-list .cpu-usage-column .cfme-title {
+.cfme-objects-view .cpu-usage-column .cfme-title {
   text-align: right;
   width: 95px;
 }
-.providers-list .memory-usage-column {
+.cfme-objects-view .memory-usage-column {
   width: 180px;
 }
-.providers-list .memory-usage-column .cfme-title {
+.cfme-objects-view .memory-usage-column .cfme-title {
   text-align: right;
   width: 135px;
 }
-.providers-list .storage-usage-column {
+.cfme-objects-view .data-list-pf .name-column {
+  width: 150px;
+}
+.cfme-objects-view .data-list-pf .cpu-usage-column {
+  width: 150px;
+}
+.cfme-objects-view .data-list-pf .cpu-usage-column .cfme-title {
+  text-align: right;
+  width: 95px;
+}
+.cfme-objects-view .data-list-pf .memory-usage-column {
   width: 180px;
 }
-.providers-list .storage-usage-column .cfme-title {
+.cfme-objects-view .data-list-pf .memory-usage-column .cfme-title {
+  text-align: right;
+  width: 135px;
+}
+.cfme-objects-view .data-list-pf .storage-usage-column {
+  width: 180px;
+}
+.cfme-objects-view .data-list-pf .storage-usage-column .cfme-title {
   text-align: right;
   width: 125px;
 }
-.providers-list .network-usage-column {
+.cfme-objects-view .data-list-pf .network-usage-column {
   width: 220px;
 }
-.providers-list .network-usage-column .cfme-title {
+.cfme-objects-view .data-list-pf .network-usage-column .cfme-title {
   text-align: right;
   width: 150px;
 }
-.providers-list .nodes-column {
+.cfme-objects-view .data-list-pf .cfme-object-column {
+  padding-top: 1px !important;
+}
+.cfme-objects-view .data-list-pf .name-column {
   width: 120px;
-  padding-top: 1px !important;
 }
-.providers-list .pods-column {
+.cfme-objects-view .data-list-pf .nodes-column {
+  width: 120px;
+}
+.cfme-objects-view .data-list-pf .pods-column {
   width: 130px;
-  padding-top: 1px !important;
 }
-.providers-list .containers-column {
+.cfme-objects-view .data-list-pf .containers-column {
   width: 160px;
-  padding-top: 1px !important;
 }
-.providers-list .services-column {
+.cfme-objects-view .data-list-pf .services-column {
   width: 140px;
-  padding-top: 1px !important;
 }
-.providers-list .registries-column {
+.cfme-objects-view .data-list-pf .registries-column {
   width: 130px;
-  padding-top: 1px !important;
 }
-.providers-list .images-column {
+.cfme-objects-view .data-list-pf .images-column {
   width: 140px;
-  padding-top: 1px !important;
 }
-.providers-list .projects-column {
+.cfme-objects-view .data-list-pf .projects-column {
   width: 140px;
-  padding-top: 1px !important;
 }
-.providers-list .routes-column {
+.cfme-objects-view .data-list-pf .routes-column {
   width: 130px;
-  padding-top: 1px !important;
+}
+.cfme-objects-view .data-list-pf .provider-column {
+  width: 150px;
+  padding-top: 4px !important;
+}
+.cfme-objects-view .data-list-pf .replicators-column {
+  width: 150px;
+}
+.cfme-objects-view .data-list-pf .uptime-column {
+  width: 150px;
+}
+.providers-list .data-list-pf .name-column {
+  width: 160px;
 }
 .providers-tiles .tiles-view-pf .tile {
   height: 240px;
   width: 355px;
-  overflow: hidden;
-}
-.providers-tiles .tiles-view-pf .tile-content {
-  overflow: hidden;
-}
-.providers-tiles .tile-title .cfme-icon-label {
-  padding-left: 5px;
-  padding-bottom: 15px;
-}
-.providers-tiles .tile-row {
-  padding: 0;
-  margin: 0;
-}
-.providers-tiles .tile-column {
-  width: 50%;
-  float: left;
-}
-.providers-tiles .status-object {
-  text-align: left;
-  margin: 5px 20px;
-}
-.providers-tiles .status-object.provider-object {
-  text-align: center;
-}
-.providers-tiles .status-object .pficon {
-  font-size: 20px;
-  vertical-align: middle;
-  width: 26px;
-  color: #1186C1;
-}
-.providers-tiles .status-object .status-count {
-  font-size: 18px;
-  color: #515151;
-}
-.providers-tiles .status-object .status-text {
-  font-size: 12px;
-  color: #515151;
-}
-.providers-tiles .cpu-usage-column {
-  width: 150px;
-}
-.providers-tiles .cpu-usage-column .cfme-title {
-  text-align: right;
-  width: 95px;
-}
-.providers-tiles .memory-usage-column {
-  width: 180px;
-}
-.providers-tiles .memory-usage-column .cfme-title {
-  text-align: right;
-  width: 135px;
-}
-.projects-list .name-column {
-  width: 120px;
-}
-.projects-list .provider-column {
-  width: 150px;
-  padding-top: 4px !important;
-}
-.projects-list .cpu-usage-column {
-  width: 150px;
-}
-.projects-list .cpu-usage-column .cfme-title {
-  text-align: right;
-  width: 95px;
-}
-.projects-list .memory-usage-column {
-  width: 180px;
-}
-.projects-list .memory-usage-column .cfme-title {
-  text-align: right;
-  width: 135px;
-}
-.projects-list .storage-usage-column {
-  width: 180px;
-}
-.projects-list .storage-usage-column .cfme-title {
-  text-align: right;
-  width: 125px;
-}
-.projects-list .network-usage-column {
-  width: 220px;
-}
-.projects-list .network-usage-column .cfme-title {
-  text-align: right;
-  width: 150px;
-}
-.projects-list .pods-column {
-  width: 100px;
-  padding-top: 1px !important;
-}
-.projects-list .services-column {
-  width: 120px;
-  padding-top: 1px !important;
-}
-.projects-list .routes-column {
-  width: 120px;
-  padding-top: 1px !important;
-}
-.projects-list .replicators-column {
-  width: 150px;
-  padding-top: 1px !important;
 }
 .projects-tiles .tiles-view-pf .tile {
-  height: 200px;
+  height: 230px;
   width: 355px;
-  overflow: hidden;
-}
-.projects-tiles .tiles-view-pf .tile-content {
-  overflow: hidden;
-}
-.projects-tiles .tile-title .cfme-icon-label {
-  padding-left: 5px;
-}
-.projects-tiles .tile-row {
-  padding: 0;
-  margin: 0;
-}
-.projects-tiles .tile-column {
-  width: 50%;
-  float: left;
-}
-.projects-tiles .status-object {
-  text-align: left;
-  margin: 5px 20px;
 }
 .projects-tiles .status-object.provider-object {
   text-align: center;
-}
-.projects-tiles .status-object .pficon {
-  font-size: 20px;
-  vertical-align: middle;
-  width: 26px;
-  color: #1186C1;
-}
-.projects-tiles .status-object .status-count {
-  font-size: 18px;
-  color: #515151;
-}
-.projects-tiles .status-object .status-text {
-  font-size: 12px;
-  color: #515151;
-}
-.projects-tiles .cpu-usage-column {
-  width: 150px;
-}
-.projects-tiles .cpu-usage-column .cfme-title {
-  text-align: right;
-  width: 95px;
-}
-.projects-tiles .memory-usage-column {
-  width: 180px;
-}
-.projects-tiles .memory-usage-column .cfme-title {
-  text-align: right;
-  width: 135px;
 }
 .project-dashboard .card-pf-status {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.pods-list {
-  height: 100%;
-}
-.pods-list .name-column {
-  width: 120px;
-}
-.pods-list .uptime-column {
-  width: 150px;
-}
-.pods-list .container-column {
-  width: 160px;
-  padding-top: 1px !important;
-}
-.pods-list .cpu-usage-column {
-  width: 190px;
-}
-.pods-list .cpu-usage-column .cfme-title {
-  text-align: right;
-  width: 110px;
-}
-.pods-list .memory-usage-column {
-  width: 230px;
-}
-.pods-list .memory-usage-column .cfme-title {
-  text-align: right;
-  width: 135px;
+.pods-tiles .tiles-view-pf .tile {
+  height: 230px;
+  width: 355px;
 }
 .pods-containers-info .containers-heading {
   text-align: center;
@@ -2720,11 +2609,11 @@ iframe,
   color: #515151;
   font-weight: 300;
 }
-.pods-containers-info .containers-heading .containers-counter {
-  font-size: 32px;
-}
 .pods-containers-info .containers-heading .containers-label {
   font-size: 26px;
+}
+.pods-containers-info .containers-counter {
+  font-size: 32px;
 }
 .pods-containers-info .containers-list {
   margin-top: 10px;

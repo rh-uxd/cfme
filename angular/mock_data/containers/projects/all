@@ -59,10 +59,12 @@
              "used":1100,
              "total":1300
           },
-          "pods":5,
-          "services":5,
-          "routes":5,
-          "replicators":5
+          "pods":8,
+          "containers":180,
+          "routes":1,
+          "services":2,
+          "images":1250,
+          "registries":25
        },
        {
           "uuid": "100002",
@@ -123,10 +125,12 @@
              "used":1100,
              "total":1300
           },
-          "pods":5,
-          "services":5,
-          "routes":5,
-          "replicators":5
+          "pods":8,
+          "containers":180,
+          "routes":1,
+          "services":2,
+          "images":1250,
+          "registries":25
        },
        {
           "uuid": "100003",
@@ -187,10 +191,12 @@
              "used":1100,
              "total":1300
           },
-          "pods":5,
-          "services":5,
-          "routes":5,
-          "replicators":5
+          "pods":8,
+          "containers":180,
+          "routes":1,
+          "services":2,
+          "images":1250,
+          "registries":25
        },
        {
           "uuid": "100004",
@@ -251,10 +257,12 @@
              "used":1100,
              "total":1300
           },
-          "pods":5,
-          "services":5,
-          "routes":5,
-          "replicators":5
+          "pods":8,
+          "containers":180,
+          "routes":1,
+          "services":2,
+          "images":1250,
+          "registries":25
        },
        {
           "uuid": "100005",
@@ -315,10 +323,12 @@
              "used":1100,
              "total":1300
           },
-          "pods":5,
-          "services":5,
-          "routes":5,
-          "replicators":5
+          "pods":8,
+          "containers":180,
+          "routes":1,
+          "services":2,
+          "images":1250,
+          "registries":25
        }
    ]
 }

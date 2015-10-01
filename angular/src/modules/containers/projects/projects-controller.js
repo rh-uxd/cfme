@@ -175,20 +175,30 @@ angular.module('cfme.containers.projectsModule').controller('containers.projects
           count: project.pods,
           iconClass: "fa fa-cubes"
         };
-        project.servicesInfo = {
-          name: "Services",
-          count: project.services,
-          iconClass: "pficon-service"
+        project.containersInfo = {
+          name: "Containers",
+          count: project.containers,
+          iconClass: "fa fa-cube"
         };
         project.routesInfo = {
           name: "Routes",
           count: project.routes,
           iconClass: "pficon-route"
         };
-        project.replicatorsInfo = {
-          name: "Replicators",
-          count: project.replicators,
-          iconClass: "fa fa-copy"
+        project.servicesInfo = {
+          name: "Services",
+          count: project.services,
+          iconClass: "pficon-service"
+        };
+        project.imagesInfo = {
+          name: "Images",
+          count: project.images,
+          iconClass: "pficon-image"
+        };
+        project.registriesInfo = {
+          name: "Registries",
+          count: project.registries,
+          iconClass: "pficon-registry"
         };
         project.cpuIconClass = "icon-";
         project.cpuIconContent = "&#xf0fc";
