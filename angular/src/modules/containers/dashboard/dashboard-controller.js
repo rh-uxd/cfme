@@ -19,8 +19,7 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
     vm.nodesStatus = {
       name: "Nodes",
       iconClass: "pficon-container-node",
-      count: 0,
-      href: "containers/providers"
+      count: 0
     };
     vm.containersStatus = {
       name: "Containers",
@@ -36,13 +35,13 @@ angular.module('cfme.containers.dashboardModule').controller('containers.dashboa
       name: "Projects",
       iconClass: "pficon-project",
       count: 0,
-      href: "containers/projects"
+      href: "projects"
     };
     vm.podsStatus = {
       name: "Pods",
       iconClass: "fa fa-cubes",
       count: 0,
-      href: "containers/pods"
+      href: "pods"
     };
     vm.servicesStatus = {
       name: "Services",
