@@ -1815,16 +1815,8 @@
   padding: 12px 0;
   margin: 0 0 0 20px;
 }
-.ie8 .navbar-pf .navbar-brand {
-  background: url('../img/brand.png') no-repeat 0 49%;
-  min-width: 270px;
-}
 .navbar-pf .navbar-brand img {
   display: block;
-}
-.ie8 .navbar-pf .navbar-brand img {
-  height: 10px;
-  width: 0;
 }
 .navbar-pf .navbar-collapse {
   border-top: 0;
@@ -2261,9 +2253,6 @@
     max-width: 160px;
     text-overflow: ellipsis;
   }
-  .ie8 .navbar-pf .navbar-primary li.context.context-bootstrap-select .filter-option {
-    max-width: none;
-  }
   .navbar-pf .navbar-primary li.context.dropdown {
     border-bottom: 0;
   }
@@ -2511,67 +2500,66 @@ iframe,
 }
 .cfme-objects-view .data-list-pf .cpu-usage-column .cfme-title {
   text-align: right;
+}
+.cfme-objects-view .data-list-pf .cpu-usage-column .cfme-title .rhev-table-header {
   width: 95px;
 }
-.cfme-objects-view .data-list-pf .memory-usage-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .memory-usage-column {
   width: 180px;
 }
-.cfme-objects-view .data-list-pf .memory-usage-column .cfme-title {
+.cfme-objects-view .data-list-pf .cpu-usage-column .memory-usage-column .cfme-title {
   text-align: right;
   width: 135px;
 }
-.cfme-objects-view .data-list-pf .storage-usage-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .storage-usage-column {
   width: 180px;
 }
-.cfme-objects-view .data-list-pf .storage-usage-column .cfme-title {
+.cfme-objects-view .data-list-pf .cpu-usage-column .storage-usage-column .cfme-title {
   text-align: right;
   width: 125px;
 }
-.cfme-objects-view .data-list-pf .network-usage-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .network-usage-column {
   width: 220px;
 }
-.cfme-objects-view .data-list-pf .network-usage-column .cfme-title {
+.cfme-objects-view .data-list-pf .cpu-usage-column .network-usage-column .cfme-title {
   text-align: right;
   width: 150px;
 }
-.cfme-objects-view .data-list-pf .cfme-object-column {
-  padding-top: 1px !important;
-}
-.cfme-objects-view .data-list-pf .name-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .name-column {
   width: 120px;
 }
-.cfme-objects-view .data-list-pf .nodes-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .nodes-column {
   width: 120px;
 }
-.cfme-objects-view .data-list-pf .pods-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .pods-column {
   width: 130px;
 }
-.cfme-objects-view .data-list-pf .containers-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .containers-column {
   width: 160px;
 }
-.cfme-objects-view .data-list-pf .services-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .services-column {
   width: 140px;
 }
-.cfme-objects-view .data-list-pf .registries-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .registries-column {
   width: 130px;
 }
-.cfme-objects-view .data-list-pf .images-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .images-column {
   width: 140px;
 }
-.cfme-objects-view .data-list-pf .projects-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .projects-column {
   width: 140px;
 }
-.cfme-objects-view .data-list-pf .routes-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .routes-column {
   width: 130px;
 }
-.cfme-objects-view .data-list-pf .provider-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .provider-column {
   width: 150px;
   padding-top: 4px !important;
 }
-.cfme-objects-view .data-list-pf .replicators-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .replicators-column {
   width: 150px;
 }
-.cfme-objects-view .data-list-pf .uptime-column {
+.cfme-objects-view .data-list-pf .cpu-usage-column .uptime-column {
   width: 150px;
 }
 .providers-list .data-list-pf .name-column {
@@ -2666,6 +2654,9 @@ iframe,
 .data-list-pf .list-group-item .cfme-column:first-of-type {
   padding-left: 25px;
 }
+.data-list-pf .list-group-item .cfme-object-column {
+  padding-top: 1px !important;
+}
 .data-list-pf .list-group-item .cfme-icon-label {
   color: #515151;
   font-size: 18px;
@@ -2676,7 +2667,7 @@ iframe,
 .data-list-pf .list-group-item .pficon.cfme-icon-label {
   color: #1186C1;
 }
-.cfme-label {
+.data-list-pf .list-group-item .cfme-label {
   color: #515151;
   font-size: 12px;
   vertical-align: middle;
@@ -2695,25 +2686,25 @@ iframe,
   font-size: 14px;
   font-weight: 500;
 }
-.cfme-label.cfme-title {
+.data-list-pf .list-group-item .cfme-label.cfme-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-.cfme-icon-label.cfme-title {
+.data-list-pf .list-group-item .cfme-icon-label.cfme-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-.cfme-label.cfme-count {
+.data-list-pf .list-group-item .cfme-label.cfme-count {
   float: left;
   line-height: 24px;
   text-align: right;
   width: 32px;
 }
-.inline-card-status {
+.data-list-pf .inline-card-status {
   background: transparent;
   font-size: 16px;
   font-weight: 300;
@@ -2721,18 +2712,18 @@ iframe,
   padding: 0;
   text-align: center;
 }
-.inline-card-status .count-title {
+.data-list-pf .inline-card-status .count-title {
   font-weight: 300;
   margin-top: 0;
   float: left;
   padding-left: 5px;
 }
-.inline-card-status-type-icon {
+.data-list-pf .inline-card-status .inline-card-status-type-icon {
   float: left;
   width: 39px;
   height: 39px;
 }
-.inline-card-status .inline-card-status-count {
+.data-list-pf .inline-card-status .inline-card-status-count {
   font-weight: 300;
   display: block;
   font-size: 24px;
@@ -2740,20 +2731,20 @@ iframe,
   text-align: center;
   line-height: 28px;
 }
-.inline-card-status .inline-card-status-type {
+.data-list-pf .inline-card-status .inline-card-status-type {
   display: block;
   vertical-align: bottom;
   text-align: center;
 }
-.inline-card-status a {
+.data-list-pf .inline-card-status a {
   color: #000000;
   text-decoration: none;
 }
-.inline-card-status a:hover {
+.data-list-pf .inline-card-status a:hover {
   color: #00618a;
   text-decoration: underline;
 }
-.inline-card-status .pficon {
+.data-list-pf .inline-card-status .pficon {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -2761,15 +2752,15 @@ iframe,
   width: 54px;
   font-size: 26px;
 }
-.inline-card-status .indicator {
+.data-list-pf .inline-card-status .indicator {
   font-size: 20px;
 }
-.inline-card-status .indicator .count {
+.data-list-pf .inline-card-status .indicator .count {
   top: -2px;
   position: relative;
   padding-left: 5px;
 }
-.inline-card-status .status {
+.data-list-pf .inline-card-status .status {
   position: absolute;
   right: 15px;
   top: 50%;
@@ -2777,7 +2768,7 @@ iframe,
   width: 54px;
   font-size: 20px;
 }
-.inline-utilization-chart-title {
+.data-list-pf .inline-utilization-chart-title {
   font-size: 14px !important;
   font-weight: 500;
   color: #1186C1 !important;
