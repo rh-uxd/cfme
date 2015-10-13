@@ -80,15 +80,12 @@
   color: #da2430;
 }
 
-.cfme-objects-view {
-
-  .tiles-view-pf {
-    .tile {
-      overflow: hidden;
-    }
-    .tile-content {
-      overflow: hidden;
-    }
+.tiles-view-pf {
+  .tile {
+    overflow: hidden;
+  }
+  .tile-content {
+    overflow: hidden;
   }
 
   .tile-title .cfme-icon-label {
@@ -140,83 +137,147 @@
       width: 135px;
     }
   }
+}
 
-  .data-list-pf {
+.data-list-pf {
 
-    .name-column {
+  .cfme-row-column {
+    padding-right: 5px;
+  }
+
+  .list-group-item {
+    .cfme-column {
+      float: left;
+      padding: 5px 5px;
+
+    }
+    .cfme-column:first-of-type {
+      padding-left: 25px;
+    }
+
+    .cfme-object-column {
+      padding-top: 1px !important;
+      .cfme-label {
+        vertical-align: middle;
+      }
+
+    }
+
+    .cfme-icon-label {
+      color: #515151;
+      font-size: 18px;
+      vertical-align: middle;
+      white-space: nowrap;
+      padding-left: 5px;
+    }
+    .pficon.cfme-icon-label {
+      color: #1186C1;
+    }
+
+    .cfme-label {
+      color: #515151;
+      font-size: 12px;
+      white-space: nowrap;
+      padding-left: 5px;
+    }
+
+    .cfme-column .cfme-item-title {
+      font-weight: bold;
+    }
+
+    .cfme-label.cfme-title {
+      float: left;
+      color: #515151;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .cfme-icon-label.cfme-title {
+      float: left;
+      color: #515151;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .cfme-label.cfme-count {
+      float: left;
+      text-align: right;
+      text-align: right;
+      width: 32px;
+    }
+  }
+
+  .name-column {
+    width: 150px;
+  }
+
+  .cpu-usage-column {
+    width: 150px;
+    .cfme-title {
+      text-align: right;
+      width: 95px;
+    }
+  }
+  .memory-usage-column {
+    width: 180px;
+    .cfme-title {
+      text-align: right;
+      width: 135px;
+    }
+  }
+
+  .storage-usage-column {
+    width: 180px;
+    .cfme-title {
+      text-align: right;
+      width: 125px;
+    }
+  }
+
+  .network-usage-column {
+    width: 220px;
+    .cfme-title {
+      text-align: right;
       width: 150px;
     }
-    .cpu-usage-column {
-      width: 150px;
-      .cfme-title {
-        text-align: right;
-        .rhev-table-header {
+  }
 
-          width: 95px;
-        }
-      }
-      .memory-usage-column {
-        width: 180px;
-        .cfme-title {
-          text-align: right;
-          width: 135px;
-        }
-      }
-
-      .storage-usage-column {
-        width: 180px;
-        .cfme-title {
-          text-align: right;
-          width: 125px;
-        }
-      }
-
-      .network-usage-column {
-        width: 220px;
-        .cfme-title {
-          text-align: right;
-          width: 150px;
-        }
-      }
-
-      .name-column {
-        width: 120px;
-      }
-      .nodes-column {
-        width: 120px;
-      }
-      .pods-column {
-        width: 130px;
-      }
-      .containers-column {
-        width: 160px;
-      }
-      .services-column {
-        width: 140px;
-      }
-      .registries-column {
-        width: 130px;
-      }
-      .images-column {
-        width: 140px;
-      }
-      .projects-column {
-        width: 140px;
-      }
-      .routes-column {
-        width: 130px;
-      }
-      .provider-column {
-        width: 150px;
-        padding-top: 4px !important;
-      }
-      .replicators-column {
-        width: 150px;
-      }
-      .uptime-column {
-        width: 150px;
-      }
-    }
+  .name-column {
+    width: 120px;
+  }
+  .nodes-column {
+    width: 120px;
+  }
+  .pods-column {
+    width: 130px;
+  }
+  .containers-column {
+    width: 160px;
+  }
+  .services-column {
+    width: 140px;
+  }
+  .registries-column {
+    width: 130px;
+  }
+  .images-column {
+    width: 140px;
+  }
+  .projects-column {
+    width: 140px;
+  }
+  .routes-column {
+    width: 130px;
+  }
+  .provider-column {
+    width: 150px;
+    padding-top: 4px !important;
+  }
+  .replicators-column {
+    width: 150px;
+  }
+  .uptime-column {
+    width: 150px;
   }
 }
 
@@ -237,9 +298,8 @@
   text-align: center;
 }
 
-.project-dashboard .card-pf-status {
-  padding-top: 5px;
-  padding-bottom: 5px;
+.project-dashboard .card-pf-status .card-pf-title {
+  padding: 30px 0;
 }
 
 .pods-tiles .tiles-view-pf .tile {
@@ -278,6 +338,29 @@
     .list-view-container {
       height: 260px;
     }
+
+    .cpu-usage-column {
+      width: 190px;
+      .cfme-title {
+        text-align: right;
+        width: 105px;
+      }
+      .cfme-count {
+        width: 30px;
+        text-align: right;
+      }
+    }
+    .memory-usage-column {
+      width: 225px;
+      .cfme-title {
+        text-align: right;
+        width: 130px;
+      }
+      .cfme-count {
+        width: 30px;
+        text-align: right;
+      }
+    }
   }
 }
 
@@ -315,3 +398,79 @@
     padding: 0 5px;
   }
 }
+
+/***** Inline chart styles which are not currently in use
+.inline-card-status {
+  background: transparent;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  .count-title {
+    font-weight: 300;
+    margin-top: 0;
+    float: left;
+    padding-left: 5px;
+  }
+
+  .inline-card-status-type-icon {
+    float: left;
+    width: 39px;
+    height: 39px;
+  }
+
+  .inline-card-status-count {
+    font-weight: 300;
+    display: block;
+    font-size: 24px;
+    vertical-align: bottom;
+    text-align: center;
+    line-height: 28px;
+  }
+  .inline-card-status-type {
+    display: block;
+    vertical-align: bottom;
+    text-align: center;
+  }
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #00618a;
+    text-decoration: underline;
+  }
+  .pficon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -20px;
+    width: 54px;
+    font-size: 26px;
+  }
+  .indicator {
+    font-size: 20px;
+    .count {
+      top: -2px;
+      position: relative;
+      padding-left: 5px;
+    }
+  }
+  .status {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -15px;
+    width: 54px;
+    font-size: 20px;
+  }
+}
+
+.inline-utilization-chart-title {
+  font-size: 14px !important;
+  font-weight: 500;
+  color: #1186C1 !important;
+}
+****/

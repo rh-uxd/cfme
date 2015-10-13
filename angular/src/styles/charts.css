@@ -46,11 +46,12 @@
 
 /* Percentage Used Chart */
 .percentageUsedBarChartWrapper {
-  padding-bottom: 8px;
+  padding-bottom: 10px;
 }
 
 .percentageUsedBarChart {
   margin-bottom: 12px;
+  position: relative;
 }
 
 .percentageUsedBarChart:last-of-type {
@@ -58,7 +59,13 @@
 }
 
 .percentageUsedBar {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  right: 100px;
   height: 15px;
+  padding-left: 5px;
+  padding-right:5px;
 }
 
 .percentageUsedBarFilled {
@@ -86,12 +93,31 @@
 }
 
 .percentageUsedBarTitle {
+  position: relative;
+  text-align: right;
+  top: 0;
+  left: 0;
+  float: left;
+  width: 100px;
+  text-align: right;
+  padding-left: 5px;
+  padding-right:5px;
   font-size: 12px;
-  line-height: 15px;
   font-weight: normal;
+  line-height: 15px;
   margin-bottom: 5px;
 }
 
-.percentageUsedBarTitle .used {
-  float: right;
+.percentageUsedBarSuffix {
+  position:absolute;
+  top: 0;
+  right: 0;
+  text-align: left;
+  width: 100px;
+  padding-left: 5px;
+  padding-right:5px;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 15px;
+  margin-bottom: 5px;
 }

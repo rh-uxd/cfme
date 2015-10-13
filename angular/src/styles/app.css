@@ -1800,7 +1800,6 @@
 .fa-medium:before {
   content: "\f23a";
 }
-/* New Nav Bar Styles */
 .navbar-pf {
   background: #063451;
   border: 0;
@@ -1853,7 +1852,7 @@
   background-color: #0a5a8c;
   color: #f1f1f1;
 }
-@media (max-width: 1041px) {
+@media (max-width: 767px) {
   .navbar-pf .navbar-nav .active .navbar-persistent,
   .navbar-pf .navbar-nav .active .dropdown-menu,
   .navbar-pf .navbar-nav .open .dropdown-menu {
@@ -2045,7 +2044,7 @@
   font-family: "FontAwesome";
   font-weight: normal;
 }
-@media (max-width: 1041px) {
+@media (max-width: 767px) {
   .navbar-pf .navbar-primary > li > .navbar-persistent > .dropdown-submenu > a:after {
     height: 10px;
     margin-left: 4px;
@@ -2082,12 +2081,12 @@
   position: absolute;
   top: 10px;
 }
-@media (max-width: 1041px) {
+@media (max-width: 767px) {
   .navbar-pf .navbar-utility > li + li {
     border-top: 1px solid #0b6298;
   }
 }
-@media (min-width: 1042px) {
+@media (min-width: 768px) {
   .navbar-pf .navbar-brand {
     padding: 8px 0 2px;
   }
@@ -2374,11 +2373,6 @@
 .tiles-view-pf .tile.active:focus .pficon {
   color: #1186C1;
 }
-iframe,
-.iframe {
-  width: 100%;
-  height: 100%;
-}
 /* Anything app specific */
 .pf-fixed-body {
   padding-top: 125px;
@@ -2442,124 +2436,174 @@ iframe,
 .pficon-openshift::before {
   color: #da2430;
 }
-.cfme-objects-view .tiles-view-pf .tile {
+.tiles-view-pf .tile {
   overflow: hidden;
 }
-.cfme-objects-view .tiles-view-pf .tile-content {
+.tiles-view-pf .tile-content {
   overflow: hidden;
 }
-.cfme-objects-view .tile-title .cfme-icon-label {
+.tiles-view-pf .tile-title .cfme-icon-label {
   padding-left: 5px;
   padding-bottom: 15px;
 }
-.cfme-objects-view .tile-row {
+.tiles-view-pf .tile-row {
   padding: 0;
   margin: 0;
 }
-.cfme-objects-view .tile-column {
+.tiles-view-pf .tile-column {
   width: 50%;
   float: left;
 }
-.cfme-objects-view .status-object {
+.tiles-view-pf .status-object {
   text-align: left;
   margin: 5px 20px;
 }
-.cfme-objects-view .status-object .pficon {
+.tiles-view-pf .status-object .pficon {
   font-size: 20px;
   vertical-align: middle;
   width: 26px;
   color: #1186C1;
 }
-.cfme-objects-view .status-object .status-count {
+.tiles-view-pf .status-object .status-count {
   font-size: 18px;
   color: #515151;
 }
-.cfme-objects-view .status-object .status-text {
+.tiles-view-pf .status-object .status-text {
   font-size: 12px;
   color: #515151;
 }
-.cfme-objects-view .cpu-usage-column {
+.tiles-view-pf .cpu-usage-column {
   width: 150px;
 }
-.cfme-objects-view .cpu-usage-column .cfme-title {
+.tiles-view-pf .cpu-usage-column .cfme-title {
   text-align: right;
   width: 95px;
 }
-.cfme-objects-view .memory-usage-column {
+.tiles-view-pf .memory-usage-column {
   width: 180px;
 }
-.cfme-objects-view .memory-usage-column .cfme-title {
+.tiles-view-pf .memory-usage-column .cfme-title {
   text-align: right;
   width: 135px;
 }
-.cfme-objects-view .data-list-pf .name-column {
-  width: 150px;
+.data-list-pf .cfme-row-column {
+  padding-right: 5px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column {
-  width: 150px;
+.data-list-pf .list-group-item .cfme-column {
+  float: left;
+  padding: 5px 5px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .cfme-title {
+.data-list-pf .list-group-item .cfme-column:first-of-type {
+  padding-left: 25px;
+}
+.data-list-pf .list-group-item .cfme-object-column {
+  padding-top: 1px !important;
+}
+.data-list-pf .list-group-item .cfme-object-column .cfme-label {
+  vertical-align: middle;
+}
+.data-list-pf .list-group-item .cfme-icon-label {
+  color: #515151;
+  font-size: 18px;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding-left: 5px;
+}
+.data-list-pf .list-group-item .pficon.cfme-icon-label {
+  color: #1186C1;
+}
+.data-list-pf .list-group-item .cfme-label {
+  color: #515151;
+  font-size: 12px;
+  white-space: nowrap;
+  padding-left: 5px;
+}
+.data-list-pf .list-group-item .cfme-column .cfme-item-title {
+  font-weight: bold;
+}
+.data-list-pf .list-group-item .cfme-label.cfme-title {
+  float: left;
+  color: #515151;
+  font-size: 13px;
+  font-weight: 700;
+}
+.data-list-pf .list-group-item .cfme-icon-label.cfme-title {
+  float: left;
+  color: #515151;
+  font-size: 13px;
+  font-weight: 700;
+}
+.data-list-pf .list-group-item .cfme-label.cfme-count {
+  float: left;
   text-align: right;
+  width: 32px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .cfme-title .rhev-table-header {
+.data-list-pf .name-column {
+  width: 150px;
+}
+.data-list-pf .cpu-usage-column {
+  width: 150px;
+}
+.data-list-pf .cpu-usage-column .cfme-title {
+  text-align: right;
   width: 95px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .memory-usage-column {
+.data-list-pf .memory-usage-column {
   width: 180px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .memory-usage-column .cfme-title {
+.data-list-pf .memory-usage-column .cfme-title {
   text-align: right;
   width: 135px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .storage-usage-column {
+.data-list-pf .storage-usage-column {
   width: 180px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .storage-usage-column .cfme-title {
+.data-list-pf .storage-usage-column .cfme-title {
   text-align: right;
   width: 125px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .network-usage-column {
+.data-list-pf .network-usage-column {
   width: 220px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .network-usage-column .cfme-title {
+.data-list-pf .network-usage-column .cfme-title {
   text-align: right;
   width: 150px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .name-column {
+.data-list-pf .name-column {
   width: 120px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .nodes-column {
+.data-list-pf .nodes-column {
   width: 120px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .pods-column {
+.data-list-pf .pods-column {
   width: 130px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .containers-column {
+.data-list-pf .containers-column {
   width: 160px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .services-column {
+.data-list-pf .services-column {
   width: 140px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .registries-column {
+.data-list-pf .registries-column {
   width: 130px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .images-column {
+.data-list-pf .images-column {
   width: 140px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .projects-column {
+.data-list-pf .projects-column {
   width: 140px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .routes-column {
+.data-list-pf .routes-column {
   width: 130px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .provider-column {
+.data-list-pf .provider-column {
   width: 150px;
   padding-top: 4px !important;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .replicators-column {
+.data-list-pf .replicators-column {
   width: 150px;
 }
-.cfme-objects-view .data-list-pf .cpu-usage-column .uptime-column {
+.data-list-pf .uptime-column {
   width: 150px;
 }
 .providers-list .data-list-pf .name-column {
@@ -2576,9 +2620,8 @@ iframe,
 .projects-tiles .status-object.provider-object {
   text-align: center;
 }
-.project-dashboard .card-pf-status {
-  padding-top: 5px;
-  padding-bottom: 5px;
+.project-dashboard .card-pf-status .card-pf-title {
+  padding: 30px 0;
 }
 .pods-tiles .tiles-view-pf .tile {
   height: 230px;
@@ -2613,6 +2656,28 @@ iframe,
 .pods-containers-info .containers-list .list-view-container {
   height: 260px;
 }
+.pods-containers-info .containers-list .cpu-usage-column {
+  width: 190px;
+}
+.pods-containers-info .containers-list .cpu-usage-column .cfme-title {
+  text-align: right;
+  width: 105px;
+}
+.pods-containers-info .containers-list .cpu-usage-column .cfme-count {
+  width: 30px;
+  text-align: right;
+}
+.pods-containers-info .containers-list .memory-usage-column {
+  width: 225px;
+}
+.pods-containers-info .containers-list .memory-usage-column .cfme-title {
+  text-align: right;
+  width: 130px;
+}
+.pods-containers-info .containers-list .memory-usage-column .cfme-count {
+  width: 30px;
+  text-align: right;
+}
 .pod-metrics {
   height: 392px;
   overflow-y: auto;
@@ -2641,135 +2706,78 @@ iframe,
   float: left;
   padding: 0 5px;
 }
-.data-list-pf .list-group-item.inline-charts {
-  padding-bottom: 0px;
-}
-.data-list-pf .cfme-row-column {
-  padding-right: 5px;
-}
-.data-list-pf .list-group-item .cfme-column {
-  float: left;
-  padding: 5px 5px;
-}
-.data-list-pf .list-group-item .cfme-column:first-of-type {
-  padding-left: 25px;
-}
-.data-list-pf .list-group-item .cfme-object-column {
-  padding-top: 1px !important;
-}
-.data-list-pf .list-group-item .cfme-icon-label {
-  color: #515151;
-  font-size: 18px;
-  vertical-align: middle;
-  white-space: nowrap;
-  padding-left: 5px;
-}
-.data-list-pf .list-group-item .pficon.cfme-icon-label {
-  color: #1186C1;
-}
-.data-list-pf .list-group-item .cfme-label {
-  color: #515151;
-  font-size: 12px;
-  vertical-align: middle;
-  white-space: nowrap;
-  padding-left: 5px;
-}
-.data-list-pf .list-group-item .cfme-column.cfme-inline-chart {
-  padding-top: 0px;
-  width: 4em;
-  margin: 0;
-}
-.data-list-pf .list-group-item .cfme-column .cfme-item-title {
-  font-weight: bold;
-}
-.data-list-pf .list-group-item .utilization-chart-title-big {
-  font-size: 14px;
-  font-weight: 500;
-}
-.data-list-pf .list-group-item .cfme-label.cfme-title {
-  float: left;
-  color: #515151;
-  font-size: 13px;
-  font-weight: 700;
-}
-.data-list-pf .list-group-item .cfme-icon-label.cfme-title {
-  float: left;
-  color: #515151;
-  font-size: 13px;
-  font-weight: 700;
-}
-.data-list-pf .list-group-item .cfme-label.cfme-count {
-  float: left;
-  line-height: 24px;
-  text-align: right;
-  width: 32px;
-}
-.data-list-pf .inline-card-status {
+/***** Inline chart styles which are not currently in use
+.inline-card-status {
   background: transparent;
   font-size: 16px;
   font-weight: 300;
   margin: 0;
   padding: 0;
   text-align: center;
+
+  .count-title {
+    font-weight: 300;
+    margin-top: 0;
+    float: left;
+    padding-left: 5px;
+  }
+
+  .inline-card-status-type-icon {
+    float: left;
+    width: 39px;
+    height: 39px;
+  }
+
+  .inline-card-status-count {
+    font-weight: 300;
+    display: block;
+    font-size: 24px;
+    vertical-align: bottom;
+    text-align: center;
+    line-height: 28px;
+  }
+  .inline-card-status-type {
+    display: block;
+    vertical-align: bottom;
+    text-align: center;
+  }
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #00618a;
+    text-decoration: underline;
+  }
+  .pficon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -20px;
+    width: 54px;
+    font-size: 26px;
+  }
+  .indicator {
+    font-size: 20px;
+    .count {
+      top: -2px;
+      position: relative;
+      padding-left: 5px;
+    }
+  }
+  .status {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -15px;
+    width: 54px;
+    font-size: 20px;
+  }
 }
-.data-list-pf .inline-card-status .count-title {
-  font-weight: 300;
-  margin-top: 0;
-  float: left;
-  padding-left: 5px;
-}
-.data-list-pf .inline-card-status .inline-card-status-type-icon {
-  float: left;
-  width: 39px;
-  height: 39px;
-}
-.data-list-pf .inline-card-status .inline-card-status-count {
-  font-weight: 300;
-  display: block;
-  font-size: 24px;
-  vertical-align: bottom;
-  text-align: center;
-  line-height: 28px;
-}
-.data-list-pf .inline-card-status .inline-card-status-type {
-  display: block;
-  vertical-align: bottom;
-  text-align: center;
-}
-.data-list-pf .inline-card-status a {
-  color: #000000;
-  text-decoration: none;
-}
-.data-list-pf .inline-card-status a:hover {
-  color: #00618a;
-  text-decoration: underline;
-}
-.data-list-pf .inline-card-status .pficon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  margin-top: -20px;
-  width: 54px;
-  font-size: 26px;
-}
-.data-list-pf .inline-card-status .indicator {
-  font-size: 20px;
-}
-.data-list-pf .inline-card-status .indicator .count {
-  top: -2px;
-  position: relative;
-  padding-left: 5px;
-}
-.data-list-pf .inline-card-status .status {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  margin-top: -15px;
-  width: 54px;
-  font-size: 20px;
-}
-.data-list-pf .inline-utilization-chart-title {
+
+.inline-utilization-chart-title {
   font-size: 14px !important;
   font-weight: 500;
   color: #1186C1 !important;
 }
+****/

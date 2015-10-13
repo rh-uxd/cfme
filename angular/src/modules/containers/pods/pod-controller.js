@@ -120,7 +120,7 @@ angular.module('cfme.containers.podsModule').controller('containers.podControlle
         compValue = item1.uptime.localeCompare(item2.uptime);
       } else if (vm.sortConfig.currentField.id === 'cpuUsage') {
         compValue = item1.milliCoresUsed - item2.milliCoresUsed;
-      } else if (vm.sortConfig.currentField.id === 'cpuUsage') {
+      } else if (vm.sortConfig.currentField.id === 'memoryUsage') {
         compValue = item1.memoryUsed - item2.memoryUsed;
       }
 
