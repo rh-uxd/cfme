@@ -13,7 +13,12 @@ _**Getting Started:**_
 	- npm install	
 	- npm install -g bower	
 	- bower install	
-	- npm install -g grunt-cli		
+	- npm install -g grunt-cli
+	
+	Install Sass/Compass (may need to use sudo)
+	- npm install -g compass
+	- gem install sass
+	- gem install compass
 
 	Running
 

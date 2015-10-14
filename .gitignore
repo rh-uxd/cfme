@@ -32,3 +32,4 @@ ember/tmp/
 ember/app.css
 ember/app.css.map
 json-server.log
+**/.sass-cache

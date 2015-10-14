@@ -53,5 +53,8 @@
     "lodash": "2.4.1",
     "protractor": "1.4.0",
     "request": "2.42.0"
+  },
+  "dependencies": {
+    "grunt-contrib-compass": "^1.0.4"
   }
 }

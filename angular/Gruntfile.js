@@ -18,14 +18,16 @@ module.exports = function( grunt ) {
             pkg:      grunt.file.readJSON( 'package.json' )
         },
 
-        less: {
-            tmp: {
-                files: {
-                    'src/styles/app.css': 'src/styles/less/app.less'
-                }
+        compass: {
+          dist: {
+            options: {
+              sassDir: 'src/styles/scss',
+              specify: 'src/styles/scss/app.scss',
+              cssDir: 'src/styles',
+              outputStyle: 'expanded'
             }
+          }
         },
-
         // Watches files for changes and runs tasks based on the changed files
         // Live Reload is to slow need to figure out how to stop reloading of npm modules
         watch:    {
@@ -42,9 +44,9 @@ module.exports = function( grunt ) {
                     livereload: true
                 }
             },
-            less: {
-                files: 'src/**/*.less',
-                tasks: ['less'],
+            compass: {
+                files: 'src/styles/scss/*.scss',
+                tasks: ['compass'],
                 options: {
                     livereload: false
                 }
@@ -68,7 +70,8 @@ module.exports = function( grunt ) {
                 tasks: ['jshint:test', 'karma']
             },
             gruntfile:  {
-                files: ['Gruntfile.js']
+                files: ['Gruntfile.js'],
+                tasks: ['build']
             },
             livereload: {
                 options: {
@@ -353,6 +356,8 @@ module.exports = function( grunt ) {
 
     } );
 
+    grunt.loadNpmTasks('grunt-contrib-compass');
+
     grunt.registerTask( 'jshintRun', [
         'jshint'
     ] );
@@ -360,6 +365,7 @@ module.exports = function( grunt ) {
     grunt.registerTask( 'serve', function( target ) {
         grunt.task.run( [
             'clean:server',
+            'build',
             'configureProxies:server', // added just before connect
             'connect:livereload',
             'watch'
@@ -397,7 +403,7 @@ module.exports = function( grunt ) {
         var buildTasks = [
             'clean:dist',
             'translate',
-            'less',
+            'compass',
             'ngtemplates',
             'useminPrepare',
             'concat',
