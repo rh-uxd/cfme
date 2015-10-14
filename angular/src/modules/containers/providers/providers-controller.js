@@ -3,15 +3,12 @@ angular.module('miq.containers.providersModule').controller('containers.provider
   function($rootScope, $scope, $resource, $location, chartsDataMixin, pfViewUtils, $routeParams) {
     'use strict';
 
-    // stash a ref to the controller object, and the various parent objects
-    var vm = this;
-
     var initFilters = [];
     if ($routeParams.filter !== undefined) {
       initFilters.push({id: 'providerType', title: 'Provider Type', value: $routeParams.filter});
     }
 
-    vm.listId = 'containersProvidersList';
+    $scope.listId = 'containersProvidersList';
     var handleClick = function(item) {
       $location.path('/containers/providers/provider/' + item.name);
     };
@@ -48,23 +45,23 @@ angular.module('miq.containers.providersModule').controller('containers.provider
       return matches;
     };
 
-    vm.applyFilters = function (providers) {
-      if (vm.toolbarConfig.filterConfig.appliedFilters && vm.toolbarConfig.filterConfig.appliedFilters.length > 0) {
-        vm.providers = [];
-        vm.allProviders.forEach(function (provider) {
-         if (matchesFilters(provider, vm.toolbarConfig.filterConfig.appliedFilters)) {
-           vm.providers.push(provider);
+    $scope.applyFilters = function (providers) {
+      if ($scope.toolbarConfig.filterConfig.appliedFilters && $scope.toolbarConfig.filterConfig.appliedFilters.length > 0) {
+        $scope.providers = [];
+        $scope.allProviders.forEach(function (provider) {
+         if (matchesFilters(provider, $scope.toolbarConfig.filterConfig.appliedFilters)) {
+           $scope.providers.push(provider);
          }
         });
       } else {
-        vm.providers = providers;
+        $scope.providers = providers;
       }
-      vm.toolbarConfig.filterConfig.resultsCount = vm.providers.length;
+      $scope.toolbarConfig.filterConfig.resultsCount = $scope.providers.length;
     };
 
     var filterChange = function (filters) {
       $rootScope.providersViewFilters = filters;
-      vm.applyFilters(vm.allProviders);
+      $scope.applyFilters($scope.allProviders);
     };
 
     var filterConfig = {
@@ -88,21 +85,21 @@ angular.module('miq.containers.providersModule').controller('containers.provider
       onFilterChange: filterChange
     };
 
-    vm.toolbarConfig = {
+    $scope.toolbarConfig = {
       viewsConfig: viewsConfig,
       filterConfig: filterConfig
     };
 
     if (!$rootScope.providersViewType) {
-      $rootScope.providersViewType = vm.toolbarConfig.viewsConfig.views[0].id;
+      $rootScope.providersViewType = $scope.toolbarConfig.viewsConfig.views[0].id;
     }
-    vm.toolbarConfig.viewsConfig.currentView = $rootScope.providersViewType;
+    $scope.toolbarConfig.viewsConfig.currentView = $rootScope.providersViewType;
 
     if ($rootScope.providersViewFilters) {
-      vm.toolbarConfig.filterConfig.appliedFilters = $rootScope.providersViewFilters;
+      $scope.toolbarConfig.filterConfig.appliedFilters = $rootScope.providersViewFilters;
     }
 
-    vm.listConfig = {
+    $scope.listConfig = {
       selectItems: false,
       multiSelect: false,
       selectionMatchProp: 'name',
@@ -113,11 +110,11 @@ angular.module('miq.containers.providersModule').controller('containers.provider
     };
 
     //Get the providers data
-    vm.providersLoaded = false;
+    $scope.providersLoaded = false;
     var providers = $resource('/containers/providers/all');
     providers.get(function(data) {
-      vm.allProviders = data.data;
-      vm.allProviders.forEach(function(provider){
+      $scope.allProviders = data.data;
+      $scope.allProviders.forEach(function(provider){
         if (provider.providerType === 'openshift') {
           provider.icon = 'pficon-openshift';
         }
@@ -166,9 +163,9 @@ angular.module('miq.containers.providersModule').controller('containers.provider
         };
       });
 
-      vm.applyFilters(vm.allProviders);
+      $scope.applyFilters($scope.allProviders);
 
-      vm.providersLoaded = true;
+      $scope.providersLoaded = true;
     });
   }
 ]);

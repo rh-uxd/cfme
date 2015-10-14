@@ -2,10 +2,7 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
   function($rootScope, $scope, $resource, $location, chartsDataMixin, pfViewUtils) {
     'use strict';
 
-    // stash a ref to the controller object, and the various parent objects
-    var vm = this;
-
-    vm.listId = 'containersPodsList';
+    $scope.listId = 'containersPodsList';
     var handleClick = function(item) {
       $location.path('/containers/pods/' + item.name);
     };
@@ -14,7 +11,7 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
       $rootScope.podsViewType = view
     };
 
-    vm.viewsConfig = {
+    $scope.viewsConfig = {
       views: [pfViewUtils.getListView(), pfViewUtils.getTilesView()],
       onViewSelect: viewSelected
     };
@@ -39,23 +36,23 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
       return matches;
     };
 
-    vm.applyFilters = function (pods) {
-      if (vm.toolbarConfig.filterConfig.appliedFilters && vm.toolbarConfig.filterConfig.appliedFilters.length > 0) {
-        vm.pods = [];
-        vm.allPods.forEach(function (pod) {
-         if (matchesFilters(pod, vm.toolbarConfig.filterConfig.appliedFilters)) {
-           vm.pods.push(pod);
+    $scope.applyFilters = function (pods) {
+      if ($scope.toolbarConfig.filterConfig.appliedFilters && $scope.toolbarConfig.filterConfig.appliedFilters.length > 0) {
+        $scope.pods = [];
+        $scope.allPods.forEach(function (pod) {
+         if (matchesFilters(pod, $scope.toolbarConfig.filterConfig.appliedFilters)) {
+           $scope.pods.push(pod);
          }
         });
       } else {
-        vm.pods = pods;
+        $scope.pods = pods;
       }
-      vm.toolbarConfig.filterConfig.resultsCount = vm.pods.length;
+      $scope.toolbarConfig.filterConfig.resultsCount = $scope.pods.length;
     };
 
     var filterChange = function (filters) {
       $rootScope.podsViewFilters = filters;
-      vm.applyFilters(vm.allPods);
+      $scope.applyFilters($scope.allPods);
     };
 
     var filterConfig = {
@@ -74,19 +71,19 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
 
     var compareFn = function(item1, item2) {
       var compValue = 0;
-      if (vm.sortConfig.currentField.id === 'name') {
+      if ($scope.sortConfig.currentField.id === 'name') {
         compValue = item1.name.localeCompare(item2.name);
-      } else if (vm.sortConfig.currentField.id === 'uptime') {
+      } else if ($scope.sortConfig.currentField.id === 'uptime') {
         compValue = item1.uptime.localeCompare(item2.uptime);
-      } else if (vm.sortConfig.currentField.id === 'containers') {
+      } else if ($scope.sortConfig.currentField.id === 'containers') {
         compValue = item1.containersCount - item2.containersCount;
-      } else if (vm.sortConfig.currentField.id === 'cpuUsage') {
+      } else if ($scope.sortConfig.currentField.id === 'cpuUsage') {
         compValue = item1.milliCoresUsed - item2.milliCoresUsed;
-      } else if (vm.sortConfig.currentField.id === 'cpuUsage') {
+      } else if ($scope.sortConfig.currentField.id === 'cpuUsage') {
         compValue = item1.memoryUsed - item2.memoryUsed;
       }
 
-      if (!vm.sortConfig.isAscending) {
+      if (!$scope.sortConfig.isAscending) {
         compValue = compValue * -1;
       }
 
@@ -94,12 +91,12 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
     };
 
     var sortChange = function (sortId, isAscending) {
-      if (vm.pods && vm.pods.length > 0) {
-        vm.pods.sort(compareFn);
+      if ($scope.pods && $scope.pods.length > 0) {
+        $scope.pods.sort(compareFn);
       }
     };
 
-    vm.sortConfig = {
+    $scope.sortConfig = {
       fields: [
         {
           id: 'name',
@@ -130,22 +127,22 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
       onSortChange: sortChange
     };
 
-    vm.toolbarConfig = {
-      viewsConfig: vm.viewsConfig,
+    $scope.toolbarConfig = {
+      viewsConfig: $scope.viewsConfig,
       filterConfig: filterConfig,
-      sortConfig: vm.sortConfig
+      sortConfig: $scope.sortConfig
     };
 
     if (!$rootScope.podsViewType) {
-      $rootScope.podsViewType = vm.viewsConfig.views[0].id;
+      $rootScope.podsViewType = $scope.viewsConfig.views[0].id;
     }
-    vm.viewsConfig.currentView = $rootScope.podsViewType;
+    $scope.viewsConfig.currentView = $rootScope.podsViewType;
 
     if ($rootScope.podsViewFilters) {
-      vm.toolbarConfig.filterConfig.appliedFilters = $rootScope.podsViewFilters;
+      $scope.toolbarConfig.filterConfig.appliedFilters = $rootScope.podsViewFilters;
     }
 
-    vm.listConfig = {
+    $scope.listConfig = {
       selectItems: false,
       multiSelect: false,
       selectionMatchProp: 'name',
@@ -155,12 +152,12 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
     };
 
     //Get the pods data
-    vm.podsLoaded = false;
+    $scope.podsLoaded = false;
     var pods = $resource('/containers/pods/all');
     pods.get(function(data) {
-      vm.allPods = data.data;
-      vm.applyFilters(vm.allPods);
-      vm.podsLoaded = true
+      $scope.allPods = data.data;
+      $scope.applyFilters($scope.allPods);
+      $scope.podsLoaded = true
     });
   }
 ]);

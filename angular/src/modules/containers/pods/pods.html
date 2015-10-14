@@ -3,8 +3,8 @@
     <li class="active"><a href="#/containers/dashboard">Containers</a></li>
     <li>Pods</li>
   </ol>
-  <div pf-data-toolbar class="row" config="vm.toolbarConfig"></div>
-  <div pf-data-list class="pods-list row" id="{{vm.listId}}" config="vm.listConfig" items="vm.pods" ng-if="vm.podsLoaded && podsViewType == 'listView'">
+  <div pf-data-toolbar class="row" config="toolbarConfig"></div>
+  <div pf-data-list class="pods-list row" id="{{listId}}" config="listConfig" items="pods" ng-if="podsLoaded && podsViewType == 'listView'">
     <div class="row">
       <div class="miq-column name-column">
         <span class="miq-label miq-title">{{item.name}}</span>
@@ -50,7 +50,7 @@
       </div>
     </div>
   </div>
-  <div pf-data-tiles id="{{vm.listId}}" class="pods-tiles" config="vm.listConfig" items="vm.pods" ng-if="vm.podsLoaded && podsViewType == 'tilesView'">
+  <div pf-data-tiles id="{{listId}}" class="pods-tiles" config="listConfig" items="pods" ng-if="podsLoaded && podsViewType == 'tilesView'">
     <div class="tile-title">
       <span class="pficon fa fa-cubes container-font-color miq-icon-label"></span>
       <span class="miq-icon-label">{{item.name}}</span>

@@ -1,34 +1,28 @@
-angular.module( 'miq.appModule' )
-    .controller( 'miq.appController',
-    ['$scope',
-     '$rootScope',
-     '$resource',
-     function( $scope, $rootScope, $resource ) {
+'use strict';
 
-        'use strict';
+angular.module('miq.appModule').controller( 'miq.appController', ['$scope', '$rootScope', '$resource',
+  function( $scope, $rootScope, $resource ) {
+    $scope.username = 'Administrator';
 
-        var vm = this;
+    //Navigation should be loaded from a service
+    $scope.navigationItems = [];
+    var Navigation = $resource('/navigation');
+    Navigation.get(function(data) {
+      $scope.navigationItems = data.data;
+    });
 
-        vm.username = 'Administrator';
+    $scope.notifications = [
+      {
+        'text': 'Modified Datasources ExampleDS'
+      },
+      {
+        'text': 'Error: System Failure'
+      }
+    ];
 
-        //Navigation should be loaded from a service
-        vm.navigationItems = [];
-		var Navigation = $resource('/navigation');
-		Navigation.get(function(data) {
-      		vm.navigationItems = data.data;
-     	});
+    $scope.clearNotifications = function() {
+      $scope.notifications = [];
+    };
 
-		vm.notifications = [
-			{
-				'text': 'Modified Datasources ExampleDS'
-			},
-			{
-				'text': 'Error: System Failure'
-			}
-		];
-
-		vm.clearNotifications = function() {
-			vm.notifications = [];
-		};
-
-     }] );
+  }
+]);

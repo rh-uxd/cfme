@@ -8,42 +8,34 @@ angular.module( 'miq.containersModule',
     $routeProvider
       .when('/containers/dashboard', {
         templateUrl: 'modules/containers/dashboard/dashboard.html',
-        controller: 'containers.dashboardController',
-        controllerAs: 'vm'
+        controller: 'containers.dashboardController'
       })
       .when('/containers/projects', {
         templateUrl: 'modules/containers/projects/projects.html',
-        controller: 'containers.projectsController',
-        controllerAs: 'vm'
+        controller: 'containers.projectsController'
       })
       .when('/containers/projects/:id', {
         templateUrl: 'modules/containers/projects/project.html',
-        controller: 'containers.projectController',
-        controllerAs: 'vm'
+        controller: 'containers.projectController'
       })
       .when('/containers/providers', {
         templateUrl: 'modules/containers/providers/providers.html',
-        controller: 'containers.providersController',
-        controllerAs: 'vm'
+        controller: 'containers.providersController'
       })
       .when('/containers/providers/:id', {
         templateUrl: 'modules/containers/providers/providers.html',
-        controller: 'containers.providersController',
-        controllerAs: 'vm'
+        controller: 'containers.providersController'
       })
       .when('/containers/providers/provider/:id', {
         templateUrl: 'modules/containers/providers/provider.html',
-        controller: 'containers.providerController',
-        controllerAs: 'vm'
+        controller: 'containers.providerController'
       })
       .when('/containers/pods', {
         templateUrl: 'modules/containers/pods/pods.html',
-        controller: 'containers.podsController',
-        controllerAs: 'vm'
+        controller: 'containers.podsController'
       })
       .when('/containers/pods/:id', {
         templateUrl: 'modules/containers/pods/pod.html',
-        controller: 'containers.podController',
-        controllerAs: 'vm'
+        controller: 'containers.podController'
       })
   }]);

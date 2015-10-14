@@ -2,11 +2,8 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
   function($rootScope, $scope, $resource, $location, chartsDataMixin, pfViewUtils) {
     'use strict';
 
-    // stash a ref to the controller object, and the various parent objects
-    var vm = this;
-
-    vm.listId = 'containersProjectsList';
-    vm.donutConfig = {
+    $scope.listId = 'containersProjectsList';
+    $scope.donutConfig = {
       size: {
         width: 55,
         height: 55
@@ -16,9 +13,9 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
       }
     };
 
-    vm.createListUsageConfig = function(usageConfig) {
+    $scope.createListUsageConfig = function(usageConfig) {
       var cpuUsageConfig = angular.copy(usageConfig);
-      cpuUsageConfig.donutConfig = angular.copy(vm.donutConfig);
+      cpuUsageConfig.donutConfig = angular.copy($scope.donutConfig);
       return cpuUsageConfig;
     };
 
@@ -61,23 +58,23 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
       return matches;
     };
 
-    vm.applyFilters = function (projects) {
-      if (vm.toolbarConfig.filterConfig.appliedFilters && vm.toolbarConfig.filterConfig.appliedFilters.length > 0) {
-        vm.projects = [];
-        vm.allProjects.forEach(function (project) {
-         if (matchesFilters(project, vm.toolbarConfig.filterConfig.appliedFilters)) {
-           vm.projects.push(project);
+    $scope.applyFilters = function (projects) {
+      if ($scope.toolbarConfig.filterConfig.appliedFilters && $scope.toolbarConfig.filterConfig.appliedFilters.length > 0) {
+        $scope.projects = [];
+        $scope.allProjects.forEach(function (project) {
+         if (matchesFilters(project, $scope.toolbarConfig.filterConfig.appliedFilters)) {
+           $scope.projects.push(project);
          }
         });
       } else {
-        vm.projects = projects;
+        $scope.projects = projects;
       }
-      vm.toolbarConfig.filterConfig.resultsCount = vm.projects.length;
+      $scope.toolbarConfig.filterConfig.resultsCount = $scope.projects.length;
     };
 
     var filterChange = function (filters) {
       $rootScope.projectsViewFilters = filters;
-      vm.applyFilters(vm.allProjects);
+      $scope.applyFilters($scope.allProjects);
     };
 
     var filterConfig = {
@@ -107,21 +104,21 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
       onFilterChange: filterChange
     };
 
-    vm.toolbarConfig = {
+    $scope.toolbarConfig = {
       viewsConfig: viewsConfig,
       filterConfig: filterConfig
     };
 
     if (!$rootScope.projectsViewType) {
-      $rootScope.projectsViewType = vm.toolbarConfig.viewsConfig.views[0].id;
+      $rootScope.projectsViewType = $scope.toolbarConfig.viewsConfig.views[0].id;
     }
-    vm.toolbarConfig.viewsConfig.currentView = $rootScope.projectsViewType;
+    $scope.toolbarConfig.viewsConfig.currentView = $rootScope.projectsViewType;
 
     if ($rootScope.projectsViewFilters) {
-      vm.toolbarConfig.filterConfig.appliedFilters = $rootScope.projectsViewFilters;
+      $scope.toolbarConfig.filterConfig.appliedFilters = $rootScope.projectsViewFilters;
     }
 
-    vm.listConfig = {
+    $scope.listConfig = {
       selectItems: false,
       multiSelect: false,
       selectionMatchProp: 'name',
@@ -132,11 +129,11 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
     };
 
     //Get the projects data
-    vm.projectsLoaded = false;
+    $scope.projectsLoaded = false;
     var projects = $resource('/containers/projects/all');
     projects.get(function(data) {
-      vm.allProjects = data.data;
-      vm.allProjects.forEach(function(project){
+      $scope.allProjects = data.data;
+      $scope.allProjects.forEach(function(project){
         if (project.provider.providerType === 'openshift') {
           project.provider.icon = 'pficon-openshift';
         }
@@ -165,11 +162,11 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
             height: 125
           }
         };
-        project.cpuListUsageConfig = vm.createListUsageConfig(chartConfig.cpuUsageConfig);
+        project.cpuListUsageConfig = $scope.createListUsageConfig(chartConfig.cpuUsageConfig);
         project.cpuUsageData = chartsDataMixin.getCpuUsageDataFromData(project, project.cpuUsageConfig.usageDataName);
-        project.memoryListUsageConfig = vm.createListUsageConfig(chartConfig.memoryUsageConfig);
-        project.storageListUsageConfig = vm.createListUsageConfig(chartConfig.storageUsageConfig);
-        project.networkListUsageConfig = vm.createListUsageConfig(chartConfig.networkUsageConfig);
+        project.memoryListUsageConfig = $scope.createListUsageConfig(chartConfig.memoryUsageConfig);
+        project.storageListUsageConfig = $scope.createListUsageConfig(chartConfig.storageUsageConfig);
+        project.networkListUsageConfig = $scope.createListUsageConfig(chartConfig.networkUsageConfig);
         project.podsInfo = {
           name: "Pods",
           count: project.pods,
@@ -212,9 +209,9 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
         project.menuItems = ["Do Something", "Do Something Else", "Print"];
       });
 
-      vm.applyFilters(vm.allProjects);
+      $scope.applyFilters($scope.allProjects);
 
-      vm.projectsLoaded = true;
+      $scope.projectsLoaded = true;
     });
   }
 ]);

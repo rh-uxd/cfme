@@ -2,58 +2,55 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
   function( $scope, chartsDataMixin, $translate, $resource ) {
     'use strict';
 
-    // stash a ref to the controller object, and the various parent objects
-    var vm = this;
+    $scope.navigation = "containers";
 
-    vm.navigation = "containers";
+    $scope.chartHeight = chartsDataMixin.dashboardSparklineChartHeight;
+    $scope.dashboardHeatmapChartHeight = chartsDataMixin.dashboardHeatmapChartHeight;
 
-    vm.chartHeight = chartsDataMixin.dashboardSparklineChartHeight;
-    vm.dashboardHeatmapChartHeight = chartsDataMixin.dashboardHeatmapChartHeight;
-
-    vm.providers = {
+    $scope.providers = {
       title: "Providers",
       count: 0,
       href: "#containers/providers",
       notifications: []
     };
-    vm.nodesStatus = {
+    $scope.nodesStatus = {
       title: "Nodes",
       iconClass: "pficon pficon-container-node",
       count: 0
     };
-    vm.containersStatus = {
+    $scope.containersStatus = {
       title: "Containers",
       iconClass: "fa fa-cube",
       count: 0
     };
-    vm.registriesStatus = {
+    $scope.registriesStatus = {
       title:  "Registries",
       iconClass: "pficon pficon-registry",
       count: 0
     };
-    vm.projectsStatus = {
+    $scope.projectsStatus = {
       title: "Projects",
       iconClass: "pficon pficon-project",
       count: 0,
       href: "containers/projects"
     };
-    vm.podsStatus = {
+    $scope.podsStatus = {
       title: "Pods",
       iconClass: "fa fa-cubes",
       count: 0,
       href: "containers/pods"
     };
-    vm.servicesStatus = {
+    $scope.servicesStatus = {
       title: "Services",
       iconClass: "pficon pficon-service",
       count: 0
     };
-    vm.imagesStatus = {
+    $scope.imagesStatus = {
       title: "Images",
       iconClass: "pficon pficon-image",
       count: 0
     };
-    vm.routesStatus = {
+    $scope.routesStatus = {
       title: "Routes",
       iconClass: "pficon pficon-route",
       count: 0
@@ -91,123 +88,123 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
       var providers = data.providers;
       if (providers)
       {
-        vm.providers.count = providers.length;
+        $scope.providers.count = providers.length;
         providers.forEach(function (item) {
-          vm.providers.notifications.push({
+          $scope.providers.notifications.push({
             iconClass: item.iconClass,
             count: item.count,
             href: "#containers/providers/?filter=" + item.providerType
           })
         });
       }
-      updateStatus(vm.nodesStatus, data.nodes);
-      updateStatus(vm.containersStatus, data.containers);
-      updateStatus(vm.registriesStatus, data.registries);
-      updateStatus(vm.projectsStatus, data.projects);
-      updateStatus(vm.podsStatus, data.pods);
-      updateStatus(vm.servicesStatus, data.services);
-      updateStatus(vm.imagesStatus, data.images);
-      updateStatus(vm.routesStatus, data.routes);
+      updateStatus($scope.nodesStatus, data.nodes);
+      updateStatus($scope.containersStatus, data.containers);
+      updateStatus($scope.registriesStatus, data.registries);
+      updateStatus($scope.projectsStatus, data.projects);
+      updateStatus($scope.podsStatus, data.pods);
+      updateStatus($scope.servicesStatus, data.services);
+      updateStatus($scope.imagesStatus, data.images);
+      updateStatus($scope.routesStatus, data.routes);
     });
 
     // Node Utilization
 
-    vm.cpuUsageConfig = chartConfig.cpuUsageConfig;
-    vm.cpuUsageSparklineConfig = {
+    $scope.cpuUsageConfig = chartConfig.cpuUsageConfig;
+    $scope.cpuUsageSparklineConfig = {
       tooltipType: 'valuePerDay',
       chartId: 'cpuSparklineChart'
     };
-    vm.cpuUsageDonutConfig = {
+    $scope.cpuUsageDonutConfig = {
       chartId: 'cpuDonutChart',
       thresholds: {'warning':'60','error':'90'}
     };
-    vm.memoryUsageConfig = chartConfig.memoryUsageConfig;
-    vm.memoryUsageSparklineConfig = {
+    $scope.memoryUsageConfig = chartConfig.memoryUsageConfig;
+    $scope.memoryUsageSparklineConfig = {
       tooltipType: 'valuePerDay',
       chartId: 'memorySparklineChart'
     };
-    vm.memoryUsageDonutConfig = {
+    $scope.memoryUsageDonutConfig = {
       chartId: 'memoryDonutChart',
       thresholds: {'warning':'60','error':'90'}
     };
 
-    vm.utilizationLoadingDone = false;
+    $scope.utilizationLoadingDone = false;
     var ContainersUtilization = $resource('/containers/dashboard/utilization');
     ContainersUtilization.get(function(response) {
-      vm.cpuUsageData = chartsDataMixin.getCpuUsageDataFromResponse(response, vm.cpuUsageConfig.usageDataName);
-      vm.memoryUsageData = chartsDataMixin.getMemoryUsageDataFromResponse(response, vm.memoryUsageConfig.usageDataName);
-      vm.utilizationLoadingDone = true;
+      $scope.cpuUsageData = chartsDataMixin.getCpuUsageDataFromResponse(response, $scope.cpuUsageConfig.usageDataName);
+      $scope.memoryUsageData = chartsDataMixin.getMemoryUsageDataFromResponse(response, $scope.memoryUsageConfig.usageDataName);
+      $scope.utilizationLoadingDone = true;
     });
 
     // Network Utilization
 
-    vm.networkUtilizationCurrentConfig = chartConfig.currentNetworkUsageConfig;
-    vm.networkUtilizationCurrentConfig.tooltipFn = chartsDataMixin.sparklineTimeTooltip;
+    $scope.networkUtilizationCurrentConfig = chartConfig.currentNetworkUsageConfig;
+    $scope.networkUtilizationCurrentConfig.tooltipFn = chartsDataMixin.sparklineTimeTooltip;
 
-    vm.networkUtilizationDailyConfig = chartConfig.dailyNetworkUsageConfig;
+    $scope.networkUtilizationDailyConfig = chartConfig.dailyNetworkUsageConfig;
 
-    vm.networkUtilizationLoadingDone = false;
+    $scope.networkUtilizationLoadingDone = false;
     var networkUtilization = $resource('/containers/dashboard/utilization');
     networkUtilization.get(function(response) {
       var data = response.data;
-      vm.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, vm.networkUtilizationCurrentConfig.dataName, 60);
-      chartsDataMixin.continuouslyUpdateData(vm.currentNetworkUtilization, 60 * 1000);
-      vm.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, vm.networkUtilizationDailyConfig.dataName);
-      vm.networkUtilizationLoadingDone = true;
+      $scope.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, $scope.networkUtilizationCurrentConfig.dataName, 60);
+      chartsDataMixin.continuouslyUpdateData($scope.currentNetworkUtilization, 60 * 1000);
+      $scope.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, $scope.networkUtilizationDailyConfig.dataName);
+      $scope.networkUtilizationLoadingDone = true;
     });
 
     // Trends
 
-    vm.podTrendConfig = chartConfig.podTrendConfig;
-    vm.podTrendsLoadingDone = false;
+    $scope.podTrendConfig = chartConfig.podTrendConfig;
+    $scope.podTrendsLoadingDone = false;
     var podTrends = $resource('/containers/dashboard/pods');
     podTrends.tooltipType = 'valuePerDay';
 
       podTrends.get(function(response) {
       var data = response.data;
-      vm.podTrends = chartsDataMixin.getSparklineData(data.podTrends, vm.podTrendConfig.dataName);
-      vm.podTrendsLoadingDone = true;
+      $scope.podTrends = chartsDataMixin.getSparklineData(data.podTrends, $scope.podTrendConfig.dataName);
+      $scope.podTrendsLoadingDone = true;
     });
 
-    vm.imageTrendConfig = chartConfig.imageTrendConfig;
-    vm.imageTrendLoadingDone = false;
+    $scope.imageTrendConfig = chartConfig.imageTrendConfig;
+    $scope.imageTrendLoadingDone = false;
     var imageTrends = $resource('/containers/dashboard/image-trends');
     imageTrends.get(function(response) {
       var data = response.data;
-      vm.imageTrends = chartsDataMixin.getSparklineData(data.imageTrends, vm.imageTrendConfig.dataName);
-      vm.imageTrendLoadingDone = true;
+      $scope.imageTrends = chartsDataMixin.getSparklineData(data.imageTrends, $scope.imageTrendConfig.dataName);
+      $scope.imageTrendLoadingDone = true;
     });
 
     // HeatMaps
 
-    vm.nodeCpuUsage = {
+    $scope.nodeCpuUsage = {
       title: 'CPU',
       id: 'nodeCpuUsageMap',
       loadingDone: false
     };
-    vm.nodeMemoryUsage = {
+    $scope.nodeMemoryUsage = {
       title: 'Memory',
       id: 'nodeMemoryUsageMap',
       loadingDone: false
     };
 
-    vm.heatmaps = [vm.nodeCpuUsage, vm.nodeMemoryUsage];
+    $scope.heatmaps = [$scope.nodeCpuUsage, $scope.nodeMemoryUsage];
 
     var NodeCpuUsage = $resource('/containers/dashboard/node-cpu-usage');
     NodeCpuUsage.get(function(response) {
       var data = response.data;
-      vm.nodeCpuUsage.data = data.nodeCpuUsage;
-      vm.nodeCpuUsage.loadingDone = true;
+      $scope.nodeCpuUsage.data = data.nodeCpuUsage;
+      $scope.nodeCpuUsage.loadingDone = true;
     });
 
     var NodeMemoryUsage = $resource('/containers/dashboard/node-memory-usage');
     NodeMemoryUsage.get(function(response) {
       var data = response.data;
-      vm.nodeMemoryUsage.data = data.nodeMemoryUsage;
-      vm.nodeMemoryUsage.loadingDone = true;
+      $scope.nodeMemoryUsage.data = data.nodeMemoryUsage;
+      $scope.nodeMemoryUsage.loadingDone = true;
     });
 
-    vm.nodeHeatMapUsageLegendLabels = chartsDataMixin.nodeHeatMapUsageLegendLabels;
+    $scope.nodeHeatMapUsageLegendLabels = chartsDataMixin.nodeHeatMapUsageLegendLabels;
   }
 ]);
 

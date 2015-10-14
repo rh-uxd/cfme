@@ -3,8 +3,8 @@
     <li class="active"><a href="#/containers/dashboard">Containers</a></li>
     <li>Providers</li>
   </ol>
-  <div pf-data-toolbar class="row" config="vm.toolbarConfig"></div>
-  <div pf-data-list class="providers-list row" id="{{vm.listId}}" config="vm.listConfig" items="vm.providers" ng-if="vm.providersLoaded && providersViewType == 'listView'">
+  <div pf-data-toolbar class="row" config="toolbarConfig"></div>
+  <div pf-data-list class="providers-list row" id="{{listId}}" config="listConfig" items="providers" ng-if="providersLoaded && providersViewType == 'listView'">
     <div class="row">
       <div class="miq-column name-column">
         <span class="pficon {{item.icon}} container-font-color miq-icon-label"></span>
@@ -27,7 +27,7 @@
         </div>
         <div>
           <span class="miq-label miq-title">Total (GB)</span>
-          <span class="miq-label miq-count">{{item.memoryUsageData.total}}</span>
+          <span class="miq-label miq-count">{{item.memvm.oryUsageData.total}}</span>
         </div>
       </div>
       <div class="miq-column miq-object-column nodes-column">
@@ -72,7 +72,7 @@
       </div>
     </div>
   </div>
-  <div pf-data-tiles id="{{vm.listId}}" class="providers-tiles" config="vm.listConfig" items="vm.providers" ng-if="vm.providersLoaded && providersViewType == 'tilesView'">
+  <div pf-data-tiles id="{{listId}}" class="providers-tiles" config="listConfig" items="providers" ng-if="providersLoaded && providersViewType == 'tilesView'">
     <div class="tile-title">
       <span class="pficon {{item.icon}} container-font-color miq-icon-label"></span>
       <span class="miq-icon-label">{{item.name}}</span>
