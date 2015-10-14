@@ -1,36 +1,5 @@
-/**
- * @ngdoc directive
- * @name patternfly.charts.directive:pfPercentageUsed
- *
- * @description
- *   Directive for rendering a percentage used progress chart. Will render one or more
- *   bars based on data
- *
- *
- * @param {string} charts model data to be displayed
- * @param {string} id the ID iof the container that the chart should bind to
- *
- * @example
- <example module="patternfly.charts">
- <file name="index.html">
-    <div pf-percentage-used charts="vm.quotas"></div>
- </file>
-
- <file name="script.js">
- function ChartCtrl () {
-    var vm = this;
-    vm.quotas = { "data":[
-        { "title":"CPU", "start":"25", "end":"46" },
-        { "title":"Memory", "start":"8", "end":"16" }
-      ]
-    }
- }
- </file>
- </example>
- */
-
-angular.module('cfme.charts')
-    .directive('cfmePercentageUsed', ['$timeout', function($timeout) {
+angular.module('miq.charts')
+    .directive('percentageUsed', ['$timeout', function($timeout) {
     'use strict';
 
   return {

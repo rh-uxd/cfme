@@ -1,4 +1,4 @@
-<div class="container-fluid container-tiles-pf cfme-objects-view">
+<div class="container-fluid container-tiles-pf miq-objects-view">
   <ol class="breadcrumb" style="margin-bottom: 0px; margin-left:10px;">
     <li class="active"><a href="#/containers/dashboard">Containers</a></li>
     <li>Pods</li>
@@ -6,93 +6,93 @@
   <div pf-data-toolbar class="row" config="vm.toolbarConfig"></div>
   <div pf-data-list class="pods-list row" id="{{vm.listId}}" config="vm.listConfig" items="vm.pods" ng-if="vm.podsLoaded && podsViewType == 'listView'">
     <div class="row">
-      <div class="cfme-column name-column">
-        <span class="cfme-label cfme-title">{{item.name}}</span>
+      <div class="miq-column name-column">
+        <span class="miq-label miq-title">{{item.name}}</span>
       </div>
-      <div class="cfme-column uptime-column">
-        <span class="cfme-label cfme-title">Uptime</span>
-        <span class="cfme-label">{{item.uptime}}</span>
+      <div class="miq-column uptime-column">
+        <span class="miq-label miq-title">Uptime</span>
+        <span class="miq-label">{{item.uptime}}</span>
       </div>
-      <div class="cfme-column cpu-usage-column">
+      <div class="miq-column cpu-usage-column">
         <div>
-          <span class="cfme-label cfme-title">CPU Used (mc)</span>
-          <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
+          <span class="miq-label miq-title">CPU Used (mc)</span>
+          <span class="miq-label miq-count">{{item.milliCoresUsed}}</span>
         </div>
         <div>
-          <span class="cfme-label cfme-title">Total (mc)</span>
-          <span class="cfme-label cfme-count">{{item.milliCoresTotal}}</span>
+          <span class="miq-label miq-title">Total (mc)</span>
+          <span class="miq-label miq-count">{{item.milliCoresTotal}}</span>
         </div>
       </div>
-      <div class="cfme-column memory-usage-column">
+      <div class="miq-column memory-usage-column">
         <div>
-          <span class="cfme-label cfme-title">Memory Used (MB)</span>
-          <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
+          <span class="miq-label miq-title">Memory Used (MB)</span>
+          <span class="miq-label miq-count">{{item.memoryUsed}}</span>
         </div>
         <div>
-          <span class="cfme-label cfme-title">Total (MB)</span>
-          <span class="cfme-label cfme-count">{{item.memoryTotal}}</span>
+          <span class="miq-label miq-title">Total (MB)</span>
+          <span class="miq-label miq-count">{{item.memoryTotal}}</span>
         </div>
       </div>
-      <div class="cfme-column cfme-object-column containers-column">
-        <span class="pficon fa fa-cube container-font-color cfme-icon-label"></span>
-        <span class="cfme-icon-label cfme-count">{{item.containersCount}}</span>
-        <span class="cfme-label">Containers</span>
+      <div class="miq-column miq-object-column containers-column">
+        <span class="pficon fa fa-cube container-font-color miq-icon-label"></span>
+        <span class="miq-icon-label miq-count">{{item.containersCount}}</span>
+        <span class="miq-label">Containers</span>
       </div>
-      <div class="cfme-column cfme-object-column images-column">
-        <span class="pficon pficon-image container-font-color cfme-icon-label"></span>
-        <span class="cfme-icon-label cfme-count">{{item.imagesCount}}</span>
-        <span class="cfme-label">Images</span>
+      <div class="miq-column miq-object-column images-column">
+        <span class="pficon pficon-image container-font-color miq-icon-label"></span>
+        <span class="miq-icon-label miq-count">{{item.imagesCount}}</span>
+        <span class="miq-label">Images</span>
       </div>
-      <div class="cfme-column cfme-object-column services-column">
-        <span class="pficon pficon-service container-font-color cfme-icon-label"></span>
-        <span class="cfme-icon-label cfme-count">{{item.servicesCount}}</span>
-        <span class="cfme-label">Services</span>
+      <div class="miq-column miq-object-column services-column">
+        <span class="pficon pficon-service container-font-color miq-icon-label"></span>
+        <span class="miq-icon-label miq-count">{{item.servicesCount}}</span>
+        <span class="miq-label">Services</span>
       </div>
     </div>
   </div>
   <div pf-data-tiles id="{{vm.listId}}" class="pods-tiles" config="vm.listConfig" items="vm.pods" ng-if="vm.podsLoaded && podsViewType == 'tilesView'">
     <div class="tile-title">
-      <span class="pficon fa fa-cubes container-font-color cfme-icon-label"></span>
-      <span class="cfme-icon-label">{{item.name}}</span>
+      <span class="pficon fa fa-cubes container-font-color miq-icon-label"></span>
+      <span class="miq-icon-label">{{item.name}}</span>
     </div>
     <div class="row tile-row">
       <div class="tile-column cpu-usage-column">
         <div>
-          <span class="cfme-label cfme-title">CPU Used (mc)</span>
-          <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
+          <span class="miq-label miq-title">CPU Used (mc)</span>
+          <span class="miq-label miq-count">{{item.milliCoresUsed}}</span>
         </div>
         <div>
-          <span class="cfme-label cfme-title">Total (mc)</span>
-          <span class="cfme-label cfme-count">{{item.milliCoresTotal}}</span>
+          <span class="miq-label miq-title">Total (mc)</span>
+          <span class="miq-label miq-count">{{item.milliCoresTotal}}</span>
         </div>
       </div>
       <div class="tile-column memory-usage-column">
         <div>
-          <span class="cfme-label cfme-title">Memory Used (MB)</span>
-          <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
+          <span class="miq-label miq-title">Memory Used (MB)</span>
+          <span class="miq-label miq-count">{{item.memoryUsed}}</span>
         </div>
         <div>
-          <span class="cfme-label cfme-title">Total (MB)</span>
-          <span class="cfme-label cfme-count">{{item.memoryTotal}}</span>
+          <span class="miq-label miq-title">Total (MB)</span>
+          <span class="miq-label miq-count">{{item.memoryTotal}}</span>
         </div>
       </div>
     </div>
     <div class="row tile-row">
       <div class="tile-column">
         <div class="status-object">
-          <span class="pficon fa fa-cube  container-font-color cfme-icon-label"></span>
+          <span class="pficon fa fa-cube  container-font-color miq-icon-label"></span>
           <span class="status-count">{{item.containersCount}}</span>
           <span class="status-text">Containers</span>
         </div>
         <div class="status-object">
-          <span class="pficon pficon-image container-font-color cfme-icon-label"></span>
+          <span class="pficon pficon-image container-font-color miq-icon-label"></span>
           <span class="status-count">{{item.imagesCount}}</span>
           <span class="status-text">Images</span>
         </div>
       </div>
       <div class="tile-column">
         <div class="status-object">
-          <span class="pficon pficon-service container-font-color cfme-icon-label"></span>
+          <span class="pficon pficon-service container-font-color miq-icon-label"></span>
           <span class="status-count">{{item.servicesCount}}</span>
           <span class="status-text">Services</span>
         </div>

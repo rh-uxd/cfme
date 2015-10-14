@@ -1,4 +1,2 @@
 
-angular.module( 'cfme.containers.projectsModule',
-    ['pascalprecht.translate',
-     'ui.bootstrap'] );
+angular.module('miq.containers.projectsModule', ['pascalprecht.translate', 'ui.bootstrap']);

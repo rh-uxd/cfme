@@ -5,4 +5,4 @@
  *   Card module for patternfly.
  *
  */
-angular.module('cfme.card', []);
+angular.module('miq.card', ['miq.charts']);

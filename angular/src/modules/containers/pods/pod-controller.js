@@ -1,4 +1,4 @@
-angular.module('cfme.containers.podsModule').controller('containers.podController', ['$scope', 'ChartsDataMixin', '$translate', '$resource', '$routeParams',
+angular.module('miq.containers.podsModule').controller('containers.podController', ['$scope', 'ChartsDataMixin', '$translate', '$resource', '$routeParams',
   function( $scope, chartsDataMixin, $translate, $resource, $routeParams ) {
     'use strict';
 

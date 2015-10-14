@@ -3,7 +3,7 @@ describe('Controller: appController', function () {
   'use strict';
 
   // load the controller's module
-  beforeEach(module('cfme.appModule'));
+  beforeEach(module('miq.appModule'));
 
   var appController,
     vm;

@@ -1,9 +1,9 @@
 <!doctype html>
-<html ng-app="cfme.appModule">
+<html ng-app="miq.appModule">
 <head>
     <meta charset="utf-8"/>
 
-    <title>CFME</title>
+    <title>ManageIQ</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="description" content=""/>
@@ -23,11 +23,11 @@
     <!-- endbuild -->
 
 </head>
-<body id="pf-app" class="pf-body cfme-body ng-cloak>
+<body id="pf-app" class="pf-body miq-body ng-cloak>
 
 <div class="pf-framework">
     <header class="pf-framework-header">
-        <nav class="navbar navbar-default navbar-pf navbar-fixed-top" role="navigation" ng-controller="cfme.appController as vm">
+        <nav class="navbar navbar-default navbar-pf navbar-fixed-top" role="navigation" ng-controller="miq.appController as vm">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -73,7 +73,7 @@
                         </ul>
                     </li>
                 </ul>
-                <div cfme-navigation items="vm.navigationItems"></div>
+                <div miq-navigation items="vm.navigationItems"></div>
             </div>
         </nav>
     </header>
@@ -105,6 +105,10 @@
 <!-- endbuild -->
 
 <!-- build:js js/app.js -->
+<script src="modules/app/util/util-module.js"></script>
+<script src="modules/app/util/chart-data-mixin.js"></script>
+<script src="modules/app/util/chart-config-util.js"></script>
+
 <script src="modules/containers/dashboard/dashboard-module.js"></script>
 <script src="modules/containers/dashboard/dashboard-controller.js"></script>
 <script src="modules/containers/providers/providers-module.js"></script>
@@ -118,8 +122,6 @@
 <script src="modules/containers/pods/pod-controller.js"></script>
 
 <script src="modules/containers/containers-module.js"></script>
-<script src="modules/containers/mixins/chart-data-mixin.js"></script>
-<script src="modules/containers/util/chart-config-util.js"></script>
 
 <script src="modules/app/app-module.js"></script>
 <script src="modules/app/controllers/app-controller.js"></script>

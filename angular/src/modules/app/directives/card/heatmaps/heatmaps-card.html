@@ -7,14 +7,14 @@
           <span class="h3 heatmap-chart-title" ng-if="heatmaps.length > 1">{{heatmap.title}}</span>
 
           <div id="{{heatmap.id}}" class="heatmap-container" style="height: {{heatmapChartHeight}};">
-            <div cfme-heat-map data="heatmap.data" parentid="{{heatmap.id}}" ng-if="heatmap.loadingDone"></div>
+            <div heat-map data="heatmap.data" parentid="{{heatmap.id}}" ng-if="heatmap.loadingDone"></div>
           </div>
 
           <div ng-if="!heatmap.loadingDone" class="spinner spinner-lg loading"></div>
         </div>
       </div>
       <div class="col-xs-16 col-sm-8 col-md-8">
-        <div cfme-heat-map-legend legend="heatMapUsageLegendLabels"></div>
+        <div heat-map-legend legend="heatMapUsageLegendLabels"></div>
       </div>
     </div>
   </div>

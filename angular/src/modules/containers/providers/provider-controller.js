@@ -1,4 +1,4 @@
-angular.module('cfme.containers.providersModule').controller('containers.providerController', ['$scope','ChartsDataMixin', '$translate', '$resource', '$routeParams',
+angular.module('miq.containers.providersModule').controller('containers.providerController', ['$scope','ChartsDataMixin', '$translate', '$resource', '$routeParams',
     function( $scope, chartsDataMixin, $translate, $resource, $routeParams ) {
       'use strict';
 

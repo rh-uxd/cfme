@@ -31,25 +31,25 @@
               <div class="list-view-container">
                 <div pf-data-list class="pods-list" id="{{vm.listId}}" config="vm.listConfig" items="vm.containers" ng-if="vm.containersLoaded">
                   <div class="row">
-                    <div class="cfme-column name-column">
-                      <span class="cfme-label cfme-title">{{item.name}}</span>
+                    <div class="miq-column name-column">
+                      <span class="miq-label miq-title">{{item.name}}</span>
                     </div>
-                    <div class="cfme-column uptime-column">
-                      <span class="cfme-label cfme-title">Uptime</span>
-                      <span class="cfme-label">{{item.uptime}}</span>
+                    <div class="miq-column uptime-column">
+                      <span class="miq-label miq-title">Uptime</span>
+                      <span class="miq-label">{{item.uptime}}</span>
                     </div>
-                    <div class="cfme-column cpu-usage-column">
+                    <div class="miq-column cpu-usage-column">
                       <div>
-                        <span class="cfme-label cfme-title">CPU Used (mc)</span>
-                        <span class="cfme-label cfme-count">{{item.milliCoresUsed}}</span>
-                        <span class="cfme-label">of {{item.milliCoresTotal}}</span>
+                        <span class="miq-label miq-title">CPU Used (mc)</span>
+                        <span class="miq-label miq-count">{{item.milliCoresUsed}}</span>
+                        <span class="miq-label">of {{item.milliCoresTotal}}</span>
                       </div>
                     </div>
-                    <div class="cfme-column memory-usage-column">
+                    <div class="miq-column memory-usage-column">
                       <div>
-                        <span class="cfme-label cfme-title">Memory Used (MB)</span>
-                        <span class="cfme-label cfme-count">{{item.memoryUsed}}</span>
-                        <span class="cfme-label">of {{item.memoryTotal}}</span>
+                        <span class="miq-label miq-title">Memory Used (MB)</span>
+                        <span class="miq-label miq-count">{{item.memoryUsed}}</span>
+                        <span class="miq-label">of {{item.memoryTotal}}</span>
                       </div>
                     </div>
                   </div>

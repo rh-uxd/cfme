@@ -1,4 +1,4 @@
-angular.module( 'cfme.charts' ).directive('inlineObjectStatus', function() {
+angular.module( 'miq.charts' ).directive('inlineObjectStatus', function() {
   'use strict';
   return {
     restrict: 'A',

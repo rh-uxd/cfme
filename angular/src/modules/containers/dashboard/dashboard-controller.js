@@ -1,4 +1,4 @@
-angular.module('cfme.containers.dashboardModule').controller('containers.dashboardController', ['$scope', 'ChartsDataMixin', '$translate', '$resource',
+angular.module('miq.containers.dashboardModule').controller('containers.dashboardController', ['$scope', 'ChartsDataMixin', '$translate', '$resource',
   function( $scope, chartsDataMixin, $translate, $resource ) {
     'use strict';
 

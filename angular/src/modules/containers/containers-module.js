@@ -1,9 +1,9 @@
 
-angular.module( 'cfme.containersModule',
-  ['cfme.containers.projectsModule',
-   'cfme.containers.podsModule',
-   'cfme.containers.providersModule',
-   'cfme.containers.dashboardModule'])
+angular.module( 'miq.containersModule',
+  ['miq.containers.projectsModule',
+   'miq.containers.podsModule',
+   'miq.containers.providersModule',
+   'miq.containers.dashboardModule'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/containers/dashboard', {

@@ -1,4 +1,4 @@
-angular.module('cfme.containers.projectsModule').controller('containers.projectsController', ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'pfViewUtils',
+angular.module('miq.containers.projectsModule').controller('containers.projectsController', ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'pfViewUtils',
   function($rootScope, $scope, $resource, $location, chartsDataMixin, pfViewUtils) {
     'use strict';
 

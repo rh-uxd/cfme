@@ -1,4 +1,4 @@
-angular.module('cfme.charts').directive('cfmeHeatMapLegend',
+angular.module('miq.charts').directive('heatMapLegend',
   function() {
     'use strict';
     return {

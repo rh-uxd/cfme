@@ -1,4 +1,4 @@
-angular.module('cfme.containersModule').factory('ChartsDataMixin', ['$timeout', '$q', function chartDataMixinFactory ($timeout, $q) {
+angular.module('miq.util').factory('ChartsDataMixin', ['$timeout', '$q', function chartDataMixinFactory ($timeout, $q) {
 
   var doFakeUpdate = function (data) {
     var newXData = [];

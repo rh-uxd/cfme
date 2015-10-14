@@ -1,4 +1,4 @@
-angular.module('cfme.charts').directive('cfmeHeatMap', ['$timeout',
+angular.module('miq.charts').directive('heatMap', ['$timeout',
   function($timeout) {
     'use strict';
     return {

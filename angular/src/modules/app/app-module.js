@@ -1,15 +1,15 @@
-angular.module( 'cfme.appModule', [
+angular.module( 'miq.appModule', [
   'ngResource',
   'ngRoute',
   'ui.bootstrap',
   'pascalprecht.translate',
   'patternfly',
   'patternfly.charts',
-  'cfme.charts',
-  'cfme.navigation',
-  'cfme.containersModule',
-  'cfme.card',
-  'cfme.charts'
+  'miq.util',
+  'miq.charts',
+  'miq.card',
+  'miq.navigation',
+  'miq.containersModule'
 ] )
   .config( ['$routeProvider', '$translateProvider',
     function( $routeProvider, $translateProvider ) {

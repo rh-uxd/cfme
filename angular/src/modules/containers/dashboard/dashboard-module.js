@@ -1,4 +1,2 @@
 
-angular.module( 'cfme.containers.dashboardModule',
-    ['pascalprecht.translate',
-     'ui.bootstrap'] );
+angular.module('miq.containers.dashboardModule', ['pascalprecht.translate', 'ui.bootstrap']);

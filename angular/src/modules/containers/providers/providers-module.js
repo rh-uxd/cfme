@@ -1,3 +1,1 @@
-angular.module( 'cfme.containers.providersModule',
-    ['pascalprecht.translate',
-     'ui.bootstrap'] );
+angular.module('miq.containers.providersModule', ['pascalprecht.translate', 'ui.bootstrap']);

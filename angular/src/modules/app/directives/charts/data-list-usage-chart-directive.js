@@ -1,4 +1,4 @@
-angular.module('cfme.charts').directive('inlineUsageChart', ['c3ChartDefaults', '$timeout',
+angular.module('miq.charts').directive('inlineUsageChart', ['c3ChartDefaults', '$timeout',
     function(c3ChartDefaults, $timeout) {
         'use strict';
         return {

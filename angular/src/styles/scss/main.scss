@@ -7,7 +7,7 @@
   margin-top: -20px;
 }
 
-.cfme-body {
+.miq-body {
   background: #f5f5f5;
 }
 
@@ -102,7 +102,7 @@
     overflow: hidden;
   }
 
-  .tile-title .cfme-icon-label {
+  .tile-title .miq-icon-label {
     padding-left: 5px;
     padding-bottom: 15px;
   }
@@ -139,14 +139,14 @@
 
   .cpu-usage-column {
     width: 150px;
-    .cfme-title {
+    .miq-title {
       text-align: right;
       width: 95px;
     }
   }
   .memory-usage-column {
     width: 180px;
-    .cfme-title {
+    .miq-title {
       text-align: right;
       width: 135px;
     }
@@ -155,65 +155,67 @@
 
 .data-list-pf {
 
-  .cfme-row-column {
+  .miq-row-column {
     padding-right: 5px;
   }
 
   .list-group-item {
-    .cfme-column {
+    .miq-column {
       float: left;
       padding: 5px 5px;
 
     }
-    .cfme-column:first-of-type {
+    .miq-column:first-of-type {
       padding-left: 25px;
     }
 
-    .cfme-object-column {
+    .miq-object-column {
       padding-top: 1px !important;
-      .cfme-label {
+      .miq-label {
         vertical-align: middle;
       }
 
     }
+.miq-icon-label {
 
-    .cfme-icon-label {
+}
+    .miq-icon-label {
       color: #515151;
       font-size: 18px;
       vertical-align: middle;
       white-space: nowrap;
       padding-left: 5px;
     }
-    .pficon.cfme-icon-label {
+    .pficon.miq-icon-label {
       color: #1186C1;
     }
 
-    .cfme-label {
+    .miq-label {
       color: #515151;
       font-size: 12px;
       white-space: nowrap;
       padding-left: 5px;
     }
 
-    .cfme-column .cfme-item-title {
+    .miq-column .miq-item-title {
       font-weight: bold;
     }
 
-    .cfme-label.cfme-title {
+    .miq-label.miq-title {
       float: left;
       color: #515151;
       font-size: 13px;
       font-weight: 700;
     }
 
-    .cfme-icon-label.cfme-title {
+    .miq-icon-label.miq-title {
       float: left;
       color: #515151;
       font-size: 13px;
       font-weight: 700;
     }
 
-    .cfme-label.cfme-count {
+    .miq-label.miq-count {
       float: left;
       text-align: right;
       text-align: right;
@@ -227,14 +229,14 @@
 
   .cpu-usage-column {
     width: 150px;
-    .cfme-title {
+    .miq-title {
       text-align: right;
       width: 95px;
     }
   }
   .memory-usage-column {
     width: 180px;
-    .cfme-title {
+    .miq-title {
       text-align: right;
       width: 135px;
     }
@@ -242,7 +244,7 @@
 
   .storage-usage-column {
     width: 180px;
-    .cfme-title {
+    .miq-title {
       text-align: right;
       width: 125px;
     }
@@ -250,7 +252,7 @@
 
   .network-usage-column {
     width: 220px;
-    .cfme-title {
+    .miq-title {
       text-align: right;
       width: 150px;
     }
@@ -355,22 +357,22 @@
 
     .cpu-usage-column {
       width: 190px;
-      .cfme-title {
+      .miq-title {
         text-align: right;
         width: 105px;
       }
-      .cfme-count {
+      .miq-count {
         width: 30px;
         text-align: right;
       }
     }
     .memory-usage-column {
       width: 225px;
-      .cfme-title {
+      .miq-title {
         text-align: right;
         width: 130px;
       }
-      .cfme-count {
+      .miq-count {
         width: 30px;
         text-align: right;
       }

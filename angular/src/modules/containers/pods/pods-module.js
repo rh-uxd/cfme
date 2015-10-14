@@ -1,4 +1,4 @@
 
-angular.module( 'cfme.containers.podsModule',
+angular.module( 'miq.containers.podsModule',
     ['pascalprecht.translate',
      'ui.bootstrap'] );

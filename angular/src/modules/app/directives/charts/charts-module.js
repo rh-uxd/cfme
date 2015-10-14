@@ -1,1 +1,1 @@
-angular.module( 'cfme.charts', []);
+angular.module( 'miq.charts', []);

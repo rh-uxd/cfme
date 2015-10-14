@@ -1,4 +1,4 @@
-angular.module( 'cfme.card' ).directive('cfmeHeatmapsCard', function() {
+angular.module( 'miq.card' ).directive('heatmapsCard', function() {
   'use strict';
   return {
     restrict: 'A',

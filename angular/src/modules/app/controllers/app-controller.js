@@ -1,5 +1,5 @@
-angular.module( 'cfme.appModule' )
-    .controller( 'cfme.appController',
+angular.module( 'miq.appModule' )
+    .controller( 'miq.appController',
     ['$scope',
      '$rootScope',
      '$resource',
