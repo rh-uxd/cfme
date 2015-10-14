@@ -1,33 +1,33 @@
 {
    "data":[
       {
-         "name":"Pods",
+         "title":"Pods",
          "iconClass":"fa fa-cubes",
          "count":8
       },
       {
-         "name":"Routes",
-         "iconClass":"pficon-route",
+         "title":"Routes",
+         "iconClass":"pficon pficon-route",
          "count":1
       },
       {
-         "name":"Images",
-         "iconClass":"pficon-image",
+         "title":"Images",
+         "iconClass":"pficon pficon-image",
          "count":1250
       },
       {
-         "name":"Containers",
+         "title":"Containers",
          "iconClass":"fa fa-cube",
          "count":180
       },
       {
-         "name":"Services",
-         "iconClass":"pficon-service",
+         "title":"Services",
+         "iconClass":"pficon pficon-service",
          "count":2
       },
       {
-         "name":"Registries",
-         "iconClass":"pficon-registry",
+         "title":"Registries",
+         "iconClass":"pficon pficon-registry",
          "count":25
       }
    ]

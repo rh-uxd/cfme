@@ -9,11 +9,9 @@
     <div class="row row-tile-pf" >
         <div class="col-xs-7 col-sm-7 col-md-7 project-objects-status">
              <div class="row">
-                <div class="pf-obj-status-large">
                     <div class="col-xs-6 col-sm-3 col-md-4" ng-repeat="widget in vm.status_widgets">
-                        <div cfme-obj-status type="widget"></div>
+                      <div  pf-aggregate-status-card status="widget" show-top-border="true" layout="mini"></div>
                     </div>
-                </div>
             </div><!-- /row -->
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">

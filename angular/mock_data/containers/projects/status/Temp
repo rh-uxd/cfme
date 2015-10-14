@@ -1,45 +1,45 @@
 {
    "data":[
       {
-         "name":"Nodes",
-         "iconClass":"pficon-container-node",
+         "title":"Nodes",
+         "iconClass":"pficon pficon-container-node",
          "count":25,
          "status":[
             {
-               "iconClass":"pficon-error-circle-o",
+               "iconClass":"pficon pficon-error-circle-o",
                "count":1
             }
          ]
       },
       {
-         "name":"Containers",
-         "iconClass":"ffa a-cube",
+         "title":"Containers",
+         "iconClass":"fa fa-cube",
          "count":180
       },
       {
-         "name":"Routes",
-         "iconClass":"pficon-route",
+         "title":"Routes",
+         "iconClass":"pficon pficon-route",
          "count":1
       },
       {
-         "name":"Pods",
+         "title":"Pods",
          "iconClass":"fa fa-cubes",
          "count":8,
          "status":[
             {
-               "iconClass":"pficon-error-circle-o",
+               "iconClass":"pficon pficon-error-circle-o",
                "count":1
             }
          ]
       },
       {
-         "name":"Services",
-         "iconClass":"pficon-service",
+         "title":"Services",
+         "iconClass":"pficon pficon-service",
          "count":2
       },
       {
-         "name":"Images",
-         "iconClass":"pficon-image",
+         "title":"Images",
+         "iconClass":"pficon pficon-image",
          "count":1250
       }
    ]

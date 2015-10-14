@@ -21,45 +21,45 @@ angular.module('cfme.containers.providersModule').controller('containers.provide
         return 'pficon-' + vm.providerType;
       };
       vm.nodesStatus = {
-        name: "Nodes",
-        iconClass: "pficon-container-node",
+        title: "Nodes",
+        iconClass: "pficon pficon-container-node",
         count: 0
       };
       vm.containersStatus = {
-        name: "Containers",
+        title: "Containers",
         iconClass: "fa fa-cube",
         count: 0
       };
       vm.registriesStatus = {
-        name:  "Registries",
-        iconClass: "pficon-registry",
+        title:  "Registries",
+        iconClass: "pficon pficon-registry",
         count: 0
       };
       vm.projectsStatus = {
-        name: "Projects",
-        iconClass: "pficon-project",
+        title: "Projects",
+        iconClass: "pficon pficon-project",
         count: 0,
         href: "containers/projects"
       };
       vm.podsStatus = {
-        name: "Pods",
+        title: "Pods",
         iconClass: "fa fa-cubes",
         count: 0,
         href: "containers/pods"
       };
       vm.servicesStatus = {
-        name: "Services",
-        iconClass: "pficon-service",
+        title: "Services",
+        iconClass: "pficon pficon-service",
         count: 0
       };
       vm.imagesStatus = {
-        name: "Images",
-        iconClass: "pficon-image",
+        title: "Images",
+        iconClass: "pficon pficon-image",
         count: 0
       };
       vm.routesStatus = {
-        name: "Routes",
-        iconClass: "pficon-route",
+        title: "Routes",
+        iconClass: "pficon pficon-route",
         count: 0
       };
 
