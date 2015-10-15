@@ -4,73 +4,9 @@
     <li>Providers</li>
   </ol>
   <div pf-data-toolbar class="row" config="toolbarConfig"></div>
-  <div pf-data-list class="providers-list row" id="{{listId}}" config="listConfig" items="providers" ng-if="providersLoaded && providersViewType == 'listView'">
-    <div class="row">
-      <div class="miq-column name-column">
-        <span class="pficon {{item.icon}} container-font-color miq-icon-label"></span>
-        <span class="miq-label">{{item.name}}</span>
-      </div>
-      <div class="miq-column cpu-usage-column">
-        <div>
-          <span class="miq-label miq-title">CPU Used (c)</span>
-          <span class="miq-label miq-count">{{item.cpuUsageData.used}}</span>
-        </div>
-        <div>
-          <span class="miq-label miq-title">Total (c)</span>
-          <span class="miq-label miq-count">{{item.cpuUsageData.total}}</span>
-        </div>
-      </div>
-      <div class="miq-column memory-usage-column">
-        <div>
-          <span class="miq-label miq-title">Memory Used (GB)</span>
-          <span class="miq-label miq-count">{{item.memoryUsageData.used}}</span>
-        </div>
-        <div>
-          <span class="miq-label miq-title">Total (GB)</span>
-          <span class="miq-label miq-count">{{item.memvm.oryUsageData.total}}</span>
-        </div>
-      </div>
-      <div class="miq-column miq-object-column nodes-column">
-        <span class="pficon {{item.nodesInfo.iconClass}}  container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.nodesInfo.count}}</span>
-        <span class="miq-label">{{item.nodesInfo.name}}</span>
-      </div>
-      <div class="miq-column miq-object-column pods-column">
-        <span class="pficon {{item.podsInfo.iconClass}}  container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.podsInfo.count}}</span>
-        <span class="miq-label">{{item.podsInfo.name}}</span>
-      </div>
-      <div class="miq-column miq-object-column containers-column">
-        <span class="pficon {{item.containersInfo.iconClass}} container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.containersInfo.count}}</span>
-        <span class="miq-label">{{item.containersInfo.name}}</span>
-      </div>
-      <div class="miq-column miq-object-column services-column">
-        <span class="pficon {{item.servicesInfo.iconClass}} container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.servicesInfo.count}}</span>
-        <span class="miq-label">{{item.servicesInfo.name}}</span>
-      </div>
-      <div class="miq-column miq-object-column registries-column">
-        <span class="pficon {{item.registriesInfo.iconClass}} container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.registriesInfo.count}}</span>
-        <span class="miq-label">{{item.registriesInfo.name}}</span>
-      </div>
-      <div class="miq-column miq-object-column images-column">
-        <span class="pficon {{item.imagesInfo.iconClass}} container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.imagesInfo.count}}</span>
-        <span class="miq-label">{{item.imagesInfo.name}}</span>
-      </div>
-      <div class="miq-column miq-object-column projects-column">
-        <span class="pficon {{item.projectsInfo.iconClass}} container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.projectsInfo.count}}</span>
-        <span class="miq-label">{{item.projectsInfo.name}}</span>
-      </div>
-      <div class="miq-column miq-object-column routes-column">
-        <span class="pficon {{item.routesInfo.iconClass}} container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.routesInfo.count}}</span>
-        <span class="miq-label">{{item.routesInfo.name}}</span>
-      </div>
-    </div>
+  <div object-list list-class="providers-list row" list-id="{{listId}}"
+       list-config="listConfig" items="providers" columns="columns"
+       ng-if="providersLoaded && providersViewType == 'listView'">
   </div>
   <div pf-data-tiles id="{{listId}}" class="providers-tiles" config="listConfig" items="providers" ng-if="providersLoaded && providersViewType == 'tilesView'">
     <div class="tile-title">

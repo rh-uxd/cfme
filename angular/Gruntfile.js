@@ -35,26 +35,26 @@ module.exports = function( grunt ) {
                 files:   ['<%= projectSettings.src %>/**/*.js'],
                 //tasks: ['jshint:all'],
                 options: {
-                    livereload: true
+                    livereload: 37800
                 }
             },
             css:        {
                 files:   ['<%= projectSettings.src %>/**/*.css'],
                 options: {
-                    livereload: true
+                    livereload: 37800
                 }
             },
             compass: {
                 files: 'src/styles/scss/*.scss',
                 tasks: ['compass'],
                 options: {
-                    livereload: false
+                    livereload: 37800
                 }
             },
             html:       {
                 files:   ['<%= projectSettings.src %>/**/*.html'],
                 options: {
-                    livereload: true
+                    livereload: 37800
                 }
             },
             json:       {
@@ -62,7 +62,7 @@ module.exports = function( grunt ) {
                           '<%= projectSettings.src %>/**/*.json'
                 ],
                 options: {
-                    livereload: true
+                    livereload: 37800
                 }
             },
             jsTest:     {
@@ -75,7 +75,7 @@ module.exports = function( grunt ) {
             },
             livereload: {
                 options: {
-                    livereload: '<%= connect.options.livereload %>'
+                    livereload: 37800
                 },
                 files:   [
                     '<%= projectSettings.src %>**/*',
@@ -91,7 +91,7 @@ module.exports = function( grunt ) {
             options:    {
                 port:       8090,
                 hostname:   'localhost', // 0.0.0.0 allows access from outside
-                livereload: 35729
+                livereload: 37800
             },
             livereload: {
                 options: {

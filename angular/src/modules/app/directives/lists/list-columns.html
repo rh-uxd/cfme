@@ -1,0 +1,32 @@
+<div class="row">
+  <div ng-repeat="column in columns track by $index">
+    <div ng-switch on="column.columnType">
+      <div class="miq-column" ng-class="column.columnClass" style="{{getColumnStyle(column, $index)}}" ng-switch-default>
+        <span class="miq-label">{{item[column.field]}}</span>
+      </div>
+      <div class="miq-column" ng-class="column.columnClass" style="{{getColumnStyle(column, $index)}}" ng-switch-when="titleLabel">
+        <span class="miq-label miq-title">{{column.title}}</span>
+        <span class="miq-label">{{item[column.field]}}</span>
+      </div>
+      <div class="miq-column" ng-class="column.columnClass" style="{{getColumnStyle(column, $index)}}" ng-switch-when="objectLabel">
+        <span class="pficon {{item[column.iconField]}} miq-icon-label"></span>
+        <span class="miq-label">{{item[column.field]}}</span>
+      </div>
+      <div class="miq-column usage-column" ng-class="column.columnClass" style="{{getColumnStyle(column, $index)}}" ng-switch-when="usage">
+        <div>
+          <span class="miq-label miq-title" style="width: {{column.titleWidth}}px;">{{column.usedLabel}}</span>
+          <span class="miq-label miq-count">{{item[column.usedDataField].used}}</span>
+        </div>
+        <div>
+          <span class="miq-label miq-title" style="width: {{column.titleWidth}}px;">{{column.totalLabel}}</span>
+          <span class="miq-label miq-count">{{item[column.usedDataField].total}}</span>
+        </div>
+      </div>
+      <div class="miq-column miq-object-column" ng-class="column.columnClass" style="{{getColumnStyle(column, $index)}}" ng-switch-when="objectCount">
+        <span class="miq-icon-label pficon" ng-class="item[column.infoField].iconClass"></span>
+        <span class="miq-icon-label miq-count">{{item[column.infoField].count}}</span>
+        <span class="miq-label">{{item[column.infoField].name}}</span>
+      </div>
+    </div>
+  </div>
+</div>

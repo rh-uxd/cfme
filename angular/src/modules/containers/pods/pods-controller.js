@@ -1,8 +1,57 @@
-angular.module('miq.containers.podsModule').controller('containers.podsController', ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'pfViewUtils',
-  function($rootScope, $scope, $resource, $location, chartsDataMixin, pfViewUtils) {
+angular.module('miq.containers.podsModule').controller('containers.podsController',
+  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ColumnsConfig', 'pfViewUtils',
+  function($rootScope, $scope, $resource, $location, chartsDataMixin, columnsConfig, pfViewUtils) {
     'use strict';
 
     $scope.listId = 'containersPodsList';
+
+    $scope.columns = [
+      {
+        columnType: 'label',
+        field: 'name',
+        width: columnsConfig.nameColumnWidth
+      },
+      {
+        columnType: 'titleLabel',
+        title: 'Uptime',
+        field: 'uptime',
+        width: columnsConfig.uptimeColumnWidth
+      },
+      {
+        columnType: 'usage',
+        usedLabel: 'CPU Used (mc)',
+        totalLabel: 'Total (mc)',
+        usedDataField: 'cpuUsageData',
+        width: columnsConfig.cpuUsageColumnWidth,
+        titleWidth: columnsConfig.cpuUsageTitleWidth
+      },
+      {
+        columnType: 'usage',
+        columnClass: 'memory-usage-column',
+        usedLabel: 'Memory Used (MB)',
+        totalLabel: 'Total (MB)',
+        usedDataField: 'memoryUsageData',
+        width: columnsConfig.memoryUsageColumnWidth,
+        titleWidth: columnsConfig.memoryUsageTitleWidth
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'containersInfo',
+        width: columnsConfig.containtersColumnWidth
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'imagesInfo',
+        width: columnsConfig.imagesColumnWidth
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'servicesInfo',
+        width: columnsConfig.servicesColumnWidth
+      }
+    ];
+
+
     var handleClick = function(item) {
       $location.path('/containers/pods/' + item.name);
     };
@@ -147,6 +196,7 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
       multiSelect: false,
       selectionMatchProp: 'name',
       selectedItems: [],
+      rowHeight: 64,
       checkDisabled: false,
       onClick: handleClick
     };
@@ -156,6 +206,31 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
     var pods = $resource('/containers/pods/all');
     pods.get(function(data) {
       $scope.allPods = data.data;
+      $scope.allPods.forEach(function(pod){
+        pod.cpuUsageData = {
+          used: pod.milliCoresUsed,
+          total: pod.milliCoresTotal
+        };
+        pod.memoryUsageData = {
+          used: pod.memoryUsed,
+          total: pod.memoryTotal
+        };
+        pod.containersInfo = {
+          name: "Containers",
+          count: pod.containersCount,
+          iconClass: "fa fa-cube"
+        };
+        pod.imagesInfo = {
+          name: "Images",
+          count: pod.imagesCount,
+          iconClass: "pficon-image"
+        };
+        pod.servicesInfo = {
+          name: "Services",
+          count: pod.servicesCount,
+          iconClass: "pficon-service"
+        };
+      });
       $scope.applyFilters($scope.allPods);
       $scope.podsLoaded = true
     });

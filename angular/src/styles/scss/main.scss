@@ -123,7 +123,6 @@
 
     .pficon {
       font-size: 20px;
-      vertical-align: middle;
       width: 26px;
       color: #1186C1;
     }
@@ -137,6 +136,46 @@
     }
   }
 
+  .miq-icon-label {
+    color: #515151;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  .pficon.miq-icon-label {
+    color: #1186C1;
+  }
+
+  .miq-label {
+    color: #515151;
+    font-size: 12px;
+    white-space: nowrap;
+    padding-left: 5px;
+  }
+
+  .miq-label.miq-title {
+    float: left;
+    color: #515151;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .miq-icon-label.miq-title {
+    float: left;
+    color: #515151;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .miq-label.miq-count {
+    float: left;
+    text-align: right;
+    text-align: right;
+    width: 32px;
+  }
+
+  .miq-column.usage-column .miq-title {
+    text-align: right;
+  }
   .cpu-usage-column {
     width: 150px;
     .miq-title {
@@ -165,10 +204,6 @@
       padding: 5px 5px;
 
     }
-    .miq-column:first-of-type {
-      padding-left: 25px;
-    }
-
     .miq-object-column {
       padding-top: 1px !important;
       .miq-label {
@@ -176,9 +211,7 @@
       }
 
     }
-.miq-icon-label {
 
-}
     .miq-icon-label {
       color: #515151;
       font-size: 18px;
@@ -195,10 +228,6 @@
       font-size: 12px;
       white-space: nowrap;
       padding-left: 5px;
-    }
-
-    .miq-column .miq-item-title {
-      font-weight: bold;
     }
 
     .miq-label.miq-title {
@@ -221,84 +250,15 @@
       text-align: right;
       width: 32px;
     }
-  }
 
-  .name-column {
-    width: 150px;
-  }
-
-  .cpu-usage-column {
-    width: 150px;
-    .miq-title {
+    .miq-column.usage-column .miq-title {
       text-align: right;
-      width: 95px;
-    }
-  }
-  .memory-usage-column {
-    width: 180px;
-    .miq-title {
-      text-align: right;
-      width: 135px;
     }
   }
 
-  .storage-usage-column {
-    width: 180px;
-    .miq-title {
-      text-align: right;
-      width: 125px;
-    }
-  }
-
-  .network-usage-column {
-    width: 220px;
-    .miq-title {
-      text-align: right;
-      width: 150px;
-    }
-  }
-
-  .name-column {
-    width: 120px;
-  }
-  .nodes-column {
-    width: 120px;
-  }
-  .pods-column {
-    width: 130px;
-  }
-  .containers-column {
-    width: 160px;
-  }
-  .services-column {
-    width: 140px;
-  }
-  .registries-column {
-    width: 130px;
-  }
-  .images-column {
-    width: 140px;
-  }
-  .projects-column {
-    width: 140px;
-  }
-  .routes-column {
-    width: 130px;
-  }
   .provider-column {
-    width: 150px;
-    padding-top: 4px !important;
+    padding-top: 5px !important;
   }
-  .replicators-column {
-    width: 150px;
-  }
-  .uptime-column {
-    width: 150px;
-  }
-}
-
-.providers-list .data-list-pf .name-column {
-  width: 160px;
 }
 
 .providers-tiles .tiles-view-pf .tile {

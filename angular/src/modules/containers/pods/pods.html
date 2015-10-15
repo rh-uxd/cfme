@@ -4,51 +4,9 @@
     <li>Pods</li>
   </ol>
   <div pf-data-toolbar class="row" config="toolbarConfig"></div>
-  <div pf-data-list class="pods-list row" id="{{listId}}" config="listConfig" items="pods" ng-if="podsLoaded && podsViewType == 'listView'">
-    <div class="row">
-      <div class="miq-column name-column">
-        <span class="miq-label miq-title">{{item.name}}</span>
-      </div>
-      <div class="miq-column uptime-column">
-        <span class="miq-label miq-title">Uptime</span>
-        <span class="miq-label">{{item.uptime}}</span>
-      </div>
-      <div class="miq-column cpu-usage-column">
-        <div>
-          <span class="miq-label miq-title">CPU Used (mc)</span>
-          <span class="miq-label miq-count">{{item.milliCoresUsed}}</span>
-        </div>
-        <div>
-          <span class="miq-label miq-title">Total (mc)</span>
-          <span class="miq-label miq-count">{{item.milliCoresTotal}}</span>
-        </div>
-      </div>
-      <div class="miq-column memory-usage-column">
-        <div>
-          <span class="miq-label miq-title">Memory Used (MB)</span>
-          <span class="miq-label miq-count">{{item.memoryUsed}}</span>
-        </div>
-        <div>
-          <span class="miq-label miq-title">Total (MB)</span>
-          <span class="miq-label miq-count">{{item.memoryTotal}}</span>
-        </div>
-      </div>
-      <div class="miq-column miq-object-column containers-column">
-        <span class="pficon fa fa-cube container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.containersCount}}</span>
-        <span class="miq-label">Containers</span>
-      </div>
-      <div class="miq-column miq-object-column images-column">
-        <span class="pficon pficon-image container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.imagesCount}}</span>
-        <span class="miq-label">Images</span>
-      </div>
-      <div class="miq-column miq-object-column services-column">
-        <span class="pficon pficon-service container-font-color miq-icon-label"></span>
-        <span class="miq-icon-label miq-count">{{item.servicesCount}}</span>
-        <span class="miq-label">Services</span>
-      </div>
-    </div>
+  <div object-list list-class="pods-list row" list-id="{{listId}}"
+       list-config="listConfig" items="pods" columns="columns"
+       ng-if="podsLoaded && podsViewType == 'listView'">
   </div>
   <div pf-data-tiles id="{{listId}}" class="pods-tiles" config="listConfig" items="pods" ng-if="podsLoaded && podsViewType == 'tilesView'">
     <div class="tile-title">

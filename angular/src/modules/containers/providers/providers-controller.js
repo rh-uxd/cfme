@@ -1,7 +1,82 @@
 angular.module('miq.containers.providersModule').controller('containers.providersController',
-  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'pfViewUtils', '$routeParams',
-  function($rootScope, $scope, $resource, $location, chartsDataMixin, pfViewUtils, $routeParams) {
+  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ColumnsConfig', 'pfViewUtils', '$routeParams',
+  function($rootScope, $scope, $resource, $location, chartsDataMixin, columnsConfig, pfViewUtils, $routeParams) {
     'use strict';
+
+    $scope.columns = [
+      {
+        columnType: 'objectLabel',
+        columnClass: 'provider-column',
+        field: 'name',
+        iconField: 'icon',
+        width: columnsConfig.providerColumnWidth
+      },
+      {
+        columnType: 'usage',
+        usedLabel: 'CPU Used (c)',
+        totalLabel: 'Total (c)',
+        usedDataField: 'cpuUsageData',
+        width: columnsConfig.cpuUsageColumnWidth,
+        titleWidth: columnsConfig.cpuUsageTitleWidth
+      },
+      {
+        columnType: 'usage',
+        columnClass: 'memory-usage-column',
+        usedLabel: 'Memory Used (GB)',
+        totalLabel: 'Total (GB)',
+        usedDataField: 'memoryUsageData',
+        width: columnsConfig.memoryUsageColumnWidth,
+        titleWidth: columnsConfig.memoryUsageTitleWidth
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'nodesInfo',
+        width: columnsConfig.nodesColumnWidth
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'podsInfo',
+        width: columnsConfig.podsColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'containersInfo',
+        width: columnsConfig.containtersColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'servicesInfo',
+        width: columnsConfig.servicesColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'registriesInfo',
+        width: columnsConfig.registriesColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'imagesInfo',
+        width: columnsConfig.imagesColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        columnClass: 'projects-column',
+        infoField: 'projectsInfo',
+        width: columnsConfig.projectsColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'routesInfo',
+        width: columnsConfig.routesColumnWidth
+
+      }
+    ];
 
     var initFilters = [];
     if ($routeParams.filter !== undefined) {

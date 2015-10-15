@@ -1,8 +1,78 @@
-angular.module('miq.containers.projectsModule').controller('containers.projectsController', ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'pfViewUtils',
-  function($rootScope, $scope, $resource, $location, chartsDataMixin, pfViewUtils) {
+angular.module('miq.containers.projectsModule').controller('containers.projectsController',
+  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ColumnsConfig', 'pfViewUtils',
+  function($rootScope, $scope, $resource, $location, chartsDataMixin, columnsConfig, pfViewUtils) {
     'use strict';
 
     $scope.listId = 'containersProjectsList';
+
+    $scope.columns = [
+      {
+        columnType: 'label',
+        field: 'name',
+        width: columnsConfig.providerColumnWidth
+      },
+      {
+        columnType: 'objectLabel',
+        columnClass: 'provider-column',
+        field: 'providerName',
+        iconField: 'providerIcon',
+        width: columnsConfig.providerColumnWidth
+      },
+      {
+        columnType: 'usage',
+        usedLabel: 'CPU Used (c)',
+        totalLabel: 'Total (c)',
+        usedDataField: 'cpuUsageData',
+        width: columnsConfig.cpuUsageColumnWidth,
+        titleWidth: columnsConfig.cpuUsageTitleWidth
+      },
+      {
+        columnType: 'usage',
+        columnClass: 'memory-usage-column',
+        usedLabel: 'Memory Used (GB)',
+        totalLabel: 'Total (GB)',
+        usedDataField: 'memoryUsageData',
+        width: columnsConfig.memoryUsageColumnWidth,
+        titleWidth: columnsConfig.memoryUsageTitleWidth
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'podsInfo',
+        width: columnsConfig.podsColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'containersInfo',
+        width: columnsConfig.containtersColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'routesInfo',
+        width: columnsConfig.routesColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'servicesInfo',
+        width: columnsConfig.servicesColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'imagesInfo',
+        width: columnsConfig.imagesColumnWidth
+
+      },
+      {
+        columnType: 'objectCount',
+        infoField: 'registriesInfo',
+        width: columnsConfig.registriesColumnWidth
+
+      }
+    ];
+
     $scope.donutConfig = {
       size: {
         width: 55,
@@ -134,11 +204,12 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
     projects.get(function(data) {
       $scope.allProjects = data.data;
       $scope.allProjects.forEach(function(project){
+        project.providerName = project.provider.name;
         if (project.provider.providerType === 'openshift') {
-          project.provider.icon = 'pficon-openshift';
+          project.providerIcon = 'pficon-openshift';
         }
         else {
-          project.provider.icon = 'pficon-kubernetes';
+          project.providerIcon = 'pficon-kubernetes';
         }
 
         project.cpuUsageConfig = {
