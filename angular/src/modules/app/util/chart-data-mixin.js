@@ -101,22 +101,22 @@ angular.module('miq.util').factory('ChartsDataMixin', ['$timeout', '$q', functio
 
   var sparklineTimeTooltip = function(d) {
     var theMoment = moment(d[0].x);
-    return '  <table class="c3-tooltip">' +
-      '    <tbody>' +
-      '      <td class="value text-nowrap">' +  theMoment.format('h:mm A') + '</td>' +
-      '      <td class="value text-nowrap">' +  d[0].value + ' ' + d[0].name + '</td>' +
-      '    </tbody>' +
-      '  </table>';
+    return _.template('<table class="c3-tooltip">' +
+                      '  <tbody>' +
+                      '    <td class="value"><%- col1 %></td>' +
+                      '    <td class="value text-nowrap"><%- col2 %></td>' +
+                      '  </tbody>' +
+                      '</table>')({col1: theMoment.format('h:mm A'), col2: d[0].value + ' ' + d[0].name});
   };
 
   var sparklineHourTooltip = function(d) {
     var theMoment = moment(d[0].x);
-    return '  <table class="c3-tooltip">' +
-        '    <tbody>' +
-        '      <td class="value text-nowrap">' + theMoment.format('h A') + '</td>' +
-        '      <td class="value text-nowrap">' + d[0].value + ' ' + d[0].name + '</td>' +
-        '    </tbody>' +
-        '  </table>';
+    return _.template('<table class="c3-tooltip">' +
+                      '  <tbody>' +
+                      '    <td class="value"><%- col1 %></td>' +
+                      '    <td class="value text-nowrap"><%- col2 %></td>' +
+                      '  </tbody>' +
+                      '</table>')({col1: theMoment.format('h A'), col2: d[0].value + ' ' + d[0].name});
   };
 
   return {
