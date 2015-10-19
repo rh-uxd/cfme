@@ -1,81 +1,20 @@
 angular.module('miq.containers.providersModule').controller('containers.providersController',
-  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ColumnsConfig', 'pfViewUtils', '$routeParams',
-  function($rootScope, $scope, $resource, $location, chartsDataMixin, columnsConfig, pfViewUtils, $routeParams) {
+  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ListUtils', 'pfViewUtils', '$routeParams',
+  function($rootScope, $scope, $resource, $location, chartsDataMixin, listUtils, pfViewUtils, $routeParams) {
     'use strict';
 
     $scope.columns = [
-      {
-        columnType: 'objectLabel',
-        columnClass: 'provider-column',
-        field: 'name',
-        iconField: 'icon',
-        width: columnsConfig.providerColumnWidth
-      },
-      {
-        columnType: 'usage',
-        usedLabel: 'CPU Used (c)',
-        totalLabel: 'Total (c)',
-        usedDataField: 'cpuUsageData',
-        width: columnsConfig.cpuUsageColumnWidth,
-        titleWidth: columnsConfig.cpuUsageTitleWidth
-      },
-      {
-        columnType: 'usage',
-        columnClass: 'memory-usage-column',
-        usedLabel: 'Memory Used (GB)',
-        totalLabel: 'Total (GB)',
-        usedDataField: 'memoryUsageData',
-        width: columnsConfig.memoryUsageColumnWidth,
-        titleWidth: columnsConfig.memoryUsageTitleWidth
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'nodesInfo',
-        width: columnsConfig.nodesColumnWidth
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'podsInfo',
-        width: columnsConfig.podsColumnWidth
-
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'containersInfo',
-        width: columnsConfig.containtersColumnWidth
-
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'servicesInfo',
-        width: columnsConfig.servicesColumnWidth
-
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'registriesInfo',
-        width: columnsConfig.registriesColumnWidth
-
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'imagesInfo',
-        width: columnsConfig.imagesColumnWidth
-
-      },
-      {
-        columnType: 'objectCount',
-        columnClass: 'projects-column',
-        infoField: 'projectsInfo',
-        width: columnsConfig.projectsColumnWidth
-
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'routesInfo',
-        width: columnsConfig.routesColumnWidth
-
-      }
+      listUtils.providerColumn,
+      listUtils.cpuCoresUsageColumn,
+      listUtils.memoryGBUsageColumn,
+      listUtils.nodesInfoColumn,
+      listUtils.podsInfoColumn,
+      listUtils.containersInfoColumn,
+      listUtils.servicesInfoColumn,
+      listUtils.registriesInfoColumn,
+      listUtils.imagesInfoColumn,
+      listUtils.projectsInfoColumn,
+      listUtils.routesInfoColumn
     ];
 
     var initFilters = [];
@@ -97,72 +36,47 @@ angular.module('miq.containers.providersModule').controller('containers.provider
       onViewSelect: viewSelected
     };
 
-    var matchesFilter = function (provider, filter) {
-      var match = true;
-
-      if (filter.id === 'name') {
-        match = provider.name.match(filter.value) !== null;
-      } else if (filter.id === 'providerType') {
-        match = provider.providerType.toLowerCase() === filter.value.toLowerCase();
-      }
-      return match;
-    };
-
-    var matchesFilters = function (provider, filters) {
-      var matches = true;
-
-      filters.forEach(function(filter) {
-        if (!matchesFilter(provider, filter)) {
-          matches = false;
-          return false;
-        }
-      });
-      return matches;
-    };
-
-    $scope.applyFilters = function (providers) {
-      if ($scope.toolbarConfig.filterConfig.appliedFilters && $scope.toolbarConfig.filterConfig.appliedFilters.length > 0) {
-        $scope.providers = [];
-        $scope.allProviders.forEach(function (provider) {
-         if (matchesFilters(provider, $scope.toolbarConfig.filterConfig.appliedFilters)) {
-           $scope.providers.push(provider);
-         }
-        });
-      } else {
-        $scope.providers = providers;
-      }
-      $scope.toolbarConfig.filterConfig.resultsCount = $scope.providers.length;
-    };
-
     var filterChange = function (filters) {
       $rootScope.providersViewFilters = filters;
-      $scope.applyFilters($scope.allProviders);
+      $scope.providers = listUtils.applyFilters($scope.allProviders, $scope.toolbarConfig.filterConfig);
     };
 
     var filterConfig = {
       fields: [
-        {
-          id: 'name',
-          title:  'Name',
-          placeholder: 'Filter by Name',
-          filterType: 'text'
-        },
-        {
-          id: 'providerType',
-          title:  'Provider Type',
-          placeholder: 'Filter by Provider Type',
-          filterType: 'select',
-          filterValues: ['Kubernetes', 'OpenShift']
-        }
+        listUtils.nameFilter,
+        listUtils.providerTypeFilter
       ],
       resultsCount: 0,
       appliedFilters: initFilters,
       onFilterChange: filterChange
     };
 
+    var sortChange = function (sortId, isAscending) {
+      listUtils.sortList($scope.providers, sortId, $scope.sortConfig.isAscending);
+    };
+
+    $scope.sortConfig = {
+      fields: [
+        listUtils.nameSort,
+        listUtils.providerTypeSort,
+        listUtils.cpuUsageSort,
+        listUtils.memoryUsageSort,
+        listUtils.nodesSort,
+        listUtils.podsSort,
+        listUtils.containersSort,
+        listUtils.servicesSort,
+        listUtils.registriesSort,
+        listUtils.imagesSort,
+        listUtils.projectsSort,
+        listUtils.routesSort
+      ],
+      onSortChange: sortChange
+    };
+
     $scope.toolbarConfig = {
       viewsConfig: viewsConfig,
-      filterConfig: filterConfig
+      filterConfig: filterConfig,
+      sortConfig: $scope.sortConfig
     };
 
     if (!$rootScope.providersViewType) {
@@ -190,11 +104,12 @@ angular.module('miq.containers.providersModule').controller('containers.provider
     providers.get(function(data) {
       $scope.allProviders = data.data;
       $scope.allProviders.forEach(function(provider){
+        provider.providerName = provider.name;
         if (provider.providerType === 'openshift') {
-          provider.icon = 'pficon-openshift';
+          provider.providerIcon = 'pficon-openshift';
         }
         else {
-          provider.icon = 'pficon-kubernetes';
+          provider.providerIcon = 'pficon-kubernetes';
         }
         provider.nodesInfo = {
           name: "Nodes",
@@ -238,7 +153,7 @@ angular.module('miq.containers.providersModule').controller('containers.provider
         };
       });
 
-      $scope.applyFilters($scope.allProviders);
+      $scope.providers = listUtils.applyFilters($scope.allProviders, $scope.toolbarConfig.filterConfig);
 
       $scope.providersLoaded = true;
     });

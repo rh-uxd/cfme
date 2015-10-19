@@ -1,54 +1,18 @@
 angular.module('miq.containers.podsModule').controller('containers.podsController',
-  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ColumnsConfig', 'pfViewUtils',
-  function($rootScope, $scope, $resource, $location, chartsDataMixin, columnsConfig, pfViewUtils) {
+  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ListUtils', 'pfViewUtils',
+  function($rootScope, $scope, $resource, $location, chartsDataMixin, listUtils, pfViewUtils) {
     'use strict';
 
     $scope.listId = 'containersPodsList';
 
     $scope.columns = [
-      {
-        columnType: 'label',
-        field: 'name',
-        width: columnsConfig.nameColumnWidth
-      },
-      {
-        columnType: 'titleLabel',
-        title: 'Uptime',
-        field: 'uptime',
-        width: columnsConfig.uptimeColumnWidth
-      },
-      {
-        columnType: 'usage',
-        usedLabel: 'CPU Used (mc)',
-        totalLabel: 'Total (mc)',
-        usedDataField: 'cpuUsageData',
-        width: columnsConfig.cpuUsageColumnWidth,
-        titleWidth: columnsConfig.cpuUsageTitleWidth
-      },
-      {
-        columnType: 'usage',
-        columnClass: 'memory-usage-column',
-        usedLabel: 'Memory Used (MB)',
-        totalLabel: 'Total (MB)',
-        usedDataField: 'memoryUsageData',
-        width: columnsConfig.memoryUsageColumnWidth,
-        titleWidth: columnsConfig.memoryUsageTitleWidth
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'containersInfo',
-        width: columnsConfig.containtersColumnWidth
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'imagesInfo',
-        width: columnsConfig.imagesColumnWidth
-      },
-      {
-        columnType: 'objectCount',
-        infoField: 'servicesInfo',
-        width: columnsConfig.servicesColumnWidth
-      }
+      listUtils.nameColumn,
+      listUtils.uptimeColumn,
+      listUtils.cpuMilliCoresUsageColumn,
+      listUtils.memoryMBUsageColumn,
+      listUtils.containersInfoColumn,
+      listUtils.imagesInfoColumn,
+      listUtils.servicesInfoColumn
     ];
 
 
@@ -65,113 +29,33 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
       onViewSelect: viewSelected
     };
 
-    var matchesFilter = function (pod, filter) {
-      var match = true;
-
-      if (filter.id === 'name') {
-        match = pod.name.match(filter.value) !== null;
-      }      return match;
-    };
-
-    var matchesFilters = function (pod, filters) {
-      var matches = true;
-
-      filters.forEach(function(filter) {
-        if (!matchesFilter(pod, filter)) {
-          matches = false;
-          return false;
-        }
-      });
-      return matches;
-    };
-
-    $scope.applyFilters = function (pods) {
-      if ($scope.toolbarConfig.filterConfig.appliedFilters && $scope.toolbarConfig.filterConfig.appliedFilters.length > 0) {
-        $scope.pods = [];
-        $scope.allPods.forEach(function (pod) {
-         if (matchesFilters(pod, $scope.toolbarConfig.filterConfig.appliedFilters)) {
-           $scope.pods.push(pod);
-         }
-        });
-      } else {
-        $scope.pods = pods;
-      }
-      $scope.toolbarConfig.filterConfig.resultsCount = $scope.pods.length;
-    };
-
     var filterChange = function (filters) {
       $rootScope.podsViewFilters = filters;
-      $scope.applyFilters($scope.allPods);
+      $scope.pods = listUtils.applyFilters($scope.allPods, $scope.toolbarConfig.filterConfig);
     };
 
     var filterConfig = {
       fields: [
-        {
-          id: 'name',
-          title:  'Name',
-          placeholder: 'Filter by Name',
-          filterType: 'text'
-        }
+        listUtils.nameFilter
       ],
       resultsCount: 0,
       appliedFilters: [],
       onFilterChange: filterChange
     };
 
-    var compareFn = function(item1, item2) {
-      var compValue = 0;
-      if ($scope.sortConfig.currentField.id === 'name') {
-        compValue = item1.name.localeCompare(item2.name);
-      } else if ($scope.sortConfig.currentField.id === 'uptime') {
-        compValue = item1.uptime.localeCompare(item2.uptime);
-      } else if ($scope.sortConfig.currentField.id === 'containers') {
-        compValue = item1.containersCount - item2.containersCount;
-      } else if ($scope.sortConfig.currentField.id === 'cpuUsage') {
-        compValue = item1.milliCoresUsed - item2.milliCoresUsed;
-      } else if ($scope.sortConfig.currentField.id === 'cpuUsage') {
-        compValue = item1.memoryUsed - item2.memoryUsed;
-      }
-
-      if (!$scope.sortConfig.isAscending) {
-        compValue = compValue * -1;
-      }
-
-      return compValue;
-    };
-
     var sortChange = function (sortId, isAscending) {
-      if ($scope.pods && $scope.pods.length > 0) {
-        $scope.pods.sort(compareFn);
-      }
+      listUtils.sortList($scope.pods, sortId, $scope.sortConfig.isAscending);
     };
 
     $scope.sortConfig = {
       fields: [
-        {
-          id: 'name',
-          title:  'Name',
-          sortType: 'alpha'
-        },
-        {
-          id: 'uptime',
-          title:  'Uptime',
-          sortType: 'numeric'
-        },
-        {
-          id: 'containers',
-          title:  'Containers Count',
-          sortType: 'numeric'
-        },
-        {
-          id: 'cpuUsage',
-          title:  'CPU Used',
-          sortType: 'numeric'
-        },
-        {
-          id: 'memoryUsage',
-          title:  'Memory Used',
-          sortType: 'numeric'
-        }
+        listUtils.nameSort,
+        listUtils.uptimeSort,
+        listUtils.cpuUsageSort,
+        listUtils.memoryUsageSort,
+        listUtils.containersSort,
+        listUtils.imagesSort,
+        listUtils.servicesSort
       ],
       onSortChange: sortChange
     };
@@ -231,7 +115,7 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
           iconClass: "pficon-service"
         };
       });
-      $scope.applyFilters($scope.allPods);
+      $scope.pods = listUtils.applyFilters($scope.allPods, $scope.toolbarConfig.filterConfig);
       $scope.podsLoaded = true
     });
   }
