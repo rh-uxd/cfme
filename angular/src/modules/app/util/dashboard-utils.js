@@ -36,7 +36,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
       title: "Projects",
       iconClass: "pficon pficon-project",
       count: 0,
-      href: "containers/projects",
+      href: "#containers/projects",
       notification: {}
     };
   };
@@ -45,7 +45,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
       title: "Pods",
       iconClass: "fa fa-cubes",
       count: 0,
-      href: "containers/pods",
+      href: "#containers/pods",
       notification: {}
     };
   };
