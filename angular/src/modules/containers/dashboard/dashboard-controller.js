@@ -1,5 +1,6 @@
-angular.module('miq.containers.dashboardModule').controller('containers.dashboardController', ['$scope', 'ChartsDataMixin', '$translate', '$resource',
-  function( $scope, chartsDataMixin, $translate, $resource ) {
+angular.module('miq.containers.dashboardModule').controller('containers.dashboardController',
+  ['$scope', 'ChartsDataMixin', 'DashboardUtils', '$translate', '$resource',
+  function( $scope, chartsDataMixin, dashboardUtils, $translate, $resource ) {
     'use strict';
 
     $scope.navigation = "containers";
@@ -7,79 +8,15 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
     $scope.chartHeight = chartsDataMixin.dashboardSparklineChartHeight;
     $scope.dashboardHeatmapChartHeight = chartsDataMixin.dashboardHeatmapChartHeight;
 
-    $scope.providers = {
-      title: "Providers",
-      count: 0,
-      href: "#containers/providers",
-      notifications: []
-    };
-    $scope.nodesStatus = {
-      title: "Nodes",
-      iconClass: "pficon pficon-container-node",
-      count: 0
-    };
-    $scope.containersStatus = {
-      title: "Containers",
-      iconClass: "fa fa-cube",
-      count: 0
-    };
-    $scope.registriesStatus = {
-      title:  "Registries",
-      iconClass: "pficon pficon-registry",
-      count: 0
-    };
-    $scope.projectsStatus = {
-      title: "Projects",
-      iconClass: "pficon pficon-project",
-      count: 0,
-      href: "containers/projects"
-    };
-    $scope.podsStatus = {
-      title: "Pods",
-      iconClass: "fa fa-cubes",
-      count: 0,
-      href: "containers/pods"
-    };
-    $scope.servicesStatus = {
-      title: "Services",
-      iconClass: "pficon pficon-service",
-      count: 0
-    };
-    $scope.imagesStatus = {
-      title: "Images",
-      iconClass: "pficon pficon-image",
-      count: 0
-    };
-    $scope.routesStatus = {
-      title: "Routes",
-      iconClass: "pficon pficon-route",
-      count: 0
-    };
-
-    var updateStatus = function (statusObject, data) {
-      statusObject.status = [];
-      if (data) {
-        statusObject.count = data.count;
-        if (data.errorCount > 0) {
-          statusObject.status.push(
-            {
-              iconClass: "pficon-error-circle-o",
-              count: data.errorCount
-            }
-          );
-        }
-        if (data.warningCount > 0) {
-          statusObject.status.push(
-            {
-              iconClass: "pficon-warning-triangle-o",
-              count: data.warningCount
-            }
-          );
-        }
-      } else {
-        statusObject.count = 0;
-      }
-    };
+    $scope.providers = dashboardUtils.createProvidersStatus();
+    $scope.nodesStatus = dashboardUtils.createNodesStatus();
+    $scope.containersStatus = dashboardUtils.createContainersStatus();
+    $scope.registriesStatus = dashboardUtils.createRegistriesStatus();
+    $scope.projectsStatus = dashboardUtils.createProjectsStatus();
+    $scope.podsStatus = dashboardUtils.createPodsStatus();
+    $scope.servicesStatus = dashboardUtils.createServicesStatus();
+    $scope.imagesStatus = dashboardUtils.createImagesStatus();
+    $scope.routesStatus = dashboardUtils.createRoutesStatus();
 
     //Get the container data
     var ContainersStatus = $resource('/containers/dashboard/status');
@@ -97,14 +34,14 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
           })
         });
       }
-      updateStatus($scope.nodesStatus, data.nodes);
-      updateStatus($scope.containersStatus, data.containers);
-      updateStatus($scope.registriesStatus, data.registries);
-      updateStatus($scope.projectsStatus, data.projects);
-      updateStatus($scope.podsStatus, data.pods);
-      updateStatus($scope.servicesStatus, data.services);
-      updateStatus($scope.imagesStatus, data.images);
-      updateStatus($scope.routesStatus, data.routes);
+      dashboardUtils.updateStatus($scope.nodesStatus, data.nodes);
+      dashboardUtils.updateStatus($scope.containersStatus, data.containers);
+      dashboardUtils.updateStatus($scope.registriesStatus, data.registries);
+      dashboardUtils.updateStatus($scope.projectsStatus, data.projects);
+      dashboardUtils.updateStatus($scope.podsStatus, data.pods);
+      dashboardUtils.updateStatus($scope.servicesStatus, data.services);
+      dashboardUtils.updateStatus($scope.imagesStatus, data.images);
+      dashboardUtils.updateStatus($scope.routesStatus, data.routes);
     });
 
     // Node Utilization

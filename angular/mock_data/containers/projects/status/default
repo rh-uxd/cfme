@@ -1,34 +1,34 @@
 {
-   "data":[
-      {
-         "title":"Pods",
-         "iconClass":"fa fa-cubes",
-         "count":8
+   "data":{
+      "pods" : {
+        "count": 8,
+        "errorCount": 3,
+        "warningCount": 1
       },
-      {
-         "title":"Routes",
-         "iconClass":"pficon pficon-route",
-         "count":1
+      "routes" : {
+        "count": 1,
+        "errorCount": 0,
+        "warningCount": 0
       },
-      {
-         "title":"Images",
-         "iconClass":"pficon pficon-image",
-         "count":1250
+      "images" : {
+        "count": 1250,
+        "errorCount": 0,
+        "warningCount": 0
       },
-      {
-         "title":"Containers",
-         "iconClass":"fa fa-cube",
-         "count":180
+      "containers" : {
+        "count": 180,
+        "errorCount": 0,
+        "warningCount": 1
       },
-      {
-         "title":"Services",
-         "iconClass":"pficon pficon-service",
-         "count":2
+      "services" : {
+        "count": 2,
+        "errorCount": 0,
+        "warningCount": 0
       },
-      {
-         "title":"Registries",
-         "iconClass":"pficon pficon-registry",
-         "count":25
+      "registries" : {
+        "count": 25,
+        "errorCount": 0,
+        "warningCount": 0
       }
-   ]
+   }
 }

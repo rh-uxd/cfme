@@ -8,11 +8,26 @@
    </ol>
     <div class="row row-tile-pf" >
         <div class="col-xs-7 col-sm-7 col-md-7 project-objects-status">
-             <div class="row">
-                    <div class="col-xs-6 col-sm-3 col-md-4" ng-repeat="widget in status_widgets">
-                      <div  pf-aggregate-status-card status="widget" show-top-border="true" layout="mini"></div>
-                    </div>
-            </div><!-- /row -->
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-4">
+              <div  pf-aggregate-status-card status="podsStatus" url="navigation" show-top-border="true" layout="mini"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+              <div  pf-aggregate-status-card status="routesStatus" url="navigation" show-top-border="true" layout="mini"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+              <div  pf-aggregate-status-card status="imagesStatus" url="navigation" show-top-border="true" layout="mini"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+              <div  pf-aggregate-status-card status="containersStatus" url="navigation" show-top-border="true" layout="mini"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+              <div  pf-aggregate-status-card status="routesStatus" url="navigation" show-top-border="true" layout="mini"></div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+              <div  pf-aggregate-status-card status="registriesStatus" url="navigation" show-top-border="true" layout="mini"></div>
+            </div>
+          </div><!-- /row -->
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5">
             <div pf-card head-title="Quotas" show-top-border="true" class="project-quota-card">

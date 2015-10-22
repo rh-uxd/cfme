@@ -1,5 +1,5 @@
-angular.module('miq.containers.podsModule').controller('containers.podController', ['$scope', 'ChartsDataMixin', '$translate', '$resource', '$routeParams',
-  function( $scope, chartsDataMixin, $translate, $resource, $routeParams ) {
+angular.module('miq.containers.podsModule').controller('containers.podController', ['$scope', 'ChartsDataMixin', 'DashboardUtils', '$translate', '$resource', '$routeParams',
+  function( $scope, chartsDataMixin, $translate, dashboardUtils, $resource, $routeParams ) {
     'use strict';
 
     $scope.chartHeight = chartsDataMixin.dashboardSparklineChartHeight;
