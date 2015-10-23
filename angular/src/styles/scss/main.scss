@@ -1,5 +1,5 @@
 
-.pf-fixed-body {
+.miq-fixed-body {
   padding-top: 125px;
 }
 
@@ -11,11 +11,37 @@
   background: #f5f5f5;
 }
 
-.card-pf .loading {
-  margin: 10px auto;
+.miq-dashboard-view, .miq-objects-view {
+  .card-pf-aggregate-status {
+    .card-pf-title .pficon, .fa {
+      color: #1186C1 !important;
+    }
+  }
+
+  .data-list-pf .list-group-item.active .pficon, .data-list-pf .list-group-item.active:hover .pficon, .data-list-pf .list-group-item.active:focus .pficon {
+    color: #1186C1;
+  }
+  .data-list-pf .list-group-item .pficon {
+    font-size: 18px;
+  }
+  .tiles-view-pf .tile.active .pficon, .tiles-view-pf .tile.active:hover .pficon, .tiles-view-pf .tile.active:focus .pficon {
+    color: #1186C1;
+  }
+
+  .card-pf .loading {
+    margin: 10px auto;
+  }
+
+  .pficon-kubernetes::before {
+    color: #326de6;
+  }
+
+  .pficon-openshift::before {
+    color: #da2430;
+  }
 }
 
-.card-pf-providers {
+.provider-card {
   min-height: 144px;
 
   .providers {
@@ -57,21 +83,7 @@
 }
 
 .providers-status {
-  padding-bottom: 9px !important; }
-
-.pf-obj-status-large {
-  .card-pf-title {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-}
-
-.pficon-kubernetes::before {
-  color: #326de6;
-}
-
-.pficon-openshift::before {
-  color: #da2430;
+  padding-bottom: 9px !important;
 }
 
 .containers-dashboard .card-pf.card-pf-aggregate-status-mini {
@@ -274,10 +286,6 @@
 }
 .projects-tiles .status-object.provider-object {
   text-align: center;
-}
-
-.project-dashboard .card-pf-status .card-pf-title {
-  padding: 30px 0;
 }
 
 .pods-tiles .tiles-view-pf .tile {
