@@ -13,23 +13,25 @@ angular.module('miq.containers.projectsModule').controller('containers.projectCo
     //This needs to come from a base request
     $scope.navigaition = currentId;
 
-    $scope.podsStatus = dashboardUtils.createPodsStatus();
-    $scope.routesStatus = dashboardUtils.createRoutesStatus();
-    $scope.imagesStatus = dashboardUtils.createImagesStatus();
-    $scope.containersStatus = dashboardUtils.createContainersStatus();
-    $scope.servicesStatus = dashboardUtils.createServicesStatus();
-    $scope.registriesStatus = dashboardUtils.createRegistriesStatus();
+    $scope.objectStatus = {
+      pods:       dashboardUtils.createPodsStatus(),
+      routes:     dashboardUtils.createRoutesStatus(),
+      images:     dashboardUtils.createImagesStatus(),
+      containers: dashboardUtils.createContainersStatus(),
+      services:   dashboardUtils.createServicesStatus(),
+      registries: dashboardUtils.createRegistriesStatus()
+    };
 
     // Status Cards
     var ContainersStatus = $resource('/containers/projects/status/:id');
     ContainersStatus.get({id: currentId}, function(response) {
       var data = response.data;
-      dashboardUtils.updateStatus($scope.podsStatus, data.pods);
-      dashboardUtils.updateStatus($scope.routesStatus, data.routes);
-      dashboardUtils.updateStatus($scope.imagesStatus, data.images);
-      dashboardUtils.updateStatus($scope.containersStatus, data.containers);
-      dashboardUtils.updateStatus($scope.servicesStatus, data.services);
-      dashboardUtils.updateStatus($scope.registriesStatus, data.registries);
+      dashboardUtils.updateStatus($scope.objectStatus.pods, data.pods);
+      dashboardUtils.updateStatus($scope.objectStatus.routes, data.routes);
+      dashboardUtils.updateStatus($scope.objectStatus.images, data.images);
+      dashboardUtils.updateStatus($scope.objectStatus.containers, data.containers);
+      dashboardUtils.updateStatus($scope.objectStatus.services, data.services);
+      dashboardUtils.updateStatus($scope.objectStatus.registries, data.registries);
     });
 
 

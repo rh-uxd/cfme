@@ -18,14 +18,16 @@ angular.module('miq.containers.providersModule').controller('containers.provider
         return 'pficon-' + $scope.providerType;
       };
 
-      $scope.nodesStatus = dashboardUtils.createNodesStatus();
-      $scope.containersStatus = dashboardUtils.createContainersStatus();
-      $scope.registriesStatus = dashboardUtils.createRegistriesStatus();
-      $scope.projectsStatus = dashboardUtils.createProjectsStatus();
-      $scope.podsStatus = dashboardUtils.createPodsStatus();
-      $scope.servicesStatus = dashboardUtils.createServicesStatus();
-      $scope.imagesStatus = dashboardUtils.createImagesStatus();
-      $scope.routesStatus = dashboardUtils.createRoutesStatus();
+      $scope.objectStatus = {
+        nodes:      dashboardUtils.createNodesStatus(),
+        containers: dashboardUtils.createContainersStatus(),
+        registries: dashboardUtils.createRegistriesStatus(),
+        projects:   dashboardUtils.createProjectsStatus(),
+        pods:       dashboardUtils.createPodsStatus(),
+        services:   dashboardUtils.createServicesStatus(),
+        images:     dashboardUtils.createImagesStatus(),
+        routes:     dashboardUtils.createRoutesStatus()
+      };
 
       //Get the container data
       var ContainersStatus = $resource('/containers/providers/status/' + currentId);
@@ -33,14 +35,14 @@ angular.module('miq.containers.providersModule').controller('containers.provider
         var data = response.data;
         $scope.providerType = data.providers.type;
         $scope.providerCount = data.providers.count;
-        dashboardUtils.updateStatus($scope.nodesStatus, data.nodes);
-        dashboardUtils.updateStatus($scope.containersStatus, data.containers);
-        dashboardUtils.updateStatus($scope.registriesStatus, data.registries);
-        dashboardUtils.updateStatus($scope.projectsStatus, data.projects);
-        dashboardUtils.updateStatus($scope.podsStatus, data.pods);
-        dashboardUtils.updateStatus($scope.servicesStatus, data.services);
-        dashboardUtils.updateStatus($scope.imagesStatus, data.images);
-        dashboardUtils.updateStatus($scope.routesStatus, data.routes);
+        dashboardUtils.updateStatus($scope.objectStatus.nodes, data.nodes);
+        dashboardUtils.updateStatus($scope.objectStatus.containers, data.containers);
+        dashboardUtils.updateStatus($scope.objectStatus.registries, data.registries);
+        dashboardUtils.updateStatus($scope.objectStatus.projects, data.projects);
+        dashboardUtils.updateStatus($scope.objectStatus.pods, data.pods);
+        dashboardUtils.updateStatus($scope.objectStatus.services, data.services);
+        dashboardUtils.updateStatus($scope.objectStatus.images, data.images);
+        dashboardUtils.updateStatus($scope.objectStatus.routes, data.routes);
       });
 
 

@@ -8,15 +8,17 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
     $scope.chartHeight = chartsDataMixin.dashboardSparklineChartHeight;
     $scope.dashboardHeatmapChartHeight = chartsDataMixin.dashboardHeatmapChartHeight;
 
-    $scope.providers = dashboardUtils.createProvidersStatus();
-    $scope.nodesStatus = dashboardUtils.createNodesStatus();
-    $scope.containersStatus = dashboardUtils.createContainersStatus();
-    $scope.registriesStatus = dashboardUtils.createRegistriesStatus();
-    $scope.projectsStatus = dashboardUtils.createProjectsStatus();
-    $scope.podsStatus = dashboardUtils.createPodsStatus();
-    $scope.servicesStatus = dashboardUtils.createServicesStatus();
-    $scope.imagesStatus = dashboardUtils.createImagesStatus();
-    $scope.routesStatus = dashboardUtils.createRoutesStatus();
+    $scope.objectStatus = {
+      providers:  dashboardUtils.createProvidersStatus(),
+      nodes:      dashboardUtils.createNodesStatus(),
+      containers: dashboardUtils.createContainersStatus(),
+      registries: dashboardUtils.createRegistriesStatus(),
+      projects:   dashboardUtils.createProjectsStatus(),
+      pods:       dashboardUtils.createPodsStatus(),
+      services:   dashboardUtils.createServicesStatus(),
+      images:     dashboardUtils.createImagesStatus(),
+      routes:     dashboardUtils.createRoutesStatus()
+    };
 
     //Get the container data
     var ContainersStatus = $resource('/containers/dashboard/status');
@@ -25,23 +27,24 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
       var providers = data.providers;
       if (providers)
       {
-        $scope.providers.count = providers.length;
+        $scope.objectStatus.providers.count = providers.length;
+        $scope.objectStatus.providers.notifications = [];
         providers.forEach(function (item) {
-          $scope.providers.notifications.push({
+          $scope.objectStatus.providers.notifications.push({
             iconClass: item.iconClass,
             count: item.count,
             href: "#containers/providers/?filter=" + item.providerType
           })
         });
       }
-      dashboardUtils.updateStatus($scope.nodesStatus, data.nodes);
-      dashboardUtils.updateStatus($scope.containersStatus, data.containers);
-      dashboardUtils.updateStatus($scope.registriesStatus, data.registries);
-      dashboardUtils.updateStatus($scope.projectsStatus, data.projects);
-      dashboardUtils.updateStatus($scope.podsStatus, data.pods);
-      dashboardUtils.updateStatus($scope.servicesStatus, data.services);
-      dashboardUtils.updateStatus($scope.imagesStatus, data.images);
-      dashboardUtils.updateStatus($scope.routesStatus, data.routes);
+      dashboardUtils.updateStatus($scope.objectStatus.nodes, data.nodes);
+      dashboardUtils.updateStatus($scope.objectStatus.containers, data.containers);
+      dashboardUtils.updateStatus($scope.objectStatus.registries, data.registries);
+      dashboardUtils.updateStatus($scope.objectStatus.projects, data.projects);
+      dashboardUtils.updateStatus($scope.objectStatus.pods, data.pods);
+      dashboardUtils.updateStatus($scope.objectStatus.services, data.services);
+      dashboardUtils.updateStatus($scope.objectStatus.images, data.images);
+      dashboardUtils.updateStatus($scope.objectStatus.routes, data.routes);
     });
 
     // Node Utilization
