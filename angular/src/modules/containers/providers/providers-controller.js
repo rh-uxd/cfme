@@ -111,6 +111,13 @@ angular.module('miq.containers.providersModule').controller('containers.provider
         else {
           provider.providerIcon = 'pficon-kubernetes';
         }
+        provider.cpuTitle = 'CPU Usage';
+        provider.cpuUnits = 'MHz';
+        provider.memoryTitle = 'Memory';
+        provider.memoryUnits = 'GB';
+        provider.layoutInline = {
+          'type': 'inline'
+        };
         provider.nodesInfo = {
           name: "Nodes",
           count: provider.nodes.count,

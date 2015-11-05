@@ -110,10 +110,15 @@
 
 .tiles-view-pf {
   .tile {
-    overflow: hidden;
+    overflow: visible;
   }
   .tile-content {
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  .progress {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .tile-title .miq-icon-label {
@@ -124,6 +129,10 @@
   .tile-row {
     padding: 0;
     margin: 0;
+
+    .tiles-view-pf {
+      overflow: visible;
+    }
   }
 
   .tile-column {
@@ -276,12 +285,12 @@
 }
 
 .providers-tiles .tiles-view-pf .tile {
-  height: 240px;
+  height: 250px;
   width: 355px;
 }
 
 .projects-tiles .tiles-view-pf .tile {
-  height: 230px;
+  height: 270px;
   width: 355px;
 }
 .projects-tiles .status-object.provider-object {

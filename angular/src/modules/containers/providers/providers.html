@@ -14,25 +14,9 @@
       <span class="miq-icon-label">{{item.name}}</span>
     </div>
     <div class="row tile-row">
-      <div class="tile-column cpu-usage-column">
-        <div>
-          <span class="miq-label miq-title">CPU Used (c)</span>
-          <span class="miq-label miq-count">{{item.cpuUsageData.used}}</span>
-        </div>
-        <div>
-          <span class="miq-label miq-title">Total (c)</span>
-          <span class="miq-label miq-count">{{item.cpuUsageData.total}}</span>
-        </div>
-      </div>
-      <div class="tile-column memory-usage-column">
-        <div>
-          <span class="miq-label miq-title">Memory Used (GB)</span>
-          <span class="miq-label miq-count">{{item.memoryUsageData.used}}</span>
-        </div>
-        <div>
-          <span class="miq-label miq-title">Total (GB)</span>
-          <span class="miq-label miq-count">{{item.memoryUsageData.total}}</span>
-        </div>
+      <div class="col-md-12">
+        <div pf-utilization-bar-chart chart-data="item.cpuUsageData" chart-title="item.cpuTitle" layout="item.layoutInline" units="item.cpuUnits" threshold-error="85" threshold-warning="60"></div>
+        <div pf-utilization-bar-chart chart-data="item.memoryUsageData" chart-title="item.memoryTitle" layout="item.layoutInline" units="item.memoryUnits" threshold-error="85" threshold-warning="60"></div>
       </div>
     </div>
     <div class="row tile-row">

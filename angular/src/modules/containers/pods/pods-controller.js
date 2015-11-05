@@ -99,6 +99,13 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
           used: pod.memoryUsed,
           total: pod.memoryTotal
         };
+        pod.cpuTitle = 'CPU Usage';
+        pod.cpuUnits = 'MHz';
+        pod.memoryTitle = 'Memory';
+        pod.memoryUnits = 'GB';
+        pod.layoutInline = {
+          'type': 'inline'
+        };
         pod.containersInfo = {
           name: "Containers",
           count: pod.containersCount,

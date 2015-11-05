@@ -125,6 +125,14 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
           project.providerIcon = 'pficon-kubernetes';
         }
 
+        project.cpuTitle = 'CPU Usage';
+        project.cpuUnits = 'MHz';
+        project.memoryTitle = 'Memory';
+        project.memoryUnits = 'GB';
+        project.layoutInline = {
+          'type': 'inline'
+        };
+
         project.cpuUsageConfig = {
           'chartId': project.name + '_cpuUsageChart',
           'title': 'CPU Utilization',
