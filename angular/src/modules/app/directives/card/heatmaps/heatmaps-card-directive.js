@@ -1,4 +1,4 @@
-angular.module( 'miq.card' ).directive('heatmapsCard', function() {
+angular.module( 'miq.card' ).directive('heatmapsCard', ['ChartsDataMixin' ,function(chartsDataMixin) {
   'use strict';
   return {
     restrict: 'A',
@@ -16,7 +16,8 @@ angular.module( 'miq.card' ).directive('heatmapsCard', function() {
         if ($scope.columnSizingClass === undefined) {
           $scope.columnSizingClass = "col-xs-8 col-sm-6 col-md-6";
         }
+        $scope.noLabels = [];
       }
     ]
   };
-});
+}]);

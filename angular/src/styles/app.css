@@ -491,74 +491,24 @@
 /*
  * Charts
  */
-/* Heap map */
-/* line 6, scss/charts.scss */
-.heatmap-container {
-  padding-top: 10px;
-  width: 100%;
-}
-
-/* line 11, scss/charts.scss */
-.heatmap-legend {
-  font-size: 11px;
-  font-weight: normal;
-  line-height: 11px;
-  padding-top: 15px;
-  padding-bottom: 0;
-  display: inline-block;
-  position: relative;
-}
-/* line 20, scss/charts.scss */
-.heatmap-legend .color-box {
-  width: 11px;
-  height: 11px;
-  margin-left: 5px;
-  margin-right: 5px;
-  list-style-type: none;
-  float: left;
-}
-/* line 29, scss/charts.scss */
-.heatmap-legend .legend-text {
-  font-size: 11px;
-  font-weight: normal;
-  line-height: 11px;
-  padding-right: 5px;
-  list-style-type: none;
-  float: left;
-}
-
-/* line 39, scss/charts.scss */
-.heatmap-legend-container {
-  width: 100%;
-  position: relative;
-}
-/* line 43, scss/charts.scss */
-.heatmap-legend-container .ul {
-  list-style-type: none;
-}
-/* line 47, scss/charts.scss */
-.heatmap-legend-container .li {
-  display: inline;
-}
-
 /* Percentage Used Chart */
-/* line 53, scss/charts.scss */
+/* line 6, scss/charts.scss */
 .percentageUsedBarChartWrapper {
   padding-bottom: 10px;
 }
 
-/* line 57, scss/charts.scss */
+/* line 10, scss/charts.scss */
 .percentageUsedBarChart {
   margin-bottom: 12px;
   position: relative;
 }
 
-/* line 62, scss/charts.scss */
+/* line 15, scss/charts.scss */
 .percentageUsedBarChart:last-of-type {
   margin-bottom: 0;
 }
 
-/* line 66, scss/charts.scss */
+/* line 19, scss/charts.scss */
 .percentageUsedBar {
   position: absolute;
   top: 0;
@@ -569,7 +519,7 @@
   padding-right: 5px;
 }
 
-/* line 76, scss/charts.scss */
+/* line 29, scss/charts.scss */
 .percentageUsedBarFilled {
   background-color: #0088CE;
   height: 15px;
@@ -581,12 +531,12 @@
   transition: width .75s ease-in-out;
 }
 
-/* line 87, scss/charts.scss */
+/* line 40, scss/charts.scss */
 .percentageUsedBarFilled.animate {
   width: 0% !important;
 }
 
-/* line 91, scss/charts.scss */
+/* line 44, scss/charts.scss */
 .percentageUsedBarUnused {
   background-color: #D1D1D1;
   width: 100%;
@@ -596,7 +546,7 @@
   z-index: 1000;
 }
 
-/* line 100, scss/charts.scss */
+/* line 53, scss/charts.scss */
 .percentageUsedBarTitle {
   position: relative;
   text-align: right;
@@ -613,7 +563,7 @@
   margin-bottom: 5px;
 }
 
-/* line 116, scss/charts.scss */
+/* line 69, scss/charts.scss */
 .percentageUsedBarSuffix {
   position: absolute;
   top: 0;
