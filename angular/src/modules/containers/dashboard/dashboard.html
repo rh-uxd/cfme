@@ -33,7 +33,7 @@
         </div>
     </div><!-- /row -->
     <div class="row row-tile-pf">
-        <div class="col-xs-7 col-sm-7 col-md-7">
+        <div class="col-xs-6 col-sm-6 col-md-6">
             <div pf-card head-title="Node Utilization" hidetopborder="true">
                 <div class="row" ng-if="utilizationLoadingDone">
                     <div class="col-xs-6 col-sm-6 col-md-6">
@@ -48,42 +48,27 @@
                 <div ng-if="!utilizationLoadingDone" class="spinner spinner-lg loading"></div>
             </div>
         </div>
-        <div class="col-xs-5 col-sm-5 col-md-5">
-            <div pf-card head-title="{{networkUtilizationCurrentConfig.headTitle}}">
-              <div pf-trends-chart config="networkUtilizationCurrentConfig" chart-data="currentNetworkUtilization"
-                   ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
-              </div>
-            </div>
-            <div pf-card head-title="{{networkUtilizationDailyConfig.headTitle}}">
-              <div pf-trends-chart config="networkUtilizationDailyConfig" chart-data="dailyNetworkUtilization"
-                   ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
-              </div>
-            </div>
-            <div ng-if="!networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
-        </div>
-    </div><!-- /row -->
-    <div class="row row-tile-pf row-tile-pf-last">
-        <div class="col-md-7">
+        <div class="col-xs-6 col-sm-6 col-md-6">
           <div heatmaps-card title="Node Utilization" hidetopborder="true"
                heatmaps="heatmaps" heatmap-chart-height="dashboardHeatmapChartHeight" columnSizingClass="col-xs-8 col-sm-6 col-md-6"
                heat-map-usage-legend-labels="nodeHeatMapUsageLegendLabels">
           </div>
         </div>
-        <div class="col-xs-5 col-sm-4 col-md-5">
-            <div style="width:100%;">
-              <div pf-card head-title="{{podTrendConfig.headTitle}}">
-                <div pf-trends-chart config="podTrendConfig" chart-data="podTrends"
-                     ng-if="podTrendsLoadingDone" chart-height="chartHeight">
-                </div>
-              </div>
-              <div ng-if="!podTrendsLoadingDone" class="spinner spinner-lg loading"></div>
-              <div pf-card head-title="{{imageTrendConfig.headTitle}}">
-                <div pf-trends-chart config="imageTrendConfig" chart-data="imageTrends"
-                     ng-if="imageTrendLoadingDone" chart-height="chartHeight">
-                </div>
-              </div>
-              <div ng-if="!imageTrendLoadingDone" class="spinner spinner-lg loading"></div>
-            </div>
+    </div><!-- /row -->
+    <div class="row row-tile-pf row-tile-pf-last">
+      <div class="col-md-6">
+        <div pf-card head-title="{{networkUtilizationCurrentConfig.headTitle}}">
+          <div pf-trends-chart config="networkUtilizationCurrentConfig" chart-data="currentNetworkUtilization"
+               ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
+          </div>
         </div>
+      </div>
+      <div class="col-md-6">
+        <div pf-card head-title="{{networkUtilizationDailyConfig.headTitle}}">
+        <div pf-trends-chart config="networkUtilizationDailyConfig" chart-data="dailyNetworkUtilization"
+             ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
+        </div>
+      </div>
+      <div ng-if="!networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
     </div>
 </div><!-- /container -->

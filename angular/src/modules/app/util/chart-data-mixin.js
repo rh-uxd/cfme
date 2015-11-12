@@ -127,7 +127,7 @@ angular.module('miq.util').factory('ChartsDataMixin', ['$timeout', '$q', functio
     getMemoryUsageDataFromResponse: getMemoryUsageDataFromResponse,
     sparklineTimeTooltip:           sparklineTimeTooltip,
     sparklineHourTooltip:           sparklineHourTooltip,
-    dashboardSparklineChartHeight:  55,
+    dashboardSparklineChartHeight:  45,
     dashboardHeatmapChartHeight:    286,
     nodeHeatMapUsageLegendLabels:   ['< 70%', '70-80%' ,'80-90%', '> 90%']
   };
