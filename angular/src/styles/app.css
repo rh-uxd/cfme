@@ -586,3 +586,40 @@
   line-height: 15px;
   margin-bottom: 5px;
 }
+
+/* line 83, scss/charts.scss */
+.empty-info {
+  color: #999;
+  font-size: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 93, scss/charts.scss */
+.utilization-chart-pf.empty-utilization-chart .available-count {
+  color: transparent;
+}
+/* line 97, scss/charts.scss */
+.utilization-chart-pf.empty-utilization-chart .empty-info {
+  padding-top: 50px;
+  padding-bottom: 110px;
+}
+/* line 101, scss/charts.scss */
+.utilization-chart-pf.empty-utilization-chart .empty-info .info-text {
+  font-size: 16px;
+}
+
+/* line 109, scss/charts.scss */
+.empty-trends-chart .empty-info {
+  padding-top: 15px;
+  padding-bottom: 22px;
+}
+/* line 113, scss/charts.scss */
+.empty-trends-chart .empty-info .info-text {
+  font-size: 16px;
+}
+
+/* line 119, scss/charts.scss */
+.chart-transparent-text {
+  color: transparent;
+}

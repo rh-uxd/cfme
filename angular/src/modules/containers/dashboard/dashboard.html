@@ -37,12 +37,22 @@
             <div pf-card head-title="Node Utilization" hidetopborder="true">
                 <div class="row" ng-if="utilizationLoadingDone">
                     <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div ng-if="cpuUsageData">
                         <div pf-utilization-chart config="cpuUsageConfig" donut-config="cpuUsageDonutConfig" sparkline-config="cpuUsageSparklineConfig" chart-data="cpuUsageData"></div>
-                      <span class="trend-footer-pf">Last 30 Days</span>
+                      </div>
+                      <div ng-if="!cpuUsageData">
+                        <div empty-utilization-chart title="CPU"></div>
+                      </div>
+                      <span class="trend-footer-pf" ng-class="{'chart-transparent-text' : !cpuUsageData}">Last 30 Days</span>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div ng-if="memoryUsageData">
                         <div pf-utilization-chart config="memoryUsageConfig" donut-config="memoryUsageDonutConfig" sparkline-config="memoryUsageSparklineConfig" chart-data="memoryUsageData"></div>
-                      <span class="trend-footer-pf">Last 30 Days</span>
+                      </div>
+                      <div ng-if="!memoryUsageData">
+                        <div empty-utilization-chart title="Memory"></div>
+                      </div>
+                      <span class="trend-footer-pf" ng-class="{'chart-transparent-text' : !cpuUsageData}">Last 30 Days</span>
                     </div>
                 </div>
                 <div ng-if="!utilizationLoadingDone" class="spinner spinner-lg loading"></div>
@@ -59,16 +69,17 @@
       <div class="col-md-6">
         <div pf-card head-title="{{networkUtilizationCurrentConfig.headTitle}}">
           <div pf-trends-chart config="networkUtilizationCurrentConfig" chart-data="currentNetworkUtilization"
-               ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
+               ng-if="currentNetworkUtilization" chart-height="chartHeight">
           </div>
+          <div empty-trends-chart ng-if="!currentNetworkUtilization" chart-height="chartHeight"></div>
         </div>
       </div>
       <div class="col-md-6">
         <div pf-card head-title="{{networkUtilizationDailyConfig.headTitle}}">
         <div pf-trends-chart config="networkUtilizationDailyConfig" chart-data="dailyNetworkUtilization"
-             ng-if="networkUtilizationLoadingDone" chart-height="chartHeight">
+             ng-if="dailyNetworkUtilization" chart-height="chartHeight">
         </div>
+          <div empty-trends-chart ng-if="!dailyNetworkUtilization" chart-height="chartHeight"></div>
       </div>
-      <div ng-if="!networkUtilizationLoadingDone" class="spinner spinner-lg loading"></div>
     </div>
 </div><!-- /container -->

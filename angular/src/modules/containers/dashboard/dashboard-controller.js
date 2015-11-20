@@ -1,6 +1,6 @@
 angular.module('miq.containers.dashboardModule').controller('containers.dashboardController',
-  ['$scope', 'ChartsDataMixin', 'DashboardUtils', '$translate', '$resource',
-  function( $scope, chartsDataMixin, dashboardUtils, $translate, $resource ) {
+  ['$scope', 'ChartsDataMixin', 'DashboardUtils', '$translate', '$resource', '$timeout',
+  function( $scope, chartsDataMixin, dashboardUtils, $translate, $resource, $timeout ) {
     'use strict';
 
     $scope.navigation = "containers";
@@ -71,8 +71,10 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
     $scope.utilizationLoadingDone = false;
     var ContainersUtilization = $resource('/containers/dashboard/utilization');
     ContainersUtilization.get(function(response) {
-      $scope.cpuUsageData = chartsDataMixin.getCpuUsageDataFromResponse(response, $scope.cpuUsageConfig.usageDataName);
-      $scope.memoryUsageData = chartsDataMixin.getMemoryUsageDataFromResponse(response, $scope.memoryUsageConfig.usageDataName);
+      $timeout(function () {
+        $scope.cpuUsageData = chartsDataMixin.getCpuUsageDataFromResponse(response, $scope.cpuUsageConfig.usageDataName);
+        $scope.memoryUsageData = chartsDataMixin.getMemoryUsageDataFromResponse(response, $scope.memoryUsageConfig.usageDataName);
+      }, 10000);
       $scope.utilizationLoadingDone = true;
     });
 
@@ -87,9 +89,11 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
     var networkUtilization = $resource('/containers/dashboard/utilization');
     networkUtilization.get(function(response) {
       var data = response.data;
-      $scope.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, $scope.networkUtilizationCurrentConfig.dataName, 60);
-      chartsDataMixin.continuouslyUpdateData($scope.currentNetworkUtilization, 60 * 1000);
-      $scope.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, $scope.networkUtilizationDailyConfig.dataName);
+      $timeout(function () {
+        $scope.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, $scope.networkUtilizationCurrentConfig.dataName, 60);
+        chartsDataMixin.continuouslyUpdateData($scope.currentNetworkUtilization, 60 * 1000);
+        $scope.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, $scope.networkUtilizationDailyConfig.dataName);
+      }, 10000);
       $scope.networkUtilizationLoadingDone = true;
     });
 

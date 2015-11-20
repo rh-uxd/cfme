@@ -79,3 +79,43 @@
   line-height: 15px;
   margin-bottom: 5px;
 }
+
+.empty-info {
+  color: #999;
+  font-size: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+
+.utilization-chart-pf.empty-utilization-chart {
+
+  .available-count {
+    color: transparent;
+  }
+
+  .empty-info {
+    padding-top: 50px;
+    padding-bottom: 110px;
+
+    .info-text {
+      font-size: 16px;
+    }
+  }
+}
+
+.empty-trends-chart {
+
+  .empty-info {
+    padding-top: 15px;
+    padding-bottom: 22px;
+
+    .info-text {
+      font-size: 16px;
+    }
+  }
+}
+
+.chart-transparent-text {
+  color: transparent;
+}
