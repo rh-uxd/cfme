@@ -128,7 +128,7 @@ angular.module('miq.util').factory('ChartsDataMixin', ['$timeout', '$q', functio
     sparklineTimeTooltip:           sparklineTimeTooltip,
     sparklineHourTooltip:           sparklineHourTooltip,
     dashboardSparklineChartHeight:  45,
-    dashboardHeatmapChartHeight:    286,
+    dashboardHeatmapChartHeight:    260,
     nodeHeatMapUsageLegendLabels:   ['< 70%', '70-80%' ,'80-90%', '> 90%']
   };
 }]);

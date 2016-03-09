@@ -12,6 +12,12 @@
           "count": 1,
           "id":" kubernetes",
           "providerType": "Kubernetes"
+        },
+        {
+          "iconClass": "product-vendor-atomic-enterprise",
+          "count": 1,
+          "id":" atomic",
+          "providerType": "Atomic"
         }
     ],
     "nodes" : {

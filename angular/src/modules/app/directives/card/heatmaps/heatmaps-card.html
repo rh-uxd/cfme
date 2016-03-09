@@ -7,7 +7,9 @@
           <span class="h3 heatmap-chart-title" ng-if="heatmaps.length > 1">{{heatmap.title}}</span>
 
           <div id="{{heatmap.id}}" class="heatmap-container" >
-            <div pf-heatmap data="heatmap.data" parentid="{{heatmap.id}}" height="heatmapChartHeight" ng-if="heatmap.loadingDone" show-legend="heatmaps.length === 1">
+            <div pf-heatmap data="heatmap.data" parentid="{{heatmap.id}}" height="heatmapChartHeight"
+                 ng-if="heatmap.loadingDone" show-legend="heatmaps.length === 1"
+                 chart-data-available="chartDataAvailable">
             </div>
           </div>
 
@@ -15,7 +17,7 @@
         </div>
       </div>
       <div ng-if="heatmaps.length > 1" class="col-xs-16 col-sm-8 col-md-8">
-        <div pf-heatmap-legend legend="heatMapUsageLegendLabels"></div>
+        <div pf-heatmap-legend legend="heatMapUsageLegendLabels" ng-style="legendStyles"></div>
       </div>
     </div>
   </div>

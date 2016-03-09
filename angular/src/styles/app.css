@@ -497,6 +497,12 @@
   color: #1186C1 !important;
 }
 ****/
+/* line 473, scss/main.scss */
+.icon-atomic:before {
+  content: "\e62d";
+  color: #0088ce;
+}
+
 /*
  * Charts
  */
@@ -622,4 +628,9 @@
 /* line 119, scss/charts.scss */
 .chart-transparent-text {
   color: transparent;
+}
+
+/* line 123, scss/charts.scss */
+.multi-chart-body {
+  margin-top: -20px;
 }

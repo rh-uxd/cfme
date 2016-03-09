@@ -18,7 +18,19 @@ module.exports = function( grunt ) {
             pkg:      grunt.file.readJSON( 'package.json' )
         },
 
-        compass: {
+      // Automatically inject Bower components into the app
+      wiredep: {
+        app: {
+          src: ['<%= projectSettings.src %>/index.html'],
+          ignorePath:  /\.\.\//
+        },
+        sass: {
+          src: ['<%= projectSettings.src %>/styles/{,*/}*.{scss,sass}'],
+          ignorePath: /(\.\.\/){1,2}bower_components\//
+        }
+      },
+
+      compass: {
           dist: {
             options: {
               sassDir: 'src/styles/scss',

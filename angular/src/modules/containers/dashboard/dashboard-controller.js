@@ -71,11 +71,11 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
     $scope.utilizationLoadingDone = false;
     var ContainersUtilization = $resource('/containers/dashboard/utilization');
     ContainersUtilization.get(function(response) {
-      $timeout(function () {
-        $scope.cpuUsageData = chartsDataMixin.getCpuUsageDataFromResponse(response, $scope.cpuUsageConfig.usageDataName);
-        $scope.memoryUsageData = chartsDataMixin.getMemoryUsageDataFromResponse(response, $scope.memoryUsageConfig.usageDataName);
-      }, 10000);
+      $scope.cpuUsageData = chartsDataMixin.getCpuUsageDataFromResponse(response, $scope.cpuUsageConfig.usageDataName);
+      $scope.memoryUsageData = chartsDataMixin.getMemoryUsageDataFromResponse(response, $scope.memoryUsageConfig.usageDataName);
       $scope.utilizationLoadingDone = true;
+      $scope.cpuUsageData.dataAvailable = false;
+      $scope.memoryUsageData.dataAvailable = false;
     });
 
     // Network Utilization
@@ -89,12 +89,12 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
     var networkUtilization = $resource('/containers/dashboard/utilization');
     networkUtilization.get(function(response) {
       var data = response.data;
-      $timeout(function () {
-        $scope.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, $scope.networkUtilizationCurrentConfig.dataName, 60);
-        chartsDataMixin.continuouslyUpdateData($scope.currentNetworkUtilization, 60 * 1000);
-        $scope.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, $scope.networkUtilizationDailyConfig.dataName);
-      }, 10000);
+      $scope.currentNetworkUtilization = chartsDataMixin.getSparklineData(data.currentNetworkUsageData, $scope.networkUtilizationCurrentConfig.dataName, 60);
+      chartsDataMixin.continuouslyUpdateData($scope.currentNetworkUtilization, 60 * 1000);
+      $scope.dailyNetworkUtilization = chartsDataMixin.getSparklineData(data.dailyNetworkUsageData, $scope.networkUtilizationDailyConfig.dataName);
       $scope.networkUtilizationLoadingDone = true;
+      $scope.currentNetworkUtilization.dataAvailable = false;
+      $scope.dailyNetworkUtilization.dataAvailable = false;
     });
 
     // Trends
@@ -149,6 +149,14 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
     });
 
     $scope.nodeHeatMapUsageLegendLabels = chartsDataMixin.nodeHeatMapUsageLegendLabels;
+    $scope.nodeHeatmapDataAvailable = false;
+
+    $timeout(function () {
+      $scope.currentNetworkUtilization.dataAvailable = true;
+      $scope.dailyNetworkUtilization.dataAvailable = true;
+      $scope.cpuUsageData.dataAvailable = true;
+      $scope.memoryUsageData.dataAvailable = true;
+    }, 5000);
   }
 ]);
 

@@ -1,7 +1,7 @@
 {
 "data":{
   "nodeCpuUsage":[
-{"id":42,"value":0.98,"tooltip":"Node 16 : My Kubernetes Provider\n98% : 98 Used of 100 Total\n2 Available"},
+{"id":42,"value":0.98,"tooltip":"oshift02.eng.lab.tlv.redhat.com:Molecule<br>98% : 98 Used of 100 Total<br>2 Available"},
 {"id":19,"value":0.97,"tooltip":"Node 18 : My OpenShift Provider\n97% : 97 Used of 100 Total\n3 Available"},
 {"id":38,"value":0.88,"tooltip":"Node 12 : My Kubernetes Provider\n88% : 88 Used of 100 Total\n12 Available"},
 {"id":33,"value":0.87,"tooltip":"Node 7 : My Kubernetes Provider\n87% : 87 Used of 100 Total\n13 Available"},
