@@ -23,6 +23,23 @@ angular.module('miq.infrastructure.providersModule').controller('infrastructure.
       templates:    dashboardUtils.createTemplatesStatus()
     };
 
+    $scope.clusterCpuUsage = {
+      title: 'CPU',
+      id: 'nodeCpuUsageMap',
+      loadingDone: false
+    };
+    $scope.clusterMemoryUsage = {
+      title: 'Memory',
+      id: 'nodeMemoryUsageMap',
+      loadingDone: false
+    };
+    $scope.heatmaps = [$scope.clusterCpuUsage, $scope.clusterMemoryUsage];
+    $scope.nodeHeatMapUsageLegendLabels = chartsDataMixin.nodeHeatMapUsageLegendLabels;
+
+    var getUsageTooltip = function (name, used, total) {
+      return name + "<span class='pull-right'>" + (Math.round((used / total) * 1000) / 10) + "%</span><br>" + used + " Used of " + total + " Total<br>" + (total - used) + " Available"
+    };
+
     //Get the container data
     var ContainersStatus = $resource('/infrastructure/providers/status/' + currentId);
     ContainersStatus.get(function(response) {
@@ -32,7 +49,27 @@ angular.module('miq.infrastructure.providersModule').controller('infrastructure.
       dashboardUtils.updateAggregateStatus($scope.objectStatus.datastores, data.datastores);
       dashboardUtils.updateAggregateStatus($scope.objectStatus.vms, data.vms);
       dashboardUtils.updateAggregateStatus($scope.objectStatus.templates, data.templates);
-      console.dir($scope.objectStatus);
+
+      $scope.clusterCpuUsage.data = [];
+      data.clusterCpuUsage.forEach(function(item) {
+        $scope.clusterCpuUsage.data.push({
+          id: "Cluster " + item.id,
+          value: item.used / item.total,
+          tooltip: getUsageTooltip("Cluster " + item.id, item.used, item.total)
+        })
+      });
+      $scope.clusterCpuUsage.loadingDone = true;
+
+      $scope.clusterMemoryUsage.data = [];
+      data.clusterMemoryUsage.forEach(function(item) {
+        $scope.clusterMemoryUsage.data.push({
+          id: "Cluster " + item.id,
+          value: item.used / item.total,
+          tooltip: getUsageTooltip("Cluster " + item.id, item.used, item.total)
+        })
+      });
+      $scope.clusterMemoryUsage.loadingDone = true;
+
     });
 
 
@@ -64,35 +101,6 @@ angular.module('miq.infrastructure.providersModule').controller('infrastructure.
       $scope.utilizationLoadingDone = true;
     });
 
-    // HeatMaps
-    $scope.nodeCpuUsage = {
-      title: 'CPU',
-      id: 'nodeCpuUsageMap',
-      loadingDone: false
-    };
-    $scope.nodeMemoryUsage = {
-      title: 'Memory',
-      id: 'nodeMemoryUsageMap',
-      loadingDone: false
-    };
-
-    $scope.heatmaps = [$scope.nodeCpuUsage, $scope.nodeMemoryUsage];
-
-    var NodeCpuUsage = $resource('/containers/dashboard/node-cpu-usage');
-    NodeCpuUsage.get(function(response) {
-      var data = response.data;
-      $scope.nodeCpuUsage.data = data.nodeCpuUsage;
-      $scope.nodeCpuUsage.loadingDone = true;
-    });
-
-    var NodeMemoryUsage = $resource('/containers/dashboard/node-memory-usage');
-    NodeMemoryUsage.get(function(response) {
-      var data = response.data;
-      $scope.nodeMemoryUsage.data = data.nodeMemoryUsage;
-      $scope.nodeMemoryUsage.loadingDone = true;
-    });
-
-    $scope.nodeHeatMapUsageLegendLabels = chartsDataMixin.nodeHeatMapUsageLegendLabels;
     // Trends
     $scope.vmTrendConfig = chartConfig.vmTrendConfig;
     $scope.vmTrendsLoadingDone = false;
@@ -103,7 +111,6 @@ angular.module('miq.infrastructure.providersModule').controller('infrastructure.
       var data = response.data;
 
       $scope.vmTrends = chartsDataMixin.getSparklineData(data.vmTrends, $scope.vmTrendConfig.dataName);
-      console.dir($scope.vmTrends);
       $scope.vmTrendsLoadingDone = true;
 
       $scope.hostTrends = chartsDataMixin.getSparklineData(data.hostTrends, $scope.hostTrendConfig.dataName);
