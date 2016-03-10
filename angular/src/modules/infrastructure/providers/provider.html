@@ -1,4 +1,4 @@
-<div class="container-fluid container-tiles-pf container-providers miq-dashboard-view">
+<div class="container-fluid container-tiles-pf container-providers">
   <ol class="breadcrumb" style="margin-bottom: 0px;">
     <li class="active"><a href="#/infrastructure/providers">Infrastructure</a></li>
     <li class="active"><a href="#/infrastructure/providers">Providers</a></li>
@@ -25,7 +25,7 @@
       <div pf-aggregate-status-card status="objectStatus.vms" show-top-border="true"></div>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
-      <div pf-aggregate-status-card status="objectStatus.templates" show-top-border="false"></div>
+      <div pf-aggregate-status-card status="objectStatus.templates" show-top-border="true"></div>
     </div>
   </div><!-- /row -->
   <div class="row row-tile-pf">
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="col-sm-12 col-md-6">
-      <div heatmaps-card title="Cluster Utilization" hidetopborder="true" chart-data-available="true"
+      <div heatmaps-card card-title="Cluster Utilization" hidetopborder="true" chart-data-available="true"
            heatmaps="heatmaps" heatmap-chart-height="dashboardHeatmapChartHeight" columnSizingClass="col-xs-8 col-sm-6 col-md-6"
            heat-map-usage-legend-labels="nodeHeatMapUsageLegendLabels">
       </div>

@@ -3,7 +3,7 @@ angular.module( 'miq.card' ).directive('heatmapsCard', ['ChartsDataMixin' ,funct
   return {
     restrict: 'A',
     scope: {
-      title: '@',
+      cardTitle: '@',
       heatmaps: '=',
       hidetopborder: '@',
       heatmapChartHeight: '=',

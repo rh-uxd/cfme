@@ -76,6 +76,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
   var createClustersStatus = function() {
     return {
       title: "Clusters",
+      href: "#/infrastructure/providers",
       count: 0,
       notifications: []
     };
@@ -84,6 +85,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
     return {
       title: "Hosts",
       iconClass: "fa fa-server",
+      href: "#/infrastructure/providers",
       count: 0,
       notifications: []
     };
@@ -92,6 +94,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
     return {
       title: "Datastores",
       iconClass: "fa fa-database",
+      href: "#/infrastructure/providers",
       count: 0,
       notifications: []
     };
@@ -100,6 +103,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
     return {
       title: "VMs",
       iconClass: "pficon pficon-screen",
+      href: "#/infrastructure/providers",
       count: 0,
       notifications: []
     };
@@ -108,6 +112,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
     return {
       title: "Templates",
       iconClass: "pficon pficon-screen",
+      href: "#/infrastructure/providers",
       count: 0,
       notifications: []
     };
