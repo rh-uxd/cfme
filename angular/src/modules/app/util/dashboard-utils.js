@@ -73,6 +73,45 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
       notification: {}
     };
   };
+  var createClustersStatus = function() {
+    return {
+      title: "Clusters",
+      count: 0,
+      notifications: []
+    };
+  };
+  var createHostsStatus = function() {
+    return {
+      title: "Hosts",
+      iconClass: "fa fa-server",
+      count: 0,
+      notifications: []
+    };
+  };
+  var createDatastoresStatus = function() {
+    return {
+      title: "Datastores",
+      iconClass: "fa fa-database",
+      count: 0,
+      notifications: []
+    };
+  };
+  var createVMsStatus = function() {
+    return {
+      title: "VMs",
+      iconClass: "pficon pficon-screen",
+      count: 0,
+      notifications: []
+    };
+  };
+  var createTemplatesStatus = function() {
+    return {
+      title: "Templates",
+      iconClass: "pficon pficon-screen",
+      count: 0,
+      notifications: []
+    };
+  };
   var updateStatus = function (statusObject, data) {
     statusObject.notification = {};
     if (data) {
@@ -93,6 +132,26 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
       statusObject.count = 0;
     }
   };
+  var updateAggregateStatus = function (statusObject, data) {
+    statusObject.notifications = [];
+    if (data) {
+      statusObject.count = data.count;
+      if (data.errorCount > 0) {
+        statusObject.notifications.push({
+          iconClass: "pficon pficon-error-circle-o",
+          count: data.errorCount
+        });
+      }
+      else if (data.warningCount > 0) {
+        statusObject.notifications.push({
+          iconClass: "pficon pficon-warning-triangle-o",
+          count: data.warningCount
+        });
+      }
+    } else {
+      statusObject.count = 0;
+    }
+  };
 
 
   return {
@@ -105,6 +164,12 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
     createServicesStatus: createServicesStatus,
     createImagesStatus: createImagesStatus,
     createRoutesStatus: createRoutesStatus,
-    updateStatus: updateStatus
+    createClustersStatus: createClustersStatus,
+    createHostsStatus: createHostsStatus,
+    createDatastoresStatus: createDatastoresStatus,
+    createVMsStatus: createVMsStatus,
+    createTemplatesStatus: createTemplatesStatus,
+    updateStatus: updateStatus,
+    updateAggregateStatus: updateAggregateStatus
   };
 }]);

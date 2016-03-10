@@ -1,0 +1,72 @@
+<div class="container-fluid container-tiles-pf container-providers miq-dashboard-view">
+  <ol class="breadcrumb" style="margin-bottom: 0px;">
+    <li class="active"><a href="#/infrastructure/providers">Infrastructure</a></li>
+    <li class="active"><a href="#/infrastructure/providers">Providers</a></li>
+    <li>
+      {{ navigation }}
+    </li>
+  </ol>
+  <div class="row row-tile-pf" >
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+      <div pf-card show-top-border="true">
+        <span class="status-card-full-icon pficon {{getProviderTypeIconClass()}}"></span>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+      <div pf-aggregate-status-card status="objectStatus.clusters" show-top-border="true"></div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+      <div pf-aggregate-status-card status="objectStatus.hosts" show-top-border="true"></div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+      <div pf-aggregate-status-card status="objectStatus.datastores" show-top-border="true"></div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+      <div pf-aggregate-status-card status="objectStatus.vms" show-top-border="true"></div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+      <div pf-aggregate-status-card status="objectStatus.templates" show-top-border="false"></div>
+    </div>
+  </div><!-- /row -->
+  <div class="row row-tile-pf">
+    <div class="col-sm-12 col-md-6">
+      <div pf-card head-title="Node Utilization" hidetopborder="true">
+        <div class="row multi-chart-body" ng-if="utilizationLoadingDone">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-chart config="cpuUsageConfig" donut-config="cpuUsageDonutConfig" sparkline-config="cpuUsageSparklineConfig" chart-data="cpuUsageData"></div>
+            <span class="trend-footer-pf">Last 30 Days</span>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div pf-utilization-chart config="memoryUsageConfig" donut-config="memoryUsageDonutConfig" sparkline-config="memoryUsageSparklineConfig" chart-data="memoryUsageData"></div>
+            <span class="trend-footer-pf">Last 30 Days</span>
+          </div>
+        </div>
+        <div ng-if="!utilizationLoadingDone" class="spinner spinner-lg loading"></div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div heatmaps-card title="Node Utilization" hidetopborder="true" chart-data-available="true"
+           heatmaps="heatmaps" heatmap-chart-height="dashboardHeatmapChartHeight" columnSizingClass="col-xs-8 col-sm-6 col-md-6"
+           heat-map-usage-legend-labels="nodeHeatMapUsageLegendLabels">
+      </div>
+    </div>
+  </div>
+  <div class="row row-tile-pf">
+    <div class="col-sm-12 col-md-6">
+      <div pf-card head-title="{{vmTrendConfig.headTitle}}">
+        <div pf-trends-chart config="vmTrendConfig" chart-data="vmTrends"
+             ng-if="vmTrendsLoadingDone" chart-height="chartHeight">
+        </div>
+      </div>
+      <div ng-if="!vmTrendsLoadingDone" class="spinner spinner-lg loading"></div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div pf-card head-title="{{hostTrendConfig.headTitle}}">
+        <div pf-trends-chart config="hostTrendConfig" chart-data="hostTrends"
+             ng-if="hostTrendLoadingDone" chart-height="chartHeight">
+        </div>
+      </div>
+      <div ng-if="!hostTrendLoadingDone" class="spinner spinner-lg loading"></div>
+    </div>
+  </div>
+</div><!-- /container -->

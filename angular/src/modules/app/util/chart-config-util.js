@@ -69,6 +69,22 @@ var chartConfig = {
     dataName: 'Images',
     tooltipType: 'valuePerDay'
   },
+  vmTrendConfig: {
+    chartId  : 'vmTrendsChart',
+    headTitle: 'Recently Discovered VMs',
+    timeFrame: 'Last 30 Days',
+    units    : 'VMs',
+    dataName: 'VMs',
+    tooltipType: 'valuePerDay'
+  },
+  hostTrendConfig: {
+    chartId  : 'hostTrendsChart',
+    headTitle: 'Recently Discovered Hosts',
+    timeFrame: 'Last 30 Days',
+    units    : 'Hosts',
+    dataName: 'Hosts',
+    tooltipType: 'valuePerDay'
+  },
   podCpuUsageConfig: {
     chartId: 'cpuUsageChart',
     title: 'CPU',

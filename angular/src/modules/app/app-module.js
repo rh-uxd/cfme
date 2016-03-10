@@ -9,7 +9,8 @@ angular.module( 'miq.appModule', [
   'miq.charts',
   'miq.card',
   'miq.navigation',
-  'miq.containersModule'
+  'miq.containersModule',
+  'miq.infrastructureModule'
 ] )
   .config( ['$routeProvider', '$translateProvider',
     function( $routeProvider, $translateProvider ) {
