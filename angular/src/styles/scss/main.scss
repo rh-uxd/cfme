@@ -86,12 +86,30 @@
   padding-bottom: 9px !important;
 }
 
-.status-card-full-icon {
-  font-size: 44px;
-  position: relative;
-  padding-bottom: 4px;
-  width: 100%;
-  text-align: center;
+.aggregate-status-card-full-image {
+  display: block;
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 48px;
+}
+
+.aggregate-status-card-title-image {
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.aggregate-status-card-notification-image {
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.product-vendor-atomic-enterprise {
+  background: url('images/vendor-atomic.svg') left top;
 }
 
 .containers-dashboard .card-pf.card-pf-aggregate-status-mini {

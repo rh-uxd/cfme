@@ -14,7 +14,7 @@
           "providerType": "Kubernetes"
         },
         {
-          "iconClass": "product-vendor-atomic-enterprise",
+          "iconClass": "aggregate-status-card-notification-image product-vendor-atomic-enterprise",
           "count": 1,
           "id":" atomic",
           "providerType": "Atomic"

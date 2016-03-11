@@ -76,6 +76,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
   var createClustersStatus = function() {
     return {
       title: "Clusters",
+      iconClass: "pficon pficon-cluster",
       href: "#/infrastructure/providers",
       count: 0,
       notifications: []

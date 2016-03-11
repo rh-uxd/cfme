@@ -91,173 +91,194 @@
 }
 
 /* line 89, scss/main.scss */
-.status-card-full-icon {
-  font-size: 44px;
-  position: relative;
-  padding-bottom: 4px;
-  width: 100%;
-  text-align: center;
+.aggregate-status-card-full-image {
+  display: block;
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 48px;
 }
 
 /* line 97, scss/main.scss */
+.aggregate-status-card-title-image {
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+/* line 104, scss/main.scss */
+.aggregate-status-card-notification-image {
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+/* line 111, scss/main.scss */
+.product-vendor-atomic-enterprise {
+  background: url("images/vendor-atomic.svg") left top;
+}
+
+/* line 115, scss/main.scss */
 .containers-dashboard .card-pf.card-pf-aggregate-status-mini {
   height: 60px;
 }
 
-/* line 101, scss/main.scss */
+/* line 119, scss/main.scss */
 .container-providers .card-pf.card-pf-aggregate-status-mini {
   height: 63px;
 }
 
-/* line 105, scss/main.scss */
+/* line 123, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini {
   height: 103px;
 }
-/* line 107, scss/main.scss */
+/* line 125, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title {
   margin-top: 24px;
 }
-/* line 110, scss/main.scss */
+/* line 128, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title .pficon, .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title .fa {
   top: 30px;
 }
-/* line 114, scss/main.scss */
+/* line 132, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-body {
   margin-top: 18px;
 }
 
-/* line 120, scss/main.scss */
+/* line 138, scss/main.scss */
 .tiles-view-pf .tile {
   overflow: visible;
 }
-/* line 123, scss/main.scss */
+/* line 141, scss/main.scss */
 .tiles-view-pf .tile-content {
   overflow: visible;
 }
-/* line 127, scss/main.scss */
+/* line 145, scss/main.scss */
 .tiles-view-pf .progress {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/* line 132, scss/main.scss */
+/* line 150, scss/main.scss */
 .tiles-view-pf .tile-title .miq-icon-label {
   padding-left: 5px;
   padding-bottom: 15px;
 }
-/* line 137, scss/main.scss */
+/* line 155, scss/main.scss */
 .tiles-view-pf .tile-row {
   padding: 0;
   margin: 0;
 }
-/* line 141, scss/main.scss */
+/* line 159, scss/main.scss */
 .tiles-view-pf .tile-row .tiles-view-pf {
   overflow: visible;
 }
-/* line 146, scss/main.scss */
+/* line 164, scss/main.scss */
 .tiles-view-pf .tile-column {
   width: 50%;
   float: left;
 }
-/* line 151, scss/main.scss */
+/* line 169, scss/main.scss */
 .tiles-view-pf .status-object {
   text-align: left;
   margin: 5px 20px;
 }
-/* line 155, scss/main.scss */
+/* line 173, scss/main.scss */
 .tiles-view-pf .status-object .pficon {
   font-size: 20px;
   width: 26px;
   color: #1186C1;
 }
-/* line 160, scss/main.scss */
+/* line 178, scss/main.scss */
 .tiles-view-pf .status-object .status-count {
   font-size: 18px;
   color: #515151;
 }
-/* line 164, scss/main.scss */
+/* line 182, scss/main.scss */
 .tiles-view-pf .status-object .status-text {
   font-size: 12px;
   color: #515151;
 }
-/* line 170, scss/main.scss */
+/* line 188, scss/main.scss */
 .tiles-view-pf .miq-icon-label {
   color: #515151;
   font-size: 18px;
   white-space: nowrap;
 }
-/* line 175, scss/main.scss */
+/* line 193, scss/main.scss */
 .tiles-view-pf .pficon.miq-icon-label {
   color: #1186C1;
 }
-/* line 179, scss/main.scss */
+/* line 197, scss/main.scss */
 .tiles-view-pf .miq-label {
   color: #515151;
   font-size: 12px;
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 186, scss/main.scss */
+/* line 204, scss/main.scss */
 .tiles-view-pf .miq-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 193, scss/main.scss */
+/* line 211, scss/main.scss */
 .tiles-view-pf .miq-icon-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 200, scss/main.scss */
+/* line 218, scss/main.scss */
 .tiles-view-pf .miq-label.miq-count {
   float: left;
   text-align: right;
   text-align: right;
   width: 32px;
 }
-/* line 207, scss/main.scss */
+/* line 225, scss/main.scss */
 .tiles-view-pf .miq-column.usage-column .miq-title {
   text-align: right;
 }
-/* line 210, scss/main.scss */
+/* line 228, scss/main.scss */
 .tiles-view-pf .cpu-usage-column {
   width: 150px;
 }
-/* line 212, scss/main.scss */
+/* line 230, scss/main.scss */
 .tiles-view-pf .cpu-usage-column .miq-title {
   text-align: right;
   width: 95px;
 }
-/* line 217, scss/main.scss */
+/* line 235, scss/main.scss */
 .tiles-view-pf .memory-usage-column {
   width: 180px;
 }
-/* line 219, scss/main.scss */
+/* line 237, scss/main.scss */
 .tiles-view-pf .memory-usage-column .miq-title {
   text-align: right;
   width: 135px;
 }
 
-/* line 228, scss/main.scss */
+/* line 246, scss/main.scss */
 .data-list-pf .miq-row-column {
   padding-right: 5px;
 }
-/* line 233, scss/main.scss */
+/* line 251, scss/main.scss */
 .data-list-pf .list-group-item .miq-column {
   float: left;
   padding: 5px 5px;
 }
-/* line 238, scss/main.scss */
+/* line 256, scss/main.scss */
 .data-list-pf .list-group-item .miq-object-column {
   padding-top: 1px !important;
 }
-/* line 240, scss/main.scss */
+/* line 258, scss/main.scss */
 .data-list-pf .list-group-item .miq-object-column .miq-label {
   vertical-align: middle;
 }
-/* line 246, scss/main.scss */
+/* line 264, scss/main.scss */
 .data-list-pf .list-group-item .miq-icon-label {
   color: #515151;
   font-size: 18px;
@@ -265,159 +286,159 @@
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 253, scss/main.scss */
+/* line 271, scss/main.scss */
 .data-list-pf .list-group-item .pficon.miq-icon-label {
   color: #1186C1;
 }
-/* line 257, scss/main.scss */
+/* line 275, scss/main.scss */
 .data-list-pf .list-group-item .miq-label {
   color: #515151;
   font-size: 12px;
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 264, scss/main.scss */
+/* line 282, scss/main.scss */
 .data-list-pf .list-group-item .miq-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 271, scss/main.scss */
+/* line 289, scss/main.scss */
 .data-list-pf .list-group-item .miq-icon-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 278, scss/main.scss */
+/* line 296, scss/main.scss */
 .data-list-pf .list-group-item .miq-label.miq-count {
   float: left;
   text-align: right;
   text-align: right;
   width: 32px;
 }
-/* line 285, scss/main.scss */
+/* line 303, scss/main.scss */
 .data-list-pf .list-group-item .miq-column.usage-column .miq-title {
   text-align: right;
 }
-/* line 290, scss/main.scss */
+/* line 308, scss/main.scss */
 .data-list-pf .provider-column {
   padding-top: 5px !important;
 }
 
-/* line 295, scss/main.scss */
+/* line 313, scss/main.scss */
 .providers-tiles .tiles-view-pf .tile {
   height: 250px;
   width: 355px;
 }
 
-/* line 300, scss/main.scss */
+/* line 318, scss/main.scss */
 .projects-tiles .tiles-view-pf .tile {
   height: 270px;
   width: 355px;
 }
 
-/* line 304, scss/main.scss */
+/* line 322, scss/main.scss */
 .projects-tiles .status-object.provider-object {
   text-align: center;
 }
 
-/* line 308, scss/main.scss */
+/* line 326, scss/main.scss */
 .pods-tiles .tiles-view-pf .tile {
   height: 230px;
   width: 355px;
 }
 
-/* line 315, scss/main.scss */
+/* line 333, scss/main.scss */
 .pods-containers-info .containers-heading {
   text-align: center;
 }
-/* line 317, scss/main.scss */
+/* line 335, scss/main.scss */
 .pods-containers-info .containers-heading .pficon {
   color: #1186C1;
   font-size: 64px;
   padding: 10px 20px;
 }
-/* line 322, scss/main.scss */
+/* line 340, scss/main.scss */
 .pods-containers-info .containers-heading .containers-count {
   border-left: 1px solid #d1d1d1;
   color: #515151;
   font-weight: 300;
 }
-/* line 327, scss/main.scss */
+/* line 345, scss/main.scss */
 .pods-containers-info .containers-heading .containers-label {
   font-size: 26px;
 }
-/* line 331, scss/main.scss */
+/* line 349, scss/main.scss */
 .pods-containers-info .containers-counter {
   font-size: 32px;
 }
-/* line 335, scss/main.scss */
+/* line 353, scss/main.scss */
 .pods-containers-info .containers-list {
   margin-top: 10px;
   border: 1px solid #d1d1d1;
 }
-/* line 338, scss/main.scss */
+/* line 356, scss/main.scss */
 .pods-containers-info .containers-list .toolbar-pf {
   padding-bottom: 10px;
 }
-/* line 341, scss/main.scss */
+/* line 359, scss/main.scss */
 .pods-containers-info .containers-list .list-view-container {
   height: 264px;
 }
-/* line 345, scss/main.scss */
+/* line 363, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column {
   width: 190px;
 }
-/* line 347, scss/main.scss */
+/* line 365, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column .miq-title {
   text-align: right;
   width: 105px;
 }
-/* line 351, scss/main.scss */
+/* line 369, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column .miq-count {
   width: 30px;
   text-align: right;
 }
-/* line 356, scss/main.scss */
+/* line 374, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column {
   width: 225px;
 }
-/* line 358, scss/main.scss */
+/* line 376, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column .miq-title {
   text-align: right;
   width: 130px;
 }
-/* line 362, scss/main.scss */
+/* line 380, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column .miq-count {
   width: 30px;
   text-align: right;
 }
 
-/* line 370, scss/main.scss */
+/* line 388, scss/main.scss */
 .pod-metrics {
   height: 392px;
   overflow-y: auto;
 }
-/* line 374, scss/main.scss */
+/* line 392, scss/main.scss */
 .pod-metrics .metric-row {
   padding: 10px 5px;
   margin: 0;
 }
-/* line 379, scss/main.scss */
+/* line 397, scss/main.scss */
 .pod-metrics .metric-row:first-of-type {
   padding-top: 5px;
 }
-/* line 383, scss/main.scss */
+/* line 401, scss/main.scss */
 .pod-metrics .metric-row:last-of-type {
   padding-bottom: 5px;
 }
-/* line 387, scss/main.scss */
+/* line 405, scss/main.scss */
 .pod-metrics .metric-col {
   float: left;
 }
-/* line 391, scss/main.scss */
+/* line 409, scss/main.scss */
 .pod-metrics .metric-title {
   text-align: right;
   font-weight: 700;
@@ -425,7 +446,7 @@
   width: 175px;
   padding: 0 5px;
 }
-/* line 399, scss/main.scss */
+/* line 417, scss/main.scss */
 .pod-metrics .metric-value {
   float: left;
   padding: 0 5px;
@@ -506,7 +527,7 @@
   color: #1186C1 !important;
 }
 ****/
-/* line 481, scss/main.scss */
+/* line 499, scss/main.scss */
 .icon-atomic:before {
   content: "\e62d";
   color: #0088ce;
