@@ -37,11 +37,11 @@
             <div pf-card head-title="Node Utilization" hidetopborder="true">
                 <div class="row multi-chart-body" ng-if="utilizationLoadingDone">
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                      <div pf-utilization-chart config="cpuUsageConfig" donut-config="cpuUsageDonutConfig" sparkline-config="cpuUsageSparklineConfig" chart-data="cpuUsageData"></div>
+                      <div pf-utilization-trend-chart config="cpuUsageConfig" donut-config="cpuUsageDonutConfig" sparkline-config="cpuUsageSparklineConfig" chart-data="cpuUsageData"></div>
                       <span class="trend-footer-pf" ng-class="{'chart-transparent-text' : cpuUsageData.dataAvailable === false}">Last 30 Days</span>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
-                      <div pf-utilization-chart config="memoryUsageConfig" donut-config="memoryUsageDonutConfig" sparkline-config="memoryUsageSparklineConfig" chart-data="memoryUsageData"></div>
+                      <div pf-utilization-trend-chart config="memoryUsageConfig" donut-config="memoryUsageDonutConfig" sparkline-config="memoryUsageSparklineConfig" chart-data="memoryUsageData"></div>
                       <span class="trend-footer-pf" ng-class="{'chart-transparent-text' : (memoryUsageData.dataAvailable === false)}">Last 30 Days</span>
                     </div>
                 </div>

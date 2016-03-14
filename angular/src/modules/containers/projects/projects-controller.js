@@ -44,7 +44,7 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
     };
 
     var viewsConfig = {
-      views: [pfViewUtils.getListView(), pfViewUtils.getTilesView()],
+      views: [pfViewUtils.getListView(), pfViewUtils.getCardView()],
       onViewSelect: viewSelected
     };
 

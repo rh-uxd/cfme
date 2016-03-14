@@ -32,7 +32,7 @@ angular.module('miq.containers.providersModule').controller('containers.provider
     };
 
     var viewsConfig = {
-      views: [pfViewUtils.getListView(), pfViewUtils.getTilesView()],
+      views: [pfViewUtils.getListView(), pfViewUtils.getCardView()],
       onViewSelect: viewSelected
     };
 

@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12 card-heatmap-body">
       <div ng-repeat="heatmap in heatmaps track by $index">
 
-        <div class="{{columnSizingClass}} container-heatmap-tile">
+        <div class="{{columnSizingClass}} container-heatmap-card">
           <span class="h3 heatmap-chart-title" ng-if="heatmaps.length > 1">{{heatmap.title}}</span>
 
           <div id="{{heatmap.id}}" class="heatmap-container" >

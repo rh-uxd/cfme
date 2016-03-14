@@ -25,7 +25,7 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
     };
 
     $scope.viewsConfig = {
-      views: [pfViewUtils.getListView(), pfViewUtils.getTilesView()],
+      views: [pfViewUtils.getListView(), pfViewUtils.getCardView()],
       onViewSelect: viewSelected
     };
 

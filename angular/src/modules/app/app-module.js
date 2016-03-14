@@ -4,6 +4,7 @@ angular.module( 'miq.appModule', [
   'ui.bootstrap',
   'pascalprecht.translate',
   'patternfly',
+  'patternfly.toolbars',
   'patternfly.charts',
   'miq.util',
   'miq.charts',

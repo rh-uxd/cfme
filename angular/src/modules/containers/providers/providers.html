@@ -3,24 +3,24 @@
     <li class="active"><a href="#/containers/dashboard">Containers</a></li>
     <li>Providers</li>
   </ol>
-  <div pf-data-toolbar class="row" config="toolbarConfig"></div>
+  <div pf-toolbar="" class="row" config="toolbarConfig"></div>
   <div object-list list-class="providers-list row" list-id="{{listId}}"
        list-config="listConfig" items="providers" columns="columns"
        ng-if="providersLoaded && providersViewType == 'listView'">
   </div>
-  <div pf-data-tiles id="{{listId}}" class="providers-tiles" config="listConfig" items="providers" ng-if="providersLoaded && providersViewType == 'tilesView'">
-    <div class="tile-title">
+  <div pf-card-view id="{{listId}}" class="providers-cards" config="listConfig" items="providers" ng-if="providersLoaded && providersViewType == 'cardView'">
+    <div class="card-title">
       <span class="pficon {{item.icon}} container-font-color miq-icon-label"></span>
       <span class="miq-icon-label">{{item.name}}</span>
     </div>
-    <div class="row tile-row">
+    <div class="row card-row">
       <div class="col-md-12">
         <div pf-utilization-bar-chart chart-data="item.cpuUsageData" chart-title="item.cpuTitle" layout="item.layoutInline" units="item.cpuUnits" threshold-error="85" threshold-warning="60"></div>
         <div pf-utilization-bar-chart chart-data="item.memoryUsageData" chart-title="item.memoryTitle" layout="item.layoutInline" units="item.memoryUnits" threshold-error="85" threshold-warning="60"></div>
       </div>
     </div>
-    <div class="row tile-row">
-      <div class="tile-column">
+    <div class="row card-row">
+      <div class="card-column">
         <div class="status-object">
           <span class="pficon {{item.nodesInfo.iconClass}} container-font-color miq-icon-label"></span>
           <span class="status-count">{{item.nodesInfo.count}}</span>
@@ -42,7 +42,7 @@
           <span class="status-text">{{item.projectsInfo.name}}</span>
         </div>
       </div>
-      <div class="tile-column">
+      <div class="card-column">
         <div class="status-object">
           <span class="pficon {{item.podsInfo.iconClass}}  container-font-color miq-icon-label"></span>
           <span class="status-count">{{item.podsInfo.count}}</span>

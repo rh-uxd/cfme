@@ -18,13 +18,13 @@
     }
   }
 
-  .data-list-pf .list-group-item.active .pficon, .data-list-pf .list-group-item.active:hover .pficon, .data-list-pf .list-group-item.active:focus .pficon {
+  .list-view-pf .list-group-item.active .pficon, .list-view-pf .list-group-item.active:hover .pficon, .list-view-pf .list-group-item.active:focus .pficon {
     color: #1186C1;
   }
-  .data-list-pf .list-group-item .pficon {
+  .list-view-pf .list-group-item .pficon {
     font-size: 18px;
   }
-  .tiles-view-pf .tile.active .pficon, .tiles-view-pf .tile.active:hover .pficon, .tiles-view-pf .tile.active:focus .pficon {
+  .card-view-pf .card.active .pficon, .card-view-pf .card.active:hover .pficon, .card-view-pf .card.active:focus .pficon {
     color: #1186C1;
   }
 
@@ -108,6 +108,10 @@
   margin-right: 7px;
 }
 
+.product-vendor-kubernetes {
+  background: url('images/vendor-kubernetes.svg') left top;
+}
+
 .product-vendor-atomic-enterprise {
   background: url('images/vendor-atomic.svg') left top;
 }
@@ -134,11 +138,11 @@
   }
 }
 
-.tiles-view-pf {
-  .tile {
+.card-view-pf {
+  .card {
     overflow: visible;
   }
-  .tile-content {
+  .card-content {
     overflow: visible;
   }
 
@@ -147,21 +151,21 @@
     margin-bottom: 10px;
   }
 
-  .tile-title .miq-icon-label {
+  .card-title .miq-icon-label {
     padding-left: 5px;
     padding-bottom: 15px;
   }
 
-  .tile-row {
+  .card-row {
     padding: 0;
     margin: 0;
 
-    .tiles-view-pf {
+    .card-view-pf {
       overflow: visible;
     }
   }
 
-  .tile-column {
+  .card-column {
     width: 50%;
     float: left;
   }
@@ -241,7 +245,10 @@
   }
 }
 
-.data-list-pf {
+.list-view-pf {
+  .miq-list-row {
+    width: 100%;
+  }
 
   .miq-row-column {
     padding-right: 5px;
@@ -251,6 +258,7 @@
     .miq-column {
       float: left;
       padding: 5px 5px;
+      margin-right: 10px;
 
     }
     .miq-object-column {
@@ -310,20 +318,20 @@
   }
 }
 
-.providers-tiles .tiles-view-pf .tile {
+.providers-cards .card-view-pf .card {
   height: 250px;
   width: 355px;
 }
 
-.projects-tiles .tiles-view-pf .tile {
+.projects-cards .card-view-pf .card {
   height: 270px;
   width: 355px;
 }
-.projects-tiles .status-object.provider-object {
+.projects-cards .status-object.provider-object {
   text-align: center;
 }
 
-.pods-tiles .tiles-view-pf .tile {
+.pods-cards .card-view-pf .card {
   height: 230px;
   width: 355px;
 }

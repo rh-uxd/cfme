@@ -18,15 +18,15 @@
   color: #1186C1 !important;
 }
 /* line 21, scss/main.scss */
-.miq-dashboard-view .data-list-pf .list-group-item.active .pficon, .miq-dashboard-view .data-list-pf .list-group-item.active:hover .pficon, .miq-dashboard-view .data-list-pf .list-group-item.active:focus .pficon, .miq-objects-view .data-list-pf .list-group-item.active .pficon, .miq-objects-view .data-list-pf .list-group-item.active:hover .pficon, .miq-objects-view .data-list-pf .list-group-item.active:focus .pficon {
+.miq-dashboard-view .list-view-pf .list-group-item.active .pficon, .miq-dashboard-view .list-view-pf .list-group-item.active:hover .pficon, .miq-dashboard-view .list-view-pf .list-group-item.active:focus .pficon, .miq-objects-view .list-view-pf .list-group-item.active .pficon, .miq-objects-view .list-view-pf .list-group-item.active:hover .pficon, .miq-objects-view .list-view-pf .list-group-item.active:focus .pficon {
   color: #1186C1;
 }
 /* line 24, scss/main.scss */
-.miq-dashboard-view .data-list-pf .list-group-item .pficon, .miq-objects-view .data-list-pf .list-group-item .pficon {
+.miq-dashboard-view .list-view-pf .list-group-item .pficon, .miq-objects-view .list-view-pf .list-group-item .pficon {
   font-size: 18px;
 }
 /* line 27, scss/main.scss */
-.miq-dashboard-view .tiles-view-pf .tile.active .pficon, .miq-dashboard-view .tiles-view-pf .tile.active:hover .pficon, .miq-dashboard-view .tiles-view-pf .tile.active:focus .pficon, .miq-objects-view .tiles-view-pf .tile.active .pficon, .miq-objects-view .tiles-view-pf .tile.active:hover .pficon, .miq-objects-view .tiles-view-pf .tile.active:focus .pficon {
+.miq-dashboard-view .card-view-pf .card.active .pficon, .miq-dashboard-view .card-view-pf .card.active:hover .pficon, .miq-dashboard-view .card-view-pf .card.active:focus .pficon, .miq-objects-view .card-view-pf .card.active .pficon, .miq-objects-view .card-view-pf .card.active:hover .pficon, .miq-objects-view .card-view-pf .card.active:focus .pficon {
   color: #1186C1;
 }
 /* line 31, scss/main.scss */
@@ -116,329 +116,339 @@
 }
 
 /* line 111, scss/main.scss */
+.product-vendor-kubernetes {
+  background: url("images/vendor-kubernetes.svg") left top;
+}
+
+/* line 115, scss/main.scss */
 .product-vendor-atomic-enterprise {
   background: url("images/vendor-atomic.svg") left top;
 }
 
-/* line 115, scss/main.scss */
+/* line 119, scss/main.scss */
 .containers-dashboard .card-pf.card-pf-aggregate-status-mini {
   height: 60px;
 }
 
-/* line 119, scss/main.scss */
+/* line 123, scss/main.scss */
 .container-providers .card-pf.card-pf-aggregate-status-mini {
   height: 63px;
 }
 
-/* line 123, scss/main.scss */
+/* line 127, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini {
   height: 103px;
 }
-/* line 125, scss/main.scss */
+/* line 129, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title {
   margin-top: 24px;
 }
-/* line 128, scss/main.scss */
+/* line 132, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title .pficon, .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title .fa {
   top: 30px;
 }
-/* line 132, scss/main.scss */
+/* line 136, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-body {
   margin-top: 18px;
 }
 
-/* line 138, scss/main.scss */
-.tiles-view-pf .tile {
-  overflow: visible;
-}
-/* line 141, scss/main.scss */
-.tiles-view-pf .tile-content {
+/* line 142, scss/main.scss */
+.card-view-pf .card {
   overflow: visible;
 }
 /* line 145, scss/main.scss */
-.tiles-view-pf .progress {
+.card-view-pf .card-content {
+  overflow: visible;
+}
+/* line 149, scss/main.scss */
+.card-view-pf .progress {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/* line 150, scss/main.scss */
-.tiles-view-pf .tile-title .miq-icon-label {
+/* line 154, scss/main.scss */
+.card-view-pf .card-title .miq-icon-label {
   padding-left: 5px;
   padding-bottom: 15px;
 }
-/* line 155, scss/main.scss */
-.tiles-view-pf .tile-row {
+/* line 159, scss/main.scss */
+.card-view-pf .card-row {
   padding: 0;
   margin: 0;
 }
-/* line 159, scss/main.scss */
-.tiles-view-pf .tile-row .tiles-view-pf {
+/* line 163, scss/main.scss */
+.card-view-pf .card-row .card-view-pf {
   overflow: visible;
 }
-/* line 164, scss/main.scss */
-.tiles-view-pf .tile-column {
+/* line 168, scss/main.scss */
+.card-view-pf .card-column {
   width: 50%;
   float: left;
 }
-/* line 169, scss/main.scss */
-.tiles-view-pf .status-object {
+/* line 173, scss/main.scss */
+.card-view-pf .status-object {
   text-align: left;
   margin: 5px 20px;
 }
-/* line 173, scss/main.scss */
-.tiles-view-pf .status-object .pficon {
+/* line 177, scss/main.scss */
+.card-view-pf .status-object .pficon {
   font-size: 20px;
   width: 26px;
   color: #1186C1;
 }
-/* line 178, scss/main.scss */
-.tiles-view-pf .status-object .status-count {
+/* line 182, scss/main.scss */
+.card-view-pf .status-object .status-count {
   font-size: 18px;
   color: #515151;
 }
-/* line 182, scss/main.scss */
-.tiles-view-pf .status-object .status-text {
+/* line 186, scss/main.scss */
+.card-view-pf .status-object .status-text {
   font-size: 12px;
   color: #515151;
 }
-/* line 188, scss/main.scss */
-.tiles-view-pf .miq-icon-label {
+/* line 192, scss/main.scss */
+.card-view-pf .miq-icon-label {
   color: #515151;
   font-size: 18px;
   white-space: nowrap;
 }
-/* line 193, scss/main.scss */
-.tiles-view-pf .pficon.miq-icon-label {
+/* line 197, scss/main.scss */
+.card-view-pf .pficon.miq-icon-label {
   color: #1186C1;
 }
-/* line 197, scss/main.scss */
-.tiles-view-pf .miq-label {
+/* line 201, scss/main.scss */
+.card-view-pf .miq-label {
   color: #515151;
   font-size: 12px;
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 204, scss/main.scss */
-.tiles-view-pf .miq-label.miq-title {
+/* line 208, scss/main.scss */
+.card-view-pf .miq-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 211, scss/main.scss */
-.tiles-view-pf .miq-icon-label.miq-title {
+/* line 215, scss/main.scss */
+.card-view-pf .miq-icon-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 218, scss/main.scss */
-.tiles-view-pf .miq-label.miq-count {
+/* line 222, scss/main.scss */
+.card-view-pf .miq-label.miq-count {
   float: left;
   text-align: right;
   text-align: right;
   width: 32px;
 }
-/* line 225, scss/main.scss */
-.tiles-view-pf .miq-column.usage-column .miq-title {
+/* line 229, scss/main.scss */
+.card-view-pf .miq-column.usage-column .miq-title {
   text-align: right;
 }
-/* line 228, scss/main.scss */
-.tiles-view-pf .cpu-usage-column {
+/* line 232, scss/main.scss */
+.card-view-pf .cpu-usage-column {
   width: 150px;
 }
-/* line 230, scss/main.scss */
-.tiles-view-pf .cpu-usage-column .miq-title {
+/* line 234, scss/main.scss */
+.card-view-pf .cpu-usage-column .miq-title {
   text-align: right;
   width: 95px;
 }
-/* line 235, scss/main.scss */
-.tiles-view-pf .memory-usage-column {
+/* line 239, scss/main.scss */
+.card-view-pf .memory-usage-column {
   width: 180px;
 }
-/* line 237, scss/main.scss */
-.tiles-view-pf .memory-usage-column .miq-title {
+/* line 241, scss/main.scss */
+.card-view-pf .memory-usage-column .miq-title {
   text-align: right;
   width: 135px;
 }
 
-/* line 246, scss/main.scss */
-.data-list-pf .miq-row-column {
+/* line 249, scss/main.scss */
+.list-view-pf .miq-list-row {
+  width: 100%;
+}
+/* line 253, scss/main.scss */
+.list-view-pf .miq-row-column {
   padding-right: 5px;
 }
-/* line 251, scss/main.scss */
-.data-list-pf .list-group-item .miq-column {
+/* line 258, scss/main.scss */
+.list-view-pf .list-group-item .miq-column {
   float: left;
   padding: 5px 5px;
-}
-/* line 256, scss/main.scss */
-.data-list-pf .list-group-item .miq-object-column {
-  padding-top: 1px !important;
-}
-/* line 258, scss/main.scss */
-.data-list-pf .list-group-item .miq-object-column .miq-label {
-  vertical-align: middle;
+  margin-right: 10px;
 }
 /* line 264, scss/main.scss */
-.data-list-pf .list-group-item .miq-icon-label {
+.list-view-pf .list-group-item .miq-object-column {
+  padding-top: 1px !important;
+}
+/* line 266, scss/main.scss */
+.list-view-pf .list-group-item .miq-object-column .miq-label {
+  vertical-align: middle;
+}
+/* line 272, scss/main.scss */
+.list-view-pf .list-group-item .miq-icon-label {
   color: #515151;
   font-size: 18px;
   vertical-align: middle;
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 271, scss/main.scss */
-.data-list-pf .list-group-item .pficon.miq-icon-label {
+/* line 279, scss/main.scss */
+.list-view-pf .list-group-item .pficon.miq-icon-label {
   color: #1186C1;
 }
-/* line 275, scss/main.scss */
-.data-list-pf .list-group-item .miq-label {
+/* line 283, scss/main.scss */
+.list-view-pf .list-group-item .miq-label {
   color: #515151;
   font-size: 12px;
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 282, scss/main.scss */
-.data-list-pf .list-group-item .miq-label.miq-title {
+/* line 290, scss/main.scss */
+.list-view-pf .list-group-item .miq-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 289, scss/main.scss */
-.data-list-pf .list-group-item .miq-icon-label.miq-title {
+/* line 297, scss/main.scss */
+.list-view-pf .list-group-item .miq-icon-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 296, scss/main.scss */
-.data-list-pf .list-group-item .miq-label.miq-count {
+/* line 304, scss/main.scss */
+.list-view-pf .list-group-item .miq-label.miq-count {
   float: left;
   text-align: right;
   text-align: right;
   width: 32px;
 }
-/* line 303, scss/main.scss */
-.data-list-pf .list-group-item .miq-column.usage-column .miq-title {
+/* line 311, scss/main.scss */
+.list-view-pf .list-group-item .miq-column.usage-column .miq-title {
   text-align: right;
 }
-/* line 308, scss/main.scss */
-.data-list-pf .provider-column {
+/* line 316, scss/main.scss */
+.list-view-pf .provider-column {
   padding-top: 5px !important;
 }
 
-/* line 313, scss/main.scss */
-.providers-tiles .tiles-view-pf .tile {
+/* line 321, scss/main.scss */
+.providers-cards .card-view-pf .card {
   height: 250px;
   width: 355px;
 }
 
-/* line 318, scss/main.scss */
-.projects-tiles .tiles-view-pf .tile {
+/* line 326, scss/main.scss */
+.projects-cards .card-view-pf .card {
   height: 270px;
   width: 355px;
 }
 
-/* line 322, scss/main.scss */
-.projects-tiles .status-object.provider-object {
+/* line 330, scss/main.scss */
+.projects-cards .status-object.provider-object {
   text-align: center;
 }
 
-/* line 326, scss/main.scss */
-.pods-tiles .tiles-view-pf .tile {
+/* line 334, scss/main.scss */
+.pods-cards .card-view-pf .card {
   height: 230px;
   width: 355px;
 }
 
-/* line 333, scss/main.scss */
+/* line 341, scss/main.scss */
 .pods-containers-info .containers-heading {
   text-align: center;
 }
-/* line 335, scss/main.scss */
+/* line 343, scss/main.scss */
 .pods-containers-info .containers-heading .pficon {
   color: #1186C1;
   font-size: 64px;
   padding: 10px 20px;
 }
-/* line 340, scss/main.scss */
+/* line 348, scss/main.scss */
 .pods-containers-info .containers-heading .containers-count {
   border-left: 1px solid #d1d1d1;
   color: #515151;
   font-weight: 300;
 }
-/* line 345, scss/main.scss */
+/* line 353, scss/main.scss */
 .pods-containers-info .containers-heading .containers-label {
   font-size: 26px;
 }
-/* line 349, scss/main.scss */
+/* line 357, scss/main.scss */
 .pods-containers-info .containers-counter {
   font-size: 32px;
 }
-/* line 353, scss/main.scss */
+/* line 361, scss/main.scss */
 .pods-containers-info .containers-list {
   margin-top: 10px;
   border: 1px solid #d1d1d1;
 }
-/* line 356, scss/main.scss */
+/* line 364, scss/main.scss */
 .pods-containers-info .containers-list .toolbar-pf {
   padding-bottom: 10px;
 }
-/* line 359, scss/main.scss */
+/* line 367, scss/main.scss */
 .pods-containers-info .containers-list .list-view-container {
   height: 264px;
 }
-/* line 363, scss/main.scss */
+/* line 371, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column {
   width: 190px;
 }
-/* line 365, scss/main.scss */
+/* line 373, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column .miq-title {
   text-align: right;
   width: 105px;
 }
-/* line 369, scss/main.scss */
+/* line 377, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column .miq-count {
   width: 30px;
   text-align: right;
 }
-/* line 374, scss/main.scss */
+/* line 382, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column {
   width: 225px;
 }
-/* line 376, scss/main.scss */
+/* line 384, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column .miq-title {
   text-align: right;
   width: 130px;
 }
-/* line 380, scss/main.scss */
+/* line 388, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column .miq-count {
   width: 30px;
   text-align: right;
 }
 
-/* line 388, scss/main.scss */
+/* line 396, scss/main.scss */
 .pod-metrics {
   height: 392px;
   overflow-y: auto;
 }
-/* line 392, scss/main.scss */
+/* line 400, scss/main.scss */
 .pod-metrics .metric-row {
   padding: 10px 5px;
   margin: 0;
 }
-/* line 397, scss/main.scss */
+/* line 405, scss/main.scss */
 .pod-metrics .metric-row:first-of-type {
   padding-top: 5px;
 }
-/* line 401, scss/main.scss */
+/* line 409, scss/main.scss */
 .pod-metrics .metric-row:last-of-type {
   padding-bottom: 5px;
 }
-/* line 405, scss/main.scss */
+/* line 413, scss/main.scss */
 .pod-metrics .metric-col {
   float: left;
 }
-/* line 409, scss/main.scss */
+/* line 417, scss/main.scss */
 .pod-metrics .metric-title {
   text-align: right;
   font-weight: 700;
@@ -446,7 +456,7 @@
   width: 175px;
   padding: 0 5px;
 }
-/* line 417, scss/main.scss */
+/* line 425, scss/main.scss */
 .pod-metrics .metric-value {
   float: left;
   padding: 0 5px;
@@ -527,7 +537,7 @@
   color: #1186C1 !important;
 }
 ****/
-/* line 499, scss/main.scss */
+/* line 507, scss/main.scss */
 .icon-atomic:before {
   content: "\e62d";
   color: #0088ce;

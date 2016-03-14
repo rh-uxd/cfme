@@ -8,7 +8,7 @@
           "providerType": "OpenShift"
         },
         {
-          "iconClass": "pficon pficon-kubernetes",
+          "iconClass": "aggregate-status-card-notification-image product-vendor-kubernetes",
           "count": 1,
           "id":" kubernetes",
           "providerType": "Kubernetes"
