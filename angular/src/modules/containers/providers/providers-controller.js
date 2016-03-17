@@ -73,10 +73,41 @@ angular.module('miq.containers.providersModule').controller('containers.provider
       onSortChange: sortChange
     };
 
+    $scope.showDeploymentWizard = false;
+    var doShowDeploymentWizard = function () {
+      $scope.showDeploymentWizard = true;
+    };
+
+    $scope.cancelDeploymentWizard = function () {
+      $scope.showDeploymentWizard = false;
+    };
+
+    var cancelListener = $rootScope.$on('deployProvider.cancel', function() {
+      $scope.showDeploymentWizard = false;
+    });
+    var finishListener = $rootScope.$on('deployProvider.finished', function() {
+      $scope.showDeploymentWizard = false;
+    });
+
+    $scope.$on('$destroy', cancelListener);
+    $scope.$on('$destroy', finishListener);
+
+    $scope.actionsConfig = {
+      primaryActions: [
+        {
+          name: "Deploy New Provider",
+          title: "Deploy a new OpenShift provider",
+          actionFn: doShowDeploymentWizard
+        }
+      ]
+    };
+
     $scope.toolbarConfig = {
       viewsConfig: viewsConfig,
       filterConfig: filterConfig,
-      sortConfig: $scope.sortConfig
+      sortConfig: $scope.sortConfig,
+      actionsConfig: $scope.actionsConfig
+
     };
 
     if (!$rootScope.providersViewType) {

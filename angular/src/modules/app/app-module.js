@@ -1,4 +1,4 @@
-angular.module( 'miq.appModule', [
+angular.module ('miq.appModule', [
   'ngResource',
   'ngRoute',
   'ui.bootstrap',
@@ -9,26 +9,25 @@ angular.module( 'miq.appModule', [
   'miq.util',
   'miq.charts',
   'miq.card',
+  'miq.dialogs',
   'miq.navigation',
+  'miq.wizard',
   'miq.containersModule',
   'miq.infrastructureModule'
-] )
-  .config( ['$routeProvider', '$translateProvider',
-    function( $routeProvider, $translateProvider ) {
-      'use strict';
+]).config(['$routeProvider', '$translateProvider',
+  function ($routeProvider, $translateProvider) {
+    'use strict';
 
-      $routeProvider
-        .when('/', {
-          redirectTo: '/containers/dashboard'
-        })
+    $routeProvider
+      .when('/', {
+        redirectTo: '/containers/dashboard'
+      })
 
-        // Default
-        .otherwise({
-        });
+      // Default
+      .otherwise({
+      });
 
-      $translateProvider.translations( 'default', 'en');
-      $translateProvider.preferredLanguage( 'default' );
-
-    }
-  ]
-);
+    $translateProvider.translations('default', 'en');
+    $translateProvider.preferredLanguage('default');
+  }
+]);

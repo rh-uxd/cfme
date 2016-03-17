@@ -1,6 +1,18 @@
 
 .miq-fixed-body {
   padding-top: 125px;
+
+  .modal {
+    top: 85px;
+  }
+}
+
+.modal-header {
+  background-color: #030303;
+  color: #fafafa;
+  .close {
+    color: #fafafa;
+  }
 }
 
 .breadcrumb {
