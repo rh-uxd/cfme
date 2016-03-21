@@ -10,7 +10,6 @@ function wizardButtonDirective(action) {
 
           $element.on("click", function(e) {
             e.preventDefault();
-            console.log(action.replace("miqWiz", "") + " clicked");
             $scope.$apply(function() {
               $scope.$eval($attrs[action]);
               wizard[action.replace("miqWiz", "").toLowerCase()]();

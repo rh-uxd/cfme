@@ -13,9 +13,11 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
     },
     require: '^miq-wizard-step',
     templateUrl: 'modules/app/directives/wizard/wizard-substep.html',
+    controller: function($scope) {
+    },
     link: function($scope, $element, $attrs, step) {
       $scope.title = $scope.stepTitle;
-      step.addSubstep($scope);
+      step.addStep($scope);
     }
   };
 });

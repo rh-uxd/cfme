@@ -690,25 +690,86 @@
 }
 
 /* line 11, scss/wizard.scss */
-.miq-wizard .modal-body {
+.wizard-miq .modal-body {
   padding: 0;
 }
-/* line 14, scss/wizard.scss */
-.miq-wizard .miq-wizard-body {
+
+/* line 16, scss/wizard.scss */
+.wizard-miq-body {
   display: inline-block;
   width: 100%;
 }
-/* line 18, scss/wizard.scss */
-.miq-wizard .miq-wizard-content {
+
+/* line 20, scss/wizard.scss */
+.wizard-miq-content {
   padding: 15px 15px 0 15px;
 }
-/* line 22, scss/wizard.scss */
-.miq-wizard .steps {
+
+/* line 24, scss/wizard.scss */
+.wizard-miq-steps {
   margin-top: 10px;
 }
 
-/* line 27, scss/wizard.scss */
-.steps-indicator {
+/* line 30, scss/wizard.scss */
+.wizard--miq-step-substeps .sidebar-pf {
+  background: none;
+}
+
+/* line 35, scss/wizard.scss */
+.wizard-miq-substeps-list {
+  border: none;
+  list-style: none;
+}
+/* line 39, scss/wizard.scss */
+.wizard-miq-substeps-list li {
+  padding: 5px 0;
+}
+/* line 41, scss/wizard.scss */
+.wizard-miq-substeps-list li a {
+  cursor: pointer;
+  color: #030303;
+}
+/* line 44, scss/wizard.scss */
+.wizard-miq-substeps-list li a span {
+  position: absolute;
+  left: 0;
+}
+/* line 51, scss/wizard.scss */
+.wizard-miq-substeps-list li.current:before {
+  color: #39a5dc;
+}
+/* line 55, scss/wizard.scss */
+.wizard-miq-substeps-list li.current,
+.wizard-miq-substeps-list li.editing {
+  pointer-events: none;
+}
+/* line 60, scss/wizard.scss */
+.wizard-miq-substeps-list li.current a {
+  color: #39a5dc;
+}
+/* line 62, scss/wizard.scss */
+.wizard-miq-substeps-list li.current a:before {
+  background-color: #39a5dc;
+}
+/* line 67, scss/wizard.scss */
+.wizard-miq-substeps-list li.done a {
+  color: #030303;
+}
+/* line 69, scss/wizard.scss */
+.wizard-miq-substeps-list li.done a:before {
+  background-color: #030303;
+}
+/* line 74, scss/wizard.scss */
+.wizard-miq-substeps-list li.editing a {
+  color: #39a5dc;
+}
+/* line 76, scss/wizard.scss */
+.wizard-miq-substeps-list li.editing a:before {
+  background-color: #39a5dc;
+}
+
+/* line 82, scss/wizard.scss */
+.wizard-miq-steps-indicator {
   right: 0;
   bottom: 0;
   left: 0;
@@ -717,8 +778,8 @@
   height: 30px;
   list-style: none;
 }
-/* line 38, scss/wizard.scss */
-.steps-indicator:before {
+/* line 91, scss/wizard.scss */
+.wizard-miq-steps-indicator:before {
   background-color: #E6E6E6;
   content: '';
   position: absolute;
@@ -727,14 +788,14 @@
   top: 42px;
   height: 1px;
 }
-/* line 48, scss/wizard.scss */
-.steps-indicator * {
+/* line 101, scss/wizard.scss */
+.wizard-miq-steps-indicator * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 55, scss/wizard.scss */
-.steps-indicator li {
+/* line 108, scss/wizard.scss */
+.wizard-miq-steps-indicator li {
   position: relative;
   float: left;
   margin: 0;
@@ -743,8 +804,8 @@
   line-height: 15px;
   counter-increment: section;
 }
-/* line 64, scss/wizard.scss */
-.steps-indicator li a {
+/* line 117, scss/wizard.scss */
+.wizard-miq-steps-indicator li a {
   color: #030303;
   text-decoration: none;
   text-transform: uppercase;
@@ -752,8 +813,8 @@
   transition: 0.25s;
   cursor: pointer;
 }
-/* line 72, scss/wizard.scss */
-.steps-indicator li a:before {
+/* line 125, scss/wizard.scss */
+.wizard-miq-steps-indicator li a:before {
   position: absolute;
   top: 18px;
   left: calc(50% - 7px);
@@ -765,98 +826,100 @@
   content: counter(section);
   transition: 0.25s;
 }
-/* line 85, scss/wizard.scss */
-.steps-indicator li a:hover {
+/* line 138, scss/wizard.scss */
+.wizard-miq-steps-indicator li a:hover {
   color: #1a6b95;
 }
-/* line 91, scss/wizard.scss */
-.steps-indicator.steps-2 li {
+/* line 144, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-2 li {
   width: calc(100% / 2);
 }
-/* line 95, scss/wizard.scss */
-.steps-indicator.steps-3 li {
+/* line 148, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-3 li {
   width: calc(100% / 3);
 }
-/* line 99, scss/wizard.scss */
-.steps-indicator.steps-4 li {
+/* line 152, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-4 li {
   width: calc(100% / 4);
 }
-/* line 103, scss/wizard.scss */
-.steps-indicator.steps-5 li {
+/* line 156, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-5 li {
   width: calc(100% / 5);
 }
-/* line 107, scss/wizard.scss */
-.steps-indicator.steps-6 li {
+/* line 160, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-6 li {
   width: calc(100% / 6);
 }
-/* line 111, scss/wizard.scss */
-.steps-indicator.steps-7 li {
+/* line 164, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-7 li {
   width: calc(100% / 7);
 }
-/* line 115, scss/wizard.scss */
-.steps-indicator.steps-8 li {
+/* line 168, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-8 li {
   width: calc(100% / 8);
 }
-/* line 119, scss/wizard.scss */
-.steps-indicator.steps-9 li {
+/* line 172, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-9 li {
   width: calc(100% / 9);
 }
-/* line 123, scss/wizard.scss */
-.steps-indicator.steps-10 li {
+/* line 176, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-10 li {
   width: calc(100% / 10);
 }
-/* line 127, scss/wizard.scss */
-.steps-indicator.steps-11 li {
+/* line 180, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-11 li {
   width: calc(100% / 11);
 }
-/* line 131, scss/wizard.scss */
-.steps-indicator li.default {
+/* line 184, scss/wizard.scss */
+.wizard-miq-steps-indicator li.default {
   pointer-events: none;
 }
-/* line 134, scss/wizard.scss */
-.steps-indicator li.default a:hover {
+/* line 187, scss/wizard.scss */
+.wizard-miq-steps-indicator li.default a:hover {
   color: #39a5dc;
 }
-/* line 139, scss/wizard.scss */
-.steps-indicator li.current,
-.steps-indicator li.editing {
+/* line 192, scss/wizard.scss */
+.wizard-miq-steps-indicator li.current,
+.wizard-miq-steps-indicator li.editing {
   pointer-events: none;
 }
-/* line 144, scss/wizard.scss */
-.steps-indicator li.current a {
+/* line 197, scss/wizard.scss */
+.wizard-miq-steps-indicator li.current a {
   color: #39a5dc;
 }
-/* line 146, scss/wizard.scss */
-.steps-indicator li.current a:before {
+/* line 199, scss/wizard.scss */
+.wizard-miq-steps-indicator li.current a:before {
   background-color: #39a5dc;
 }
-/* line 151, scss/wizard.scss */
-.steps-indicator li.done a {
+/* line 204, scss/wizard.scss */
+.wizard-miq-steps-indicator li.done a {
   color: #030303;
 }
-/* line 153, scss/wizard.scss */
-.steps-indicator li.done a:before {
+/* line 206, scss/wizard.scss */
+.wizard-miq-steps-indicator li.done a:before {
   background-color: #030303;
 }
-/* line 158, scss/wizard.scss */
-.steps-indicator li.editing a {
+/* line 211, scss/wizard.scss */
+.wizard-miq-steps-indicator li.editing a {
   color: #39a5dc;
 }
-/* line 160, scss/wizard.scss */
-.steps-indicator li.editing a:before {
+/* line 213, scss/wizard.scss */
+.wizard-miq-steps-indicator li.editing a:before {
   background-color: #39a5dc;
 }
 
-/* line 166, scss/wizard.scss */
-.wizard-footer {
+/* line 219, scss/wizard.scss */
+.wizard-miq-footer {
   padding-bottom: 17px;
   background-color: #d1d1d1;
 }
 
-/* line 170, scss/wizard.scss */
-.wizard-btn-container {
+/* line 223, scss/wizard.scss */
+.wizard-miq-btn-container {
+  border-top: solid 1px #E6E6E6;
   float: right;
   width: 100%;
   padding: 15px;
   background-color: #f8f8f8;
+  margin-top: 0;
 }

@@ -1,13 +1,13 @@
-<div>
-  <div class="miq-wizard-content">
-    <ul class="steps-indicator steps-{{getEnabledSteps().length}}" ng-if="!hideIndicators">
+<div class="wizard-miq-body">
+  <div class="wizard-miq-content">
+    <ul class="wizard-miq-steps-indicator wizard-miq-steps-{{getEnabledSteps().length}}" ng-if="!hideIndicators">
       <li ng-class="{default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed}" ng-repeat="step in getEnabledSteps()">
-        <a ng-click="goTo(step)">{{step.title}}</a>
+        <a ng-click="goTo(step, true)">{{step.title}}</a>
       </li>
     </ul>
-    <div class="steps" ng-transclude  ng-style="contentStyle"></div>
+    <div class="wizard-miq-steps" ng-transclude  ng-style="contentStyle"></div>
   </div>
-  <div class="wizard-btn-container modal-footer">
+  <div class="wizard-miq-btn-container modal-footer">
     <button miq-wiz-cancel class="btn btn-default">{{cancelTitle}}</button>
     <button miq-wiz-previous class="btn btn-default">{{backTitle}}</button>
     <button miq-wiz-next class="btn btn-primary">{{nextTitle}}</button>

@@ -5,6 +5,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
     transclude: true,
     scope: {
       stepTitle: '@',
+      substeps: '=?',
       canenter : '=',
       canexit : '=',
       disabled: '@?wzDisabled',
@@ -13,10 +14,12 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
     },
     require: '^miq-wizard',
     templateUrl: 'modules/app/directives/wizard/wizard-step.html',
-    controller: function ($scope, $element) {
-      $scope.substeps = [];
+    controller: function ($scope, $element, $q) {
+      var firstRun = true;
+      $scope.steps = [];
       $scope.context = {};
       this.context = $scope.context;
+
       $scope.getEnabledSteps = function() {
         return $scope.steps.filter(function(step){
           return step.disabled !== 'true';
@@ -35,6 +38,10 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         return res;
       };
 
+      $scope.resetNav = function() {
+        $scope.goTo($scope.getEnabledSteps()[0]);
+      };
+
       $scope.currentStepNumber = function() {
         //retreive current step number
         return stepIdx($scope.selectedStep) + 1;
@@ -42,6 +49,10 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
 
       $scope.getStepNumber = function(step) {
         return stepIdx(step) + 1;
+      };
+
+      $scope.getStepDisplayNumber = function(step) {
+        return $scope.pageNumber +  String.fromCharCode(65 + stepIdx(step)) + ".";
       };
 
       //watching changes to currentStep
@@ -144,7 +155,6 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       };
 
       $scope.goTo = function(step) {
-        console.dir("Goto: " + step)
         // if this is the first time the wizard is loading it bi-passes step validation
         if (firstRun) {
 
@@ -200,7 +210,6 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
 
       this.addStep = function(step) {
         // Push the step onto step array
-        console.dir(step);
         $scope.steps.push(step);
 
         if ($scope.getEnabledSteps().length === 1) {
@@ -248,7 +257,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       };
 
       // Method used for next button within step
-      this.next = function(callback) {
+      $scope.next = function(callback) {
         var enabledSteps = $scope.getEnabledSteps();
 
         // Save the step  you were on when next() was invoked
@@ -258,13 +267,14 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         if (angular.isFunction(callback)) {
           if (callback()) {
             if (index === enabledSteps.length - 1) {
-              this.finish();
+              return false;
             } else {
               // Go to the next step
               $scope.goTo(enabledSteps[index + 1]);
+              return true;
             }
           } else {
-            return;
+            return true;
           }
         }
 
@@ -275,47 +285,39 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
 
         // Check to see if this is the last step.  If it is next behaves the same as finish()
         if (index === enabledSteps.length - 1) {
-          this.finish();
+          return false;
         } else {
           // Go to the next step
           $scope.goTo(enabledSteps[index + 1]);
+          return true;
         }
       };
 
-      this.previous = function() {
+      $scope.previous = function() {
         var index = stepIdx($scope.selectedStep);
 
         if (index === 0) {
-          throw new Error("Can't go back. It's already in step 0");
+          return false;
         } else {
           $scope.goTo($scope.getEnabledSteps()[index - 1]);
+          return true;
         }
       };
 
-      this.finish = function() {
-        if ($scope.onFinish) {
-          $scope.onFinish();
-        }
-      };
-
-      this.cancel = function() {
-        if ($scope.onCancel) {
-          $scope.onCancel();
-        }
-      };
-
-      //reset
-      this.reset = function(){
-        //traverse steps array and set each "completed" property to false
-        angular.forEach($scope.getEnabledSteps(), function (step) {
-          step.completed = false;
-        });
-        //go to first step
-        this.goTo(0);
-      };
     },
     link: function($scope, $element, $attrs, wizard) {
-      $scope.title = $scope.stepTitle;
+
+      $scope.$watch($attrs.ngShow, function(value) {
+        $scope.pageNumber = wizard.getStepNumber($scope);
+      });
+      $scope.title =  $scope.stepTitle;
+
+      $scope.substepsListStyle = {
+        'height': wizard.contentHeight,
+        'max-height': wizard.contentHeight,
+        'overflow-y' : 'auto'
+      };
+
       wizard.addStep($scope);
     }
   };

@@ -37,6 +37,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       if (!$scope.contentHeight) {
         $scope.contentHeight = '300px';
       }
+      this.contentHeight = $scope.contentHeight;
       $scope.contentStyle = {
         'height': $scope.contentHeight,
         'max-height': $scope.contentHeight,
@@ -168,8 +169,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         $scope.selectedStep = null;
       };
 
-      $scope.goTo = function(step) {
-        console.dir("Goto: " + step)
+      $scope.goTo = function(step, resetStepNav) {
         // if this is the first time the wizard is loading it bi-passes step validation
         if (firstRun) {
 
@@ -198,6 +198,11 @@ angular.module('miq.wizard').directive('miqWizard', function () {
           $q.all([canExitStep($scope.getEnabledSteps()[thisStep], step), canEnterStep(step)]).then(function(data) {
             if (data[0] && data[1]) {
               unselectAll();
+
+              if (resetStepNav && step.substeps) {
+                step.resetNav();
+              }
+
               $scope.selectedStep = step;
               step.selected = true;
 
@@ -225,7 +230,6 @@ angular.module('miq.wizard').directive('miqWizard', function () {
 
       this.addStep = function(step) {
         // Push the step onto step array
-        console.dir(step);
         $scope.steps.push(step);
 
         if ($scope.getEnabledSteps().length === 1) {
@@ -258,8 +262,12 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         return $scope.currentStepNumber();
       };
 
+      this.getStepNumber = function(step) {
+        return $scope.getStepNumber(step);
+      };
+
       // Allow access to any step
-      this.goTo = function(step) {
+      this.goTo = function(step, resetStepNav) {
         var enabledSteps = $scope.getEnabledSteps();
         var stepTo;
 
@@ -269,7 +277,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
           stepTo = stepByTitle(step);
         }
 
-        $scope.goTo(stepTo);
+        $scope.goTo(stepTo, resetStepNav);
       };
 
       // Method used for next button within step
@@ -280,6 +288,12 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         // Save the step  you were on when next() was invoked
         var index = stepIdx($scope.selectedStep);
 
+        if ($scope.selectedStep.substeps) {
+          if ($scope.selectedStep.next(callback)) {
+            return;
+          }
+        }
+
         // Check if callback is a function
         if (angular.isFunction(callback)) {
           if (callback()) {
@@ -287,6 +301,9 @@ angular.module('miq.wizard').directive('miqWizard', function () {
               this.finish();
             } else {
               // Go to the next step
+              if (enabledSteps[index + 1].substeps) {
+                enabledSteps[index + 1].resetNav();
+              }
               $scope.goTo(enabledSteps[index + 1]);
             }
           } else {
@@ -311,6 +328,11 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       this.previous = function() {
         var index = stepIdx($scope.selectedStep);
 
+        if ($scope.selectedStep.substeps) {
+          if ($scope.selectedStep.previous()) {
+            return;
+          }
+        }
         if (index === 0) {
           throw new Error("Can't go back. It's already in step 0");
         } else {

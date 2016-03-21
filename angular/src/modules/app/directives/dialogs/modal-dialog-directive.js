@@ -8,14 +8,12 @@ angular.module('miq.dialogs').directive('miqModal', function () {
       visible: '=',
       modalTitle: '@',
       modalSize: '@',
-      backdrop: '@',
-      keyboard: '@',
       onShow: '&',
       onHide: '&',
       onCancel: '&'
     },
     templateUrl: 'modules/app/directives/dialogs/modal-dialog.html',
-    link: function (scope, element, attrs) {
+    link: function (scope, element) {
       scope.$watch('visible', function(value) {
         if (value == true) {
           $(element).modal('show');
