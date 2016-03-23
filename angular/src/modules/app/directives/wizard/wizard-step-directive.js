@@ -317,6 +317,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         'max-height': wizard.contentHeight,
         'overflow-y' : 'auto'
       };
+      $scope.contentStyle = wizard.contentStyle;
 
       wizard.addStep($scope);
     }

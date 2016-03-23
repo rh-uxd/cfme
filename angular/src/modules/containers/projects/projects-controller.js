@@ -39,7 +39,6 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
     };
 
     var viewSelected = function(view) {
-      console.log("View: " + view);
       $rootScope.projectsViewType = view
     };
 

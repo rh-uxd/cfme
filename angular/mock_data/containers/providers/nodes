@@ -1,0 +1,44 @@
+{
+  "data": [
+     {
+        "providerName": "Existing Azure01 Provider",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "providerName": "Existing Azure01 Provider",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "providerName": "Existing Azure01 Provider",
+        "providerType": "Azure",
+        "cpus": "4",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "providerName": "Existing Azure01 Provider",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     },
+     {
+        "providerName": "Existing Azure01 Provider",
+        "providerType": "Azure",
+        "cpus": "2",
+        "memory": "6 GB",
+        "diskSize": "500 GB",
+        "state" : "Unset"
+     }
+  ]
+}

@@ -1,19 +1,19 @@
 <section ng-show="selected" ng-class="{current: selected, done: completed}" class="step">
-  <div class="wizard-miq-step-substeps container-fluid" ng-if="substeps === true">
-    <div class="row">
-      <div class="col-sm-3 col-md-2 sidebar-pf sidebar-pf-left" ng-style="substepsListStyle">
-        <ul class="list-group wizard-miq-substeps-list">
-          <li ng-class="{default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed}" ng-repeat="step in getEnabledSteps()">
+  <div class="wizard-miq-step-substeps" ng-if="substeps === true">
+    <div class="wizard-miq-step">
+      <div class="wizard-miq-substep-nav" ng-style="substepsListStyle">
+        <ul class="list-group">
+          <li class="list-group-item" ng-class="{active: step.selected}" ng-repeat="step in getEnabledSteps()">
             <a ng-click="goTo(step)">
               {{getStepDisplayNumber(step)}}  {{step.title}}
             </a>
           </li>
         </ul>
-      </div><!-- /col -->
-      <div class="col-sm-9 col-md-10">
-        <div class="wizard-miq-steps" ng-transclude  ng-style="contentStyle"></div>
-      </div><!-- /col -->
+      </div>
+      <div class="wizard-miq-step-content" ng-transclude  ng-style="contentStyle"></div>
     </div>
   </div>
-  <div ng-if="substeps !== true" ng-transclude></div>
+  <div ng-if="substeps !== true" class="wizard-miq-step">
+    <div class="wizard-miq-step-content" ng-transclude  ng-style="contentStyle"></div>
+  </div>
 </section>

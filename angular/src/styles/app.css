@@ -9,12 +9,12 @@
 
 /* line 10, scss/main.scss */
 .modal-header {
-  background-color: #030303;
-  color: #fafafa;
+  background-color: #f8f8f8;
+  color: #030303;
 }
 /* line 13, scss/main.scss */
 .modal-header .close {
-  color: #fafafa;
+  color: #030303;
 }
 
 /* line 18, scss/main.scss */
@@ -689,86 +689,166 @@
   margin-top: -20px;
 }
 
-/* line 11, scss/wizard.scss */
+/* line 21, scss/wizard.scss */
 .wizard-miq .modal-body {
   padding: 0;
 }
 
-/* line 16, scss/wizard.scss */
+/* line 26, scss/wizard.scss */
 .wizard-miq-body {
   display: inline-block;
   width: 100%;
 }
 
-/* line 20, scss/wizard.scss */
-.wizard-miq-content {
-  padding: 15px 15px 0 15px;
-}
-
-/* line 24, scss/wizard.scss */
-.wizard-miq-steps {
-  margin-top: 10px;
-}
-
 /* line 30, scss/wizard.scss */
-.wizard--miq-step-substeps .sidebar-pf {
-  background: none;
+.wizard-miq-content {
+  padding-top: 15px;
 }
 
-/* line 35, scss/wizard.scss */
+/* line 34, scss/wizard.scss */
+.wizard-miq-step {
+  border-top: solid 1px #d1d1d1;
+  margin-top: 15px;
+}
+
+/* line 39, scss/wizard.scss */
+.wizard-miq-substep-nav {
+  background: #f8f8f8;
+  border-right: 1px solid #E6E6E6;
+  bottom: 0;
+  float: left;
+  overflow-x: hidden;
+  overflow-y: auto;
+  left: 0px;
+  position: relative;
+  top: 0;
+  width: 200px;
+}
+/* line 51, scss/wizard.scss */
+.wizard-miq-substep-nav .list-group {
+  border-top: 0;
+  margin-bottom: 0;
+}
+/* line 54, scss/wizard.scss */
+.wizard-miq-substep-nav .list-group > .list-group-item {
+  background-color: transparent;
+  border-color: #E6E6E6;
+  padding: 0;
+}
+/* line 59, scss/wizard.scss */
+.wizard-miq-substep-nav .list-group > .list-group-item > a {
+  background-color: transparent;
+  color: #030303;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  height: 63px;
+  outline: 0;
+  padding: 17px 20px 17px 25px;
+  position: relative;
+  white-space: nowrap;
+  width: 200px;
+}
+/* line 73, scss/wizard.scss */
+.wizard-miq-substep-nav .list-group > .list-group-item.active > a {
+  color: #199dde;
+  font-weight: 600;
+}
+/* line 78, scss/wizard.scss */
+.wizard-miq-substep-nav .list-group > .list-group-item.active > a:before {
+  background: #199dde;
+  content: " ";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 5px;
+}
+/* line 87, scss/wizard.scss */
+.wizard-miq-substep-nav .list-group > .list-group-item.active > a:after {
+  color: #199dde;
+  content: "\f105";
+  display: block;
+  font-family: FontAwesome;
+  font-size: 24px;
+  line-height: 30px;
+  padding: 14px 0;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+/* line 102, scss/wizard.scss */
+.wizard-miq-substep-nav .list-group > .list-group-item :hover > a {
+  background-color: #393f44;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* line 112, scss/wizard.scss */
+.wizard-miq-step-content {
+  padding: 20px 20px 0 20px;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+/* line 123, scss/wizard.scss */
 .wizard-miq-substeps-list {
   border: none;
   list-style: none;
 }
-/* line 39, scss/wizard.scss */
+/* line 127, scss/wizard.scss */
 .wizard-miq-substeps-list li {
   padding: 5px 0;
 }
-/* line 41, scss/wizard.scss */
+/* line 129, scss/wizard.scss */
 .wizard-miq-substeps-list li a {
   cursor: pointer;
   color: #030303;
 }
-/* line 44, scss/wizard.scss */
+/* line 132, scss/wizard.scss */
 .wizard-miq-substeps-list li a span {
   position: absolute;
   left: 0;
 }
-/* line 51, scss/wizard.scss */
+/* line 139, scss/wizard.scss */
 .wizard-miq-substeps-list li.current:before {
-  color: #39a5dc;
+  color: #fafafa;
 }
-/* line 55, scss/wizard.scss */
+/* line 143, scss/wizard.scss */
 .wizard-miq-substeps-list li.current,
 .wizard-miq-substeps-list li.editing {
   pointer-events: none;
 }
-/* line 60, scss/wizard.scss */
+/* line 148, scss/wizard.scss */
 .wizard-miq-substeps-list li.current a {
-  color: #39a5dc;
+  color: #fafafa;
 }
-/* line 62, scss/wizard.scss */
+/* line 150, scss/wizard.scss */
 .wizard-miq-substeps-list li.current a:before {
   background-color: #39a5dc;
 }
-/* line 67, scss/wizard.scss */
+/* line 155, scss/wizard.scss */
 .wizard-miq-substeps-list li.done a {
   color: #030303;
 }
-/* line 69, scss/wizard.scss */
+/* line 157, scss/wizard.scss */
 .wizard-miq-substeps-list li.done a:before {
-  background-color: #030303;
+  background-color: #ffffff;
 }
-/* line 74, scss/wizard.scss */
+/* line 162, scss/wizard.scss */
 .wizard-miq-substeps-list li.editing a {
-  color: #39a5dc;
+  color: #fafafa;
 }
-/* line 76, scss/wizard.scss */
+/* line 164, scss/wizard.scss */
 .wizard-miq-substeps-list li.editing a:before {
   background-color: #39a5dc;
 }
 
-/* line 82, scss/wizard.scss */
+/* line 170, scss/wizard.scss */
 .wizard-miq-steps-indicator {
   right: 0;
   bottom: 0;
@@ -778,23 +858,23 @@
   height: 30px;
   list-style: none;
 }
-/* line 91, scss/wizard.scss */
+/* line 179, scss/wizard.scss */
 .wizard-miq-steps-indicator:before {
-  background-color: #E6E6E6;
+  background-color: #bbbbbb;
   content: '';
   position: absolute;
   left: 15px;
   right: 15px;
   top: 42px;
-  height: 1px;
+  height: 2px;
 }
-/* line 101, scss/wizard.scss */
+/* line 189, scss/wizard.scss */
 .wizard-miq-steps-indicator * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 108, scss/wizard.scss */
+/* line 196, scss/wizard.scss */
 .wizard-miq-steps-indicator li {
   position: relative;
   float: left;
@@ -804,7 +884,7 @@
   line-height: 15px;
   counter-increment: section;
 }
-/* line 117, scss/wizard.scss */
+/* line 205, scss/wizard.scss */
 .wizard-miq-steps-indicator li a {
   color: #030303;
   text-decoration: none;
@@ -813,108 +893,165 @@
   transition: 0.25s;
   cursor: pointer;
 }
-/* line 125, scss/wizard.scss */
+/* line 213, scss/wizard.scss */
 .wizard-miq-steps-indicator li a:before {
   position: absolute;
   top: 18px;
-  left: calc(50% - 7px);
-  width: 18px;
-  height: 18px;
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
   border-radius: 100%;
-  background-color: #E6E6E6;
-  color: #fafafa;
+  border: solid 3px #bbbbbb;
+  background-color: #ffffff;
+  color: #030303;
   content: counter(section);
   transition: 0.25s;
 }
-/* line 138, scss/wizard.scss */
+/* line 227, scss/wizard.scss */
 .wizard-miq-steps-indicator li a:hover {
-  color: #1a6b95;
+  color: #c7c7c7;
 }
-/* line 144, scss/wizard.scss */
+/* line 234, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-2:before {
+  left: calc(100% / 2 / 2);
+  right: calc(100% / 2 / 2);
+}
+/* line 238, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-2 li {
   width: calc(100% / 2);
 }
-/* line 148, scss/wizard.scss */
+/* line 244, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-3:before {
+  left: calc(100% / 3 /  2);
+  right: calc(100% / 3 / 2);
+}
+/* line 248, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-3 li {
   width: calc(100% / 3);
 }
-/* line 152, scss/wizard.scss */
+/* line 254, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-4:before {
+  left: calc(100% / 4 / 2);
+  right: calc(100% / 4 / 2);
+}
+/* line 258, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-4 li {
   width: calc(100% / 4);
 }
-/* line 156, scss/wizard.scss */
+/* line 264, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-5:before {
+  left: calc(100% / 5 / 2);
+  right: calc(100% / 5 / 2);
+}
+/* line 268, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-5 li {
   width: calc(100% / 5);
 }
-/* line 160, scss/wizard.scss */
+/* line 274, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-6:before {
+  left: calc(100% / 6 / 2);
+  right: calc(100% / 6 / 2);
+}
+/* line 278, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-6 li {
   width: calc(100% / 6);
 }
-/* line 164, scss/wizard.scss */
+/* line 284, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-7:before {
+  left: calc(100% / 7 / 2);
+  right: calc(100% / 7 / 2);
+}
+/* line 288, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-7 li {
   width: calc(100% / 7);
 }
-/* line 168, scss/wizard.scss */
+/* line 294, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-8:before {
+  left: calc(100% / 8 / 2);
+  right: calc(100% / 8 / 2);
+}
+/* line 298, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-8 li {
   width: calc(100% / 8);
 }
-/* line 172, scss/wizard.scss */
+/* line 304, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-9:before {
+  left: calc(100% / 9 / 2);
+  right: calc(100% / 9 / 2);
+}
+/* line 308, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-9 li {
   width: calc(100% / 9);
 }
-/* line 176, scss/wizard.scss */
+/* line 314, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-10:before {
+  left: calc(100% / 10 / 2);
+  right: calc(100% / 10 / 2);
+}
+/* line 318, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-10 li {
   width: calc(100% / 10);
 }
-/* line 180, scss/wizard.scss */
+/* line 324, scss/wizard.scss */
+.wizard-miq-steps-indicator.wizard-miq-steps-11:before {
+  left: calc(100% / 11 / 2);
+  right: calc(100% / 11 / 2);
+}
+/* line 328, scss/wizard.scss */
 .wizard-miq-steps-indicator.wizard-miq-steps-11 li {
   width: calc(100% / 11);
 }
-/* line 184, scss/wizard.scss */
+/* line 333, scss/wizard.scss */
 .wizard-miq-steps-indicator li.default {
   pointer-events: none;
 }
-/* line 187, scss/wizard.scss */
+/* line 336, scss/wizard.scss */
 .wizard-miq-steps-indicator li.default a:hover {
-  color: #39a5dc;
+  color: #fafafa;
 }
-/* line 192, scss/wizard.scss */
+/* line 341, scss/wizard.scss */
 .wizard-miq-steps-indicator li.current,
 .wizard-miq-steps-indicator li.editing {
   pointer-events: none;
 }
-/* line 197, scss/wizard.scss */
+/* line 346, scss/wizard.scss */
 .wizard-miq-steps-indicator li.current a {
   color: #39a5dc;
 }
-/* line 199, scss/wizard.scss */
+/* line 348, scss/wizard.scss */
 .wizard-miq-steps-indicator li.current a:before {
   background-color: #39a5dc;
+  border-color: #39a5dc;
+  color: #fafafa;
 }
-/* line 204, scss/wizard.scss */
+/* line 355, scss/wizard.scss */
 .wizard-miq-steps-indicator li.done a {
   color: #030303;
 }
-/* line 206, scss/wizard.scss */
+/* line 357, scss/wizard.scss */
 .wizard-miq-steps-indicator li.done a:before {
-  background-color: #030303;
+  background-color: #ffffff;
+  border-color: #39a5dc;
+  color: #030303;
 }
-/* line 211, scss/wizard.scss */
+/* line 364, scss/wizard.scss */
 .wizard-miq-steps-indicator li.editing a {
   color: #39a5dc;
 }
-/* line 213, scss/wizard.scss */
+/* line 366, scss/wizard.scss */
 .wizard-miq-steps-indicator li.editing a:before {
   background-color: #39a5dc;
+  border-color: #39a5dc;
+  color: #fafafa;
 }
 
-/* line 219, scss/wizard.scss */
+/* line 374, scss/wizard.scss */
 .wizard-miq-footer {
   padding-bottom: 17px;
   background-color: #d1d1d1;
 }
 
-/* line 223, scss/wizard.scss */
+/* line 378, scss/wizard.scss */
 .wizard-miq-btn-container {
   border-top: solid 1px #E6E6E6;
   float: right;
@@ -922,4 +1059,70 @@
   padding: 15px;
   background-color: #f8f8f8;
   margin-top: 0;
+}
+
+/* line 388, scss/wizard.scss */
+.miq-deploy-provider-wizard .sub-group {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+/* line 392, scss/wizard.scss */
+.miq-deploy-provider-wizard .sub-group > a {
+  margin-left: 10px;
+}
+/* line 398, scss/wizard.scss */
+.miq-deploy-provider-wizard a.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: #E6E6E6;
+}
+/* line 405, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-input-label-class {
+  width: 95px;
+  padding: 0 10px 0 20px;
+  float: left;
+}
+/* line 410, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-input-label-class.miq-input-label-class-lg {
+  width: 150px;
+}
+/* line 414, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-input-class {
+  width: 200px;
+  padding: 0 20px 0 10px;
+  float: left;
+}
+/* line 420, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-radio-input-class {
+  width: 200px;
+  padding: 0 20px 0 30px;
+  float: left;
+}
+/* line 426, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-touchspin-input-class {
+  width: 130px;
+  padding: 0 20px 0 30px;
+  float: left;
+}
+/* line 431, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-touchspin-input-class .form-control {
+  height: 25px;
+}
+/* line 434, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-touchspin-input-class .btn {
+  padding-bottom: 1px;
+}
+/* line 437, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-touchspin-input-class .form-control[readonly] {
+  background-color: #fff;
+}
+/* line 442, scss/wizard.scss */
+.miq-deploy-provider-wizard .form-horizontal > .radio {
+  margin-left: 20px;
+}
+/* line 446, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container {
+  margin-left: -10px;
+  margin-right: -10px;
+  border: solid 1px #d1d1d1;
 }

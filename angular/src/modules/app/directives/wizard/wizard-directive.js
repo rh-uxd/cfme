@@ -38,7 +38,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         $scope.contentHeight = '300px';
       }
       this.contentHeight = $scope.contentHeight;
-      $scope.contentStyle = {
+      this.contentStyle = {
         'height': $scope.contentHeight,
         'max-height': $scope.contentHeight,
         'overflow-y' : 'auto'
