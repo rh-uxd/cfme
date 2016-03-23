@@ -1,4 +1,3 @@
 {
-  "directory" : "src/libraries",
-  "proxy":"http://localhost"
+  "directory" : "src/libraries"
 }
