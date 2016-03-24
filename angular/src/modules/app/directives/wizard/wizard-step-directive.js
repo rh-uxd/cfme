@@ -6,15 +6,14 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
     scope: {
       stepTitle: '@',
       substeps: '=?',
-      canenter : '=',
-      canexit : '=',
+      nextEnabled: '=?',
       disabled: '@?wzDisabled',
       description: '@',
       wizardData: '='
     },
     require: '^miq-wizard',
     templateUrl: 'modules/app/directives/wizard/wizard-step.html',
-    controller: function ($scope, $element, $q) {
+    controller: function ($scope) {
       var firstRun = true;
       $scope.steps = [];
       $scope.context = {};
@@ -37,6 +36,10 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         });
         return res;
       };
+
+      if (!$scope.substeps && angular.isUndefined($scope.nextEnabled)) {
+        $scope.nextEnabled = true;
+      }
 
       $scope.resetNav = function() {
         $scope.goTo($scope.getEnabledSteps()[0]);
@@ -91,60 +94,6 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         }
       }, true);
 
-      var canEnterStep = function (step) {
-        var defer;
-        var canEnter;
-
-        // If no validation function is provided, allow the user to enter the step
-        if (step.canenter === undefined) {
-          return true;
-        }
-
-        // If canenter is a boolean value instead of a function, return the value
-        if (typeof step.canenter === 'boolean') {
-          return step.canenter;
-        }
-
-        //Check to see if the canenter function is a promise which needs to be returned
-        canEnter = step.canenter($scope.context);
-        if (angular.isFunction(canEnter.then)) {
-          defer = $q.defer();
-          canEnter.then(function(response) {
-            defer.resolve(response);
-          });
-          return defer.promise;
-        } else {
-          return canEnter === true;
-        }
-      };
-
-      var canExitStep = function (step, stepTo) {
-        var defer;
-        var canExit;
-
-        // Exiting the step should be allowed if no validation function was provided or if the user is moving backwards
-        if (typeof(step.canexit) === 'undefined' || $scope.getStepNumber(stepTo) < $scope.currentStepNumber()) {
-          return true;
-        }
-
-        // If canexit is a boolean value instead of a function, return the value
-        if (typeof step.canexit === 'boolean') {
-          return step.canexit;
-        }
-
-        //Check to see if the canexit function is a promise which needs to be returned
-        canExit = step.canexit($scope.context);
-        if (angular.isFunction(canExit.then)) {
-          defer = $q.defer();
-          canExit.then(function(response) {
-            defer.resolve(response);
-          });
-          return defer.promise;
-        } else {
-          return canExit === true;
-        }
-      };
-
       var unselectAll = function () {
         //traverse steps array and set each "selected" property to false
         angular.forEach($scope.getEnabledSteps(), function (step) {
@@ -154,49 +103,32 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         $scope.selectedStep = null;
       };
 
-      $scope.goTo = function(step) {
-        // if this is the first time the wizard is loading it bi-passes step validation
-        if (firstRun) {
-
-          // Make the given step selected
+      $scope.goTo = function (step) {
+        if (firstRun || $scope.getStepNumber(step) < $scope.currentStepNumber() || $scope.nextEnabled) {
           unselectAll();
+
           $scope.selectedStep = step;
           step.selected = true;
 
-          // make sure current step is not undefined
+          // Watch the new step for next button enabled status (remove any previous watcher)
+          if ($scope.stepEnabledWatcher) {
+            $scope.stepEnabledWatcher();
+          }
+          $scope.stepEnabledWatcher = $scope.$watch('selectedStep.nextEnabled', function (value) {
+            $scope.nextEnabled = value;
+          });
+
+          // Make sure current step is not undefined
           if (!angular.isUndefined($scope.currentStep)) {
             $scope.currentStep = step.wzTitle;
           }
 
+          //emit event upwards with data on goTo() invoktion
           $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
           firstRun = false;
-        } else {
-          var thisStep;
-
-          // Get data for step being transitioning out of
-          if ($scope.currentStepNumber() > 0) {
-            thisStep = $scope.currentStepNumber() - 1;
-          } else if ($scope.currentStepNumber() === 0) {
-            thisStep = 0;
-          }
-
-          $q.all([canExitStep($scope.getEnabledSteps()[thisStep], step), canEnterStep(step)]).then(function(data) {
-            if (data[0] && data[1]) {
-              unselectAll();
-              $scope.selectedStep = step;
-              step.selected = true;
-
-              // Make sure current step is not undefined
-              if (!angular.isUndefined($scope.currentStep)) {
-                $scope.currentStep = step.wzTitle;
-              }
-
-              //emit event upwards with data on goTo() invoktion
-              $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
-            }
-          });
         }
       };
+
 
       var stepByTitle = function(titleToFind) {
         var foundStep = null;

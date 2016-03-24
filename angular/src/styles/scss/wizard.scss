@@ -1,19 +1,18 @@
 $wz-default-bg-color: #ffffff;
 $wz-default-color: #030303;
-$wz-default-border-color: #bbbbbb;
+$wz-default-border-color: #d1d1d1;
 
 $wz-current-bg-color: #39a5dc;
-$wz-current-text-color: #39a5dc;
 $wz-current-color: #fafafa;
 $wz-current-border-color: #39a5dc;
 
 $wz-done-bg-color: #ffffff;
 $wz-done-color: #030303;
-$wz-done-border-color: #39a5dc;
+$wz-done-border-color: #d1d1d1;
 
 $wz-editing-bg-color: #39a5dc;
 $wz-editing-color: #fafafa;
-$wz-editing-border-color: #39a5dc;
+$wz-editing-border-color: #d1d1d1;
 
 $wz-substep-nav-width: 200px;
 
@@ -28,7 +27,6 @@ $wz-substep-nav-width: 200px;
   width: 100%;
 }
 .wizard-miq-content {
-  padding-top: 15px;
 }
 
 .wizard-miq-step {
@@ -37,8 +35,8 @@ $wz-substep-nav-width: 200px;
 }
 
 .wizard-miq-substep-nav {
-  background: #f8f8f8;
-  border-right: 1px solid #E6E6E6;
+  background: #fafafa;
+  border-right: 1px solid #d0d0d0;
   bottom: 0;
   float: left;
   overflow-x: hidden;
@@ -53,12 +51,13 @@ $wz-substep-nav-width: 200px;
     margin-bottom: 0;
     > .list-group-item {
       background-color: transparent;
-      border-color: #E6E6E6;
+      border-color: #ededed;
       padding: 0;
 
       > a {
         background-color: transparent;
         color: #030303;
+        cursor: pointer;
         display: block;
         font-size: 14px;
         font-weight: 400;
@@ -68,11 +67,16 @@ $wz-substep-nav-width: 200px;
         position: relative;
         white-space: nowrap;
         width: $wz-substep-nav-width;
+
+        &:hover {
+          text-decoration: none;
+        }
       }
       &.active {
         > a {
           color: #199dde;
           font-weight: 600;
+          cursor: default;
         }
 
         > a:before {
@@ -82,7 +86,7 @@ $wz-substep-nav-width: 200px;
           left: 0;
           position: absolute;
           top: 0;
-          width: 5px;
+          width: 3px;
         }
         > a:after {
           color: #199dde;
@@ -120,60 +124,15 @@ $wz-substep-nav-width: 200px;
 }
 
 
-.wizard-miq-substeps-list {
-  border: none;
-  list-style: none;
-
-  li {
-    padding: 5px 0;
-    a {
-      cursor: pointer;
-      color: $wz-default-color;
-      span {
-        position: absolute;
-        left: 0;
-      }
-    }
-  }
-
-  li.current:before {
-    color: $wz-current-color;
-
-  }
-  li.current,
-  li.editing {
-    pointer-events: none;
-  }
-
-  li.current a {
-    color: $wz-current-color;
-    &:before {
-      background-color: $wz-current-bg-color;
-    }
-  }
-
-  li.done a {
-    color: $wz-done-color;
-    &:before {
-      background-color: $wz-done-bg-color;
-    }
-  }
-
-  li.editing a {
-    color: $wz-editing-color;
-    &:before {
-      background-color: $wz-editing-bg-color;
-    }
-  }
-}
 
 .wizard-miq-steps-indicator {
+  background-color: #ffffff;
   right: 0;
   bottom: 0;
   left: 0;
   margin: 0;
-  padding: 0;
-  height: 30px;
+  padding: 38px 0 0 0;
+  height: 115px;
   list-style: none;
 
   &:before {
@@ -182,7 +141,7 @@ $wz-substep-nav-width: 200px;
     position: absolute;
     left: 15px;
     right: 15px;
-    top: 42px;
+    top: 76px;
     height: 2px;
   }
 
@@ -203,21 +162,23 @@ $wz-substep-nav-width: 200px;
     counter-increment: section;
 
     a {
-      color: $wz-default-color;
+      color: #030303;
       text-decoration: none;
-      text-transform: uppercase;
-      font-weight: bold;
+      font-size: 16px;
       transition: 0.25s;
       cursor: pointer;
 
       &:before {
         position: absolute;
-        top: 18px;
-        left: calc(50% - 10px);
-        width: 20px;
-        height: 20px;
+        top: 27px;
+        left: calc(50% - 13px);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 22px;
+        width: 25px;
+        height: 25px;
         border-radius: 100%;
-        border: solid 3px $wz-default-border-color;
+        border: solid 2px $wz-default-border-color;
         background-color: $wz-default-bg-color;
         color: $wz-default-color;
         content: counter(section);
@@ -225,7 +186,9 @@ $wz-substep-nav-width: 200px;
       }
 
       &:hover {
-        color: darken($wz-current-color, 20%);
+        &:before {
+          border-color: $wz-current-border-color;
+        }
       }
     }
   }
@@ -330,21 +293,8 @@ $wz-substep-nav-width: 200px;
     }
   }
 
-  li.default {
-    pointer-events: none;
-
-    a:hover {
-      color: $wz-current-color;
-    }
-  }
-
-  li.current,
-  li.editing {
-    pointer-events: none;
-  }
-
   li.current a {
-    color: $wz-current-text-color;
+    cursor: default;
     &:before {
       background-color: $wz-current-bg-color;
       border-color: $wz-current-border-color;
@@ -353,7 +303,6 @@ $wz-substep-nav-width: 200px;
   }
 
   li.done a {
-    color: $wz-done-color;
     &:before {
       background-color: $wz-done-bg-color;
       border-color: $wz-done-border-color;
@@ -362,7 +311,6 @@ $wz-substep-nav-width: 200px;
   }
 
   li.editing a {
-    color: $wz-current-text-color;
     &:before {
       background-color: $wz-editing-bg-color;
       border-color: $wz-editing-border-color;
@@ -373,14 +321,14 @@ $wz-substep-nav-width: 200px;
 
 .wizard-miq-footer {
   padding-bottom: 17px;
-  background-color: #d1d1d1;
+  background-color: #f8f8f8;
 }
 .wizard-miq-btn-container {
-  border-top: solid 1px #E6E6E6;
+  border-top: solid 1px #d1d1d1;
   float: right;
   width: 100%;
+  height: 60px;
   padding: 15px;
-  background-color: #f8f8f8;
   margin-top: 0;
 }
 
@@ -402,9 +350,15 @@ $wz-substep-nav-width: 200px;
     }
   }
 
+  .miq-form-no-label {
+    margin-left: 95px;
+    padding-left: 10px;
+  }
+
   .miq-input-label-class {
     width: 95px;
-    padding: 0 10px 0 20px;
+    padding-right: 10px;
+    padding-left: 20px;
     float: left;
 
     &.miq-input-label-class-lg {

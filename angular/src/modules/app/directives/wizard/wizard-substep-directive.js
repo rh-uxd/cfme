@@ -5,8 +5,7 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
     transclude: true,
     scope: {
       stepTitle: '@',
-      canenter : '=',
-      canexit : '=',
+      nextEnabled: '=?',
       disabled: '@?wzDisabled',
       description: '@',
       wizardData: '='
@@ -14,6 +13,9 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
     require: '^miq-wizard-step',
     templateUrl: 'modules/app/directives/wizard/wizard-substep.html',
     controller: function($scope) {
+      if (angular.isUndefined($scope.nextEnabled)) {
+        $scope.nextEnabled = true;
+      }
     },
     link: function($scope, $element, $attrs, step) {
       $scope.title = $scope.stepTitle;

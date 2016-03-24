@@ -10,6 +10,6 @@
   <div class="wizard-miq-btn-container modal-footer">
     <button miq-wiz-cancel class="btn btn-default">{{cancelTitle}}</button>
     <button miq-wiz-previous class="btn btn-default">{{backTitle}}</button>
-    <button miq-wiz-next class="btn btn-primary">{{nextTitle}}</button>
+    <button miq-wiz-next class="btn btn-primary" ng-disabled="!nextEnabled">{{nextTitle}}</button>
   </div>
 </div>

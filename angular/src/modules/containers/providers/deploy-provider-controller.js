@@ -198,7 +198,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
 
     $scope.allNodesSelected = false;
-    $scope.toggleAllNodesSelected = function () {
+    $scope.toggleAllNodesSelected = function() {
       $scope.allNodesSelected = !$scope.allNodesSelected;
       $scope.filteredNodes.forEach(function (item, index) {
         item.selected = $scope.allNodesSelected;
@@ -215,5 +215,10 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       updateSetNodeTypeButtons();
     };
     updateSetNodeTypeButtons();
+
+    $scope.deploymentDetailsGeneralComplete = false;
+    $scope.updateProviderName = function() {
+      $scope.deploymentDetailsGeneralComplete = angular.isDefined($scope.data.providerName) && $scope.data.providerName.length > 0;
+    };
   }
 ]);

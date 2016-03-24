@@ -1,7 +1,7 @@
 <div ng-controller="containers.deployProviderController">
   <div miq-wizard class="miq-deploy-provider-wizard" on-finish="finishedWizard()" on-cancel="cancelWizard()" content-height="455px">
     <div miq-wizard-step step-title="Deployment Details" substeps="true">
-      <div miq-wizard-substep step-title="General">
+      <div miq-wizard-substep step-title="General"  next-enabled="deploymentDetailsGeneralComplete">
         <div ng-include="'modules/containers/providers/deploy-provider-details-general.html'"></div>
       </div>
       <div miq-wizard-substep step-title="Masters & Nodes">
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div miq-wizard-step step-title="Continuing" substeps="true">
+    <div miq-wizard-step step-title="Configuration" substeps="true">
       <div miq-wizard-substep step-title="First">
         <p>You have continued to the first substep!</p>
       </div>
@@ -28,7 +28,7 @@
         <p>You have continued to the third substep!</p>
       </div>
     </div>
-    <div miq-wizard-step step-title="More steps">
+    <div miq-wizard-step step-title="Review">
       <p>Even more steps!!</p>
     </div>
   </div>

@@ -7,11 +7,11 @@
   }
 }
 
-.modal-header {
-  background-color: #f8f8f8;
-  color: #030303;
-  .close {
-    color: #030303;
+.miq-modal {
+  .modal-header {
+    border-bottom: solid 1px #d1d1d1;
+    height: 60px;
+    padding-top: 19px;
   }
 }
 
