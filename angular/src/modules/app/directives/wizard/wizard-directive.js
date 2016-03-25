@@ -14,8 +14,11 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       cancelTitle: '=?',
       backTitle: '=?',
       nextTitle: '=?',
+      backCallback: '=?',
+      nextCallback: '=?',
       onFinish: '&',
-      onCancel: '&'
+      onCancel: '&',
+      wizardDone: '=?'
     },
     templateUrl: 'modules/app/directives/wizard/wizard.html',
     controller: function ($scope) {
@@ -72,6 +75,10 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         return stepIdx(step) + 1;
       };
 
+      $scope.$watch('wizardDone', function (value) {
+        this.wizardDone = value;
+      });
+
       //watching changes to currentStep
       $scope.$watch('currentStep', function (step) {
         //checking to make sure currentStep is truthy value
@@ -118,6 +125,10 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       };
 
       $scope.goTo = function (step, resetStepNav) {
+        if ($scope.wizardDone) {
+          return;
+        }
+
         if (firstRun || $scope.getStepNumber(step) < $scope.currentStepNumber() || $scope.nextEnabled) {
           unselectAll();
 
@@ -142,7 +153,9 @@ angular.module('miq.wizard').directive('miqWizard', function () {
           }
 
           //emit event upwards with data on goTo() invoktion
-          $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
+          if (!step.substeps) {
+            $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
+          }
           firstRun = false;
         }
       };
@@ -211,7 +224,6 @@ angular.module('miq.wizard').directive('miqWizard', function () {
 
       // Method used for next button within step
       this.next = function (callback) {
-
         var enabledSteps = $scope.getEnabledSteps();
 
         // Save the step  you were on when next() was invoked
@@ -225,7 +237,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
 
         // Check if callback is a function
         if (angular.isFunction(callback)) {
-          if (callback()) {
+          if (callback($scope.selectedStep)) {
             if (index === enabledSteps.length - 1) {
               this.finish();
             } else {
@@ -240,10 +252,8 @@ angular.module('miq.wizard').directive('miqWizard', function () {
           }
         }
 
-        if (!callback) {
-          // Completed property set on scope which is used to add class/remove class from progress bar
-          $scope.selectedStep.completed = true;
-        }
+        // Completed property set on scope which is used to add class/remove class from progress bar
+        $scope.selectedStep.completed = true;
 
         // Check to see if this is the last step.  If it is next behaves the same as finish()
         if (index === enabledSteps.length - 1) {
@@ -254,18 +264,24 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         }
       };
 
-      this.previous = function () {
+      this.previous = function (callback) {
         var index = stepIdx($scope.selectedStep);
 
         if ($scope.selectedStep.substeps) {
-          if ($scope.selectedStep.previous()) {
+          if ($scope.selectedStep.previous(callback)) {
             return;
           }
         }
-        if (index === 0) {
-          throw new Error("Can't go back. It's already in step 0");
-        } else {
-          $scope.goTo($scope.getEnabledSteps()[index - 1]);
+
+        // Check if callback is a function
+        if (angular.isFunction(callback)) {
+          if (callback($scope.selectedStep)) {
+            if (index === 0) {
+              throw new Error("Can't go back. It's already in step 0");
+            } else {
+              $scope.goTo($scope.getEnabledSteps()[index - 1]);
+            }
+          }
         }
       };
 

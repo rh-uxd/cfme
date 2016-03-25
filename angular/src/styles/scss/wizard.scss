@@ -12,7 +12,7 @@ $wz-done-border-color: #d1d1d1;
 
 $wz-editing-bg-color: #39a5dc;
 $wz-editing-color: #fafafa;
-$wz-editing-border-color: #d1d1d1;
+$wz-editing-border-color: #39a5dc;
 
 $wz-substep-nav-width: 200px;
 
@@ -308,9 +308,15 @@ $wz-substep-nav-width: 200px;
       border-color: $wz-done-border-color;
       color: $wz-done-color;
     }
+    &:hover {
+      &:before {
+        border-color: $wz-current-border-color;
+      }
+    }
   }
 
   li.editing a {
+    cursor: default;
     &:before {
       background-color: $wz-editing-bg-color;
       border-color: $wz-editing-border-color;

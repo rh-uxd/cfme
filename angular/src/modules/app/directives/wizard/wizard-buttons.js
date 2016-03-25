@@ -6,13 +6,15 @@ function wizardButtonDirective(action) {
         restrict: 'A',
         replace: false,
         require: '^miq-wizard',
+        scope: {
+          callback: "=?"
+        },
         link: function($scope, $element, $attrs, wizard) {
-
           $element.on("click", function(e) {
             e.preventDefault();
             $scope.$apply(function() {
               $scope.$eval($attrs[action]);
-              wizard[action.replace("miqWiz", "").toLowerCase()]();
+              wizard[action.replace("miqWiz", "").toLowerCase()]($scope.callback);
             });
           });
         }

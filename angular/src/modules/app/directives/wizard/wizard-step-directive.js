@@ -5,6 +5,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
     transclude: true,
     scope: {
       stepTitle: '@',
+      stepId: '@',
       substeps: '=?',
       nextEnabled: '=?',
       disabled: '@?wzDisabled',
@@ -124,11 +125,18 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
           }
 
           //emit event upwards with data on goTo() invoktion
-          $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
-          firstRun = false;
+          if ($scope.selected) {
+            $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
+            firstRun = false;
+          }
         }
       };
 
+      $scope.$watch('selected', function() {
+        if ($scope.selected && $scope.selectedStep) {
+          $scope.$emit('wizard:stepChanged', {step: $scope.selectedStep, index: stepIdx( $scope.selectedStep)});
+        }
+      });
 
       var stepByTitle = function(titleToFind) {
         var foundStep = null;
@@ -197,7 +205,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
 
         // Check if callback is a function
         if (angular.isFunction(callback)) {
-          if (callback()) {
+          if (callback($scope.selectedStep)) {
             if (index === enabledSteps.length - 1) {
               return false;
             } else {
@@ -210,10 +218,8 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
           }
         }
 
-        if (!callback) {
-          // Completed property set on scope which is used to add class/remove class from progress bar
-          $scope.selectedStep.completed = true;
-        }
+        // Completed property set on scope which is used to add class/remove class from progress bar
+        $scope.selectedStep.completed = true;
 
         // Check to see if this is the last step.  If it is next behaves the same as finish()
         if (index === enabledSteps.length - 1) {
@@ -225,14 +231,19 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         }
       };
 
-      $scope.previous = function() {
+      $scope.previous = function(callback) {
         var index = stepIdx($scope.selectedStep);
 
-        if (index === 0) {
-          return false;
-        } else {
-          $scope.goTo($scope.getEnabledSteps()[index - 1]);
-          return true;
+        // Check if callback is a function
+        if (angular.isFunction(callback)) {
+          if (callback($scope.selectedStep)) {
+            if (index === 0) {
+              return false;
+            } else {
+              $scope.goTo($scope.getEnabledSteps()[index - 1]);
+              return true;
+            }
+          }
         }
       };
 

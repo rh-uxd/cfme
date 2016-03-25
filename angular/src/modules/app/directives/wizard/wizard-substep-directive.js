@@ -5,6 +5,7 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
     transclude: true,
     scope: {
       stepTitle: '@',
+      stepId: '@',
       nextEnabled: '=?',
       disabled: '@?wzDisabled',
       description: '@',

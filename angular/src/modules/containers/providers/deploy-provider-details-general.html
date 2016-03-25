@@ -18,10 +18,8 @@
       <input type="radio" ng-model="data.provisionOn" value="existingVms">Use existing VMs from an existing provider</input>
     </label>
     <div class="form-group  sub-group">
-      <select pf-select ng-model="data.existingProviderType" id="exitingProviderType" ng-disabled="data.provisionOn != 'existingVms'">
-        <option value="rhev">Existing Provider 1</option>
-        <option value="apple">Existing Provider 2</option>
-        <option value="banana">Existing Provider 3</option>
+      <select pf-select ng-model="data.existingProviderId" value="data.existingProviderId" id="exitingProviderType" ng-disabled="data.provisionOn != 'existingVms'">
+        <option ng-repeat="provider in existingProviders" value="provider.id">{{provider.name}}</option>
       </select>
     </div>
     <label class="radio">
@@ -36,20 +34,7 @@
       <a ng-class="{disabled: data.provisionOn != 'newVms'}">+ Create new provider</a>
     </div>
     <label class="radio">
-      <input type="radio" ng-model="data.provisionOn" value="noProvider">Specify a list of machines to deploy on / No existing provider</input>
+      <input type="radio" ng-model="data.provisionOn" value="noProvider">Specify a list of machines to deploy on (No existing provider)</input>
     </label>
-    <label class="radio">
-      <input type="radio" ng-model="data.provisionOn" value="cdnSatelliteRepo">CDN/Satellite repo</input>
-    </label>
-    <div class="sub-group">
-      <form class="form-horizontal">
-        <div pf-form-group pf-label="Username" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-          <input id="repo-user-name" name="name" ng-model="data.repoUsername" type="text" required ng-disabled="data.provisionOn != 'cdnSatelliteRepo'"/>
-        </div>
-        <div pf-form-group pf-label="Password" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-          <input id="repo-password" name="name" ng-model="data.repoPassword" type="password" required ng-disabled="data.provisionOn != 'cdnSatelliteRepo'"/>
-        </div>
-      </form>
-    </div>
   </div>
 </form>
