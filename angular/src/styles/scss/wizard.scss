@@ -68,6 +68,11 @@ $wz-substep-nav-width: 250px;
         white-space: nowrap;
         width: $wz-substep-nav-width;
 
+        .step-number {
+          display:inline-block;
+          margin-right: 5px;
+          width: 25px;
+        }
         &:hover {
           text-decoration: none;
         }
@@ -93,10 +98,11 @@ $wz-substep-nav-width: 250px;
           display: block;
           font-family: FontAwesome;
           font-size: 24px;
+          font-weight: 500;
           line-height: 30px;
           padding: 14px 0;
           position: absolute;
-          right: 10px;
+          right: 23px;
           top: 0;
         }
       }
