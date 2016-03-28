@@ -14,7 +14,7 @@ $wz-editing-bg-color: #39a5dc;
 $wz-editing-color: #fafafa;
 $wz-editing-border-color: #39a5dc;
 
-$wz-substep-nav-width: 200px;
+$wz-substep-nav-width: 250px;
 
 .wizard-miq {
   .modal-body {
@@ -60,8 +60,8 @@ $wz-substep-nav-width: 200px;
         cursor: pointer;
         display: block;
         font-size: 14px;
-        font-weight: 400;
-        height: 63px;
+        font-weight: 700;
+        height: 50px;
         outline: 0;
         padding: 17px 20px 17px 25px;
         position: relative;
@@ -75,7 +75,6 @@ $wz-substep-nav-width: 200px;
       &.active {
         > a {
           color: #199dde;
-          font-weight: 600;
           cursor: default;
         }
 

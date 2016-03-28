@@ -11,7 +11,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         providerName: '',
         providerType: 'atomic',
         provisionOn: 'existingVms',
-        newProviderType: 'rhev',
         masterCount: 0,
         nodeCount: 0,
         cdnConfigType: 'satellite'
@@ -24,14 +23,37 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         },
         {
           id: 2,
-          name: 'Existing Provider 3'
+          name: 'Existing Provider 2'
         },
         {
           id: 3,
+          name: 'Existing Provider 3'
+        },
+        {
+          id: 4,
           name: 'Existing Provider 4'
         }
       ];
       $scope.data.existingProviderId = $scope.existingProviders[0].id;
+      $scope.newVmProviders = [
+        {
+          id: 1,
+          name: 'Existing Provider 1'
+        },
+        {
+          id: 2,
+          name: 'Existing Provider 2'
+        },
+        {
+          id: 3,
+          name: 'Existing Provider 3'
+        },
+        {
+          id: 4,
+          name: 'Existing Provider 4'
+        }
+      ];
+      $scope.data.newVmProviderId = $scope.existingProviders[0].id;
       $scope.deploymentDetailsGeneralComplete = false;
       $scope.deployComplete = false;
       $scope.deployInProgress = false;
