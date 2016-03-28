@@ -1,0 +1,14 @@
+<div ng-controller="containers.deployProviderMasterNodesController">
+  <div miq-wizard-substep step-title="Masters & Nodes" next-enabled="masterNodesComplete" step-id="details-nodes">
+    <div ng-if="data.provisionOn == 'existingVms'" ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-existing-vms.html'"></div>
+    <div ng-if="data.provisionOn == 'newVms'">
+      You chose Create new VMs on provider.
+    </div>
+    <div ng-if="data.provisionOn == 'noProvider'">
+      You chose Specify a list of machnines to deploy on / No existing provider.
+    </div>
+    <div ng-if="data.provisionOn == 'cdnSatelliteRepo'">
+      You chose CDN/Satellite repo.
+    </div>
+  </div>
+</div>

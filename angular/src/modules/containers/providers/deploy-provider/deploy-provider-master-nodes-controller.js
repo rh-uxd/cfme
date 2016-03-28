@@ -1,129 +1,7 @@
-angular.module('miq.containers.providersModule').controller('containers.deployProviderController',
-  ['$rootScope', '$scope', '$resource', '$timeout',
-  function($rootScope, $scope, $resource, $timeout) {
+angular.module('miq.containers.providersModule').controller('containers.deployProviderMasterNodesController',
+  ['$rootScope', '$scope', '$resource',
+  function($rootScope, $scope, $resource) {
     'use strict';
-
-    $scope.data = {};
-    $scope.deployComplete = false;
-    $scope.deployInProgress = false;
-    var initializeDeploymentWizard = function () {
-      $scope.data = {
-        providerName: '',
-        providerType: 'atomic',
-        provisionOn: 'existingVms',
-        masterCount: 0,
-        nodeCount: 0,
-        cdnConfigType: 'satellite'
-      };
-
-      $scope.existingProviders = [
-        {
-          id: 1,
-          name: 'Existing Provider 1'
-        },
-        {
-          id: 2,
-          name: 'Existing Provider 2'
-        },
-        {
-          id: 3,
-          name: 'Existing Provider 3'
-        },
-        {
-          id: 4,
-          name: 'Existing Provider 4'
-        }
-      ];
-      $scope.data.existingProviderId = $scope.existingProviders[0].id;
-      $scope.newVmProviders = [
-        {
-          id: 1,
-          name: 'Existing Provider 1'
-        },
-        {
-          id: 2,
-          name: 'Existing Provider 2'
-        },
-        {
-          id: 3,
-          name: 'Existing Provider 3'
-        },
-        {
-          id: 4,
-          name: 'Existing Provider 4'
-        }
-      ];
-      $scope.data.newVmProviderId = $scope.existingProviders[0].id;
-      $scope.deploymentDetailsGeneralComplete = false;
-      $scope.deployComplete = false;
-      $scope.deployInProgress = false;
-      $scope.nextButtonTitle = "Next >";
-    };
-
-    var startDeploy = function () {
-      $scope.deployInProgress = true;
-      $timeout(function () {
-        $scope.deployInProgress = false;
-        $scope.deployComplete = true;
-        $scope.nextButtonTitle = "Close";
-
-      }, 5000);
-
-    };
-
-    $scope.nextCallback = function(step) {
-      if (step.stepTitle == 'Review') {
-        if ($scope.deployComplete) {
-          return true;
-        } else if (!$scope.deployInProgress) {
-          startDeploy();
-        }
-        return false;
-      } else {
-        return true;
-      }
-    };
-    $scope.backCallback = function(step) {
-      return true;
-    };
-
-    $scope.$on("wizard:stepChanged", function(e, parameters) {
-      if (parameters.step.stepId == 'review') {
-        $scope.nextButtonTitle = "Deploy";
-      } else {
-        $scope.nextButtonTitle = "Next >";
-      }
-    });
-
-
-    $scope.showDeploymentWizard = false;
-    var showListener =  function() {
-      if (!$scope.showDeploymentWizard) {
-        initializeDeploymentWizard();
-        $scope.showDeploymentWizard = true;
-      }
-    };
-    $rootScope.$on('deployProvider.show', showListener);
-
-    $scope.cancelDeploymentWizard = function () {
-      if (!$scope.deployInProgress) {
-        $scope.showDeploymentWizard = false;
-      }
-    };
-
-    $scope.$on('$destroy', showListener);
-
-
-    $scope.cancelWizard = function () {
-      $scope.showDeploymentWizard = false;
-      return true;
-    };
-
-    $scope.finishedWizard = function () {
-      $rootScope.$emit('deployProvider.finished');
-      $scope.showDeploymentWizard = false;
-      return true;
-    };
 
 
     $scope.updateMasterCount = function (value) {
@@ -259,20 +137,94 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       onSortChange: sortChange
     };
 
-    var performAction = function (action) {
+    var updateNodeSettings = function () {
+      $scope.data.masters = $scope.allNodes.filter(function(node) {
+        return node.state === 'Master';
+      });
+      $scope.data.nodes = $scope.allNodes.filter(function(node) {
+        return node.state === 'Node';
+      });
+      $scope.data.infraNodes = $scope.allNodes.filter(function(node) {
+        return node.state === 'Infra Node';
+      });
+
+      $scope.mastersCount = $scope.data.masters ? $scope.data.masters.length : 0;
+      $scope.nodesCount = $scope.data.nodes ? $scope.data.nodes.length : 0;
+      $scope.infraNodesCount = $scope.data.infraNodes ? $scope.data.infraNodes.length : 0;
+
+      var mastersValid = $scope.mastersCount === 1 || $scope.mastersCount === 3 || $scope.mastersCount === 5;
+      $scope.mastersWarning = mastersValid ? '' : "Masters can be set to 1, 3, or 5";
+
+      var nodesValid = $scope.nodesCount >= 1;
+      $scope.nodesWarning = nodesValid ? '' : "You must select at least one Node";
+
+      $scope.masterNodesComplete = mastersValid && nodesValid;
+      $scope.allNodes.forEach(function (item) {
+        item.selected = false;
+      });
+
+      applyFilters();
+    };
+
+    var setMasters = function () {
+      $scope.allNodes.forEach(function(node) {
+        if (node.selected) {
+          node.state = 'Master';
+        }
+      });
+      updateNodeSettings();
+    };
+
+    var setNodes = function () {
+      $scope.allNodes.forEach(function(node) {
+        if (node.selected) {
+          node.state = 'Node';
+        }
+      });
+      updateNodeSettings();
+    };
+
+    var setInfraNodes = function () {
+      $scope.allNodes.forEach(function(node) {
+        if (node.selected) {
+          node.state = 'Infra Node';
+        }
+      });
+      updateNodeSettings();
+    };
+
+    var clearState = function () {
+      $scope.allNodes.forEach(function(node) {
+        if (node.selected) {
+          node.state = 'Unset';
+        }
+      });
+      updateNodeSettings();
     };
 
     $scope.actionsConfig = {
       primaryActions: [
         {
-          name: 'Set as Master',
+          name: 'Set Master',
           title: 'Set the selected items to be masters',
-          actionFn: performAction
+          actionFn: setMasters
         },
         {
-          name: 'Set as Node',
+          name: 'Set Node',
           title: 'Set the selected items to be nodes',
-          actionFn: performAction
+          actionFn: setNodes
+        }
+      ],
+      moreActions: [
+        {
+          name: 'Set Infra Node',
+          title: 'Set the selected items to be infra nodes',
+          actionFn: setInfraNodes
+        },
+        {
+          name: 'Clear State',
+          title: 'Clear the state for the selected items.',
+          actionFn: clearState
         }
       ]
     };
@@ -294,12 +246,10 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       var selectedCount = $scope.filteredNodes.filter(function(node) {
         return node.selected;
       }).length;
-      $scope.actionsConfig.primaryActions[0].isDisabled = $scope.data.masterCount === 0 ||
-        selectedCount === 0 ||
-        selectedCount > $scope.data.masterCount;
-      $scope.actionsConfig.primaryActions[1].isDisabled = $scope.data.nodeCount === 0 ||
-        selectedCount === 0 ||
-        selectedCount > $scope.data.nodeCount;
+      $scope.actionsConfig.primaryActions[0].isDisabled = selectedCount === 0;
+      $scope.actionsConfig.primaryActions[1].isDisabled = selectedCount === 0;
+      $scope.actionsConfig.moreActions[0].isDisabled = selectedCount === 0;
+      $scope.actionsConfig.moreActions[1].isDisabled = selectedCount === 0;
     };
 
     $scope.allNodesSelected = false;
@@ -321,9 +271,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
     updateSetNodeTypeButtons();
 
-    $scope.deploymentDetailsGeneralComplete = false;
-    $scope.updateProviderName = function() {
-      $scope.deploymentDetailsGeneralComplete = angular.isDefined($scope.data.providerName) && $scope.data.providerName.length > 0;
-    };
+    updateNodeSettings();
   }
 ]);
