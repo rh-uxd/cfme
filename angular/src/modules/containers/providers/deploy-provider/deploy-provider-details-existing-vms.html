@@ -25,17 +25,17 @@
     </table>
   </div>
   <div class="table-footer">
-    <div class="badge" data-toggle="tooltip" data-placement="top" title="{{mastersWarning}}">
+    <div class="badge" tooltip="{{mastersWarning}}" tooltip-placement="right">
       <span class="pficon pficon-warning-triangle-o" ng-if="mastersWarning && mastersWarning != ''"></span>
       <span ng-if="mastersCount == 1">{{mastersCount}} Master</span>
       <span ng-if="mastersCount != 1">{{mastersCount}} Masters</span>
     </div>
-    <div class="badge" data-toggle="tooltip" data-placement="top" title="{{nodesWarning}}">
+    <div class="badge" tooltip="{{nodesWarning}}" tooltip-placement="right">
       <span class="pficon pficon-warning-triangle-o" ng-if="nodesWarning && nodesWarning != ''"></span>
       <span ng-if="nodesCount == 1">{{nodesCount}} Node</span>
       <span ng-if="nodesCount != 1">{{nodesCount}} Nodes</span>
     </div>
-    <div class="badge" data-toggle="tooltip" data-placement="top" title="{{infraNodesWarning}}">
+    <div class="badge" tooltip="{{infraNodesWarning}}" tooltip-placement="right">
       <span class="pficon pficon-warning-triangle-o" ng-if="infraNodesWarning && infraNodesWarning != ''"></span>
       <span ng-if="infraNodesCount == 1">{{infraNodesCount}} Infra Node</span>
       <span ng-if="infraNodesCount != 1">{{infraNodesCount}} Infra Nodes</span>
