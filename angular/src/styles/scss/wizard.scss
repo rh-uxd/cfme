@@ -63,7 +63,8 @@ $wz-substep-nav-width: 250px;
         font-weight: 700;
         height: 50px;
         outline: 0;
-        padding: 17px 20px 17px 25px;
+        padding-top: 12px;
+        padding-left: 20px;
         position: relative;
         white-space: nowrap;
         width: $wz-substep-nav-width;
@@ -71,6 +72,7 @@ $wz-substep-nav-width: 250px;
         .step-number {
           display:inline-block;
           margin-right: 5px;
+          vertical-align: middle;
           width: 25px;
         }
         &:hover {
@@ -100,7 +102,7 @@ $wz-substep-nav-width: 250px;
           font-size: 24px;
           font-weight: 500;
           line-height: 30px;
-          padding: 14px 0;
+          padding-top: 10px;
           position: absolute;
           right: 23px;
           top: 0;
