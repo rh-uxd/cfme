@@ -47,6 +47,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       } else {
         $scope.filteredNodes = $scope.allNodes;
       }
+      $scope.filterConfig.resultsCount = $scope.filteredNodes.length;
     };
 
     var filterChange = function (filters) {

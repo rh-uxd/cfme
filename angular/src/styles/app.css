@@ -1018,112 +1018,123 @@
   color: #E6E6E6;
 }
 /* line 364, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-page-heading {
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+/* line 369, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-form-heading {
   font-weight: 700;
 }
-/* line 368, scss/wizard.scss */
+/* line 373, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-form-no-label {
   margin-left: 95px;
   padding-left: 10px;
 }
-/* line 373, scss/wizard.scss */
+/* line 378, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-label-class {
   width: 95px;
   padding-right: 10px;
   padding-left: 20px;
   float: left;
 }
-/* line 379, scss/wizard.scss */
+/* line 384, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-label-class.miq-input-label-class-lg {
   width: 150px;
 }
-/* line 383, scss/wizard.scss */
+/* line 388, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-class {
   width: 200px;
   padding: 0 20px 0 10px;
   float: left;
 }
-/* line 389, scss/wizard.scss */
+/* line 394, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-radio-input-class {
   width: 200px;
   padding: 0 20px 0 30px;
   float: left;
 }
-/* line 395, scss/wizard.scss */
+/* line 400, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class {
   width: 130px;
   padding: 0 20px 0 30px;
   float: left;
 }
-/* line 400, scss/wizard.scss */
+/* line 405, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .form-control {
   height: 25px;
 }
-/* line 403, scss/wizard.scss */
+/* line 408, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .btn {
   padding-bottom: 1px;
 }
-/* line 406, scss/wizard.scss */
+/* line 411, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .form-control[readonly] {
   background-color: #fff;
 }
-/* line 411, scss/wizard.scss */
+/* line 416, scss/wizard.scss */
 .miq-deploy-provider-wizard .form-horizontal > .radio {
   margin-left: 20px;
 }
-/* line 415, scss/wizard.scss */
+/* line 420, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container {
-  margin-left: -10px;
-  margin-right: -10px;
   border: solid 1px #d1d1d1;
 }
-/* line 420, scss/wizard.scss */
+/* line 424, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf > .col-sm-12 {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 424, scss/wizard.scss */
-.miq-deploy-provider-wizard .nodes-table-container .toolbar-pf-filter {
+/* line 428, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-filter {
   padding-right: 10px;
 }
-/* line 427, scss/wizard.scss */
-.miq-deploy-provider-wizard .nodes-table-container .toolbar-pf-results {
+/* line 431, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-results {
   margin-left: -10px;
   margin-right: -10px;
 }
-/* line 431, scss/wizard.scss */
-.miq-deploy-provider-wizard .nodes-table-container .sort-pf > form > .form-group {
-  padding-left: 10px;
-  padding-right: 10px;
+/* line 436, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions > .form-group {
+  border-right: none;
+  float: right;
+  padding-right: 0px;
 }
-/* line 435, scss/wizard.scss */
-.miq-deploy-provider-wizard .nodes-table-container .dropdown-kebab-pf .dropdown-menu {
+/* line 441, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu {
   left: auto;
   right: -15px;
 }
-/* line 439, scss/wizard.scss */
-.miq-deploy-provider-wizard .nodes-table-container .dropdown-kebab-pf .dropdown-menu:before, .miq-deploy-provider-wizard .nodes-table-container .dropdown-kebab-pf .dropdown-menu:after {
+/* line 445, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu:before, .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu:after {
   left: auto;
   right: 6px;
 }
-/* line 444, scss/wizard.scss */
-.miq-deploy-provider-wizard .nodes-table-container .table-responsive {
-  overflow-x: hidden;
+/* line 451, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .sort-pf > form > .form-group {
+  padding-left: 10px;
+  padding-right: 10px;
 }
-/* line 447, scss/wizard.scss */
+/* line 456, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container .table-responsive {
+  max-height: 265px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+/* line 461, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table {
   border: none;
   width: calc(100% + 3px);
   margin-left: -1px;
 }
-/* line 454, scss/wizard.scss */
+/* line 468, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer {
   background-color: #fafafa;
   width: 100%;
   height: 28px;
   padding-top: 5px;
 }
-/* line 460, scss/wizard.scss */
+/* line 474, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer .badge {
   background: transparent;
   color: #030303;
