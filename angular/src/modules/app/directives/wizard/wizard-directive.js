@@ -21,7 +21,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       wizardDone: '=?'
     },
     templateUrl: 'modules/app/directives/wizard/wizard.html',
-    controller: function ($scope) {
+    controller: function ($scope, $timeout) {
       var firstRun = true;
       $scope.steps = [];
       $scope.context = {};
@@ -67,7 +67,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       };
 
       $scope.currentStepNumber = function () {
-        //retreive current step number
+        //retrieve current step number
         return stepIdx($scope.selectedStep) + 1;
       };
 
@@ -138,6 +138,12 @@ angular.module('miq.wizard').directive('miqWizard', function () {
 
           $scope.selectedStep = step;
           step.selected = true;
+
+          $timeout(function() {
+            if (angular.isFunction(step.onShow)) {
+              step.onShow();
+            }
+          }, 100);
 
           // Watch the new step for next button enabled status (remove any previous watcher)
           if ($scope.stepEnabledWatcher) {
@@ -245,7 +251,6 @@ angular.module('miq.wizard').directive('miqWizard', function () {
               if (enabledSteps[index + 1].substeps) {
                 enabledSteps[index + 1].resetNav();
               }
-              $scope.goTo(enabledSteps[index + 1]);
             }
           } else {
             return;

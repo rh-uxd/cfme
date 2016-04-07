@@ -9,7 +9,8 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
       nextEnabled: '=?',
       disabled: '@?wzDisabled',
       description: '@',
-      wizardData: '='
+      wizardData: '=',
+      onShow: '=?'
     },
     require: '^miq-wizard-step',
     templateUrl: 'modules/app/directives/wizard/wizard-substep.html',

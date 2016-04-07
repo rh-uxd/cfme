@@ -10,7 +10,8 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       nextEnabled: '=?',
       disabled: '@?wzDisabled',
       description: '@',
-      wizardData: '='
+      wizardData: '=',
+      onShow: '=?'
     },
     require: '^miq-wizard',
     templateUrl: 'modules/app/directives/wizard/wizard-step.html',
@@ -111,6 +112,10 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
           $scope.selectedStep = step;
           step.selected = true;
 
+          if (angular.isFunction($scope.selectedStep.onShow)) {
+            $scope.selectedStep.onShow();
+          }
+
           // Watch the new step for next button enabled status (remove any previous watcher)
           if ($scope.stepEnabledWatcher) {
             $scope.stepEnabledWatcher();
@@ -124,7 +129,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
             $scope.currentStep = step.wzTitle;
           }
 
-          //emit event upwards with data on goTo() invoktion
+          //emit event upwards with data on goTo() invocation
           if ($scope.selected) {
             $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
             firstRun = false;
@@ -151,10 +156,6 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       this.addStep = function(step) {
         // Push the step onto step array
         $scope.steps.push(step);
-
-        if ($scope.getEnabledSteps().length === 1) {
-          $scope.goTo($scope.getEnabledSteps()[0]);
-        }
       };
 
       this.currentStepTitle = function(){
@@ -247,6 +248,15 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         }
       };
 
+      if ($scope.substeps && !$scope.onShow) {
+        $scope.onShow = function() {
+          if (!$scope.selectedStep) {
+            $scope.goTo($scope.getEnabledSteps()[0]);
+          } else {
+            $scope.selectedStep.onShow();
+          }
+        }
+      }
     },
     link: function($scope, $element, $attrs, wizard) {
 
