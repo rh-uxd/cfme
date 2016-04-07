@@ -1034,116 +1034,132 @@
 /* line 377, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-form-heading {
   font-weight: 700;
+  padding-bottom: 10px;
 }
-/* line 381, scss/wizard.scss */
+/* line 382, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-form-no-label {
   margin-left: 95px;
   padding-left: 10px;
 }
-/* line 386, scss/wizard.scss */
+/* line 387, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-label-class {
   width: 95px;
   padding-right: 10px;
   padding-left: 20px;
   float: left;
 }
-/* line 392, scss/wizard.scss */
+/* line 393, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-label-class.miq-input-label-class-lg {
   width: 150px;
 }
-/* line 396, scss/wizard.scss */
+/* line 397, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-class {
   width: 200px;
   padding: 0 20px 0 10px;
   float: left;
 }
-/* line 402, scss/wizard.scss */
+/* line 403, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-radio-input-class {
   width: 200px;
   padding: 0 20px 0 30px;
   float: left;
 }
-/* line 408, scss/wizard.scss */
+/* line 409, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class {
   width: 130px;
   padding: 0 20px 0 30px;
   float: left;
 }
-/* line 413, scss/wizard.scss */
+/* line 414, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .form-control {
   height: 25px;
 }
-/* line 416, scss/wizard.scss */
+/* line 417, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .btn {
   padding-bottom: 1px;
 }
-/* line 419, scss/wizard.scss */
+/* line 420, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .form-control[readonly] {
   background-color: #fff;
 }
-/* line 424, scss/wizard.scss */
+/* line 425, scss/wizard.scss */
 .miq-deploy-provider-wizard .form-horizontal > .radio {
   margin-left: 20px;
 }
-/* line 428, scss/wizard.scss */
+/* line 429, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container {
   border: solid 1px #d1d1d1;
 }
-/* line 432, scss/wizard.scss */
+/* line 433, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf > .col-sm-12 {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 436, scss/wizard.scss */
+/* line 437, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-filter {
   padding-right: 10px;
+  width: 225px;
 }
-/* line 439, scss/wizard.scss */
+/* line 441, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-results {
   margin-left: -10px;
   margin-right: -10px;
 }
-/* line 444, scss/wizard.scss */
+/* line 446, scss/wizard.scss */
+.add-nodes-table .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions {
+  padding-bottom: 10px;
+}
+/* line 449, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions > .form-group {
   border-right: none;
   float: right;
   padding-right: 0px;
 }
-/* line 449, scss/wizard.scss */
+/* line 454, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu {
   left: auto;
   right: -15px;
 }
-/* line 453, scss/wizard.scss */
+/* line 458, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu:before, .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu:after {
   left: auto;
   right: 6px;
 }
-/* line 459, scss/wizard.scss */
+/* line 464, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .sort-pf > form > .form-group {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 464, scss/wizard.scss */
+/* line 470, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .toolbar-pf-actions {
+  padding-bottom: 10px;
+}
+/* line 475, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-responsive {
   max-height: 265px;
+  min-height: 265px;
   overflow-x: hidden;
   overflow-y: auto;
 }
-/* line 469, scss/wizard.scss */
+/* line 482, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .table-responsive {
+  max-height: 190px;
+  min-height: 190px;
+}
+/* line 487, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table {
   border: none;
   width: calc(100% + 3px);
   margin-left: -1px;
 }
-/* line 476, scss/wizard.scss */
+/* line 494, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer {
   background-color: #fafafa;
   width: 100%;
   height: 28px;
   padding-top: 5px;
 }
-/* line 482, scss/wizard.scss */
+/* line 500, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer .badge {
   background: transparent;
   color: #030303;
@@ -1154,4 +1170,18 @@
   margin: 0;
   padding: 0 7px;
   text-align: center;
+}
+/* line 513, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-add-dialog-text {
+  font-weight: 700;
+  padding: 15px;
+}
+/* line 517, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-add-dialog-input {
+  padding: 0 15px;
+  width: 100%;
+}
+/* line 520, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-add-dialog-input > input {
+  width: 100%;
 }

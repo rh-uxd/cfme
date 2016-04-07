@@ -1,8 +1,8 @@
 <div ng-controller="containers.deployProviderDetailsGeneralController">
-  <div miq-wizard-substep step-title="General"  next-enabled="deploymentDetailsGeneralComplete" step-id="details-general">
+  <div miq-wizard-substep step-title="General"  next-enabled="deploymentDetailsGeneralComplete" step-id="details-general" on-show="onShow">
     <form class="form-horizontal">
       <div pf-form-group pf-label="Name" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-        <input id="name" name="name" ng-model="data.providerName" type="text" ng-change="updateProviderName()" required/>
+        <input id="new-provider-name" name="name" ng-model="data.providerName" type="text" ng-change="updateProviderName()" required/>
       </div>
       <div pf-form-group pf-label="Type" required pf-label-class="miq-input-label-class" pf-input-class="miq-radio-input-class">
         <label class="radio">

@@ -376,6 +376,7 @@ $wz-substep-nav-width: 250px;
 
   .miq-form-heading {
     font-weight: 700;
+    padding-bottom: 10px;
   }
 
   .miq-form-no-label {
@@ -435,12 +436,16 @@ $wz-substep-nav-width: 250px;
       }
       .toolbar-pf-filter {
         padding-right: 10px;
+        width: 225px;
       }
       .toolbar-pf-results {
         margin-left: -10px;
         margin-right: -10px;
       }
       .toolbar-pf-actions {
+        .add-nodes-table & {
+          padding-bottom: 10px;
+        }
         > .form-group {
           border-right: none;
           float: right;
@@ -461,10 +466,23 @@ $wz-substep-nav-width: 250px;
         padding-right: 10px;
       }
     }
+    &.add-nodes-table {
+      .toolbar-pf-actions {
+        padding-bottom: 10px;
+      }
+    }
+
     .table-responsive {
       max-height: 265px;
+      min-height: 265px;
       overflow-x: hidden;
       overflow-y: auto;
+    }
+    &.add-nodes-table {
+      .table-responsive {
+        max-height: 190px;
+        min-height: 190px;
+      }
     }
     .table {
       border: none;
@@ -490,6 +508,17 @@ $wz-substep-nav-width: 250px;
         padding: 0 7px;
         text-align: center;
       }
+    }
+  }
+  .miq-add-dialog-text {
+    font-weight: 700;
+    padding: 15px;
+  }
+  .miq-add-dialog-input {
+    padding: 0 15px;
+    width: 100%;
+    > input {
+      width: 100%;
     }
   }
 }
