@@ -75,7 +75,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       if ($scope.sortConfig.currentField.id === 'name') {
         compValue = item1.providerName.localeCompare(item2.providerName);
       } else if ($scope.sortConfig.currentField.id === 'state') {
-        compValue = stateVals[item1.state] - stateVals[item2.state];
+        compValue = item1.state.localeCompare(item2.state);
       } else if ($scope.sortConfig.currentField.id === 'cpus') {
         compValue = item1.cpus - item2.cpus;
       } else if ($scope.sortConfig.currentField.id === 'memory') {

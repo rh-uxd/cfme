@@ -21,6 +21,27 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
           queryResult.focus();
         }
       }, 200);
+
+      switch ($scope.data.authentication.mode) {
+        case 'htPassword':
+          $scope.authTypeString = 'HTPassword';
+          break;
+        case 'ldap':
+          $scope.authTypeString = 'LDAP Authentication';
+          break;
+        case 'requestHeader':
+          $scope.authTypeString = 'Request Header';
+          break;
+        case 'openId':
+          $scope.authTypeString = 'OpenID Connect';
+          break;
+        case 'google':
+          $scope.authTypeString = 'Google';
+          break;
+        case 'github':
+          $scope.authTypeString = 'Github';
+          break;
+      }
     };
 
     var validString = function(value) {
