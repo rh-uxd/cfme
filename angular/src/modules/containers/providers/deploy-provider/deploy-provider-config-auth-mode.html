@@ -1,0 +1,28 @@
+<div miq-wizard-substep step-title="Authentication Mode" step-id="config-auth-mode">
+  <div class="miq-form-heading">Select authenticaton mode</div>
+  <form class="form-horizontal">
+    <div pf-form-group pf-label="" required pf-label-class="miq-input-no-label-class" pf-input-class="miq-radio-input-class">
+      <label class="radio">
+        <input type="radio" ng-model="data.authentication.mode" value="all">Allow All</input>
+      </label>
+      <label class="radio">
+        <input type="radio" ng-model="data.authentication.mode" value="htPassword">HTPassword</input>
+      </label>
+      <label class="radio">
+        <input type="radio" ng-model="data.authentication.mode" value="ldap">LDAP Authentication</input>
+      </label>
+      <label class="radio">
+        <input type="radio" ng-model="data.authentication.mode" value="requestHeader">Request Header</input>
+      </label>
+      <label class="radio">
+        <input type="radio" ng-model="data.authentication.mode" value="openId">OpenID Connect</input>
+      </label>
+      <label class="radio">
+        <input type="radio" ng-model="data.authentication.mode" value="google">Google</input>
+      </label>
+      <label class="radio">
+        <input type="radio" ng-model="data.authentication.mode" value="github">Github</input>
+      </label>
+    </div>
+  </form>
+</div>

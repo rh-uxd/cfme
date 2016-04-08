@@ -1,0 +1,29 @@
+<div ng-controller="containers.deployProviderConfigStorageController">
+  <div miq-wizard-substep step-title="Storage" step-id="config-storage" next-enabled="configStorageComplete" on-show="onShow" wz-disabled="false">
+    <div class="miq-form-heading">Select persistent storage</div>
+    <form class="form-horizontal">
+      <div class="miq-radio-form">
+        <label class="radio">
+          <input type="radio" ng-model="data.storageType" ng-change="validateForm()" value="nfs">NFS</input>
+        </label>
+        <div class="form-group sub-group">
+          <div pf-form-group pf-label="Username" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+            <input id="nfs-storage-username" name="name" ng-model="data.nfsStorageUsername" type="text" ng-change="validateForm()" required ng-disabled="data.storageType != 'nfs'"/>
+          </div>
+          <div pf-form-group pf-label="Password" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+            <input id="nfs-storage-passwrod" name="name" ng-model="data.nfsStoragePassword" type="password" ng-change="validateForm()" required ng-disabled="data.storageType != 'nfs'"/>
+          </div>
+          <div pf-form-group pf-label="URL" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+            <input id="nfs-storage-url" name="name" ng-model="data.nfsStorageUrl" type="text" ng-change="validateForm()" required ng-disabled="data.storageType != 'nfs'"/>
+          </div>
+        </div>
+        <label class="radio">
+          <input type="radio" ng-model="data.storageType" ng-change="validateForm()" value="gluster">Gluster</input>
+        </label>
+        <label class="radio">
+          <input type="radio" ng-model="data.storageType" ng-change="validateForm()" value="integratedNfs">Integrated NFS (POC's only)</input>
+        </label>
+      </div>
+    </form>
+  </div>
+</div>

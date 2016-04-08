@@ -1,33 +1,24 @@
-<div miq-wizard-substep step-title="CDN Channel" step-id="details-channel">
-  <h3>Select CDN configuration</h3>
-  <form class="form-horizontal">
-    <div class="miq-form-no-label">
-      <label class="radio">
-        <input type="radio" ng-model="data.cdnConfigType" value="satellite">Satellite</input>
-      </label>
-      <div class="sub-group">
-        <form class="form-horizontal">
-          <div pf-form-group pf-label="URL" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-            <input id="satellite-url" name="name" ng-model="data.satelliteUrl" type="text" required ng-disabled="data.cdnConfigType != 'satellite'"/>
-          </div>
-        </form>
+<div ng-controller="containers.deployProviderCDNChannelController">
+  <div miq-wizard-substep step-title="CDN Channel" step-id="details-channel" next-enabled="deploymentDetailsCDNComplete" on-show="onCdnShow">
+    <div class="miq-form-heading">Specify CDN configuration</div>
+    <form class="form-horizontal">
+      <div pf-form-group pf-label="Username" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+        <input id="rhn-user-name" name="name" ng-model="data.rhnUsername" type="text" ng-change="validateForm()" required/>
       </div>
-      <label class="radio">
-        <input type="radio" ng-model="data.cdnConfigType" value="rhn">Create new VMs on provider</input>
-      </label>
-      <div class="sub-group">
-        <form class="form-horizontal">
-          <div pf-form-group pf-label="Username" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-            <input id="rhn-user-name" name="name" ng-model="data.rhnUsername" type="text" required ng-disabled="data.cdnConfigType != 'rhn'"/>
-          </div>
-          <div pf-form-group pf-label="Password" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-            <input id="rhn-password" name="name" ng-model="data.rhnPassword" type="password" required ng-disabled="data.cdnConfigType != 'rhn'"/>
-          </div>
-          <div pf-form-group pf-label="Pool ID" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-            <input id="rhn-pool" name="name" ng-model="data.rhnPool" type="text" required ng-disabled="data.cdnConfigType != 'rhn'"/>
-          </div>
-        </form>
+      <div pf-form-group pf-label="Password" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+        <input id="rhn-password" name="name" ng-model="data.rhnPassword" type="password" ng-change="validateForm()" required/>
       </div>
-    </div>
-  </form>
+      <div pf-form-group pf-label="SKU" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+        <input id="rhn-sku" name="name" ng-model="data.rhnSKU" type="text" ng-change="validateForm()" required/>
+      </div>
+      <div class="miq-input-checkbox-form">
+        <div class="checkbox-inline">
+          <label class="miq-checkbox-input-label">
+            <input type="checkbox" ng-model="data.specifySatelliteUrl">RHN Satellite URL
+          </label>
+          <input id="satellite-url" name="name" ng-model="data.rhnSatelliteUrl" type="text" ng-change="validateForm()" required ng-disabled="data.specifySatelliteUrl === false"/>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

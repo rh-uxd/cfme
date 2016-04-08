@@ -252,7 +252,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         $scope.onShow = function() {
           if (!$scope.selectedStep) {
             $scope.goTo($scope.getEnabledSteps()[0]);
-          } else {
+          } else if ($scope.selectedStep.onShow) {
             $scope.selectedStep.onShow();
           }
         }

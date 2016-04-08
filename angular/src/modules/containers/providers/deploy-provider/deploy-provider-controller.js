@@ -14,7 +14,10 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         masterCount: 0,
         nodeCount: 0,
         infraNodeCount: 0,
-        cdnConfigType: 'satellite'
+        cdnConfigType: 'satellite',
+        authentication: {
+          mode: 'all'
+        }
       };
 
       $scope.deploymentDetailsGeneralComplete = false;

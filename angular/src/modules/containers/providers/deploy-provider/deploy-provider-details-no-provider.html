@@ -1,13 +1,13 @@
 <div ng-controller="containers.deployProviderDetailsNoProviderController">
   <form class="form-horizontal">
     <div pf-form-group pf-label="Key" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-      <input id="deploy-key" name="name" ng-model="data.deploymentKey" type="text" ng-change="validatePage()" required/>
+      <input id="deploy-key" name="name" ng-model="data.deploymentKey" type="text" ng-change="validateForm()" required/>
     </div>
     <div pf-form-group pf-label="Username" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-      <input id="deploy-username" name="name" ng-model="data.deploymentUsername" type="text" ng-change="validatePage()" required/>
+      <input id="deploy-username" name="name" ng-model="data.deploymentUsername" type="text" ng-change="validateForm()" required/>
     </div>
     <div pf-form-group pf-label="Password" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-      <input id="deploy-password" name="name" ng-model="data.deploymentPassword" type="password" ng-change="validatePage()" required/>
+      <input id="deploy-password" name="name" ng-model="data.deploymentPassword" type="password" ng-change="validateForm()" required/>
     </div>
   </form>
   <div class="miq-form-heading">Add Masters and Nodes</div>
@@ -48,7 +48,7 @@
       </div>
     </div>
   </div>
-  <div miq-modal class="wizard-miq" modal-title="{{addDialogTitle}}" visible="showAddDialog" on-cancel="cancelAddDialog" modal-size="medium">
+  <div miq-modal class="wizard-miq" modal-title="{{addDialogTitle}}" visible="showAddDialog" on-cancel="cancelAddDialog()" modal-size="medium">
     <div class="miq-add-dialog-text">{{addDialogText}}</div>
     <div class="miq-add-dialog-input">
       <input id="addname" name="addname" ng-model="newItem.vmName" type="text"
@@ -56,7 +56,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" ng-click="cancelAddDialog()">Cancel</button>
-      <button type="button" class="btn btn-primary" ng-click="saveAddDialog()" ng-class="{disabled: !newItem.vmName || newItem.vmName.length === 0} ">Save</button>
+      <button type="button" class="btn btn-primary" ng-click="saveAddDialog()" ng-class="{disabled: !newItem.vmName || newItem.vmName.length === 0} ">Add</button>
     </div>
   </div>
 </div>

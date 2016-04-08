@@ -1,22 +1,22 @@
-angular.module('miq.containers.providersModule').controller('containers.deployProviderDetailsNoProviderController',
-  ['$rootScope', '$scope', '$resource',
-  function($rootScope, $scope) {
+angular.module('miq.containers.providersModule').controller('containers.deployProviderCDNChannelController',
+  ['$rootScope', '$scope', '$timeout', '$document',
+  function($rootScope, $scope, $timeout, $document) {
     'use strict';
 
-    $scope.showAddDialog = false;
-    $scope.newItem = {};
-
-    $scope.onShow = function () {
-      console.log("On Show");
+    var firstShow = true;
+    $scope.onCdnShow = function () {
+      if (firstShow) {
+        $scope.data.rhnUsername = '';
+        $scope.data.rhnPassword = '';
+        $scope.data.rhnSKU = '';
+        $scope.data.specifySatelliteUrl = false;
+        $scope.data.rhnSatelliteUrl = '';
+        firstShow = false;
+        $scope.deploymentDetailsCDNComplete = false;
+      }
       $timeout(function() {
-        console.log("Timeout");
-        console.log($scope.data.provisionOn);
-        if ($scope.data.provisionOn == 'noProvider') {
-          console.log("Focusing...");
-          var queryResult = $document[0].getElementById('deploy-key');
-          console.dir(queryResult);
-          queryResult.focus();
-        }
+        var queryResult = $document[0].getElementById('rhn-user-name');
+        queryResult.focus();
       }, 200);
     };
 
@@ -25,10 +25,10 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
 
     $scope.validateForm = function() {
-      $scope.setMasterNodesComplete(validString($scope.data.deploymentKey) &&
-        validString($scope.data.deploymentUsername) &&
-        validString($scope.data.deploymentKey) &&
-        $scope.validateNodeCounts());
+      $scope.deploymentDetailsCDNComplete = validString($scope.data.rhnUsername) &&
+        validString($scope.data.rhnPassword) &&
+        validString($scope.data.rhnSKU) &&
+        (!$scope.data.specifySatelliteUrl || validString($scope.data.rhnSatelliteUrl));
     };
 
     $scope.allNodes = [];
