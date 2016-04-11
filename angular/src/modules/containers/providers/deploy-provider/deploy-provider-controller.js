@@ -28,33 +28,29 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     var startDeploy = function () {
       $scope.deployInProgress = true;
+      console.log("Start Deploy");
       $timeout(function () {
+        console.log("Done");
         $scope.deployInProgress = false;
         $scope.deployComplete = true;
         $scope.nextButtonTitle = "Close";
-
       }, 5000);
-
     };
 
     $scope.nextCallback = function(step) {
-      if (step.stepTitle == 'Review') {
-        if ($scope.deployComplete) {
-          return true;
-        } else if (!$scope.deployInProgress) {
-          startDeploy();
-        }
-        return false;
-      } else {
-        return true;
+      if (step.stepId === 'review-summary') {
+        startDeploy();
       }
+      return true;
     };
     $scope.backCallback = function(step) {
       return true;
     };
 
     $scope.$on("wizard:stepChanged", function(e, parameters) {
-      if (parameters.step.stepId == 'review') {
+      if (parameters.step.stepId == 'review-summary') {
+        $scope.nextButtonTitle = "Deploy";
+      } else if (parameters.step.stepId == 'review-progress') {
         $scope.nextButtonTitle = "Deploy";
       } else {
         $scope.nextButtonTitle = "Next >";

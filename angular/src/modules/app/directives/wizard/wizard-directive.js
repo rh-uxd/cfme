@@ -75,10 +75,6 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         return stepIdx(step) + 1;
       };
 
-      $scope.$watch('wizardDone', function (value) {
-        this.wizardDone = value;
-      });
-
       //watching changes to currentStep
       $scope.$watch('currentStep', function (step) {
         //checking to make sure currentStep is truthy value
@@ -164,6 +160,10 @@ angular.module('miq.wizard').directive('miqWizard', function () {
           }
           firstRun = false;
         }
+
+        if (!$scope.selectedStep.substeps) {
+          $scope.backDisabled =  stepIdx($scope.selectedStep) === 0;
+        }
       };
 
       var stepByTitle = function (titleToFind) {
@@ -183,6 +183,10 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         if ($scope.getEnabledSteps().length === 1) {
           $scope.goTo($scope.getEnabledSteps()[0]);
         }
+      };
+
+      this.updateSubStepNumber = function (value) {
+        $scope.backDisabled =  stepIdx($scope.selectedStep) === 0 && value === 0;
       };
 
       this.currentStepTitle = function () {

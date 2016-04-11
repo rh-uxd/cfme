@@ -1,0 +1,6 @@
+<div ng-controller="containers.deployProviderReviewProgressController">
+  <div miq-wizard-substep step-title="Progress" step-id="review-progress" on-show="onShow" wz-disabled="false">
+    <div class="miq-form-heading" ng-if="deployInProgress">Please wait while the deployment processes...</div>
+    <div class="miq-form-heading" ng-if="deployComplete">Deployment succeeded!</div>
+  </div>
+</div>

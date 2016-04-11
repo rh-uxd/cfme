@@ -41,9 +41,12 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     var compareFn = function (item1, item2) {
       var compValue = 0;
       if ($scope.sortConfig.currentField.id === 'name') {
-        compValue = item1.providerName.localeCompare(item2.providerName);
+        compValue = item1.vmName.localeCompare(item2.vmName);
       } else if ($scope.sortConfig.currentField.id === 'state') {
-        compValue = stateVals[item1.state] - stateVals[item2.state];
+        compValue = item1.state.localeCompare(item2.state);
+        if (compValue === 0) {
+          compValue = item1.vmName.localeCompare(item2.vmName);
+        }
       }
 
       if (!$scope.sortConfig.isAscending) {
@@ -60,13 +63,13 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     $scope.sortConfig = {
       fields: [
         {
-          id: 'name',
-          title: 'VM Name',
+          id: 'state',
+          title: 'State',
           sortType: 'alpha'
         },
         {
-          id: 'state',
-          title: 'State',
+          id: 'name',
+          title: 'VM Name',
           sortType: 'alpha'
         }
       ],
@@ -94,6 +97,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       var nodesValid = $scope.nodesCount >= 1;
       $scope.nodesWarning = nodesValid ? '' : "You must select at least one Node";
 
+      sortChange();
       $scope.validateForm();
     };
 

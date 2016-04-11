@@ -8,16 +8,15 @@
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-masters-nodes.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-cdn-channel.html'"></div>
         </div>
-        <div miq-wizard-step step-title="Configuration" substeps="true" step-id="configuration">
+        <div miq-wizard-step step-title="OpenShift Configuration" substeps="true" step-id="configuration">
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-config-auth-mode.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-config-auth-settings.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-config-storage.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-config-settings.html'"></div>
         </div>
-        <div miq-wizard-step step-title="Review" step-id="review">
-          <p ng-if="!deployInProgress && !deployComplete">Review all your choices then hit Deploy to submit.</p>
-          <p ng-if="deployInProgress">Please wait while the deployment processes...</p>
-          <p ng-if="deployComplete">Deployment succeeded!</p>
+        <div miq-wizard-step step-title="Review" substeps="true" step-id="review">
+          <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-review-summary.html'"></div>
+          <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-review-progress.html'"></div>
         </div>
       </div>
     </div>

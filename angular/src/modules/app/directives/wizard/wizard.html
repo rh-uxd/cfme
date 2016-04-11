@@ -9,7 +9,7 @@
   </div>
   <div class="wizard-miq-btn-container modal-footer">
     <button miq-wiz-cancel class="btn btn-default" ng-disabled="wizardDone">{{cancelTitle}}</button>
-    <button miq-wiz-previous class="btn btn-default" ng-disabled="wizardDone" callback="backCallback">{{backTitle}}</button>
+    <button miq-wiz-previous class="btn btn-default" ng-disabled="wizardDone || backDisabled" callback="backCallback">{{backTitle}}</button>
     <button miq-wiz-next class="btn btn-primary" ng-disabled="!nextEnabled" callback="nextCallback">{{nextTitle}}</button>
   </div>
 </div>

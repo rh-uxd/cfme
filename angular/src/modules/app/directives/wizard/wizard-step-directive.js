@@ -15,7 +15,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
     },
     require: '^miq-wizard',
     templateUrl: 'modules/app/directives/wizard/wizard-step.html',
-    controller: function ($scope) {
+    controller: function ($scope, $timeout) {
       var firstRun = true;
       $scope.steps = [];
       $scope.context = {};
@@ -110,30 +110,33 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
           unselectAll();
 
           $scope.selectedStep = step;
-          step.selected = true;
+          if (step) {
+            step.selected = true;
 
-          if (angular.isFunction($scope.selectedStep.onShow)) {
-            $scope.selectedStep.onShow();
-          }
+            if (angular.isFunction($scope.selectedStep.onShow)) {
+              $scope.selectedStep.onShow();
+            }
 
-          // Watch the new step for next button enabled status (remove any previous watcher)
-          if ($scope.stepEnabledWatcher) {
-            $scope.stepEnabledWatcher();
-          }
-          $scope.stepEnabledWatcher = $scope.$watch('selectedStep.nextEnabled', function (value) {
-            $scope.nextEnabled = value;
-          });
+            // Watch the new step for next button enabled status (remove any previous watcher)
+            if ($scope.stepEnabledWatcher) {
+              $scope.stepEnabledWatcher();
+            }
+            $scope.stepEnabledWatcher = $scope.$watch('selectedStep.nextEnabled', function (value) {
+              $scope.nextEnabled = value;
+            });
 
-          // Make sure current step is not undefined
-          if (!angular.isUndefined($scope.currentStep)) {
-            $scope.currentStep = step.wzTitle;
-          }
+            // Make sure current step is not undefined
+            if (!angular.isUndefined($scope.currentStep)) {
+              $scope.currentStep = step.wzTitle;
+            }
 
-          //emit event upwards with data on goTo() invocation
-          if ($scope.selected) {
-            $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
-            firstRun = false;
+            //emit event upwards with data on goTo() invocation
+            if ($scope.selected) {
+              $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
+              firstRun = false;
+            }
           }
+          $scope.wizard.updateSubStepNumber (stepIdx($scope.selectedStep));
         }
       };
 
@@ -250,16 +253,17 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
 
       if ($scope.substeps && !$scope.onShow) {
         $scope.onShow = function() {
-          if (!$scope.selectedStep) {
-            $scope.goTo($scope.getEnabledSteps()[0]);
-          } else if ($scope.selectedStep.onShow) {
-            $scope.selectedStep.onShow();
-          }
+          $timeout(function() {
+            if (!$scope.selectedStep) {
+              $scope.goTo($scope.getEnabledSteps()[0]);
+            } else if ($scope.selectedStep.onShow) {
+              $scope.selectedStep.onShow();
+            }
+          }, 10);
         }
       }
     },
     link: function($scope, $element, $attrs, wizard) {
-
       $scope.$watch($attrs.ngShow, function(value) {
         $scope.pageNumber = wizard.getStepNumber($scope);
       });
@@ -273,6 +277,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       $scope.contentStyle = wizard.contentStyle;
 
       wizard.addStep($scope);
+      $scope.wizard = wizard;
     }
   };
 });

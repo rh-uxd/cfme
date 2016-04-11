@@ -6,10 +6,12 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     var firstShow = true;
     $scope.onShow = function () {
       if (firstShow) {
-        $scope.data.storageType = 'nfs';
-        $scope.data.nfsStorageUsername = '';
-        $scope.data.nfsStoragePassword = '';
-        $scope.data.nfsStorageUrl = '';
+        $scope.data.configureRouter = false;
+        $scope.data.configureRegistry = false;
+        $scope.data.useDefaultRegistry = false;
+        $scope.data.useS3Registry = false;
+        $scope.data.useSwift = false;
+        $scope.data.configureMetrics = false;
         firstShow = false;
       }
       $scope.validateForm();

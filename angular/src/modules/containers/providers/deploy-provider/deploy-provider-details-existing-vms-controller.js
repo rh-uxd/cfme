@@ -64,24 +64,23 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       onFilterChange: filterChange
     };
 
-    var stateVals = {
-      'Unset': 1,
-      'Master': 2,
-      'Node': 3
-    };
-
     var compareFn = function (item1, item2) {
       var compValue = 0;
       if ($scope.sortConfig.currentField.id === 'name') {
-        compValue = item1.providerName.localeCompare(item2.providerName);
-      } else if ($scope.sortConfig.currentField.id === 'state') {
-        compValue = item1.state.localeCompare(item2.state);
-      } else if ($scope.sortConfig.currentField.id === 'cpus') {
-        compValue = item1.cpus - item2.cpus;
-      } else if ($scope.sortConfig.currentField.id === 'memory') {
-        compValue = item1.memory - item2.memory;
-      } else if ($scope.sortConfig.currentField.id === 'diskSize') {
-        compValue = item1.diskSize - item2.diskSize;
+        compValue = item1.vmName.localeCompare(item2.vmName);
+      } else {
+        if ($scope.sortConfig.currentField.id === 'state') {
+          compValue = item1.state.localeCompare(item2.state);
+        } else if ($scope.sortConfig.currentField.id === 'cpus') {
+          compValue = item1.cpus - item2.cpus;
+        } else if ($scope.sortConfig.currentField.id === 'memory') {
+          compValue = item1.memory - item2.memory;
+        } else if ($scope.sortConfig.currentField.id === 'diskSize') {
+          compValue = item1.diskSize - item2.diskSize;
+        }
+        if (compValue === 0) {
+          compValue = item1.vmName.localeCompare(item2.vmName);
+        }
       }
 
       if (!$scope.sortConfig.isAscending) {
@@ -155,6 +154,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       });
 
       applyFilters();
+      sortChange();
       updateSetNodeTypeButtons();
     };
 
