@@ -14,7 +14,7 @@
       <div class="miq-input-checkbox-form">
         <div class="checkbox-inline">
           <label class="miq-checkbox-input-label">
-            <input type="checkbox" ng-model="data.specifySatelliteUrl">RHN Satellite URL
+            <input type="checkbox" ng-model="data.specifySatelliteUrl" ng-change="validateForm()">RHN Satellite URL
           </label>
           <input id="satellite-url" name="name" ng-model="data.rhnSatelliteUrl" type="text" ng-change="validateForm()" required ng-disabled="data.specifySatelliteUrl === false"/>
         </div>

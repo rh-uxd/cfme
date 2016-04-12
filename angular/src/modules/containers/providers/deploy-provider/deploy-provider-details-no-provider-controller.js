@@ -84,7 +84,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         return node.state === 'Node';
       });
       $scope.data.infraNodes = $scope.allNodes.filter(function(node) {
-        return node.state === 'Infra Node';
+        return node.state === 'InfraNode';
       });
 
       $scope.mastersCount = $scope.data.masters ? $scope.data.masters.length : 0;
@@ -127,7 +127,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
 
     var addNode = function () {
-      $scope.addDialogTitle = "Add Master";
+      $scope.addDialogTitle = "Add Node";
       $scope.addDialogText = "Please enter the Host Name or IP Address for the new Node";
       $scope.newItem = {
         vmName: "",
@@ -137,7 +137,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
 
     var addInfraNode = function () {
-      $scope.addDialogTitle = "Add Master";
+      $scope.addDialogTitle = "Add Infra Node";
       $scope.addDialogText = "Please enter the Host Name or IP Address for the new Infra Node";
       $scope.newItem = {
         vmName: "",
@@ -163,7 +163,9 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         {
           name: 'Add Node',
           actionFn: addNode
-        },
+        }
+      ],
+      moreActions: [
         {
           name: 'Add Infra Node',
           actionFn: addInfraNode
@@ -186,7 +188,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       var selectedCount = $scope.allNodes.filter(function(node) {
         return node.selected;
       }).length;
-      $scope.actionsConfig.primaryActions[3].isDisabled = selectedCount === 0;
+      $scope.actionsConfig.moreActions[1].isDisabled = selectedCount === 0;
     };
 
     $scope.allNodesSelected = false;

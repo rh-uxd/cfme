@@ -44,6 +44,10 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
     };
 
+    $scope.$watch('data.authentication.mode', function() {
+      $scope.validateForm();
+    });
+
     var validString = function(value) {
       return angular.isDefined(value) && value.length > 0;
     };
@@ -54,6 +58,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
 
       return (
+        !angular.isUndefined($scope.data.authentication.htPassword) &&
         validString($scope.data.authentication.htPassword.username) &&
         validString($scope.data.authentication.htPassword.password) &&
         validString($scope.data.authentication.htPassword.filePath)
@@ -66,6 +71,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
 
       return (
+        !angular.isUndefined($scope.data.authentication.ldap) &&
         validString($scope.data.authentication.ldap.id) &&
         validString($scope.data.authentication.ldap.email) &&
         validString($scope.data.authentication.ldap.name) &&
@@ -85,6 +91,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
 
       return (
+        !angular.isUndefined($scope.data.authentication.requestHeader) &&
         validString($scope.data.authentication.requestHeader.challengeUrl) &&
         validString($scope.data.authentication.requestHeader.loginUrl) &&
         validString($scope.data.authentication.requestHeader.clientCA) &&
@@ -98,6 +105,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
 
       return (
+        !angular.isUndefined($scope.data.authentication.openId) &&
         validString($scope.data.authentication.openId.clientId) &&
         validString($scope.data.authentication.openId.clientSecret) &&
         validString($scope.data.authentication.openId.subClaim) &&
@@ -112,6 +120,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
 
       return (
+        !angular.isUndefined($scope.data.authentication.google) &&
         validString($scope.data.authentication.google.clientId) &&
         validString($scope.data.authentication.google.clientSecret) &&
         validString($scope.data.authentication.google.hostedDomain)
@@ -124,6 +133,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
 
       return (
+        !angular.isUndefined($scope.data.authentication.github) &&
         validString($scope.data.authentication.github.clientId) &&
         validString($scope.data.authentication.github.clientSecret) &&
         validString($scope.data.authentication.github.hostedDomain)
