@@ -134,6 +134,11 @@ $wz-substep-nav-width: 250px;
   position: relative;
   top: 0;
   right: 0;
+
+  .blank-slate-pf {
+    background-color: transparent;
+    border: none;
+  }
 }
 
 
@@ -147,6 +152,10 @@ $wz-substep-nav-width: 250px;
   padding: 38px 0 0 0;
   height: 115px;
   list-style: none;
+
+  &.invisible {
+    visibility: hidden;
+  }
 
   &:before {
     background-color: $wz-default-border-color;

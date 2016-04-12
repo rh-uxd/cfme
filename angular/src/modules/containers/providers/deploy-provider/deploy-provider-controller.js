@@ -4,9 +4,12 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     'use strict';
 
     $scope.data = {};
-    $scope.deployComplete = false;
-    $scope.deployInProgress = false;
+
     var initializeDeploymentWizard = function () {
+      $scope.deployProviderReady = false;
+      $scope.deployComplete = false;
+      $scope.deployInProgress = false;
+
       $scope.data = {
         providerName: '',
         providerType: 'atomic',
@@ -20,6 +23,28 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         }
       };
 
+      $timeout(function() {
+        $scope.data.providers = [
+          {
+            id: 1,
+            name: 'Existing Provider 1'
+          },
+          {
+            id: 2,
+            name: 'Existing Provider 2'
+          },
+          {
+            id: 3,
+            name: 'Existing Provider 3'
+          },
+          {
+            id: 4,
+            name: 'Existing Provider 4'
+          }
+        ];
+        $scope.deployProviderReady = true;
+      }, 5000);
+
       $scope.deploymentDetailsGeneralComplete = false;
       $scope.deployComplete = false;
       $scope.deployInProgress = false;
@@ -28,9 +53,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     var startDeploy = function () {
       $scope.deployInProgress = true;
-      console.log("Start Deploy");
       $timeout(function () {
-        console.log("Done");
         $scope.deployInProgress = false;
         $scope.deployComplete = true;
         $scope.nextButtonTitle = "Close";

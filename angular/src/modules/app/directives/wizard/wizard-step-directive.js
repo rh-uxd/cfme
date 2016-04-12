@@ -56,6 +56,16 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         return stepIdx(step) + 1;
       };
 
+      $scope.isNextEnabled = function () {
+        var enabled = angular.isUndefined($scope.nextEnabled) || $scope.nextEnabled;
+        if ($scope.substeps) {
+          angular.forEach($scope.getEnabledSteps(), function(step) {
+            enabled = enabled && step.nextEnabled;
+          });
+        }
+        return enabled;
+      };
+
       $scope.getStepDisplayNumber = function(step) {
         return $scope.pageNumber +  String.fromCharCode(65 + stepIdx(step)) + ".";
       };
@@ -105,8 +115,19 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
         $scope.selectedStep = null;
       };
 
+      $scope.prevStepsComplete = function (nextStep) {
+        var nextIdx = stepIdx(nextStep);
+        var complete = true;
+        angular.forEach($scope.getEnabledSteps(), function (step, stepIndex) {
+          if (stepIndex <  nextIdx) {
+            complete = complete && step.nextEnabled;
+          }
+        });
+        return complete;
+      };
+
       $scope.goTo = function (step) {
-        if (firstRun || $scope.getStepNumber(step) < $scope.currentStepNumber() || $scope.nextEnabled) {
+        if (firstRun || $scope.getStepNumber(step) < $scope.currentStepNumber() || $scope.prevStepsComplete(step)) {
           unselectAll();
 
           $scope.selectedStep = step;

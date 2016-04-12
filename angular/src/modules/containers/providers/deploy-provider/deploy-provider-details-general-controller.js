@@ -6,25 +6,18 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     var firstShow = true;
     $scope.onShow = function () {
       if (firstShow) {
-        $scope.existingProviders = [
-          {
-            id: 1,
-            name: 'Existing Provider 1'
-          },
-          {
-            id: 2,
-            name: 'Existing Provider 2'
-          },
-          {
-            id: 3,
-            name: 'Existing Provider 3'
-          },
-          {
-            id: 4,
-            name: 'Existing Provider 4'
-          }
-        ];
-        $scope.data.existingProviderId = $scope.existingProviders[0].id;
+        $scope.existingProviders = [];
+
+        $scope.data.providers.forEach(function(provider){
+          $scope.existingProviders.push({
+            id: provider.id,
+            name: provider.name
+          })
+        });
+        if (typeof $scope.existingProviders !== 'undefined' && $scope.existingProviders.length > 0) {
+          $scope.data.existingProviderId = $scope.existingProviders[0].id;
+        }
+
         $scope.newVmProviders = [
           {
             id: 1,
@@ -43,7 +36,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
             name: 'Existing Provider 4'
           }
         ];
-        $scope.data.newVmProviderId = $scope.existingProviders[0].id;
+        $scope.data.newVmProviderId = $scope.newVmProviders[0].id;
 
         $scope.deploymentDetailsGeneralComplete = false;
         firstShow = false;

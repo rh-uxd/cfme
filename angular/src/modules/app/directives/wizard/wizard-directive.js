@@ -18,6 +18,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       nextCallback: '=?',
       onFinish: '&',
       onCancel: '&',
+      wizardReady: '=?',
       wizardDone: '=?'
     },
     templateUrl: 'modules/app/directives/wizard/wizard.html',
@@ -26,6 +27,10 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       $scope.steps = [];
       $scope.context = {};
       this.context = $scope.context;
+
+      if (angular.isUndefined($scope.wizardReady)) {
+        $scope.wizardReady = true;
+      }
 
       $scope.nextEnabled = false;
 
@@ -48,6 +53,8 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         'max-height': $scope.contentHeight,
         'overflow-y': 'auto'
       };
+      $scope.contentStyle = this.contentStyle;
+
       $scope.getEnabledSteps = function () {
         return $scope.steps.filter(function (step) {
           return step.disabled !== 'true';
@@ -125,7 +132,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
           return;
         }
 
-        if (firstRun || $scope.getStepNumber(step) < $scope.currentStepNumber() || $scope.nextEnabled) {
+        if (firstRun || $scope.getStepNumber(step) < $scope.currentStepNumber() || $scope.selectedStep.isNextEnabled()) {
           unselectAll();
 
           if (!firstRun && resetStepNav && step.substeps) {
@@ -180,7 +187,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         // Push the step onto step array
         $scope.steps.push(step);
 
-        if ($scope.getEnabledSteps().length === 1) {
+        if ($scope.getEnabledSteps().length === 1 && $scope.wizardReady) {
           $scope.goTo($scope.getEnabledSteps()[0]);
         }
       };
@@ -319,6 +326,13 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         //go to first step
         this.goTo(0);
       };
+    },
+    link: function($scope, $element, $attrs) {
+      $scope.$watch('wizardReady', function () {
+        if ($scope.wizardReady) {
+          $scope.goTo($scope.getEnabledSteps()[0]);
+        }
+      });
     }
   };
 });

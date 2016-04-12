@@ -2,7 +2,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
   ['$rootScope', '$scope', '$timeout', '$document',
   function($rootScope, $scope, $timeout, $document) {
     'use strict';
-
+    $scope.deploymentDetailsAuthSettingsComplete = false;
     var firstShow = true;
     $scope.onShow = function () {
       if (firstShow) {
@@ -131,7 +131,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
 
     $scope.validateForm = function() {
-      console.log($scope.data.authentication.mode);
       $scope.deploymentDetailsAuthSettingsComplete =
         validHtPassword() &&
         validLdap() &&
@@ -139,7 +138,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         validOpenId() &&
         validGoogle() &&
         validGithub();
-      console.log($scope.deploymentDetailsAuthSettingsComplete);
     };
   }
 ]);
