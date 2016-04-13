@@ -3,12 +3,12 @@
     <div ng-if="showDeploymentWizard === true"> <!-- this is done to reset the wizard each time it is shown -->
       <div miq-wizard class="miq-deploy-provider-wizard" wizard-ready="deployProviderReady" on-finish="finishedWizard()" on-cancel="cancelWizard()" content-height="455px" next-title="nextButtonTitle"
       next-callback="nextCallback" back-callback="backCallback" wizard-done="deployComplete || deployInProgress">
-        <div miq-wizard-step step-title="Deployment Details" substeps="true" step-id="details">
+        <div miq-wizard-step step-title="Deployment Details" substeps="true" step-id="details" show-review="true" show-review-details="true">
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-general.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-masters-nodes.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-cdn-channel.html'"></div>
         </div>
-        <div miq-wizard-step step-title="OpenShift Configuration" substeps="true" step-id="configuration">
+        <div miq-wizard-step step-title="Configuration" substeps="true" step-id="configuration" show-review="true">
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-config-auth-mode.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-config-auth-settings.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-config-storage.html'"></div>

@@ -12,7 +12,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
       $scope.data = {
         providerName: '',
-        providerType: 'atomic',
+        providerType: 'openshiftOrigin',
         provisionOn: 'existingVms',
         masterCount: 0,
         nodeCount: 0,
@@ -56,7 +56,10 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       $timeout(function () {
         $scope.deployInProgress = false;
         $scope.deployComplete = true;
-        $scope.nextButtonTitle = "Close";
+
+        $scope.deploySuccess = true;
+        $scope.deployFailed = true;
+        $scope.deployFailureMessage = "An unknown error has occurred.";
       }, 5000);
     };
 
@@ -74,7 +77,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       if (parameters.step.stepId == 'review-summary') {
         $scope.nextButtonTitle = "Deploy";
       } else if (parameters.step.stepId == 'review-progress') {
-        $scope.nextButtonTitle = "Deploy";
+        $scope.nextButtonTitle = "Close";
       } else {
         $scope.nextButtonTitle = "Next >";
       }

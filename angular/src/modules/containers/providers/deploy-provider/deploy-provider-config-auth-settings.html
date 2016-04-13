@@ -1,5 +1,7 @@
 <div ng-controller="containers.deployProviderAuthSettingsController">
-  <div miq-wizard-substep step-title="Authentication Details" step-id="auth-settings" next-enabled="deploymentDetailsAuthSettingsComplete" on-show="onShow" wz-disabled="{{data.authentication.mode == 'all'}}">
+  <div miq-wizard-substep step-title="Authentication Details" step-id="auth-settings"
+       next-enabled="deploymentDetailsAuthSettingsComplete" on-show="onShow"
+       wz-disabled="{{data.authentication.mode == 'all'}}" review-template="{{reviewTemplate}}">
     <div class="miq-form-heading">Specify authenticaion details: {{authTypeString}}</div>
     <form class="form-horizontal" ng-if="data.authentication.mode == 'all'">
       <span>There are no fruther settings needed for the Allow All authentication mode.</span>

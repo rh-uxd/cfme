@@ -3,6 +3,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
   function($rootScope, $scope, $timeout, $document) {
     'use strict';
     $scope.deploymentDetailsAuthSettingsComplete = false;
+    $scope.reviewTemplate = "/modules/containers/providers/deploy-provider/deploy-provider-auth-settings-review.html";
     var firstShow = true;
     $scope.onShow = function () {
       if (firstShow) {

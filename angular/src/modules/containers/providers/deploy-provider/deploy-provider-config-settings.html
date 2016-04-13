@@ -1,5 +1,6 @@
 <div ng-controller="containers.deployProviderConfigSettingsController">
-  <div miq-wizard-substep step-title="Settings" step-id="config-storage" on-show="onShow" wz-disabled="false">
+  <div miq-wizard-substep step-title="Settings" step-id="config-storage" on-show="onShow"
+       wz-disabled="false" review-template="{{reviewTemplate}}">
     <div class="miq-form-heading">Select configuration settings</div>
     <form role="form">
       <div class="checkbox">
@@ -15,17 +16,17 @@
       <div class="miq-radio-form">
         <div class="checkbox">
           <label>
-            <input type="checkbox" ng-model="data.useDefaultRegistry">Use default registry configured above
+            <input type="checkbox" ng-model="data.useDefaultRegistry" ng-disabled="!data.configureRegistry">Use default registry configured above
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" ng-model="data.useS3Registry">Use S3
+            <input type="checkbox" ng-model="data.useS3Registry" ng-disabled="!data.configureRegistry">Use S3
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" ng-model="data.useSwift">Use Swift
+            <input type="checkbox" ng-model="data.useSwift" ng-disabled="!data.configureRegistry">Use Swift
           </label>
         </div>
       </div>

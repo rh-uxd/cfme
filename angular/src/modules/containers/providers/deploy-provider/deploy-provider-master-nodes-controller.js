@@ -4,6 +4,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     'use strict';
 
     $scope.deploymentDetailsMasterNodesComplete = false;
+    $scope.reviewTemplate = "/modules/containers/providers/deploy-provider/deploy-provider-master-nodes-review.html";
 
     $scope.onShow = function () {
       if ($scope.data.provisionOn == 'noProvider') {

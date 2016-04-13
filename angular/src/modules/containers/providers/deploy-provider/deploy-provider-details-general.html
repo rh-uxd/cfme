@@ -1,15 +1,19 @@
 <div ng-controller="containers.deployProviderDetailsGeneralController">
-  <div miq-wizard-substep step-title="General"  next-enabled="deploymentDetailsGeneralComplete" step-id="details-general" on-show="onShow">
+  <div miq-wizard-substep step-title="General"  next-enabled="deploymentDetailsGeneralComplete"
+       step-id="details-general" on-show="onShow" review-template="{{reviewTemplate}}" show-review-details="true">
     <form class="form-horizontal">
       <div pf-form-group pf-label="Name" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
         <input id="new-provider-name" name="name" ng-model="data.providerName" type="text" ng-change="updateProviderName()" required/>
       </div>
       <div pf-form-group pf-label="Type" required pf-label-class="miq-input-label-class" pf-input-class="miq-radio-input-class">
         <label class="radio">
-          <input type="radio" ng-model="data.providerType" value="atomic">Atomic</input>
+          <input type="radio" ng-model="data.providerType" value="openshiftOrigin">OpenShift Origin</input>
         </label>
         <label class="radio">
-          <input type="radio" ng-model="data.providerType" value="openshift">OpenShift</input>
+          <input type="radio" ng-model="data.providerType" value="openshiftEnterprise">OpenShift Enterprise</input>
+        </label>
+        <label class="radio">
+          <input type="radio" ng-model="data.providerType" value="atomicPlatform">Atomic Platform</input>
         </label>
       </div>
     </form>

@@ -138,6 +138,8 @@ $wz-substep-nav-width: 250px;
   .blank-slate-pf {
     background-color: transparent;
     border: none;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -347,6 +349,113 @@ $wz-substep-nav-width: 250px;
   }
 }
 
+.wizard-miq-review-steps {
+  list-style: none;
+
+  .list-group, .list-group-item {
+    border: none;
+    margin-bottom: 0;
+  }
+
+  > ul {
+    > li {
+      position: relative;
+      float: left;
+      margin: 0;
+      line-height: 15px;
+      width: 100%;
+
+      a {
+        color: #030303;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.25s;
+        cursor: pointer;
+        padding-left: 30px;
+        padding-right: 5px;
+
+        &:before {
+          content: "\f107";
+          display: block;
+          font-family: FontAwesome;
+          font-size: 24px;
+          font-weight: 500;
+          position: absolute;
+          left: 20px;
+        }
+
+        &.collapsed {
+          &:before {
+            content: "\f105";
+          }
+        }
+      }
+    }
+  }
+}
+
+.wizard-miq-review-substeps {
+  padding-left: 22px;
+  > ul {
+    > li {
+      position: relative;
+      float: left;
+      margin: 0;
+      line-height: 15px;
+      width: 100%;
+
+      a {
+        color: #030303;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.25s;
+        cursor: pointer;
+        padding-left: 30px;
+        padding-right: 5px;
+
+        &:before {
+          content: "\f107";
+          display: block;
+          font-family: FontAwesome;
+          font-size: 24px;
+          font-weight: 500;
+          position: absolute;
+          left: 20px;
+        }
+
+        &.collapsed {
+          &:before {
+            content: "\f105";
+          }
+        }
+      }
+    }
+  }
+}
+
+.wizard-miq-review-content {
+  padding-top: 10px;
+  padding-left: 40px;
+
+  .wizard-miq-review-item {
+    padding: 5px 0;
+    .wizard-miq-review-item-label {
+      font-weight: 700;
+      padding-right: 10px;
+    }
+    .wizard-miq-review-item-value {
+    }
+    .wizard-miq-review-item-subvalue {
+      padding-left: 20px;
+    }
+    .wizard-miq-review-table {
+      padding-top: 10px;
+      padding-right: 20px;
+      width: 250px;
+    }
+  }
+}
+
 .wizard-miq-footer {
   padding-bottom: 17px;
   background-color: #f8f8f8;
@@ -415,7 +524,7 @@ $wz-substep-nav-width: 250px;
     width: 0;
   }
 
-  .miq-radio-form {
+  .miq-radio-form, .miq-checkbox-form {
     padding-left: 20px;
   }
 

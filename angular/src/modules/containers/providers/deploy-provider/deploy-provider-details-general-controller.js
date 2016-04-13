@@ -3,6 +3,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
   function($rootScope, $scope, $document, $timeout) {
     'use strict';
 
+    $scope.reviewTemplate = "/modules/containers/providers/deploy-provider/deploy-provider-details-general-review.html";
+
     var firstShow = true;
     $scope.onShow = function () {
       if (firstShow) {

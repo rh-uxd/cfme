@@ -11,7 +11,10 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       disabled: '@?wzDisabled',
       description: '@',
       wizardData: '=',
-      onShow: '=?'
+      onShow: '=?',
+      showReview: '@?',
+      showReviewDetails: '@?',
+      reviewTemplate: '@?'
     },
     require: '^miq-wizard',
     templateUrl: 'modules/app/directives/wizard/wizard-step.html',
@@ -21,10 +24,24 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       $scope.context = {};
       this.context = $scope.context;
 
+      if (angular.isUndefined($scope.showReview)) {
+        $scope.showReview = false;
+      }
+      if (angular.isUndefined($scope.showReviewDetails)) {
+        $scope.showReviewDetails = false;
+      }
+
       $scope.getEnabledSteps = function() {
         return $scope.steps.filter(function(step){
           return step.disabled !== 'true';
         });
+      };
+
+      $scope.getReviewSteps = function() {
+        var reviewSteps = $scope.getEnabledSteps().filter(function(step){
+          return !angular.isUndefined(step.reviewTemplate);
+        });
+        return reviewSteps;
       };
 
       var stepIdx = function(step) {
@@ -127,6 +144,10 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       };
 
       $scope.goTo = function (step) {
+        if ($scope.wizardDone) {
+          return;
+        }
+
         if (firstRun || $scope.getStepNumber(step) < $scope.currentStepNumber() || $scope.prevStepsComplete(step)) {
           unselectAll();
 

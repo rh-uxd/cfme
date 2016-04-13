@@ -1,0 +1,25 @@
+<div ng-controller="containers.deployProviderReviewController">
+  <form class="form">
+    <div class="wizard-miq-review-item" ng-if="data.configureRouter">
+      <span class="wizard-miq-review-item-label">Configure:</span>
+      <span class="wizard-miq-review-item-value">Router</span>
+    </div>
+    <div class="wizard-miq-review-item" ng-if="data.configureRegistry">
+      <span class="wizard-miq-review-item-label">Configure:</span>
+      <span class="wizard-miq-review-item-value">Registry</span>
+    </div>
+    <div class="wizard-miq-review-item" ng-if="data.configureRegistry">
+      <span class="wizard-miq-review-item-subvalue" ng-if="data.useDefaultRegistry">Use default registry</span>
+      <span class="wizard-miq-review-item-subvalue" ng-if="data.useS3Registry">Use S3</span>
+      <span class="wizard-miq-review-item-subvalue" ng-if="data.useSwift">Use Swift</span>
+    </div>
+    <div class="wizard-miq-review-item" ng-if="data.configureMetrics">
+      <span class="wizard-miq-review-item-label">Configure:</span>
+      <span class="wizard-miq-review-item-value">Metrics</span>
+    </div>
+    <div class="wizard-miq-review-item" ng-if="!data.configureRouter && !data.configureRegistry && !data.configureMetrics">
+      <span class="wizard-miq-review-item-label">Configure:</span>
+      <span class="wizard-miq-review-item-value">Nothing</span>
+    </div>
+  </form>
+</div>

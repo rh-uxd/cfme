@@ -10,13 +10,18 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
       disabled: '@?wzDisabled',
       description: '@',
       wizardData: '=',
-      onShow: '=?'
+      onShow: '=?',
+      showReviewDetails: '@?',
+      reviewTemplate: '@?'
     },
     require: '^miq-wizard-step',
     templateUrl: 'modules/app/directives/wizard/wizard-substep.html',
     controller: function($scope) {
       if (angular.isUndefined($scope.nextEnabled)) {
         $scope.nextEnabled = true;
+      }
+      if (angular.isUndefined($scope.showReviewDetails)) {
+        $scope.showReviewDetails = false;
       }
     },
     link: function($scope, $element, $attrs, step) {

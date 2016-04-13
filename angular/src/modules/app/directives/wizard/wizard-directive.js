@@ -61,6 +61,13 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         });
       };
 
+      this.getReviewSteps = function() {
+        return $scope.steps.filter(function(step){
+          return !step.disabled &&
+            (!angular.isUndefined(step.reviewTemplate) || step.getReviewSteps().length > 0);
+        });
+      };
+
       var stepIdx = function (step) {
         var idx = 0;
         var res = -1;
@@ -170,6 +177,8 @@ angular.module('miq.wizard').directive('miqWizard', function () {
 
         if (!$scope.selectedStep.substeps) {
           $scope.backDisabled =  stepIdx($scope.selectedStep) === 0;
+        } else {
+          $scope.backDisabled = stepIdx($scope.selectedStep) === 0 && $scope.selectedStep.currentStepNumber() === 1;
         }
       };
 
