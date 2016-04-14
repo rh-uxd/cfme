@@ -6,6 +6,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
     scope: {
       stepTitle: '@',
       stepId: '@',
+      stepPriority: '@',
       substeps: '=?',
       nextEnabled: '=?',
       disabled: '@?wzDisabled',
@@ -29,6 +30,11 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       }
       if (angular.isUndefined($scope.showReviewDetails)) {
         $scope.showReviewDetails = false;
+      }
+      if (angular.isUndefined($scope.stepPriority)) {
+        $scope.stepPriority = 999;
+      } else {
+        $scope.stepPriority = parseInt($scope.stepPriority);
       }
 
       $scope.getEnabledSteps = function() {
@@ -199,8 +205,15 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       };
 
       this.addStep = function(step) {
-        // Push the step onto step array
-        $scope.steps.push(step);
+        // Insert the step into step array
+        var insertBefore = $scope.steps.find(function(nextStep) {
+          return nextStep.stepPriority > step.stepPriority;
+        });
+        if (insertBefore) {
+          $scope.steps.splice($scope.steps.indexOf(insertBefore), 0, step);
+        } else {
+          $scope.steps.push(step);
+        }
       };
 
       this.currentStepTitle = function(){

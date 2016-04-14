@@ -193,10 +193,17 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       };
 
       this.addStep = function (step) {
-        // Push the step onto step array
-        $scope.steps.push(step);
+        // Insert the step into step array
+        var insertBefore = $scope.steps.find(function(nextStep) {
+          return nextStep.stepPriority > step.stepPriority;
+        });
+        if (insertBefore) {
+          $scope.steps.splice($scope.steps.indexOf(insertBefore), 0, step);
+        } else {
+          $scope.steps.push(step);
+        }
 
-        if ($scope.getEnabledSteps().length === 1 && $scope.wizardReady) {
+        if ($scope.wizardReady && ($scope.getEnabledSteps().length > 0) && (step == $scope.getEnabledSteps()[0])) {
           $scope.goTo($scope.getEnabledSteps()[0]);
         }
       };

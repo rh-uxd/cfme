@@ -6,6 +6,7 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
     scope: {
       stepTitle: '@',
       stepId: '@',
+      stepPriority: '@',
       nextEnabled: '=?',
       disabled: '@?wzDisabled',
       description: '@',
@@ -22,6 +23,11 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
       }
       if (angular.isUndefined($scope.showReviewDetails)) {
         $scope.showReviewDetails = false;
+      }
+      if (angular.isUndefined($scope.stepPriority)) {
+        $scope.stepPriority = 999;
+      } else {
+        $scope.stepPriority = parseInt($scope.stepPriority);
       }
     },
     link: function($scope, $element, $attrs, step) {
