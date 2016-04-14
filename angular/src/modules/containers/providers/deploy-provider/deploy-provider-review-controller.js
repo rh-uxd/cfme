@@ -14,41 +14,82 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
     }
 
-    $scope.$watch('data.providerType', function(value) {
-      if (value == 'openshiftOrigin') {
-        $scope.providerType = "OpenShift Origin";
-      } else if (value == 'openshiftEnterprise') {
-        $scope.providerType = "OpenShift Enterprise";
-      } else if (value == 'atomicPlatform') {
-        $scope.providerType = "Atomic Platform";
+    $scope.getProviderType = function() {
+      if ($scope.data.providerType == 'openshiftOrigin') {
+        return "OpenShift Origin";
+      } else if ($scope.data.providerType == 'openshiftEnterprise') {
+        return "OpenShift Enterprise";
+      } else if ($scope.data.providerType == 'atomicPlatform') {
+        return "Atomic Platform";
       }
-    });
+    };
 
-    $scope.$watch('data.provisionOn', function(value) {
-      if (value == 'existingVms') {
-        $scope.providerDescription = 'Use existing VMs from an existing provider';
+    $scope.getProviderDescription = function() {
+      if ($scope.data.provisionOn == 'existingVms') {
+        var provider = $scope.data.providers.find(function(provider) {
+          return provider.id == $scope.data.existingProviderId;
+        });
+        return 'Use existing VMs from an existing provider: ' + (provider ? provider.name : "None");
       }
       else if (value == 'newVms') {
-        $scope.providerDescription = 'Create new VMs on provider';
+        var provider = $scope.data.providers.find(function(provider) {
+          return provider.id == $scope.data.newVmProviderId;
+        });
+        return 'Use existing VMs from an existing provider: ' + (provider ? provider.name : "None");
       }
       else if (value == 'noProvider') {
-        $scope.providerDescription = 'Specify a list of machines to deploy on (No existing provider';
+        return 'Specify a list of machines to deploy on (No existing provider';
       }
-    });
+    };
 
-    $scope.$watch('data.storageType', function(value) {
-      if (value == 'nfs') {
-        $scope.storageType = "NFS";
+    $scope.getMasterCreationTemplate = function () {
+      var selectedTemplate = $scope.data.nodeCreationTemplates.find(function(nextTemplate) {
+        console.log(nextTemplate.id + " == " + $scope.data.masterCreationTemplateId + " is " + (nextTemplate.id == $scope.data.masterCreationTemplateId));
+        return nextTemplate.id == $scope.data.masterCreationTemplateId;
+      });
+      return selectedTemplate ? selectedTemplate.name : "None";
+    };
+
+    $scope.getNodeCreationTemplate = function () {
+      var selectedTemplate = $scope.data.nodeCreationTemplates.find(function(nextTemplate) {
+        return nextTemplate.id === $scope.data.masterCreationTemplateId;
+      });
+      return selectedTemplate ? selectedTemplate.name : "None";
+    };
+
+    $scope.getAuthenticationType = function () {
+      if ($scope.data.authentication.mode == 'all') {
+        return "Allow All";
+      } else if ($scope.data.authentication.mode == 'htPassword') {
+        return "HTPassword";
+      } else if ($scope.data.authentication.mode == 'ldap') {
+        return "LDAP Authentication";
+      } else if ($scope.data.authentication.mode == 'requestHeader') {
+        return "Request Header";
+      } else if ($scope.data.authentication.mode == 'openId') {
+        return "OpenID Connect";
+      } else if ($scope.data.authentication.mode == 'google') {
+        return "Google";
+      } else if ($scope.data.authentication.mode == 'github') {
+        return "Github";
+      } else {
+        return "None";
       }
-      else if (value == 'gluster') {
-        $scope.storageType = "Gluster";
+    };
+
+    $scope.getStorageType = function() {
+      if ($scope.data.storageType == 'nfs') {
+        return "NFS";
       }
-      else if (value == 'integratedNfs') {
-        $scope.storageType = "Integrated NFS (POC's only)";
+      else if ($scope.data.storageType == 'gluster') {
+        return "Gluster";
       }
-      else if (value == 'none') {
-        $scope.storageType = "None";
+      else if ($scope.data.storageType == 'integratedNfs') {
+        return "Integrated NFS (POC's only)";
       }
-    });
+      else if ($scope.data.storageType == 'none') {
+        return "None";
+      }
+    };
   }
 ]);

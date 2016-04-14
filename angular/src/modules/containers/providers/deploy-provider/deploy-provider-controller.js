@@ -42,6 +42,26 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
             name: 'Existing Provider 4'
           }
         ];
+
+        $scope.data.nodeCreationTemplates = [
+          {
+            id: 1,
+            name: 'Existing template 1'
+          },
+          {
+            id: 2,
+            name: 'Existing template 2'
+          },
+          {
+            id: 3,
+            name: 'Existing template 3'
+          },
+          {
+            id: 4,
+            name: 'Existing template 4'
+          }
+        ];
+
         $scope.deployProviderReady = true;
       }, 5000);
 

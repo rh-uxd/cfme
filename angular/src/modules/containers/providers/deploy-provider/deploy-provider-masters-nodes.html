@@ -3,9 +3,8 @@
        step-id="details-nodes" on-show="onShow" review-template="{{reviewTemplate}}">
     <div ng-if="data.provisionOn == 'existingVms'"
          ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-existing-vms.html'"></div>
-    <div ng-if="data.provisionOn == 'newVms'">
-      You chose Create new VMs on provider.
-    </div>
+    <div ng-if="data.provisionOn == 'newVms'"
+      ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-create-vms.html'"></div>
     <div ng-if="data.provisionOn == 'noProvider'"
          ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-no-provider.html'"></div>
   </div>

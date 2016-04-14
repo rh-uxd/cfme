@@ -442,6 +442,13 @@ $wz-substep-nav-width: 250px;
   padding-top: 10px;
   padding-left: 40px;
 
+  .miq-form-heading {
+    padding-top: 10px;
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+  }
   .wizard-miq-review-item {
     padding: 5px 0;
     .wizard-miq-review-item-label {
@@ -458,6 +465,9 @@ $wz-substep-nav-width: 250px;
       padding-right: 20px;
       width: 250px;
     }
+  }
+  .wizard-miq-review-subform {
+    padding-left: 15px;
   }
 }
 
@@ -536,11 +546,15 @@ $wz-substep-nav-width: 250px;
 
   .miq-input-checkbox-form {
     padding-left: 55px;
+    padding-bottom: 10px;
     .miq-checkbox-input-label {
       padding-right: 20px;
       input {
         margin-right: 20px;
         position: static;
+      }
+      &.miq-checkbox-input-label-lg {
+        padding-left: 55px;
       }
     }
     .miq-input-label-class {
@@ -564,12 +578,12 @@ $wz-substep-nav-width: 250px;
   }
 
   .miq-touchspin-input-class {
-    width: 130px;
-    padding: 0 20px 0 30px;
+    width: 110px;
+    padding: 0 20px 0 10px;
     float: left;
 
     .form-control {
-      height: 25px;
+      height: 24px;
     }
     .btn {
       padding-bottom: 1px;

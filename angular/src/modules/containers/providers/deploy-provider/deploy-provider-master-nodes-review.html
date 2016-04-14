@@ -3,6 +3,7 @@
     <div ng-include="'/modules/containers/providers/deploy-provider/deploy-provider-master-nodes-review-tables.html'"></div>
   </form>
   <form ng-if="data.provisionOn == 'newVms'" class="form">
+    <div ng-include="'/modules/containers/providers/deploy-provider/deploy-provider-master-nodes-review-create-vms.html'"></div>
   </form>
   <form ng-if="data.provisionOn == 'noProvider'" class="form">
     <div class="wizard-miq-review-item">
