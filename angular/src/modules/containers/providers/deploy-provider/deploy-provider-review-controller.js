@@ -15,7 +15,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     }
 
     $scope.$watch('data.providerType', function(value) {
-      console.log(value);
       if (value == 'openshiftOrigin') {
         $scope.providerType = "OpenShift Origin";
       } else if (value == 'openshiftEnterprise') {

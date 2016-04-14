@@ -1,25 +1,35 @@
 <div ng-controller="containers.deployProviderReviewController">
-  <form class="form">
-    <div class="wizard-miq-review-item" ng-if="data.configureRouter">
-      <span class="wizard-miq-review-item-label">Configure:</span>
-      <span class="wizard-miq-review-item-value">Router</span>
+  <form role="form">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="data.configureRouter">Configure router
+      </label>
     </div>
-    <div class="wizard-miq-review-item" ng-if="data.configureRegistry">
-      <span class="wizard-miq-review-item-label">Configure:</span>
-      <span class="wizard-miq-review-item-value">Registry</span>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="data.configureRegistry">Configure registry
+      </label>
     </div>
-    <div class="wizard-miq-review-item" ng-if="data.configureRegistry">
-      <span class="wizard-miq-review-item-subvalue" ng-if="data.useDefaultRegistry">Use default registry</span>
-      <span class="wizard-miq-review-item-subvalue" ng-if="data.useS3Registry">Use S3</span>
-      <span class="wizard-miq-review-item-subvalue" ng-if="data.useSwift">Use Swift</span>
+    <div class="miq-radio-form" ng-if="data.configureRegistry">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="data.useDefaultRegistry" ng-disabled="!data.configureRegistry">Use default registry configured above
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="data.useS3Registry" ng-disabled="!data.configureRegistry">Use S3
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="data.useSwift" ng-disabled="!data.configureRegistry">Use Swift
+        </label>
+      </div>
     </div>
-    <div class="wizard-miq-review-item" ng-if="data.configureMetrics">
-      <span class="wizard-miq-review-item-label">Configure:</span>
-      <span class="wizard-miq-review-item-value">Metrics</span>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="data.configureMetrics">Configure metrics
+      </label>
     </div>
-    <div class="wizard-miq-review-item" ng-if="!data.configureRouter && !data.configureRegistry && !data.configureMetrics">
-      <span class="wizard-miq-review-item-label">Configure:</span>
-      <span class="wizard-miq-review-item-value">Nothing</span>
-    </div>
-  </form>
-</div>
+  </form></div>

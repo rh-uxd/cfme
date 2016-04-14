@@ -390,6 +390,11 @@ $wz-substep-nav-width: 250px;
           }
         }
       }
+
+      .checkbox {
+        line-height: 20px;
+        pointer-events: none;
+      }
     }
   }
 }
@@ -476,6 +481,7 @@ $wz-substep-nav-width: 250px;
 
     > a {
       margin-left: 10px;
+      cursor: pointer;
     }
   }
 
