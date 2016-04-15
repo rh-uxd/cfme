@@ -638,6 +638,11 @@ $wz-substep-nav-width: 250px;
       }
     }
     &.add-nodes-table {
+      .checkbox-col {
+        padding-left: 6px;
+        padding-right: 6px;
+        width: 20px;
+      }
       .toolbar-pf-actions {
         padding-bottom: 10px;
       }

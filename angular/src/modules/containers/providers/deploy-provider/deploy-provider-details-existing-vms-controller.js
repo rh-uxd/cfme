@@ -47,8 +47,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       fields: [
         {
           id: 'name',
-          title: 'VM Name',
-          placeholder: 'Filter by VM Name...',
+          title: 'Name',
+          placeholder: 'Filter by Name...',
           filterType: 'text'
         },
         {
@@ -90,7 +90,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       return compValue;
     };
 
-    var sortChange = function (sortId, isAscending) {
+    var sortChange = function () {
       $scope.filteredNodes.sort(compareFn);
     };
 
@@ -98,7 +98,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       fields: [
         {
           id: 'name',
-          title: 'VM Name',
+          title: 'Name',
           sortType: 'alpha'
         },
         {
@@ -124,6 +124,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       ],
       onSortChange: sortChange
     };
+    $scope.sortConfig.currentField = $scope.sortConfig.fields[1];
 
     var updateSetNodeTypeButtons = function () {
       var selectedCount = $scope.filteredNodes.filter(function(node) {
@@ -134,7 +135,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       $scope.actionsConfig.moreActions[0].isDisabled = selectedCount === 0;
       $scope.actionsConfig.moreActions[1].isDisabled = selectedCount === 0;
 
-      $scope.allNodesSelected = (selectedCount === $scope.filteredNodes.length);
+      $scope.allNodesSelected = (selectedCount > 0) && (selectedCount === $scope.filteredNodes.length);
     };
 
     var updateNodeSettings = function () {

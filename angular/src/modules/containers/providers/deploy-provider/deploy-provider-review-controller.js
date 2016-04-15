@@ -31,13 +31,13 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         });
         return 'Use existing VMs from an existing provider: ' + (provider ? provider.name : "None");
       }
-      else if (value == 'newVms') {
+      else if ($scope.data.provisionOn == 'newVms') {
         var provider = $scope.data.providers.find(function(provider) {
           return provider.id == $scope.data.newVmProviderId;
         });
         return 'Use existing VMs from an existing provider: ' + (provider ? provider.name : "None");
       }
-      else if (value == 'noProvider') {
+      else if ($scope.data.provisionOn == 'noProvider') {
         return 'Specify a list of machines to deploy on (No existing provider';
       }
     };

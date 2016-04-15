@@ -1,20 +1,15 @@
 angular.module('miq.containers.providersModule').controller('containers.deployProviderDetailsNoProviderController',
-  ['$rootScope', '$scope', '$resource',
-  function($rootScope, $scope) {
+  ['$rootScope', '$scope', '$timeout',
+  function($rootScope, $scope, $timeout) {
     'use strict';
 
     $scope.showAddDialog = false;
     $scope.newItem = {};
 
     $scope.onShow = function () {
-      console.log("On Show");
       $timeout(function() {
-        console.log("Timeout");
-        console.log($scope.data.provisionOn);
         if ($scope.data.provisionOn == 'noProvider') {
-          console.log("Focusing...");
           var queryResult = $document[0].getElementById('deploy-key');
-          console.dir(queryResult);
           queryResult.focus();
         }
       }, 200);
@@ -32,11 +27,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
 
     $scope.allNodes = [];
-    var stateVals = {
-      'Unset': 1,
-      'Master': 2,
-      'Node': 3
-    };
 
     var compareFn = function (item1, item2) {
       var compValue = 0;
@@ -63,18 +53,19 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     $scope.sortConfig = {
       fields: [
         {
-          id: 'state',
-          title: 'State',
+          id: 'name',
+          title: 'Name',
           sortType: 'alpha'
         },
         {
-          id: 'name',
-          title: 'VM Name',
+          id: 'state',
+          title: 'State',
           sortType: 'alpha'
         }
       ],
       onSortChange: sortChange
     };
+    $scope.sortConfig.currentField = $scope.sortConfig.fields[1];
 
     var updateNodeSettings = function () {
       $scope.data.masters = $scope.allNodes.filter(function(node) {
@@ -96,6 +87,11 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
       var nodesValid = $scope.nodesCount >= 1;
       $scope.nodesWarning = nodesValid ? '' : "You must select at least one Node";
+
+      var selectedCount = $scope.allNodes.filter(function(node) {
+        return node.selected;
+      }).length;
+      $scope.allNodesSelected = (selectedCount > 0) && (selectedCount === $scope.allNodes.length);
 
       sortChange();
       $scope.validateForm();
@@ -205,7 +201,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       var found = $scope.allNodes.find(function(node) {
         return !node.selected;
       });
-      $scope.allNodesSelected = (found === undefined);
+      $scope.allNodesSelected = $scope.allNodes.length > 0 && (found === undefined);
       updateSetNodeTypeButtons();
     };
     updateSetNodeTypeButtons();

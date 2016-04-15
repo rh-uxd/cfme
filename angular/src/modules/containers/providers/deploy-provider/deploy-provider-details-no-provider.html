@@ -17,13 +17,14 @@
       <table class="datatable table table-striped table-bordered dataTable no-footer" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" role="grid">
         <thead>
         <tr role="row">
-          <th tabindex="0" rowspan="1" colspan="1"><input type="checkbox" ng-checked="allNodesSelected" ng-click="toggleAllNodesSelected()"></th>
+          <th tabindex="0" rowspan="1" class="checkbox-col"><input type="checkbox" ng-checked="allNodesSelected"
+              ng-click="toggleAllNodesSelected()" ng-disabled="!allNodes || allNodes.length < 1"></th>
           <th tabindex="0" rowspan="1" colspan="1">Host Name</th>
           <th tabindex="0" rowspan="1" colspan="1">State</th>
         </thead>
         <tbody>
         <tr ng-repeat="node in allNodes" ng-class="{odd: ($index / 2 == 0), even: ($index / 2 != 0)}">
-          <td><input type="checkbox" ng-checked="node.selected" ng-click="toggleNodeSelected(node)"></td>
+          <td class="checkbox-col"><input type="checkbox" ng-checked="node.selected" ng-click="toggleNodeSelected(node)"></td>
           <td>{{node.vmName}}</td>
           <td>{{node.state}}</td>
         </tr>

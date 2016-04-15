@@ -1305,35 +1305,41 @@
   padding-right: 10px;
 }
 /* line 641, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .checkbox-col {
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 20px;
+}
+/* line 646, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .toolbar-pf-actions {
   padding-bottom: 10px;
 }
-/* line 646, scss/wizard.scss */
+/* line 651, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-responsive {
   max-height: 265px;
   min-height: 265px;
   overflow-x: hidden;
   overflow-y: auto;
 }
-/* line 653, scss/wizard.scss */
+/* line 658, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .table-responsive {
   max-height: 190px;
   min-height: 190px;
 }
-/* line 658, scss/wizard.scss */
+/* line 663, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table {
   border: none;
   width: calc(100% + 3px);
   margin-left: -1px;
 }
-/* line 665, scss/wizard.scss */
+/* line 670, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer {
   background-color: #fafafa;
   width: 100%;
   height: 28px;
   padding-top: 5px;
 }
-/* line 671, scss/wizard.scss */
+/* line 676, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer .badge {
   background: transparent;
   color: #030303;
@@ -1345,17 +1351,17 @@
   padding: 0 7px;
   text-align: center;
 }
-/* line 684, scss/wizard.scss */
+/* line 689, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-add-dialog-text {
   font-weight: 700;
   padding: 15px;
 }
-/* line 688, scss/wizard.scss */
+/* line 693, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-add-dialog-input {
   padding: 0 15px;
   width: 100%;
 }
-/* line 691, scss/wizard.scss */
+/* line 696, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-add-dialog-input > input {
   width: 100%;
 }

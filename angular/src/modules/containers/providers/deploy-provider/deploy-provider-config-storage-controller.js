@@ -8,7 +8,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     var firstShow = true;
     $scope.onShow = function () {
       if (firstShow) {
-        $scope.data.storageType = 'nfs';
+        $scope.data.storageType = 'none';
         $scope.data.nfsStorageServer = '';
         $scope.data.nfsStoragePath = '';
         firstShow = false;
