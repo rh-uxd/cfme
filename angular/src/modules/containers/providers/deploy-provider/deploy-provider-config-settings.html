@@ -1,22 +1,22 @@
 <div ng-controller="containers.deployProviderConfigSettingsController">
   <div miq-wizard-substep step-title="Settings" step-id="config-storage"  step-priority="3" on-show="onShow"
        wz-disabled="false" review-template="{{reviewTemplate}}">
-    <div class="miq-form-heading">Select configuration settings</div>
+    <div class="miq-form-heading">Select items to configure</div>
     <form role="form">
       <div class="checkbox">
         <label>
-          <input type="checkbox" ng-model="data.configureRouter">Configure router
+          <input type="checkbox" ng-model="data.configureRouter">Router
         </label>
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" ng-model="data.configureRegistry">Configure registry
+          <input type="checkbox" ng-model="data.configureRegistry">Registry
         </label>
       </div>
       <div class="miq-radio-form">
         <div class="checkbox">
           <label>
-            <input type="checkbox" ng-model="data.useDefaultRegistry" ng-disabled="!data.configureRegistry">Use default registry configured above
+            <input type="checkbox" ng-model="data.useDefaultRegistry" ng-disabled="!data.configureRegistry">Use default registry
           </label>
         </div>
         <div class="checkbox">
@@ -32,7 +32,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" ng-model="data.configureMetrics">Configure metrics
+          <input type="checkbox" ng-model="data.configureMetrics">Metrics
         </label>
       </div>
     </form>

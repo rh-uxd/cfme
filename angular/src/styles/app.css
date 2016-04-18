@@ -1248,111 +1248,110 @@
 /* line 587, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-radio-input-class {
   width: 200px;
-  padding: 0 20px 0 30px;
   float: left;
 }
-/* line 593, scss/wizard.scss */
+/* line 592, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class {
   width: 110px;
   padding: 0 20px 0 10px;
   float: left;
 }
-/* line 598, scss/wizard.scss */
+/* line 597, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .form-control {
   height: 24px;
 }
-/* line 601, scss/wizard.scss */
+/* line 600, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .btn {
   padding-bottom: 1px;
 }
-/* line 604, scss/wizard.scss */
+/* line 603, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .form-control[readonly] {
   background-color: #fff;
 }
-/* line 609, scss/wizard.scss */
+/* line 608, scss/wizard.scss */
 .miq-deploy-provider-wizard .form-horizontal > .radio {
   margin-left: 20px;
 }
-/* line 613, scss/wizard.scss */
+/* line 612, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container {
   border: solid 1px #d1d1d1;
 }
-/* line 617, scss/wizard.scss */
+/* line 616, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf > .col-sm-12 {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 621, scss/wizard.scss */
+/* line 620, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-filter {
   padding-right: 10px;
   width: 225px;
 }
-/* line 625, scss/wizard.scss */
+/* line 624, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-results {
   margin-left: -10px;
   margin-right: -10px;
 }
-/* line 630, scss/wizard.scss */
+/* line 629, scss/wizard.scss */
 .add-nodes-table .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions {
   padding-bottom: 10px;
 }
-/* line 633, scss/wizard.scss */
+/* line 632, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions > .form-group {
   border-right: none;
   float: right;
   padding-right: 0px;
 }
-/* line 638, scss/wizard.scss */
+/* line 637, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu {
   left: auto;
   right: -15px;
 }
-/* line 642, scss/wizard.scss */
+/* line 641, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu:before, .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu:after {
   left: auto;
   right: 6px;
 }
-/* line 648, scss/wizard.scss */
+/* line 647, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .sort-pf > form > .form-group {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 654, scss/wizard.scss */
+/* line 653, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .checkbox-col {
   padding-left: 6px;
   padding-right: 6px;
   width: 20px;
 }
-/* line 659, scss/wizard.scss */
+/* line 658, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .toolbar-pf-actions {
   padding-bottom: 10px;
 }
-/* line 664, scss/wizard.scss */
+/* line 663, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-responsive {
   max-height: 265px;
   min-height: 265px;
   overflow-x: hidden;
   overflow-y: auto;
 }
-/* line 671, scss/wizard.scss */
+/* line 670, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .table-responsive {
   max-height: 190px;
   min-height: 190px;
 }
-/* line 676, scss/wizard.scss */
+/* line 675, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table {
   border: none;
   width: calc(100% + 3px);
   margin-left: -1px;
 }
-/* line 683, scss/wizard.scss */
+/* line 682, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer {
   background-color: #fafafa;
   width: 100%;
   height: 28px;
   padding-top: 5px;
 }
-/* line 689, scss/wizard.scss */
+/* line 688, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer .badge {
   background: transparent;
   color: #030303;
@@ -1364,55 +1363,59 @@
   padding: 0 7px;
   text-align: center;
 }
-/* line 702, scss/wizard.scss */
+/* line 701, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-add-dialog-text {
   font-weight: 700;
   padding: 15px;
 }
-/* line 706, scss/wizard.scss */
+/* line 705, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-add-dialog-input {
   padding: 0 15px;
   width: 100%;
 }
-/* line 709, scss/wizard.scss */
+/* line 708, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-add-dialog-input > input {
   width: 100%;
 }
-/* line 714, scss/wizard.scss */
+/* line 713, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-label-class {
   padding-right: 10px;
   float: left;
 }
-/* line 719, scss/wizard.scss */
+/* line 718, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-edit-item {
   line-height: 20px;
   margin-bottom: 15px;
 }
-/* line 723, scss/wizard.scss */
+/* line 722, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-edit-field {
   cursor: pointer;
   float: left;
   padding-right: 20px;
   position: relative;
 }
-/* line 728, scss/wizard.scss */
+/* line 727, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-edit-field:after {
   content: "\e60a";
   font-family: 'PatternFlyIcons-webfont';
   position: absolute;
   right: 0;
 }
-/* line 735, scss/wizard.scss */
+/* line 734, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-edit-text {
   margin-right: 20px;
   margin-top: 5px;
   resize: none;
   width: 100%;
 }
-/* line 741, scss/wizard.scss */
+/* line 740, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-button-panel {
   float: right;
   width: 100%;
   padding: 10px 0;
   margin-top: 0;
+}
+/* line 747, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-wizard-review-list li {
+  margin: 5px 0;
 }

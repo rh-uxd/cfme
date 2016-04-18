@@ -18,6 +18,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
           queryResult.focus();
         }
       }, 200);
+      $scope.validateNodeCounts();
     };
 
     $scope.masterCountValid = function(count) {
@@ -37,7 +38,9 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       $scope.nodesCount = $scope.data.nodes ? $scope.data.nodes.length : 0;
       $scope.infraNodesCount = $scope.data.infraNodes ? $scope.data.infraNodes.length : 0;
 
-      return ($scope.masterCountValid($scope.mastersCount) && $scope.nodeCountValid($scope.nodesCount));
+      var mastersValid = $scope.masterCountValid($scope.mastersCount);
+      var nodesValid = $scope.nodeCountValid($scope.nodesCount);
+      return mastersValid && nodesValid;
     };
 
     $scope.setMasterNodesComplete = function(value) {

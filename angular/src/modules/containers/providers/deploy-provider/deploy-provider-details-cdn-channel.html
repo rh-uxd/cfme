@@ -2,12 +2,12 @@
   <div miq-wizard-substep step-title="CDN Channel" step-id="details-channel" step-priority="2" next-enabled="deploymentDetailsCDNComplete"
        on-show="onCdnShow" review-template="{{reviewTemplate}}">
     <div class="miq-form-heading">Specify CDN configuration</div>
-    <div class="miq-checkbox-form">
+    <div>
       <div class="checkbox-inline">
         <label class="miq-checkbox-input-label">
           <input type="checkbox" ng-model="data.cdnEnabled" ng-change="validateForm()">Enable CDN Channel
         </label>
-        <form class="form-horizontal">
+        <form class="form-horizontal sub-group">
           <div pf-form-group pf-label="Username" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
             <input id="rhn-user-name" name="name" ng-model="data.rhnUsername" type="text" ng-change="validateForm()" required ng-disabled="!data.cdnEnabled"/>
           </div>

@@ -28,7 +28,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
           $scope.authTypeString = 'HTPassword';
           break;
         case 'ldap':
-          $scope.authTypeString = 'LDAP Authentication';
+          $scope.authTypeString = 'LDAP';
           break;
         case 'requestHeader':
           $scope.authTypeString = 'Request Header';
@@ -40,7 +40,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
           $scope.authTypeString = 'Google';
           break;
         case 'github':
-          $scope.authTypeString = 'Github';
+          $scope.authTypeString = 'GitHub';
           break;
       }
     };

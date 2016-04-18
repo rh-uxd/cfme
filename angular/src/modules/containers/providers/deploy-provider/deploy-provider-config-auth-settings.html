@@ -2,7 +2,7 @@
   <div miq-wizard-substep step-title="Authentication Details" step-id="auth-settings" step-priority="1"
        next-enabled="deploymentDetailsAuthSettingsComplete" on-show="onShow"
        wz-disabled="{{data.authentication.mode == 'all'}}" review-template="{{reviewTemplate}}">
-    <div class="miq-form-heading">Specify authenticaion details: {{authTypeString}}</div>
+    <div class="miq-form-heading">{{authTypeString}} authentication details</div>
     <form class="form-horizontal" ng-if="data.authentication.mode == 'all'">
       <span>There are no fruther settings needed for the Allow All authentication mode.</span>
     </form>
@@ -21,7 +21,7 @@
       <div pf-form-group pf-label="ID" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
         <input id="initial-setting-input" name="id" ng-model="data.authentication.ldap.id" type="text" ng-change="validateForm()" required/>
       </div>
-      <div pf-form-group pf-label="Email" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
+      <div pf-form-group pf-label="Email Address" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
         <input name="email" ng-model="data.authentication.ldap.email" ng-change="validateForm()" required/>
       </div>
       <div pf-form-group pf-label="Name" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">

@@ -78,15 +78,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         return node.state === 'InfraNode';
       });
 
-      $scope.mastersCount = $scope.data.masters ? $scope.data.masters.length : 0;
-      $scope.nodesCount = $scope.data.nodes ? $scope.data.nodes.length : 0;
-      $scope.infraNodesCount = $scope.data.infraNodes ? $scope.data.infraNodes.length : 0;
-
-      var mastersValid = $scope.mastersCount === 1 || $scope.mastersCount === 3 || $scope.mastersCount === 5;
-      $scope.mastersWarning = mastersValid ? '' : "Masters can be set to 1, 3, or 5";
-
-      var nodesValid = $scope.nodesCount >= 1;
-      $scope.nodesWarning = nodesValid ? '' : "You must select at least one Node";
+      $scope.setMasterNodesComplete($scope.validateNodeCounts());
 
       var selectedCount = $scope.allNodes.filter(function(node) {
         return node.selected;

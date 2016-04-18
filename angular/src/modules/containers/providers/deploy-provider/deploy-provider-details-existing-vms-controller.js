@@ -243,6 +243,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         item.selected = $scope.allNodesSelected;
       });
       updateSetNodeTypeButtons();
+      updateNodeSettings();
     };
 
     $scope.updateAllNodesSelected = function() {

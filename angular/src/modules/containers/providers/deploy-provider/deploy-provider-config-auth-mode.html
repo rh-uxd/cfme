@@ -2,28 +2,26 @@
      review-template="/modules/containers/providers/deploy-provider/deploy-provider-auth-mode-review.html">
   <div class="miq-form-heading">Select authenticaton type</div>
   <form class="form-horizontal">
-    <div pf-form-group pf-label="" required pf-label-class="miq-input-no-label-class" pf-input-class="miq-radio-input-class">
-      <label class="radio">
-        <input type="radio" ng-model="data.authentication.mode" value="all">Allow All</input>
-      </label>
-      <label class="radio">
-        <input type="radio" ng-model="data.authentication.mode" value="htPassword">HTPassword</input>
-      </label>
-      <label class="radio">
-        <input type="radio" ng-model="data.authentication.mode" value="ldap">LDAP Authentication</input>
-      </label>
-      <label class="radio">
-        <input type="radio" ng-model="data.authentication.mode" value="requestHeader">Request Header</input>
-      </label>
-      <label class="radio">
-        <input type="radio" ng-model="data.authentication.mode" value="openId">OpenID Connect</input>
-      </label>
-      <label class="radio">
-        <input type="radio" ng-model="data.authentication.mode" value="google">Google</input>
-      </label>
-      <label class="radio">
-        <input type="radio" ng-model="data.authentication.mode" value="github">Github</input>
-      </label>
-    </div>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="all">Allow All</input>
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="htPassword">HTPassword</input>
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="ldap">LDAP</input>
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="requestHeader">Request Header</input>
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="openId">OpenID Connect</input>
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="google">Google</input>
+    </label>
+    <label class="radio">
+      <input type="radio" ng-model="data.authentication.mode" value="github">GitHub</input>
+    </label>
   </form>
 </div>

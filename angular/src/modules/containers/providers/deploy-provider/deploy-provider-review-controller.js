@@ -63,7 +63,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       } else if ($scope.data.authentication.mode == 'htPassword') {
         return "HTPassword";
       } else if ($scope.data.authentication.mode == 'ldap') {
-        return "LDAP Authentication";
+        return "LDAP";
       } else if ($scope.data.authentication.mode == 'requestHeader') {
         return "Request Header";
       } else if ($scope.data.authentication.mode == 'openId') {
@@ -71,7 +71,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       } else if ($scope.data.authentication.mode == 'google') {
         return "Google";
       } else if ($scope.data.authentication.mode == 'github') {
-        return "Github";
+        return "GitHub";
       } else {
         return "None";
       }
@@ -82,10 +82,10 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         return "NFS";
       }
       else if ($scope.data.storageType == 'gluster') {
-        return "Gluster";
+        return "Red Hat Gluster Storage";
       }
       else if ($scope.data.storageType == 'integratedNfs') {
-        return "Integrated NFS (POC's only)";
+        return "Integrated NFS (POCs only)";
       }
       else if ($scope.data.storageType == 'none') {
         return "None";
