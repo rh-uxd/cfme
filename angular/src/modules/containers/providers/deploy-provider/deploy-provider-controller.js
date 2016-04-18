@@ -9,6 +9,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       $scope.deployProviderReady = false;
       $scope.deployComplete = false;
       $scope.deployInProgress = false;
+      $scope.deploySuccess = false;
+      $scope.deployFailed = false;
 
       $scope.data = {
         providerName: '',
@@ -74,12 +76,14 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     var startDeploy = function () {
       $scope.deployInProgress = true;
       $timeout(function () {
-        $scope.deployInProgress = false;
-        $scope.deployComplete = true;
+        if ($scope.deployInProgress) {
+          $scope.deployInProgress = false;
+          $scope.deployComplete = true;
 
-        $scope.deploySuccess = true;
-        $scope.deployFailed = true;
-        $scope.deployFailureMessage = "An unknown error has occurred.";
+          $scope.deploySuccess = true;
+          $scope.deployFailed = true;
+          $scope.deployFailureMessage = "An unknown error has occurred.";
+        }
       }, 5000);
     };
 
@@ -90,6 +94,10 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       return true;
     };
     $scope.backCallback = function(step) {
+      if (step.stepId === 'review-summary') {
+        console.log("BACK");
+      }
+
       return true;
     };
 

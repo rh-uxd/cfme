@@ -15,7 +15,17 @@
   </div>
   <div class="wizard-miq-btn-container modal-footer">
     <button miq-wiz-cancel class="btn btn-default" ng-disabled="wizardDone">{{cancelTitle}}</button>
-    <button miq-wiz-previous class="btn btn-default" ng-disabled="!wizardReady || wizardDone || backDisabled" callback="backCallback">{{backTitle}}</button>
-    <button miq-wiz-next class="btn btn-primary" ng-disabled="!wizardReady || !nextEnabled" callback="nextCallback">{{nextTitle}}</button>
+    <div class="tooltip-wrapper" tooltip="{{prevTooltip}}" tooltip-placement="left">
+      <button miq-wiz-previous class="btn btn-default" ng-disabled="!wizardReady || wizardDone || !prevEnabled || firstStep"
+              callback="backCallback">
+        {{backTitle}}
+      </button>
+    </div>
+    <div class="tooltip-wrapper" tooltip="{{nextTooltip}}" tooltip-placement="left">
+      <button miq-wiz-next class="btn btn-primary" ng-disabled="!wizardReady || !nextEnabled"
+              callback="nextCallback">
+        {{nextTitle}}
+      </button>
+      </div>
   </div>
 </div>

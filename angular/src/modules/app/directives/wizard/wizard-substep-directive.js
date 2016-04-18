@@ -8,6 +8,10 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
       stepId: '@',
       stepPriority: '@',
       nextEnabled: '=?',
+      prevEnabled: '=?',
+      nextTooltip: '=?',
+      prevTooltip: '=?',
+      okToNavAway: '=?',
       disabled: '@?wzDisabled',
       description: '@',
       wizardData: '=',
@@ -21,6 +25,15 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
       if (angular.isUndefined($scope.nextEnabled)) {
         $scope.nextEnabled = true;
       }
+      if (angular.isUndefined($scope.prevEnabled)) {
+        $scope.prevEnabled = true;
+      }
+      if (angular.isUndefined($scope.nextTooltip)) {
+        $scope.nextEnabled = true;
+      }
+      if (angular.isUndefined($scope.prevToolitp)) {
+        $scope.prevEnabled = true;
+      }
       if (angular.isUndefined($scope.showReviewDetails)) {
         $scope.showReviewDetails = false;
       }
@@ -29,6 +42,20 @@ angular.module('miq.wizard').directive('miqWizardSubstep', function() {
       } else {
         $scope.stepPriority = parseInt($scope.stepPriority);
       }
+      if (angular.isUndefined($scope.okToNavAway)) {
+        $scope.okToNavAway = true;
+      }
+
+      $scope.isPrevEnabled = function () {
+        var enabled = angular.isUndefined($scope.prevEnabled) || $scope.prevEnabled;
+        if ($scope.substeps) {
+          angular.forEach($scope.getEnabledSteps(), function(step) {
+            enabled = enabled && step.prevEnabled;
+          });
+        }
+        return enabled;
+      };
+
     },
     link: function($scope, $element, $attrs, step) {
       $scope.title = $scope.stepTitle;

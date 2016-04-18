@@ -33,6 +33,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       }
 
       $scope.nextEnabled = false;
+      $scope.prevEnabled = false;
 
       if (!$scope.cancelTitle) {
         $scope.cancelTitle = "Cancel";
@@ -134,12 +135,46 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         $scope.selectedStep = null;
       };
 
+      var watchSelectedStep = function () {
+        // Remove any previous watchers
+        if ($scope.nextStepEnabledWatcher) {
+          $scope.nextStepEnabledWatcher();
+        }
+        if ($scope.nextStepTooltipWatcher) {
+          $scope.nextStepTooltipWatcher();
+        }
+        if ($scope.prevStepEnabledWatcher) {
+          $scope.prevStepEnabledWatcher();
+        }
+        if ($scope.preStepTooltipWatcher) {
+          $scope.prevStepTooltipWatcher();
+        }
+
+        // Add watchers for the selected step
+        $scope.nextStepEnabledWatcher = $scope.$watch('selectedStep.nextEnabled', function (value) {
+          $scope.nextEnabled = value;
+        });
+        $scope.nextStepTooltipWatcher = $scope.$watch('selectedStep.nextTooltip', function (value) {
+          $scope.nextTooltip = value;
+        });
+        $scope.prevStepEnabledWatcher = $scope.$watch('selectedStep.prevEnabled', function (value) {
+          $scope.prevEnabled = value;
+        });
+        $scope.prevStepTooltipWatcher = $scope.$watch('selectedStep.prevTooltip', function (value) {
+          $scope.prevTooltip = value;
+        });
+      };
+
       $scope.goTo = function (step, resetStepNav) {
         if ($scope.wizardDone) {
           return;
         }
 
-        if (firstRun || $scope.getStepNumber(step) < $scope.currentStepNumber() || $scope.selectedStep.isNextEnabled()) {
+        if (!step.okToNavAway) {
+          return;
+        }
+
+        if (firstRun || ($scope.getStepNumber(step) < $scope.currentStepNumber() && $scope.selectedStep.isPrevEnabled()) || $scope.selectedStep.isNextEnabled()) {
           unselectAll();
 
           if (!firstRun && resetStepNav && step.substeps) {
@@ -155,20 +190,14 @@ angular.module('miq.wizard').directive('miqWizard', function () {
             }
           }, 100);
 
-          // Watch the new step for next button enabled status (remove any previous watcher)
-          if ($scope.stepEnabledWatcher) {
-            $scope.stepEnabledWatcher();
-          }
-          $scope.stepEnabledWatcher = $scope.$watch('selectedStep.nextEnabled', function (value) {
-            $scope.nextEnabled = value;
-          });
+          watchSelectedStep();
 
           // Make sure current step is not undefined
           if (!angular.isUndefined($scope.currentStep)) {
             $scope.currentStep = step.wzTitle;
           }
 
-          //emit event upwards with data on goTo() invoktion
+          //emit event upwards with data on goTo() invocation
           if (!step.substeps) {
             $scope.$emit('wizard:stepChanged', {step: step, index: stepIdx(step)});
           }
@@ -176,9 +205,9 @@ angular.module('miq.wizard').directive('miqWizard', function () {
         }
 
         if (!$scope.selectedStep.substeps) {
-          $scope.backDisabled =  stepIdx($scope.selectedStep) === 0;
+          $scope.firstStep =  stepIdx($scope.selectedStep) === 0;
         } else {
-          $scope.backDisabled = stepIdx($scope.selectedStep) === 0 && $scope.selectedStep.currentStepNumber() === 1;
+          $scope.firstStep = stepIdx($scope.selectedStep) === 0 && $scope.selectedStep.currentStepNumber() === 1;
         }
       };
 
@@ -209,7 +238,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       };
 
       this.updateSubStepNumber = function (value) {
-        $scope.backDisabled =  stepIdx($scope.selectedStep) === 0 && value === 0;
+        $scope.firstStep =  stepIdx($scope.selectedStep) === 0 && value === 0;
       };
 
       this.currentStepTitle = function () {

@@ -365,7 +365,7 @@ $wz-substep-nav-width: 250px;
       line-height: 15px;
       width: 100%;
 
-      a {
+      > a {
         color: #030303;
         text-decoration: none;
         font-size: 16px;
@@ -482,6 +482,19 @@ $wz-substep-nav-width: 250px;
   height: 60px;
   padding: 15px;
   margin-top: 0;
+
+  .tooltip-wrapper {
+    border: none;
+    box-shadow: none;
+    display: inline-block;
+    margin-left: 5px;
+    padding: 0;
+    text-align: center;
+
+    .btn[disabled] {
+      pointer-events: none;
+    }
+  }
 }
 
 .miq-deploy-provider-wizard {
@@ -696,5 +709,39 @@ $wz-substep-nav-width: 250px;
     > input {
       width: 100%;
     }
+  }
+
+  .miq-review-label-class {
+    padding-right: 10px;
+    float: left;
+  }
+
+  .miq-review-edit-item {
+    line-height: 20px;
+    margin-bottom: 15px;
+  }
+  .miq-review-edit-field {
+    cursor: pointer;
+    float: left;
+    padding-right: 20px;
+    position: relative;
+    &:after {
+      content: "\e60a";
+      font-family: 'PatternFlyIcons-webfont';
+      position: absolute;
+      right: 0;
+    }
+  }
+  .miq-review-edit-text {
+    margin-right: 20px;
+    margin-top: 5px;
+    resize: none;
+    width: 100%;
+  }
+  .miq-review-button-panel {
+    float: right;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 0;
   }
 }
