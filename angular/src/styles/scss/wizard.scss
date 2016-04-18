@@ -586,6 +586,7 @@ $wz-substep-nav-width: 250px;
 
   .miq-radio-input-class {
     width: 200px;
+    padding: 0 20px 0 30px;
     float: left;
   }
 
@@ -747,5 +748,20 @@ $wz-substep-nav-width: 250px;
     li {
       margin: 5px 0;
     }
+  }
+}
+
+.miq-wizard-page-wait-dialog {
+  .modal-dialog {
+    margin-top: 240px;
+  }
+}
+.miq-wait-dialog-content {
+  padding: 15px;
+
+  .miq-wait-dialog-text {
+    padding-top: 10px;
+    text-align: center;
+    width: 100%;
   }
 }

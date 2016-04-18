@@ -7,12 +7,28 @@ angular.module('miq.dialogs').directive('miqModal', function () {
     scope: {
       visible: '=',
       modalTitle: '@',
+      showHeader: '@',
+      showClose: '@',
       modalSize: '@',
       onShow: '&',
       onHide: '&',
       onCancel: '&'
     },
     templateUrl: 'modules/app/directives/dialogs/modal-dialog.html',
+    controller: function ($scope) {
+      $scope.settings = {};
+
+      if (angular.isUndefined($scope.showHeader)) {
+        $scope.settings.showHeader = true;
+      } else {
+        $scope.settings.showHeader = $scope.showHeader !== 'false';
+      }
+      if (angular.isUndefined($scope.showClose)) {
+        $scope.settings.showClose = true;
+      } else {
+        $scope.settings.showClose = $scope.showClose !== 'false';
+      }
+    },
     link: function (scope, element) {
       scope.$watch('visible', function(value) {
         if (value == true) {

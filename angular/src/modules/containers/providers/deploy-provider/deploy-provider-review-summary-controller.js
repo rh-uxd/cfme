@@ -19,12 +19,14 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       });
 
       // Simulate retrieving playbook text
+      $scope.showWaitDialog = true;
       $timeout(function() {
         $scope.data.playbookText = "Text of the playbook goes here.\n\n" +
           "Cancel/save are disabled until the text is actually edited.\n\n" +
           "Once the playbook contents are edited, cancel/save are enabled and the back/deploy buttons are disabled.";
         $scope.data.editedPlaybookText = $scope.data.playbookText;
         $scope.onPlaybookTextChange();
+        $scope.showWaitDialog = false;
       }, 2000);
     };
 

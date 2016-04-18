@@ -16,18 +16,21 @@
       <input id="create-master-base-name" ng-model="data.createMasterBaseName" type="text" ng-change="validateForm()" required/>
     </div>
     <div pf-form-group pf-label="Template" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-      <select pf-select ng-model="data.masterCreationTemplateId" id="masterCreationTemplate">
+      <select pf-select ng-model="data.masterCreationTemplateId" id="masterCreationTemplate" ng-change="updateNodesLikeMaster()">
         <option ng-repeat="template in data.nodeCreationTemplates" value="{{template.id}}">{{template.name}}</option>
       </select>
     </div>
     <div pf-form-group pf-label="Memory" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-      <input ng-model="data.createMastersMemory" type="text" ng-change="validateForm()" required/>
+      <input ng-model="data.createMastersMemory" type="text" ng-change="validateForm()"
+             ng-blur="updateNodesLikeMaster()" ng-enter="updateNodesLikeMaster()" required/>
     </div>
     <div pf-form-group pf-label="CPU" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-      <input ng-model="data.createMastersCpu" type="text" ng-change="validateForm()" required/>
+      <input ng-model="data.createMastersCpu" type="text" ng-change="validateForm()"
+             ng-blur="updateNodesLikeMaster()" ng-enter="updateNodesLikeMaster()" required/>
     </div>
     <div pf-form-group pf-label="Logical Network" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-      <input ng-model="data.createMastersNetwork" type="text" ng-change="validateForm()" required/>
+      <input ng-model="data.createMastersNetwork" type="text" ng-change="validateForm()"
+             ng-blur="updateNodesLikeMaster()" ng-enter="updateNodesLikeMaster()" required/>
     </div>
   </form>
   <div class="miq-form-heading">Node configuration</div>
@@ -54,7 +57,7 @@
       </div>
     </div>
     <div pf-form-group pf-label="Template" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-      <select pf-select ng-model="data.nodeCreationTemplateId" id="masterCreationTemplate" ng-disabled="data.createNodesLikeMasters">
+      <select pf-select ng-model="data.nodeCreationTemplateId" id="nodeCreationTemplate" ng-disabled="data.createNodesLikeMasters">
         <option ng-repeat="template in data.nodeCreationTemplates" value="{{template.id}}">{{template.name}}</option>
       </select>
     </div>

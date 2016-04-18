@@ -94,10 +94,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       return true;
     };
     $scope.backCallback = function(step) {
-      if (step.stepId === 'review-summary') {
-        console.log("BACK");
-      }
-
       return true;
     };
 
