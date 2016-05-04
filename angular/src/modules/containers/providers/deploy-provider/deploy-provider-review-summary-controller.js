@@ -10,7 +10,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     $scope.onShow = function () {
       if (firstShow) {
         firstShow = false;
-        $scope.data.playbookName = "Ansible playbook name";
         $scope.data.playbookText = "";
       }
       $scope.pageShown = true;
@@ -34,20 +33,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     $scope.toggleAdvancedSettings = function () {
       $scope.showAdvancedSettings = !$scope.showAdvancedSettings;
-    };
-
-    $scope.editPlaybookName = false;
-    $scope.toggleEditPlaybookName = function() {
-      $scope.editPlaybookName = !$scope.editPlaybookName;
-      if ($scope.editPlaybookName) {
-        $timeout(function () {
-          var nameInput = $document[0].getElementById('playbook-name-input');
-          if (nameInput) {
-            nameInput.setSelectionRange(0, $scope.data.playbookName.length);
-            nameInput.focus();
-          }
-        });
-      }
     };
 
     $scope.onPlaybookTextChange = function () {

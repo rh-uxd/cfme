@@ -19,8 +19,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         return "OpenShift Origin";
       } else if ($scope.data.providerType == 'openshiftEnterprise') {
         return "OpenShift Enterprise";
-      } else if ($scope.data.providerType == 'atomicPlatform') {
-        return "Atomic Platform";
       }
     };
 
