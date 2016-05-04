@@ -136,8 +136,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       return (
         !angular.isUndefined($scope.data.authentication.github) &&
         validString($scope.data.authentication.github.clientId) &&
-        validString($scope.data.authentication.github.clientSecret) &&
-        validString($scope.data.authentication.github.hostedDomain)
+        validString($scope.data.authentication.github.clientSecret)
       );
     };
 

@@ -22,6 +22,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     $scope.validateForm = function() {
       $scope.setMasterNodesComplete(validString($scope.data.deploymentKey) &&
         validString($scope.data.deploymentUsername) &&
+        validString($scope.data.deploymentPassword) &&
         validString($scope.data.deploymentKey) &&
         $scope.validateNodeCounts());
     };
