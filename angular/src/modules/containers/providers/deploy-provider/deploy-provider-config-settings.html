@@ -1,8 +1,13 @@
 <div ng-controller="containers.deployProviderConfigSettingsController">
-  <div miq-wizard-substep step-title="Settings" step-id="config-storage"  step-priority="3" on-show="onShow"
+  <div miq-wizard-substep step-title="Settings" step-id="config-settings"  step-priority="3" on-show="onShow" next-enabled="configSettingsComplete"
        wz-disabled="false" review-template="{{reviewTemplate}}">
     <div class="miq-form-heading">Select items to configure</div>
     <form role="form">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="data.configureIntegratedNFS">Integrated NFS Server (POCs only)
+        </label>
+      </div>
       <div class="checkbox">
         <label>
           <input type="checkbox" ng-model="data.configureRouter">Router
@@ -12,28 +17,27 @@
         <label>
           <input type="checkbox" ng-model="data.configureRegistry">Registry
         </label>
-      </div>
-      <div class="miq-radio-form">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" ng-model="data.useDefaultRegistry" ng-disabled="!data.configureRegistry">Use default registry
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" ng-model="data.useS3Registry" ng-disabled="!data.configureRegistry">Use S3
-          </label>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" ng-model="data.useSwift" ng-disabled="!data.configureRegistry">Use Swift
-          </label>
+        <div class="form-group sub-group">
+          <div pf-form-group pf-label="Server" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+            <input id="registry-server" ng-model="data.registryServer" type="text" ng-change="validateForm()" required ng-disabled="!data.configureRegistry"/>
+          </div>
+          <div pf-form-group pf-label="Path" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+            <input ng-model="data.registryPath" type="text" ng-change="validateForm()" required ng-disabled="!data.configureRegistry"/>
+          </div>
         </div>
       </div>
       <div class="checkbox">
         <label>
           <input type="checkbox" ng-model="data.configureMetrics">Metrics
         </label>
+        <div class="form-group sub-group">
+          <div pf-form-group pf-label="Server" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+            <input id="metrics-server" ng-model="data.metricsServer" type="text" ng-change="validateForm()" required ng-disabled="!data.configureMetrics"/>
+          </div>
+          <div pf-form-group pf-label="Path" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
+            <input ng-model="data.metricsPath" type="text" ng-change="validateForm()" required ng-disabled="!data.configureMetrics"/>
+          </div>
+        </div>
       </div>
     </form>
   </div>
