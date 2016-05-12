@@ -130,23 +130,32 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       var selectedCount = $scope.filteredNodes.filter(function(node) {
         return node.selected;
       }).length;
-      $scope.actionsConfig.primaryActions[0].isDisabled = selectedCount === 0;
-      $scope.actionsConfig.primaryActions[1].isDisabled = selectedCount === 0;
-      $scope.actionsConfig.moreActions[0].isDisabled = selectedCount === 0;
-      $scope.actionsConfig.moreActions[1].isDisabled = selectedCount === 0;
+      $scope.disableMasterNodeActions = selectedCount === 0;
 
       $scope.allNodesSelected = (selectedCount > 0) && (selectedCount === $scope.filteredNodes.length);
     };
 
     var updateNodeSettings = function () {
       $scope.data.masters = $scope.allNodes.filter(function(node) {
-        return node.state === 'Master';
+        return node.master === true;
       });
       $scope.data.nodes = $scope.allNodes.filter(function(node) {
-        return node.state === 'Node';
+        return node.node === true;
       });
-      $scope.data.infraNodes = $scope.allNodes.filter(function(node) {
-        return node.state === 'Infra Node';
+      $scope.data.storageNodes = $scope.allNodes.filter(function(node) {
+        return node.storage === true;
+      });
+      $scope.data.loadBalancerNodes = $scope.allNodes.filter(function(node) {
+        return node.loadBalancer === true;
+      });
+      $scope.data.dnsNodes = $scope.allNodes.filter(function(node) {
+        return node.dns === true;
+      });
+      $scope.data.etcdNodes = $scope.allNodes.filter(function(node) {
+        return node.etcd === true;
+      });
+      $scope.data.infrastructureNodes = $scope.allNodes.filter(function(node) {
+        return node.infrastructure === true;
       });
 
       $scope.setMasterNodesComplete($scope.validateNodeCounts());
@@ -159,67 +168,23 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       updateSetNodeTypeButtons();
     };
 
-    var setMasters = function () {
+    $scope.removeRoles = function () {
       $scope.allNodes.forEach(function(node) {
         if (node.selected) {
-          node.state = 'Master';
-        }
-      });
-      updateNodeSettings();
-    };
-
-    var setNodes = function () {
-      $scope.allNodes.forEach(function(node) {
-        if (node.selected) {
-          node.state = 'Node';
-        }
-      });
-      updateNodeSettings();
-    };
-
-    var setInfraNodes = function () {
-      $scope.allNodes.forEach(function(node) {
-        if (node.selected) {
-          node.state = 'Infra Node';
-        }
-      });
-      updateNodeSettings();
-    };
-
-    var clearState = function () {
-      $scope.allNodes.forEach(function(node) {
-        if (node.selected) {
-          node.state = 'Unset';
+          node.master = false;
+          node.node = false;
+          node.storage = false;
+          node.loadBalancer = false;
+          node.dns = false;
+          node.etcd = false;
+          node.infrastructure = false;
         }
       });
       updateNodeSettings();
     };
 
     $scope.actionsConfig = {
-      primaryActions: [
-        {
-          name: 'Set Master',
-          title: 'Set the selected items to be masters',
-          actionFn: setMasters
-        },
-        {
-          name: 'Set Node',
-          title: 'Set the selected items to be nodes',
-          actionFn: setNodes
-        }
-      ],
-      moreActions: [
-        {
-          name: 'Set Infra Node',
-          title: 'Set the selected items to be infra nodes',
-          actionFn: setInfraNodes
-        },
-        {
-          name: 'Clear State',
-          title: 'Clear the state for the selected items.',
-          actionFn: clearState
-        }
-      ]
+      actionsInclude: true
     };
 
     $scope.toolbarConfig = {
@@ -228,6 +193,135 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       actionsConfig: $scope.actionsConfig
     };
 
+    $scope.editRolesStatus = {
+      open: false
+    };
+
+    $scope.onToolbarMenuShow = function() {
+      var selectedNodes =  $scope.allNodes.filter(function(node) {
+        return node.selected === true;
+      });
+
+      var allMasters = selectedNodes.filter(function(node) {
+        return node.master === true;
+      }).length === selectedNodes.length;
+      var allNodes = selectedNodes.filter(function(node) {
+          return node.node === true;
+        }).length === selectedNodes.length;
+      var allStorage = selectedNodes.filter(function(node) {
+          return node.storage === true;
+        }).length === selectedNodes.length;
+      var allLoadBalancers = selectedNodes.filter(function(node) {
+          return node.loadBalancer === true;
+        }).length === selectedNodes.length;
+      var allDNS = selectedNodes.filter(function(node) {
+          return node.dns === true;
+        }).length === selectedNodes.length;
+      var allEtcd = selectedNodes.filter(function(node) {
+          return node.etcd === true;
+        }).length === selectedNodes.length;
+      var allInfrastructure = selectedNodes.filter(function(node) {
+          return node.infrastructure === true;
+        }).length === selectedNodes.length;
+
+      $scope.toolbarMenu = {
+        master: allMasters,
+        node: allNodes,
+        storage: allStorage,
+        loadBalancer: allLoadBalancers,
+        dns: allDNS,
+        etcd: allEtcd,
+        infrastructure: allInfrastructure
+      };
+    };
+
+    $scope.updateSelectedRoles = function() {
+      var selectedNodes =  $scope.allNodes.filter(function(node) {
+        return node.selected === true;
+      });
+
+      selectedNodes.forEach(function(item) {
+        item.master = $scope.toolbarMenu.master;
+        item.node = $scope.toolbarMenu.node;
+        item.storage = $scope.toolbarMenu.storage;
+        item.loadBalancer = $scope.toolbarMenu.loadBalancer;
+        item.dns = $scope.toolbarMenu.dns;
+        item.etcd = $scope.toolbarMenu.etcd;
+        item.infrastructure = $scope.toolbarMenu.infrastructure;
+      });
+      updateNodeSettings();
+      $scope.editRolesStatus.open = false;
+    };
+
+    $scope.addMaster = function(item) {
+      item.master = true;
+      updateNodeSettings();
+    };
+
+    $scope.addNode = function(item) {
+      item.node = true;
+      updateNodeSettings();
+    };
+
+    $scope.addStorage = function(item) {
+      item.storage = true;
+      updateNodeSettings();
+    };
+
+    $scope.addLoadBalancer = function(item) {
+      item.loadBalancer = true;
+      updateNodeSettings();
+    };
+
+    $scope.addDns = function(item) {
+      item.dns = true;
+      updateNodeSettings();
+    };
+
+    $scope.addEtcd = function(item) {
+      item.etcd = true;
+      updateNodeSettings();
+    };
+
+    $scope.addInfrastructure = function(item) {
+      item.infrastructure = true;
+      updateNodeSettings();
+    };
+
+    $scope.removeMaster = function(item) {
+      item.master = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeNode = function(item) {
+      item.node = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeStorage = function(item) {
+      item.storage = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeLoadBalancer = function(item) {
+      item.loadBalancer = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeDns = function(item) {
+      item.dns = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeEtcd = function(item) {
+      item.etcd = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeInfrastructure = function(item) {
+      item.infrastructure = false;
+      updateNodeSettings();
+    };
 
     var providers = $resource('/containers/providers/nodes');
     providers.get(function (data) {
@@ -243,7 +337,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         item.selected = $scope.allNodesSelected;
       });
       updateSetNodeTypeButtons();
-      updateNodeSettings();
     };
 
     $scope.updateAllNodesSelected = function() {

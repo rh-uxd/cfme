@@ -649,6 +649,24 @@ $wz-substep-nav-width: 250px;
         padding-left: 10px;
         padding-right: 10px;
       }
+      .include-actions {
+        .dropdown {
+          float: left;
+          margin-left: 5px;
+        }
+        .btn.btn-default {
+          float: right;
+          margin-left: 5px;
+        }
+        .dropdown-container {
+          padding-left: 30px;
+          padding-right: 20px;
+
+          .btn-primary {
+            margin-left: 20px;
+          }
+        }
+      }
     }
     &.add-nodes-table {
       .checkbox-col {
@@ -658,6 +676,43 @@ $wz-substep-nav-width: 250px;
       }
       .toolbar-pf-actions {
         padding-bottom: 10px;
+      }
+      .role-column {
+        .label {
+          border: none;
+          border-radius: 5px;
+          cursor: default;
+          display: inline-block;
+          margin-right: 5px;
+          padding-top: 4px;
+
+          &:focus {
+            outline: none;
+          }
+          .fa-close {
+            margin-left: 5px;
+          }
+          &.label-default {
+            cursor: pointer;
+          }
+        }
+        a {
+          cursor: pointer;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        .add-roles-list {
+          .label.add-role-item {
+            display: block;
+            margin-top: 5px;
+            &[disabled] {
+              background-color: #d1d1d1;
+              color: #72767b;
+            }
+          }
+        }
       }
     }
 
