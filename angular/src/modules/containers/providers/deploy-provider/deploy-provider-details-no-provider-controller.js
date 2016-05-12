@@ -33,8 +33,64 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       var compValue = 0;
       if ($scope.sortConfig.currentField.id === 'name') {
         compValue = item1.vmName.localeCompare(item2.vmName);
-      } else if ($scope.sortConfig.currentField.id === 'state') {
-        compValue = item1.state.localeCompare(item2.state);
+      } else {
+        if ($scope.sortConfig.currentField.id === 'role') {
+          if (item1.master != item2.master) {
+            if (item1.master) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.node != item2.node) {
+            if (item1.node) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.storage != item2.storage) {
+            if (item1.storage) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.loadBalancer != item2.loadBalancer) {
+            if (item1.loadBalancer) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.dns != item2.dns) {
+            if (item1.dns) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.etcd != item2.etcd) {
+            if (item1.etcd) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.loadBalancer != item2.loadBalancer) {
+            if (item1.loadBalancer) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+        } else if ($scope.sortConfig.currentField.id === 'cpus') {
+          compValue = item1.cpus - item2.cpus;
+        } else if ($scope.sortConfig.currentField.id === 'memory') {
+          compValue = item1.memory - item2.memory;
+        } else if ($scope.sortConfig.currentField.id === 'diskSize') {
+          compValue = item1.diskSize - item2.diskSize;
+        }
         if (compValue === 0) {
           compValue = item1.vmName.localeCompare(item2.vmName);
         }
@@ -59,8 +115,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
           sortType: 'alpha'
         },
         {
-          id: 'state',
-          title: 'State',
+          id: 'role',
+          title: 'Role',
           sortType: 'alpha'
         }
       ],
@@ -70,13 +126,25 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     var updateNodeSettings = function () {
       $scope.data.masters = $scope.allNodes.filter(function(node) {
-        return node.state === 'Master';
+        return node.master === true;
       });
       $scope.data.nodes = $scope.allNodes.filter(function(node) {
-        return node.state === 'Node';
+        return node.node === true;
       });
-      $scope.data.infraNodes = $scope.allNodes.filter(function(node) {
-        return node.state === 'InfraNode';
+      $scope.data.storageNodes = $scope.allNodes.filter(function(node) {
+        return node.storage === true;
+      });
+      $scope.data.loadBalancerNodes = $scope.allNodes.filter(function(node) {
+        return node.loadBalancer === true;
+      });
+      $scope.data.dnsNodes = $scope.allNodes.filter(function(node) {
+        return node.dns === true;
+      });
+      $scope.data.etcdNodes = $scope.allNodes.filter(function(node) {
+        return node.etcd === true;
+      });
+      $scope.data.infrastructureNodes = $scope.allNodes.filter(function(node) {
+        return node.infrastructure === true;
       });
 
       $scope.setMasterNodesComplete($scope.validateNodeCounts());
@@ -105,35 +173,13 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       console.log($scope.newItem.name);
     };
 
-    var addMaster = function () {
+    $scope.addVM = function () {
       $scope.addDialogTitle = "Add Master";
       $scope.addDialogText = "Please enter the Host Name or IP Address for the new Master";
       $scope.newItem = {
-        vmName: "",
-        state:  "Master"
+        vmName: ""
       };
       $scope.showAddDialog = true;
-    };
-
-    var addNode = function () {
-      $scope.addDialogTitle = "Add Node";
-      $scope.addDialogText = "Please enter the Host Name or IP Address for the new Node";
-      $scope.newItem = {
-        vmName: "",
-        state:  "Node"
-      };
-      $scope.showAddDialog = true;
-    };
-
-    var addInfraNode = function () {
-      $scope.addDialogTitle = "Add Infra Node";
-      $scope.addDialogText = "Please enter the Host Name or IP Address for the new Infra Node";
-      $scope.newItem = {
-        vmName: "",
-        state:  "InfraNode"
-      };
-      $scope.showAddDialog = true;
-      updateNodeSettings();
     };
 
     var removeItems = function () {
@@ -143,24 +189,160 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       updateNodeSettings();
     };
 
-    $scope.actionsConfig = {
-      primaryActions: [
-        {
-          name: 'Add Master',
-          actionFn: addMaster
-        },
-        {
-          name: 'Add Node',
-          actionFn: addNode
+    var removeRoles = function () {
+      $scope.allNodes.forEach(function(node) {
+        if (node.selected) {
+          node.master = false;
+          node.node = false;
+          node.storage = false;
+          node.loadBalancer = false;
+          node.dns = false;
+          node.etcd = false;
+          node.infrastructure = false;
         }
-      ],
+      });
+      updateNodeSettings();
+    };
+
+    $scope.editRolesStatus = {
+      open: false
+    };
+
+    $scope.onToolbarMenuShow = function() {
+      var selectedNodes =  $scope.allNodes.filter(function(node) {
+        return node.selected === true;
+      });
+
+      var allMasters = selectedNodes.filter(function(node) {
+          return node.master === true;
+        }).length === selectedNodes.length;
+      var allNodes = selectedNodes.filter(function(node) {
+          return node.node === true;
+        }).length === selectedNodes.length;
+      var allStorage = selectedNodes.filter(function(node) {
+          return node.storage === true;
+        }).length === selectedNodes.length;
+      var allLoadBalancers = selectedNodes.filter(function(node) {
+          return node.loadBalancer === true;
+        }).length === selectedNodes.length;
+      var allDNS = selectedNodes.filter(function(node) {
+          return node.dns === true;
+        }).length === selectedNodes.length;
+      var allEtcd = selectedNodes.filter(function(node) {
+          return node.etcd === true;
+        }).length === selectedNodes.length;
+      var allInfrastructure = selectedNodes.filter(function(node) {
+          return node.infrastructure === true;
+        }).length === selectedNodes.length;
+
+      $scope.toolbarMenu = {
+        master: allMasters,
+        node: allNodes,
+        storage: allStorage,
+        loadBalancer: allLoadBalancers,
+        dns: allDNS,
+        etcd: allEtcd,
+        infrastructure: allInfrastructure
+      };
+    };
+
+    $scope.updateSelectedRoles = function() {
+      var selectedNodes =  $scope.allNodes.filter(function(node) {
+        return node.selected === true;
+      });
+
+      selectedNodes.forEach(function(item) {
+        item.master = $scope.toolbarMenu.master;
+        item.node = $scope.toolbarMenu.node;
+        item.storage = $scope.toolbarMenu.storage;
+        item.loadBalancer = $scope.toolbarMenu.loadBalancer;
+        item.dns = $scope.toolbarMenu.dns;
+        item.etcd = $scope.toolbarMenu.etcd;
+        item.infrastructure = $scope.toolbarMenu.infrastructure;
+      });
+      updateNodeSettings();
+      $scope.editRolesStatus.open = false;
+    };
+
+    $scope.addMaster = function(item) {
+      item.master = true;
+      updateNodeSettings();
+    };
+
+    $scope.addNode = function(item) {
+      item.node = true;
+      updateNodeSettings();
+    };
+
+    $scope.addStorage = function(item) {
+      item.storage = true;
+      updateNodeSettings();
+    };
+
+    $scope.addLoadBalancer = function(item) {
+      item.loadBalancer = true;
+      updateNodeSettings();
+    };
+
+    $scope.addDns = function(item) {
+      item.dns = true;
+      updateNodeSettings();
+    };
+
+    $scope.addEtcd = function(item) {
+      item.etcd = true;
+      updateNodeSettings();
+    };
+
+    $scope.addInfrastructure = function(item) {
+      item.infrastructure = true;
+      updateNodeSettings();
+    };
+
+    $scope.removeMaster = function(item) {
+      item.master = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeNode = function(item) {
+      item.node = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeStorage = function(item) {
+      item.storage = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeLoadBalancer = function(item) {
+      item.loadBalancer = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeDns = function(item) {
+      item.dns = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeEtcd = function(item) {
+      item.etcd = false;
+      updateNodeSettings();
+    };
+
+    $scope.removeInfrastructure = function(item) {
+      item.infrastructure = false;
+      updateNodeSettings();
+    };
+
+    $scope.actionsConfig = {
+      actionsInclude: true,
       moreActions: [
         {
-          name: 'Add Infra Node',
-          actionFn: addInfraNode
+          name: 'Remove Roles',
+          actionFn: removeRoles
         },
         {
-          name: 'Remove',
+          name: 'Remove VM(s)',
           title: 'Clear the selected items.',
           actionFn: removeItems
         }
@@ -177,7 +359,9 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       var selectedCount = $scope.allNodes.filter(function(node) {
         return node.selected;
       }).length;
-      $scope.actionsConfig.moreActions[1].isDisabled = selectedCount === 0;
+      $scope.disableMasterNodeActions = selectedCount === 0;
+      $scope.actionsConfig.moreActions[0].isDisabled = $scope.disableMasterNodeActions;
+      $scope.actionsConfig.moreActions[1].isDisabled = $scope.disableMasterNodeActions;
     };
 
     $scope.allNodesSelected = false;

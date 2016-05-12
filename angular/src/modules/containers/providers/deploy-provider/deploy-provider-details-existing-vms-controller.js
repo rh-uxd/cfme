@@ -11,8 +11,24 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
       if (filter.id === 'name') {
         match = item.name.match(filter.value) !== null;
-      } else if (filter.id === 'state') {
-        match = item.state === filter.value;
+      } else if (filter.id === 'role') {
+        if (filter.value == 'Unset') {
+          match = !item.master && !item.node && !item.storage && !item.loadBalancer && !item.dns && !item.etcd && !item.infrastructure;
+        } else if (filter.value == 'Master') {
+          match = item.master;
+        } else if (filter.value == 'Node') {
+          match = item.node;
+        } else if (filter.value == 'Storage') {
+          match = item.storage;
+        } else if (filter.value == 'Load Balancer') {
+          match = item.loadBalancer;
+        } else if (filter.value == 'DNS') {
+          match = item.dns;
+        } else if (filter.value == 'Etcd') {
+          match = item.etcd;
+        } else if (filter.value == 'Infrastructure') {
+          match = item.infrastructure;
+        }
       }
       return match;
     };
@@ -52,11 +68,11 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
           filterType: 'text'
         },
         {
-          id: 'state',
-          title: 'State',
-          placeholder: 'Filter by State...',
+          id: 'role',
+          title: 'Role',
+          placeholder: 'Filter by Role...',
           filterType: 'select',
-          filterValues: ['Unset', 'Master', 'Node']
+          filterValues: ['Unset', 'Master', 'Node', 'Storage', 'Load Balancer', 'DNS', 'Etcd', 'Infrastructure']
         }
       ],
       resultsCount: $scope.filteredNodes.length,
@@ -69,8 +85,56 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       if ($scope.sortConfig.currentField.id === 'name') {
         compValue = item1.vmName.localeCompare(item2.vmName);
       } else {
-        if ($scope.sortConfig.currentField.id === 'state') {
-          compValue = item1.state.localeCompare(item2.state);
+        if ($scope.sortConfig.currentField.id === 'role') {
+          if (item1.master != item2.master) {
+            if (item1.master) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.node != item2.node) {
+            if (item1.node) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.storage != item2.storage) {
+            if (item1.storage) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.loadBalancer != item2.loadBalancer) {
+            if (item1.loadBalancer) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.dns != item2.dns) {
+            if (item1.dns) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.etcd != item2.etcd) {
+            if (item1.etcd) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
+          else if (item1.loadBalancer != item2.loadBalancer) {
+            if (item1.loadBalancer) {
+              compValue = -1;
+            } else {
+              compValue = 1;
+            }
+          }
         } else if ($scope.sortConfig.currentField.id === 'cpus') {
           compValue = item1.cpus - item2.cpus;
         } else if ($scope.sortConfig.currentField.id === 'memory') {
@@ -102,8 +166,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
           sortType: 'alpha'
         },
         {
-          id: 'state',
-          title: 'State',
+          id: 'role',
+          title: 'Role',
           sortType: 'alpha'
         },
         {

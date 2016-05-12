@@ -37,7 +37,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       $scope.mastersCount = $scope.data.masters ? $scope.data.masters.length : 0;
       $scope.nodesCount = $scope.data.nodes ? $scope.data.nodes.length : 0;
       $scope.storageCount = $scope.data.storageNodes ? $scope.data.storageNodes.length : 0;
-      $scope.loadBalancerCount = $scope.data.loadBalancers ? $scope.data.loadBalancers.length : 0;
+      $scope.loadBalancerCount = $scope.data.loadBalancerNodes ? $scope.data.loadBalancerNodes.length : 0;
       $scope.dnsCount = $scope.data.dnsNodes ? $scope.data.dnsNodes.length : 0;
       $scope.etcdCount = $scope.data.etcdNodes ? $scope.data.etcdNodes.length : 0;
       $scope.infrastructureCount = $scope.data.infrastructureNodes ? $scope.data.infrastructureNodes.length : 0;

@@ -1178,60 +1178,64 @@
   padding-bottom: 10px;
 }
 /* line 524, scss/wizard.scss */
+.miq-deploy-provider-wizard .miq-page-text {
+  padding-bottom: 10px;
+}
+/* line 528, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-form-heading {
   font-weight: 700;
   padding-bottom: 10px;
 }
-/* line 529, scss/wizard.scss */
+/* line 533, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-form-no-label {
   margin-left: 95px;
   padding-left: 10px;
 }
-/* line 534, scss/wizard.scss */
+/* line 538, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-label-class {
   width: 95px;
   padding-right: 10px;
   padding-left: 20px;
   float: left;
 }
-/* line 540, scss/wizard.scss */
+/* line 544, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-label-class.miq-input-label-class-lg {
   width: 150px;
 }
-/* line 544, scss/wizard.scss */
+/* line 548, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-label-class.miq-input-label-class-xlg {
   width: 175px;
 }
-/* line 549, scss/wizard.scss */
+/* line 553, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-no-label-class {
   padding-right: 10px;
   padding-left: 20px;
   float: left;
   width: 0;
 }
-/* line 556, scss/wizard.scss */
+/* line 560, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-radio-form, .miq-deploy-provider-wizard .miq-checkbox-form {
   padding-left: 20px;
 }
-/* line 560, scss/wizard.scss */
+/* line 564, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-checkbox-form {
   padding-left: 55px;
   padding-bottom: 10px;
 }
-/* line 563, scss/wizard.scss */
+/* line 567, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-checkbox-form .miq-checkbox-input-label {
   padding-right: 20px;
 }
-/* line 565, scss/wizard.scss */
+/* line 569, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-checkbox-form .miq-checkbox-input-label input {
   margin-right: 20px;
   position: static;
 }
-/* line 569, scss/wizard.scss */
+/* line 573, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-checkbox-form .miq-checkbox-input-label.miq-checkbox-input-label-lg {
   padding-left: 55px;
 }
-/* line 573, scss/wizard.scss */
+/* line 577, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-checkbox-form .miq-input-label-class {
   width: 130px;
   padding-left: 15px;
@@ -1239,114 +1243,118 @@
   text-align: left;
   vertical-align: middle;
 }
-/* line 581, scss/wizard.scss */
+/* line 585, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-input-class {
   width: 200px;
   padding: 0 20px 0 10px;
   float: left;
 }
-/* line 587, scss/wizard.scss */
+/* line 591, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-radio-input-class {
   width: 200px;
   padding: 0 20px 0 30px;
   float: left;
 }
-/* line 593, scss/wizard.scss */
+/* line 597, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class {
   width: 110px;
   padding: 0 20px 0 10px;
   float: left;
 }
-/* line 598, scss/wizard.scss */
+/* line 602, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .form-control {
   height: 24px;
 }
-/* line 601, scss/wizard.scss */
+/* line 605, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .btn {
   padding-bottom: 1px;
 }
-/* line 604, scss/wizard.scss */
+/* line 608, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-touchspin-input-class .form-control[readonly] {
   background-color: #fff;
 }
-/* line 609, scss/wizard.scss */
+/* line 613, scss/wizard.scss */
 .miq-deploy-provider-wizard .form-horizontal > .radio {
   margin-left: 20px;
 }
-/* line 613, scss/wizard.scss */
+/* line 617, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container {
   border: solid 1px #d1d1d1;
 }
-/* line 617, scss/wizard.scss */
+/* line 621, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf > .col-sm-12 {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 621, scss/wizard.scss */
+/* line 625, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-filter {
   padding-right: 10px;
   width: 225px;
 }
-/* line 625, scss/wizard.scss */
+/* line 629, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-results {
   margin-left: -10px;
   margin-right: -10px;
 }
-/* line 630, scss/wizard.scss */
+/* line 634, scss/wizard.scss */
 .add-nodes-table .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions {
-  padding-bottom: 10px;
+  padding-bottom: 0;
 }
-/* line 633, scss/wizard.scss */
+/* line 637, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions > .form-group {
   border-right: none;
   float: right;
   padding-right: 0px;
 }
-/* line 638, scss/wizard.scss */
+/* line 642, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu {
   left: auto;
   right: -15px;
 }
-/* line 642, scss/wizard.scss */
+/* line 646, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu:before, .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .toolbar-pf-actions .dropdown-kebab-pf .dropdown-menu:after {
   left: auto;
   right: 6px;
 }
-/* line 648, scss/wizard.scss */
+/* line 652, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .sort-pf > form > .form-group {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 653, scss/wizard.scss */
+/* line 657, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .include-actions .dropdown {
   float: left;
-  margin-left: 5px;
+  margin-left: 0;
 }
-/* line 657, scss/wizard.scss */
+/* line 661, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .include-actions .btn.btn-default {
   float: right;
   margin-left: 5px;
 }
-/* line 661, scss/wizard.scss */
+/* line 664, scss/wizard.scss */
+.miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .include-actions .btn.btn-default.btn-left {
+  float: left;
+}
+/* line 668, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .include-actions .dropdown-container {
   padding-left: 30px;
   padding-right: 20px;
 }
-/* line 665, scss/wizard.scss */
+/* line 672, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .toolbar-pf .include-actions .dropdown-container .btn-primary {
   margin-left: 20px;
 }
-/* line 672, scss/wizard.scss */
+/* line 679, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .checkbox-col {
   padding-left: 6px;
   padding-right: 6px;
   width: 20px;
 }
-/* line 677, scss/wizard.scss */
+/* line 684, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .toolbar-pf-actions {
-  padding-bottom: 10px;
+  padding-bottom: 0;
 }
-/* line 681, scss/wizard.scss */
+/* line 688, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .role-column .label {
   border: none;
   border-radius: 5px;
@@ -1355,62 +1363,64 @@
   margin-right: 5px;
   padding-top: 4px;
 }
-/* line 689, scss/wizard.scss */
+/* line 696, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .role-column .label:focus {
   outline: none;
 }
-/* line 692, scss/wizard.scss */
+/* line 699, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .role-column .label .fa-close {
   margin-left: 5px;
 }
-/* line 695, scss/wizard.scss */
+/* line 702, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .role-column .label.label-default {
   cursor: pointer;
 }
-/* line 699, scss/wizard.scss */
+/* line 706, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .role-column a {
   cursor: pointer;
 }
-/* line 701, scss/wizard.scss */
+/* line 708, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .role-column a:hover {
   text-decoration: none;
 }
-/* line 707, scss/wizard.scss */
+/* line 714, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .role-column .add-roles-list .label.add-role-item {
+  cursor: pointer;
   display: block;
   margin-top: 5px;
+  text-align: left;
 }
-/* line 710, scss/wizard.scss */
+/* line 719, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .role-column .add-roles-list .label.add-role-item[disabled] {
   background-color: #d1d1d1;
   color: #72767b;
 }
-/* line 719, scss/wizard.scss */
+/* line 728, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-responsive {
   max-height: 265px;
   min-height: 265px;
   overflow-x: hidden;
   overflow-y: auto;
 }
-/* line 726, scss/wizard.scss */
+/* line 735, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container.add-nodes-table .table-responsive {
   max-height: 190px;
   min-height: 190px;
 }
-/* line 731, scss/wizard.scss */
+/* line 740, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table {
   border: none;
   width: calc(100% + 3px);
   margin-left: -1px;
 }
-/* line 738, scss/wizard.scss */
+/* line 747, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer {
   background-color: #fafafa;
   width: 100%;
   height: 28px;
   padding-top: 5px;
 }
-/* line 744, scss/wizard.scss */
+/* line 753, scss/wizard.scss */
 .miq-deploy-provider-wizard .nodes-table-container .table-footer .badge {
   background: transparent;
   color: #030303;
@@ -1422,73 +1432,73 @@
   padding: 0 7px;
   text-align: center;
 }
-/* line 757, scss/wizard.scss */
+/* line 766, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-add-dialog-text {
   font-weight: 700;
   padding: 15px;
 }
-/* line 761, scss/wizard.scss */
+/* line 770, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-add-dialog-input {
   padding: 0 15px;
   width: 100%;
 }
-/* line 764, scss/wizard.scss */
+/* line 773, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-add-dialog-input > input {
   width: 100%;
 }
-/* line 769, scss/wizard.scss */
+/* line 778, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-label-class {
   padding-right: 10px;
   float: left;
 }
-/* line 774, scss/wizard.scss */
+/* line 783, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-edit-item {
   line-height: 20px;
   margin-bottom: 15px;
 }
-/* line 778, scss/wizard.scss */
+/* line 787, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-edit-field {
   cursor: pointer;
   float: left;
   padding-right: 20px;
   position: relative;
 }
-/* line 783, scss/wizard.scss */
+/* line 792, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-edit-field:after {
   content: "\e60a";
   font-family: 'PatternFlyIcons-webfont';
   position: absolute;
   right: 0;
 }
-/* line 790, scss/wizard.scss */
+/* line 799, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-edit-text {
   margin-right: 20px;
   margin-top: 5px;
   resize: none;
   width: 100%;
 }
-/* line 796, scss/wizard.scss */
+/* line 805, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-review-button-panel {
   float: right;
   width: 100%;
   padding: 10px 0;
   margin-top: 0;
 }
-/* line 803, scss/wizard.scss */
+/* line 812, scss/wizard.scss */
 .miq-deploy-provider-wizard .miq-wizard-review-list li {
   margin: 5px 0;
 }
 
-/* line 810, scss/wizard.scss */
+/* line 819, scss/wizard.scss */
 .miq-wizard-page-wait-dialog .modal-dialog {
   margin-top: 240px;
 }
 
-/* line 814, scss/wizard.scss */
+/* line 823, scss/wizard.scss */
 .miq-wait-dialog-content {
   padding: 15px;
 }
-/* line 817, scss/wizard.scss */
+/* line 826, scss/wizard.scss */
 .miq-wait-dialog-content .miq-wait-dialog-text {
   padding-top: 10px;
   text-align: center;

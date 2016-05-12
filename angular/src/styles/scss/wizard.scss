@@ -521,6 +521,10 @@ $wz-substep-nav-width: 250px;
     padding-bottom: 10px;
   }
 
+  .miq-page-text {
+    padding-bottom: 10px;
+  }
+
   .miq-form-heading {
     font-weight: 700;
     padding-bottom: 10px;
@@ -628,7 +632,7 @@ $wz-substep-nav-width: 250px;
       }
       .toolbar-pf-actions {
         .add-nodes-table & {
-          padding-bottom: 10px;
+          padding-bottom: 0;
         }
         > .form-group {
           border-right: none;
@@ -652,11 +656,14 @@ $wz-substep-nav-width: 250px;
       .include-actions {
         .dropdown {
           float: left;
-          margin-left: 5px;
+          margin-left: 0;
         }
         .btn.btn-default {
           float: right;
           margin-left: 5px;
+          &.btn-left {
+            float:left;
+          }
         }
         .dropdown-container {
           padding-left: 30px;
@@ -675,7 +682,7 @@ $wz-substep-nav-width: 250px;
         width: 20px;
       }
       .toolbar-pf-actions {
-        padding-bottom: 10px;
+        padding-bottom: 0;
       }
       .role-column {
         .label {
@@ -705,8 +712,10 @@ $wz-substep-nav-width: 250px;
 
         .add-roles-list {
           .label.add-role-item {
+            cursor: pointer;
             display: block;
             margin-top: 5px;
+            text-align: left;
             &[disabled] {
               background-color: #d1d1d1;
               color: #72767b;
