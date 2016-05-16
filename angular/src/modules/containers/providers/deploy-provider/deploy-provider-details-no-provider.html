@@ -1,10 +1,17 @@
 <div ng-controller="containers.deployProviderDetailsNoProviderController">
   <form class="form-horizontal">
-    <div pf-form-group pf-label="Private SSH Key" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-      <input id="deploy-key" name="name" ng-model="data.deploymentKey" type="text" ng-change="validateForm()" required/>
+    <div class="form-group">
+      <label class="miq-input-label-class miq-input-label-class-lg">Private SSH Key</label>
+      <div class="miq-input-class">
+        <input id="deploy-key" class="form-control" ng-model="data.deploymentKey" type="text" ng-change="validateForm()" required/>
+      </div>
+      <a class="miq-clear-input-button" ng-click="clearDeploymentKey()">
+        <span class="fa fa-close" aria-hidden="true"></span>
+      </a>
+      <button type="button">Browse</button>
     </div>
     <div pf-form-group pf-label="Username" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-      <input id="deploy-username" name="name" ng-model="data.deploymentUsername" type="text" ng-change="validateForm()" required/>
+      <input id="deploy-username" ng-model="data.deploymentUsername" type="text" ng-change="validateForm()" required/>
     </div>
   </form>
   <div class="miq-page-text">Add tags individually for each VM or select multiple rows and edit tags as a group.</div>
@@ -147,16 +154,68 @@
       <div class="badge" ng-if="infrastructureCount > 0">
         <span>{{infrastructureCount}} Infrastructure</span>
       </div>
-      <div miq-modal class="wizard-miq" modal-title="{{addDialogTitle}}" visible="showAddDialog" on-cancel="cancelAddDialog()" modal-size="medium">
-        <div class="miq-add-dialog-text">{{addDialogText}}</div>
-        <div class="miq-add-dialog-input">
-          <input id="addname" name="addname" ng-model="newItem.vmName" type="text"
-                 ng-enter="saveAddDialog()" required auto-focus="showAddDialog"/>
+    </div>
+    <div miq-modal class="wizard-miq miq-add-host-dialog" modal-title="Add Host" visible="showAddDialog" on-cancel="cancelAddDialog()">
+      <div class="miq-add-dialog-content">
+        <div class="miq-page-text">Enter a name or IP address</div>
+        <form class="form-horizontal">
+          <div pf-form-group pf-label="Private Host Name" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
+            <input id="add-private-name" ng-model="newHost.vmName" type="text" ng-change="validateForm()" required/>
+          </div>
+          <div pf-form-group pf-label="Public Host Name" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
+            <input id="add-public-name" ng-model="newHost.publicName" type="text" ng-change="validateForm()"/>
+          </div>
+        </form>
+        <div class="miq-page-text">Specify role(s) for this host</div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="checkbox-inline">
+                <input type="checkbox" role="presentation" ng-model="newHost.master">Master
+              </label>
+            </div>
+            <div class="col-sm-6">
+              <label class="checkbox-inline">
+                <input type="checkbox" role="presentation" ng-model="newHost.node">Node
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="checkbox-inline">
+                <input type="checkbox" role="presentation" ng-model="newHost.storage">Storage
+              </label>
+            </div>
+            <div class="col-sm-6">
+              <label class="checkbox-inline">
+                <input type="checkbox" role="presentation" ng-model="newHost.loadBalancer">Load Balancer
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="checkbox-inline">
+                <input type="checkbox" role="presentation" ng-model="newHost.dns">DNS
+              </label>
+            </div>
+            <div class="col-sm-6">
+              <label class="checkbox-inline">
+                <input type="checkbox" role="presentation" ng-model="newHost.etcd">Etcd
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="checkbox-inline">
+                <input type="checkbox" role="presentation" ng-model="newHost.infrastructure">Infrastructure
+              </label>
+            </div>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" ng-click="cancelAddDialog()">Cancel</button>
-          <button type="button" class="btn btn-primary" ng-click="saveAddDialog()" ng-class="{disabled: !newItem.vmName || newItem.vmName.length === 0} ">Add</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="cancelAddDialog()">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="saveAddDialog()" ng-class="{disabled: !newHost.vmName || newHost.vmName.length === 0} ">Add</button>
       </div>
     </div>
   </div>

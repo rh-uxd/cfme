@@ -1,6 +1,6 @@
 angular.module('miq.containers.providersModule').controller('containers.deployProviderDetailsNoProviderController',
-  ['$rootScope', '$scope', '$timeout',
-  function($rootScope, $scope, $timeout) {
+  ['$rootScope', '$scope', '$timeout', '$document',
+  function($rootScope, $scope, $timeout, $document) {
     'use strict';
 
     $scope.showAddDialog = false;
@@ -8,10 +8,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     $scope.onShow = function () {
       $timeout(function() {
-        if ($scope.data.provisionOn == 'noProvider') {
-          var queryResult = $document[0].getElementById('deploy-key');
-          queryResult.focus();
-        }
+        $document[0].getElementById('deploy-key').focus();
       }, 200);
     };
 
@@ -21,10 +18,14 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     $scope.validateForm = function() {
       $scope.setMasterNodesComplete(validString($scope.data.deploymentKey) &&
-        validString($scope.data.deploymentUsername) &&
-        validString($scope.data.deploymentPassword) &&
         validString($scope.data.deploymentKey) &&
+        validString($scope.data.deploymentUsername) &&
         $scope.validateNodeCounts());
+    };
+
+    $scope.clearDeploymentKey = function() {
+      $scope.data.deploymentKey = '';
+      $scope.validateForm();
     };
 
     $scope.allNodes = [];
@@ -163,23 +164,29 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
 
     $scope.saveAddDialog = function () {
-      if ($scope.newItem.vmName && $scope.newItem.vmName.length > 0) {
-        $scope.allNodes.push($scope.newItem);
+      if ($scope.newHost.vmName && $scope.newHost.vmName.length > 0) {
+        $scope.allNodes.push($scope.newHost);
         $scope.showAddDialog = false;
         updateNodeSettings();
       }
     };
-    $scope.updaterName = function() {
-      console.log($scope.newItem.name);
-    };
 
     $scope.addVM = function () {
-      $scope.addDialogTitle = "Add Master";
-      $scope.addDialogText = "Please enter the Host Name or IP Address for the new Master";
-      $scope.newItem = {
-        vmName: ""
+      $scope.newHost = {
+        vmName: "",
+        publicName: "",
+        master: false,
+        node: false,
+        storage: false,
+        loadBalancer: false,
+        dns: false,
+        etcd: false,
+        infrastructure: false
       };
       $scope.showAddDialog = true;
+      $timeout(function() {
+        $document[0].getElementById('add-private-name').focus();
+      }, 200);
     };
 
     var removeItems = function () {
