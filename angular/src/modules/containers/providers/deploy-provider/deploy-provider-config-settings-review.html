@@ -2,19 +2,32 @@
   <form class="form-horizontal">
     <div class="wizard-miq-review-item">
       <span class="wizard-miq-review-item-label">Configure:</span>
+      <span class="wizard-miq-review-item-value">{{getConfigServerType()}}</span>
     </div>
   </form>
-  <form role="form">
-    <ul class="miq-wizard-review-list">
-      <li ng-if="data.configureRouter">Router</li>
-      <li ng-if="data.configureRegistry">Registry</li>
-      <ul>
-        <li ng-if="data.useDefaultRegistry">Use default registry</li>
-        <li ng-if="data.useS3Registry">Use S3</li>
-        <li ng-if="data.useSwift">Use Swift</li>
-      </ul>
-      <li ng-if="data.configureMetrics">Metrics</li>
-      <li ng-if="!data.configureRouter && !configureRegistry && !data.configureMetrics">There are not items selected to configure</li>
-    </ul>
-  </form>
+  <div class="wizard-miq-review-item" ng-if="data.configureRouter">
+    <div class="wizard-miq-review-item-label" >Configure Router</div>
+  </div>
+  <div class="wizard-miq-review-item" ng-if="data.configureRegistry">
+    <div class="wizard-miq-review-item-label" >Configure Registry</div>
+  </div>
+  <div class="wizard-miq-review-item sub-item" ng-if="data.configureRegistry">
+    <span class="wizard-miq-review-item-label">Server:</span>
+    <span class="wizard-miq-review-item-value">{{data.nfsRegistryServer}}</span>
+  </div>
+  <div class="wizard-miq-review-item sub-item" ng-if="data.configureRegistry">
+    <span class="wizard-miq-review-item-label">Path:</span>
+    <span class="wizard-miq-review-item-value">{{data.nfsRegistryPath}}</span>
+  </div>
+  <div class="wizard-miq-review-item" ng-if="data.configureMetrics">
+    <div class="wizard-miq-review-item-label" >Configure Metrics</div>
+  </div>
+  <div class="wizard-miq-review-item sub-item" ng-if="data.configureMetrics">
+    <span class="wizard-miq-review-item-label">Server:</span>
+    <span class="wizard-miq-review-item-value">{{data.nfsMetricsServer}}</span>
+  </div>
+  <div class="wizard-miq-review-item sub-item" ng-if="data.configureMetrics">
+    <span class="wizard-miq-review-item-label">Server:</span>
+    <span class="wizard-miq-review-item-value">{{data.nfsMetricsPath}}</span>
+  </div>
 </div>

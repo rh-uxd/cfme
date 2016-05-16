@@ -22,7 +22,7 @@
               <label class="miq-checkbox-input-label">
                 <input type="checkbox" ng-model="data.specifySatelliteUrl" ng-change="validateForm()" ng-disabled="!data.cdnEnabled">RHN Satellite URL
               </label>
-              <input id="satellite-url" name="name" ng-model="data.rhnSatelliteUrl" type="text" ng-change="validateForm()"
+              <input id="satellite-url" class="miq-checkbox-input" name="name" ng-model="data.rhnSatelliteUrl" type="text" ng-change="validateForm()"
                      required ng-disabled="!data.cdnEnabled || data.specifySatelliteUrl === false"/>
             </div>
           </div>

@@ -75,17 +75,17 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
     };
 
-    $scope.getStorageType = function() {
-      if ($scope.data.storageType == 'nfs') {
-        return "NFS";
+    $scope.getConfigServerType = function() {
+      if ($scope.data.serverConfigType == 'standardNFS') {
+        return "Standard NFS Server";
       }
-      else if ($scope.data.storageType == 'gluster') {
-        return "Red Hat Gluster Storage";
+      else if ($scope.data.serverConfigType == 'integratedNFS') {
+        return "Integrated NFS Server";
       }
-      else if ($scope.data.storageType == 'integratedNfs') {
-        return "Integrated NFS (POCs only)";
+      else if ($scope.data.serverConfigType == 'router') {
+        return "Router Only";
       }
-      else if ($scope.data.storageType == 'none') {
+      else if ($scope.data.serverConfigType == 'none') {
         return "None";
       }
     };

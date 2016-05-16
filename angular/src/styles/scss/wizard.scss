@@ -451,6 +451,9 @@ $wz-substep-nav-width: 250px;
   }
   .wizard-miq-review-item {
     padding: 5px 0;
+    &.sub-item {
+      margin-left: 10px;
+    }
     .wizard-miq-review-item-label {
       font-weight: 700;
       padding-right: 10px;
@@ -460,10 +463,19 @@ $wz-substep-nav-width: 250px;
     .wizard-miq-review-item-subvalue {
       padding-left: 20px;
     }
-    .wizard-miq-review-table {
-      padding-top: 10px;
-      padding-right: 20px;
-      width: 250px;
+    .wizard-miq-review-item-field {
+      font-weight: 700;
+      padding-right: 10px;
+      margin: 5px 0;
+      &:first-of-type {
+        margin-top: 0
+      }
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      &.sub-field {
+        margin-left: 10px;
+      }
     }
   }
   .wizard-miq-review-subform {
@@ -540,6 +552,7 @@ $wz-substep-nav-width: 250px;
     padding-right: 10px;
     padding-left: 20px;
     float: left;
+    text-align: right;
 
     &.miq-input-label-class-lg {
       width: 150px;
@@ -547,6 +560,21 @@ $wz-substep-nav-width: 250px;
 
     &.miq-input-label-class-xlg {
       width: 175px;
+    }
+  }
+
+  .miq-clear-input-button {
+    width: 100%;
+    height: 26px;
+    padding: 2px 6px;
+    background-color: #fff;
+    border: 1px solid #BABABA;
+    border-radius: 1px;
+    margin-left: -20px;
+    margin-right: 10px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
     }
   }
 
@@ -580,6 +608,21 @@ $wz-substep-nav-width: 250px;
       padding-top: 3px;
       text-align: left;
       vertical-align: middle;
+    }
+    .miq-checkbox-input {
+      border: 1px solid #BABABA;
+      border-radius: 1px;
+      background-image: none;
+      width: 300px;
+      &[disabled] {
+        -webkit-box-shadow: none;
+        background-color: #F8F8F8;
+        border-color: #d4d4d4 !important;
+        box-shadow: none;
+        color: #969696;
+        cursor: not-allowed;
+        opacity: 1;
+      }
     }
   }
   .miq-input-class {
@@ -828,4 +871,13 @@ $wz-substep-nav-width: 250px;
     text-align: center;
     width: 100%;
   }
+}
+
+.miq-add-host-dialog {
+  .modal-dialog {
+    width: 400px;
+  }
+}
+.miq-add-dialog-content {
+  padding: 20px 20px 0 20px;
 }
