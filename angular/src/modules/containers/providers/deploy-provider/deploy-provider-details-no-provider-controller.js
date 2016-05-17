@@ -5,12 +5,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     $scope.showAddDialog = false;
     $scope.newItem = {};
-
-    $scope.onShow = function () {
-      $timeout(function() {
-        $document[0].getElementById('deploy-key').focus();
-      }, 200);
-    };
+    $scope.data.deploymentKey = '';
+    $scope.data.deploymentUsername ='';
 
     var validString = function(value) {
       return angular.isDefined(value) && value.length > 0;
@@ -26,6 +22,21 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     $scope.clearDeploymentKey = function() {
       $scope.data.deploymentKey = '';
       $scope.validateForm();
+    };
+
+    var onKeyFileChosen = function(e) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        $scope.data.deploymentKey = reader.result;
+        $scope.$apply();
+      };
+      reader.readAsText(e.target.files[0]);
+    };
+
+    $scope.browseKeyFile = function() {
+      var uploadfile = $document[0].getElementById('browse-key-input');
+      uploadfile.onchange = onKeyFileChosen;
+      uploadfile.click();
     };
 
     $scope.allNodes = [];

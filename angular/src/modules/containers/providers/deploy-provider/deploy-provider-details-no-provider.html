@@ -8,7 +8,10 @@
       <a class="miq-clear-input-button" ng-click="clearDeploymentKey()">
         <span class="fa fa-close" aria-hidden="true"></span>
       </a>
-      <button type="button">Browse</button>
+      <button type="button" ng-click="browseKeyFile()">Browse</button>
+      <div style="display: none;">
+        <input id="browse-key-input" type="file">
+      </div>
     </div>
     <div pf-form-group pf-label="Username" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
       <input id="deploy-username" ng-model="data.deploymentUsername" type="text" ng-change="validateForm()" required/>
