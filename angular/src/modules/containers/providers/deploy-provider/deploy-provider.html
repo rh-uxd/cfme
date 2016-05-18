@@ -5,6 +5,7 @@
       next-callback="nextCallback" back-callback="backCallback" wizard-done="deployComplete || deployInProgress">
         <div miq-wizard-step step-title="Deployment Details" substeps="true" step-id="details" step-priority="0" show-review="true" show-review-details="true">
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-general.html'"></div>
+          <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-create-vms.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-masters-nodes.html'"></div>
           <div ng-include="'modules/containers/providers/deploy-provider/deploy-provider-details-cdn-channel.html'"></div>
         </div>

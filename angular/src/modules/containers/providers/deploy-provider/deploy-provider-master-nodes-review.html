@@ -1,16 +1,10 @@
 <div ng-controller="containers.deployProviderReviewController">
-  <form ng-if="data.provisionOn == 'existingVms'" class="form">
-    <div ng-include="'/modules/containers/providers/deploy-provider/deploy-provider-master-nodes-review-tables.html'"></div>
-  </form>
-  <form ng-if="data.provisionOn == 'newVms'" class="form">
-    <div ng-include="'/modules/containers/providers/deploy-provider/deploy-provider-master-nodes-review-create-vms.html'"></div>
-  </form>
-  <form ng-if="data.provisionOn == 'noProvider'" class="form">
-    <div class="wizard-miq-review-item">
+  <form class="form">
+    <div ng-if="data.provisionOn == 'noProvider'" class="wizard-miq-review-item">
       <span class="wizard-miq-review-item-label">Key:</span>
       <span class="wizard-miq-review-item-value">{{data.deploymentKey}}</span>
     </div>
-    <div class="wizard-miq-review-item">
+    <div ng-if="data.provisionOn == 'noProvider'" class="wizard-miq-review-item">
       <span class="wizard-miq-review-item-label">Username:</span>
       <span class="wizard-miq-review-item-value">{{data.deploymentUsername}}</span>
     </div>

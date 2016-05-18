@@ -42,7 +42,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     $scope.getMasterCreationTemplate = function () {
       var selectedTemplate = $scope.data.nodeCreationTemplates.find(function(nextTemplate) {
-        console.log(nextTemplate.id + " == " + $scope.data.masterCreationTemplateId + " is " + (nextTemplate.id == $scope.data.masterCreationTemplateId));
         return nextTemplate.id == $scope.data.masterCreationTemplateId;
       });
       return selectedTemplate ? selectedTemplate.name : "None";
@@ -81,9 +80,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
       else if ($scope.data.serverConfigType == 'integratedNFS') {
         return "Integrated NFS Server";
-      }
-      else if ($scope.data.serverConfigType == 'router') {
-        return "Router Only";
       }
       else if ($scope.data.serverConfigType == 'none') {
         return "None";

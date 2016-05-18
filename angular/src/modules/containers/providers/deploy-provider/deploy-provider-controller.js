@@ -4,6 +4,13 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     'use strict';
 
     $scope.data = {};
+    $scope.nodeData = {
+      allNodes: [],
+      filteredNodes: [],
+      providerVMs: [],
+      newVMs: [],
+      userDefinedVMs: []
+    };
 
     var initializeDeploymentWizard = function () {
       $scope.deployProviderReady = false;
