@@ -206,11 +206,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       };
 
       $scope.goTo = function (step) {
-        if ($scope.wizardDone) {
-          return;
-        }
-
-        if (!step.okToNavAway) {
+        if ($scope.wizard.isWizardDone() || !step.okToNavAway || step === $scope.selectedStep) {
           return;
         }
 
