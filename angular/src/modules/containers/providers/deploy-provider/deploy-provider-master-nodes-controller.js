@@ -11,7 +11,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       open: false
     };
 
-    var firstShow = true;
+    var currentProvisionOn = '';
+    var currentProviderId = '';
 
     var updateNodes = function () {
       if ($scope.data.provisionOn == 'existingVms') {
@@ -39,18 +40,17 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     $scope.sortConfig = {};
 
     $scope.onShow = function () {
-      if (firstShow) {
-        firstShow = false;
-
-        $scope.$watch('data.existingProviderId', function () {
+      if (currentProvisionOn != $scope.data.provisionOn) {
+        if ($scope.data.provisionOn == 'existingVms')
           updateExistingVMs();
-        });
-
+        else {
+          updateNodes();
+        }
+      } else if ($scope.data.provisionOn == 'existingVms' && $scope.data.existingProviderId != currentProviderId) {
         updateExistingVMs();
       }
-
-      updateNodes();
-      $scope.updateNodeSettings();
+      currentProvisionOn = $scope.data.provisionOn;
+      currentProviderId = $scope.data.existingProviderId;
 
       $timeout(function() {
         var queryResult;
