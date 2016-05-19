@@ -166,7 +166,7 @@ angular.module('miq.wizard').directive('miqWizard', function () {
       };
 
       $scope.goTo = function (step, resetStepNav) {
-        if ($scope.wizardDone || !step.okToNavAway || step === $scope.selectedStep) {
+        if ($scope.wizardDone || ($scope.selectedStep && !$scope.selectedStep.okToNavAway) || step === $scope.selectedStep) {
           return;
         }
 
@@ -204,6 +204,12 @@ angular.module('miq.wizard').directive('miqWizard', function () {
           $scope.firstStep =  stepIdx($scope.selectedStep) === 0;
         } else {
           $scope.firstStep = stepIdx($scope.selectedStep) === 0 && $scope.selectedStep.currentStepNumber() === 1;
+        }
+      };
+
+      $scope.stepClick = function (step) {
+        if (step.allowClickNav) {
+          $scope.goTo(step, true);
         }
       };
 

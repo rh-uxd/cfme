@@ -14,6 +14,7 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       prevTooltip: '=?',
       disabled: '@?wzDisabled',
       okToNavAway: '=?',
+      allowClickNav: '=?',
       description: '@',
       wizardData: '=',
       onShow: '=?',
@@ -55,7 +56,9 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
       if (angular.isUndefined($scope.okToNavAway)) {
         $scope.okToNavAway = true;
       }
-
+      if (angular.isUndefined($scope.allowClickNav)) {
+        $scope.allowClickNav = true;
+      }
 
       $scope.getEnabledSteps = function() {
         return $scope.steps.filter(function(step){
@@ -235,6 +238,12 @@ angular.module('miq.wizard').directive('miqWizardStep', function() {
             }
           }
           $scope.wizard.updateSubStepNumber (stepIdx($scope.selectedStep));
+        }
+      };
+
+      $scope.stepClick = function (step) {
+        if (step.allowClickNav) {
+          $scope.goTo(step);
         }
       };
 
