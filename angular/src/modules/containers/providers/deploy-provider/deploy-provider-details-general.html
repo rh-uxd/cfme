@@ -32,7 +32,6 @@
           <select pf-select ng-model="data.newVmProviderId" id="newVmProviders" ng-disabled="data.provisionOn != 'newVms'">
             <option ng-repeat="provider in newVmProviders" value="{{provider.id}}">{{provider.name}}</option>
           </select>
-          <a ng-class="{disabled: data.provisionOn != 'newVms'}">+ Create new provider</a>
         </div>
         <label class="radio">
           <input type="radio" ng-model="data.provisionOn" value="noProvider">Specify a list of machines to deploy on (No existing provider)
