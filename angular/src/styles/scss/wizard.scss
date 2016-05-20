@@ -547,6 +547,28 @@ $wz-substep-nav-width: 250px;
     padding-left: 10px;
   }
 
+  .miq-wizard-add-user-button {
+    cursor: pointer;
+    font-weight: 700;
+    margin-left: 85px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .miq-wizard-remove-user-button {
+    background-color: #fff;
+    color: #BABABA;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: -15px;
+    padding: 4px;
+    &:hover {
+      color: #00618a;
+      text-decoration: none;
+    }
+  }
+
   .miq-input-label-class {
     width: 95px;
     padding-right: 10px;
@@ -820,6 +842,26 @@ $wz-substep-nav-width: 250px;
     width: 100%;
     > input {
       width: 100%;
+    }
+  }
+
+  .wizard-miq-review-inline {
+    padding: 5px 0;
+    .wizard-miq-review-item  {
+      display: inline;
+      span {
+        display: inline-block;
+        margin-left: 10px;
+        &:first-of-type {
+          margin-left: 0px;
+        }
+      }
+      .wizard-miq-review-item-label {
+        width: 85px;
+      }
+      .wizard-miq-review-item-value {
+        width: 100px;
+      }
     }
   }
 

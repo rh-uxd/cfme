@@ -7,7 +7,12 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     var firstShow = true;
     $scope.onShow = function () {
       if (firstShow) {
-        $scope.data.authentication.htPassword = {};
+        $scope.data.authentication.htPassword = {
+          filePath: '',
+          users: [
+            {username: '', password: ''}
+          ]
+        };
         $scope.data.authentication.ldap = {};
         $scope.data.authentication.requestHeader = {};
         $scope.data.authentication.openId = {};
@@ -58,12 +63,15 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         return true;
       }
 
-      return (
-        !angular.isUndefined($scope.data.authentication.htPassword) &&
-        validString($scope.data.authentication.htPassword.username) &&
-        validString($scope.data.authentication.htPassword.password) &&
-        validString($scope.data.authentication.htPassword.filePath)
-      );
+      if (angular.isUndefined($scope.data.authentication.htPassword) || !validString($scope.data.authentication.htPassword.filePath)) {
+        return false;
+      }
+
+      var invalid = $scope.data.authentication.htPassword.users.find(function (user) {
+        return !validString(user.username) || !validString(user.password);
+      });
+
+      return invalid === undefined;
     };
 
     var validLdap = function() {
@@ -148,6 +156,22 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         validOpenId() &&
         validGoogle() &&
         validGithub();
+    };
+
+    $scope.addHtpasswordUser = function () {
+      $scope.data.authentication.htPassword.users.push({username: '', password: ''});
+      $timeout(function() {
+        var queryResult = $document[0].getElementById('htpasswordUser' + ($scope.data.authentication.htPassword.users.length - 1));
+        if (queryResult) {
+          queryResult.focus();
+        }
+      }, 200);
+      $scope.validateForm();
+    };
+
+    $scope.removeHtpasswordUser = function (index) {
+      $scope.data.authentication.htPassword.users.splice(index, 1);
+      $scope.validateForm();
     };
   }
 ]);
