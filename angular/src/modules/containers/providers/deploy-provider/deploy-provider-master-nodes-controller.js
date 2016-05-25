@@ -24,6 +24,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
       applyFilters($scope.filterConfig.appliedFilters);
       updateSetNodeTypeButtons();
+      $scope.updateAllNodesSelected();
     };
 
     var updateExistingVMs = function () {
@@ -31,6 +32,16 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         var providers = $resource('/containers/providers/nodes');
         providers.get(function (data) {
           $scope.nodeData.providerVMs = data.data;
+          $scope.nodeData.providerVMs.forEach(function(item) {
+            item.master = false;
+            item.node = false;
+            item.storage = false;
+            item.loadBalancer = false;
+            item.dns = false;
+            item.etcd = false;
+            item.infrastructure = false;
+          });
+
           updateNodes();
           $scope.updateNodeSettings();
         });
@@ -437,19 +448,36 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
 
     $scope.nodeData.allNodesSelected = false;
+    $scope.nodeData.allFilteredNodesSelected = false;
+
     $scope.toggleAllNodesSelected = function() {
       $scope.nodeData.allNodesSelected = !$scope.nodeData.allNodesSelected;
-      $scope.nodeData.filteredNodes.forEach(function (item, index) {
+      $scope.nodeData.allNodes.forEach(function (item, index) {
         item.selected = $scope.nodeData.allNodesSelected;
       });
       updateSetNodeTypeButtons();
     };
 
+    $scope.toggleAllFilteredNodesSelected = function() {
+      $scope.nodeData.allFilterdNodesSelected = !$scope.nodeData.allFilterdNodesSelected;
+      $scope.nodeData.filteredNodes.forEach(function (item, index) {
+        item.selected = $scope.nodeData.allFilterdNodesSelected;
+      });
+      updateSetNodeTypeButtons();
+    };
+
     $scope.updateAllNodesSelected = function() {
-      var found = $scope.nodeData.filteredNodes.find(function(node) {
+      var found = $scope.nodeData.allNodes.find(function(node) {
         return !node.selected;
       });
       $scope.nodeData.allNodesSelected = (found === undefined);
+
+      found = $scope.nodeData.filteredNodes.find(function(node) {
+        return !node.selected;
+      });
+      $scope.nodeData.allFilterdNodesSelected = (found === undefined);
+      console.log($scope.nodeData.allNodesSelected);
+console.log($scope.nodeData.allFilterdNodesSelected);
     };
 
     $scope.toggleNodeSelected = function(node) {
