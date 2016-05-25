@@ -59,6 +59,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         }
       } else if ($scope.data.provisionOn == 'existingVms' && $scope.data.existingProviderId != currentProviderId) {
         updateExistingVMs();
+      } else {
+        $scope.updateNodeSettings();
       }
       currentProvisionOn = $scope.data.provisionOn;
       currentProviderId = $scope.data.existingProviderId;
@@ -88,6 +90,28 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       return valid;
     };
 
+    $scope.storageNodeCountValid = function(count) {
+      var valid;
+      if ($scope.data.serverConfigType == 'integratedNFS' &&  count != 1) {
+        valid = false;
+        $scope.storageNodeWarning = "You must select one Storage Node when using Integrated NFS storage";
+      } else if (count > 1) {
+        valid = false;
+        $scope.storageNodeWarning = "You can only specify one Storage Node";
+      } else {
+        valid = true;
+        $scope.storageNodeWarning = "";
+      }
+
+      return valid;
+    };
+
+    $scope.dnsNodeCountValid = function(count) {
+      var valid = count <= 1;
+      $scope.dnsNodeWarning = valid ? '' : "You can specify at most one DNS Node";
+      return valid;
+    };
+
     $scope.validateNodeCounts = function () {
       $scope.mastersCount = $scope.data.masters ? $scope.data.masters.length : 0;
       $scope.nodesCount = $scope.data.nodes ? $scope.data.nodes.length : 0;
@@ -99,7 +123,9 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
       var mastersValid = $scope.masterCountValid($scope.mastersCount);
       var nodesValid = $scope.nodeCountValid($scope.nodesCount);
-      return mastersValid && nodesValid;
+      var storageNodesValid = $scope.storageNodeCountValid($scope.storageCount);
+      var dnsNodesValid = $scope.dnsNodeCountValid($scope.dnsCount);
+      return mastersValid && nodesValid && storageNodesValid && dnsNodesValid;
     };
 
     $scope.setMasterNodesComplete = function(value) {
@@ -476,8 +502,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         return !node.selected;
       });
       $scope.nodeData.allFilterdNodesSelected = (found === undefined);
-      console.log($scope.nodeData.allNodesSelected);
-console.log($scope.nodeData.allFilterdNodesSelected);
     };
 
     $scope.toggleNodeSelected = function(node) {

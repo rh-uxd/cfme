@@ -141,15 +141,17 @@
         <span ng-if="nodesCount == 1">{{nodesCount}} Node</span>
         <span ng-if="nodesCount != 1">{{nodesCount}} Nodes</span>
       </div>
-      <div class="badge" ng-if="storageCount > 0">
+      <div class="badge" tooltip="{{storageNodeWarning}}" tooltip-placement="right" ng-if="storageCount > 0 || data.serverConfigType == 'integratedNFS'">
+        <span class="pficon pficon-warning-triangle-o" ng-if="storageNodeWarning && storageNodeWarning != ''"></span>
         <span>{{storageCount}} Storage</span>
+      </div>
+      <div class="badge" tooltip="{{dnsNodeWarning}}" tooltip-placement="right" ng-if="dnsCount > 0">
+        <span class="pficon pficon-warning-triangle-o" ng-if="dnsNodeWarning && dnsNodeWarning != ''"></span>
+        <span>{{dnsCount}} DNS</span>
       </div>
       <div class="badge" ng-if="loadBalancerCount > 0">
         <span ng-if="loadBalancerCount == 1">{{loadBalancerCount}} Load Balancer</span>
         <span ng-if="loadBalancerCount != 1">{{loadBalancerCount}} Load Balancers</span>
-      </div>
-      <div class="badge" ng-if="dnsCount > 0">
-        <span>{{dnsCount}} DNS</span>
       </div>
       <div class="badge" ng-if="etcdCount > 0">
         <span>{{etcdCount}} Etcd</span>
