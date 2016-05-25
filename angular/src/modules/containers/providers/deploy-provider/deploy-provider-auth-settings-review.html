@@ -1,9 +1,5 @@
 <div ng-controller="containers.deployProviderReviewController">
   <form class="form-horizontal" ng-if="data.authentication.mode == 'htPassword'">
-    <div class="wizard-miq-review-item">
-      <span class="wizard-miq-review-item-label">File Path:</span>
-      <span class="wizard-miq-review-item-value">{{data.authentication.htPassword.filePath}}</span>
-    </div>
     <div class="wizard-miq-review-inline" ng-repeat="user in data.authentication.htPassword.users track by $index">
       <div class="wizard-miq-review-item">
         <span class="wizard-miq-review-item-label">Username:</span>

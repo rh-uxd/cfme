@@ -7,9 +7,6 @@
       <span>There are no fruther settings needed for the Allow All authentication mode.</span>
     </form>
     <form class="form-horizontal" ng-if="data.authentication.mode == 'htPassword'">
-      <div pf-form-group pf-label="File Path" required pf-label-class="miq-input-label-class" pf-input-class="miq-input-class">
-        <input id="initial-setting-input" name="filePath" ng-model="data.authentication.htPassword.filePath" type="text" ng-change="validateForm()" required/>
-      </div>
       <div class="form-group" ng-repeat="user in data.authentication.htPassword.users track by $index">
         <label class="miq-input-label-class">Username</label>
         <div class="miq-input-class">
