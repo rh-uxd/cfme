@@ -56,8 +56,8 @@
             </div>
           </div>
         </div>
-        <label class="radio">
-          <input type="radio" ng-model="data.serverConfigType" value="integratedNFS" ng-change="validateForm()">Integrated NFS Server
+        <label ng-if="validateStorageNode()" class="radio">
+          <input type="radio" ng-model="data.serverConfigType" value="integratedNFS" ng-change="validateForm()">Integrated NFS Server (POC only)
         </label>
         <div class="form-group  sub-group" ng-if="data.serverConfigType == 'integratedNFS'">
           <div class="checkbox">
