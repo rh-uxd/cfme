@@ -24,15 +24,24 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       return angular.isDefined(value) && value.length > 0;
     };
 
-     $scope.validateStorageNode = function() {
-       if (angular.isUndefined($scope.data.storageNodes) || $scope.data.storageNodes.length != 1) {
-         if ($scope.data.serverConfigType == 'integratedNFS') {
-           $scope.data.serverConfigType = 'none';
-         }
-         return false;
-       } else {
-         return true;
-       }
+    $scope.validateStorageNode = function() {
+      if (angular.isUndefined($scope.data.storageNodes) || $scope.data.storageNodes.length != 1) {
+        if ($scope.data.serverConfigType == 'integratedNFS') {
+          $scope.data.serverConfigType = 'none';
+        }
+        return false;
+      } else {
+        return true;
+      }
+    };
+
+    $scope.validateInfraNode = function() {
+      if (angular.isUndefined($scope.data.infrastructureNodes) || $scope.data.infrastructureNodes.length == 0){
+        $scope.data.configureRouter = false;
+        return false;
+      } else {
+        return true;
+      }
     };
 
     $scope.validateForm = function() {

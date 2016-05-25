@@ -10,7 +10,7 @@
         <div class="form-group  sub-group" ng-if="data.serverConfigType == 'standardNFS'">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-model="data.configureRouter" ng-change="validateForm()">Router
+              <input type="checkbox" ng-model="data.configureRouter" ng-disabled="!validateInfraNode()" ng-change="validateForm()">Router
             </label>
           </div>
           <div class="checkbox">
@@ -62,7 +62,7 @@
         <div class="form-group  sub-group" ng-if="data.serverConfigType == 'integratedNFS'">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-model="data.configureRouter" ng-change="validateForm()">Router
+              <input type="checkbox" ng-model="data.configureRouter" ng-disabled="!validateInfraNode()" ng-change="validateForm()">Router
             </label>
           </div>
           <div class="checkbox">
@@ -82,7 +82,7 @@
         <div class="form-group  sub-group" ng-if="data.serverConfigType =='none'">
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-model="data.configureRouter" ng-change="validateForm()">Router
+              <input type="checkbox" ng-model="data.configureRouter" ng-disabled="!validateInfraNode()" ng-change="validateForm()">Router
             </label>
           </div>
         </div>
