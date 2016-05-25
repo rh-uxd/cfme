@@ -8,7 +8,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     $scope.onShow = function () {
       if (firstShow) {
         $scope.data.authentication.htPassword = {
-          filePath: '',
           users: [
             {username: '', password: ''}
           ]
@@ -63,7 +62,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         return true;
       }
 
-      if (angular.isUndefined($scope.data.authentication.htPassword) || !validString($scope.data.authentication.htPassword.filePath)) {
+      if (angular.isUndefined($scope.data.authentication.htPassword)) {
         return false;
       }
 
