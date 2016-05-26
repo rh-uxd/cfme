@@ -41,8 +41,16 @@
       <div pf-form-group pf-label="Bind Password" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
         <input name="bindPassword" ng-model="data.authentication.ldap.bindPassword" type="text" ng-change="validateForm()" required/>
       </div>
-      <div pf-form-group pf-label="CA" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-        <input name="ca" ng-model="data.authentication.ldap.ca" type="text" ng-change="validateForm()" required/>
+      <div class="form-group">
+        <label class="miq-input-label-class miq-input-label-class-lg">CA </label>
+        <input class="miq-input-class" name="ca" ng-model="data.authentication.ldap.ca" type="text" ng-change="validateForm()" required/>
+        <a class="miq-clear-input-button" ng-click="clearAuthCA()">
+          <span class="fa fa-close" aria-hidden="true"></span>
+        </a>
+        <button type="button" ng-click="browseCAFile()">Browse</button>
+        <div style="display: none;">
+          <input id="browse-ca-input" type="file">
+        </div>
       </div>
       <div pf-form-group pf-label="Insecure" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
         <input name="insecure" ng-model="data.authentication.ldap.insecure" type="text" ng-change="validateForm()" required/>
@@ -58,8 +66,16 @@
       <div pf-form-group pf-label="Login URL" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
         <input name="loginUrl" ng-model="data.authentication.requestHeader.loginUrl" type="text" ng-change="validateForm()" required/>
       </div>
-      <div pf-form-group pf-label="Client CA" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-        <input name="clientCA" ng-model="data.authentication.requestHeader.clientCA" type="text" ng-change="validateForm()" required/>
+      <div class="form-group">
+        <label class="miq-input-label-class miq-input-label-class-lg">Client CA </label>
+        <input class="miq-input-class" name="ca" ng-model="data.authentication.requestHeader.clientCA" type="text" ng-change="validateForm()" required/>
+        <a class="miq-clear-input-button" ng-click="clearAuthCA()">
+          <span class="fa fa-close" aria-hidden="true"></span>
+        </a>
+        <button type="button" ng-click="browseCAFile()">Browse</button>
+        <div style="display: none;">
+          <input id="browse-ca-input" type="file">
+        </div>
       </div>
       <div pf-form-group pf-label="Headers" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
         <input name="headers" ng-model="data.authentication.requestHeader.headers" type="text" ng-change="validateForm()" required/>
