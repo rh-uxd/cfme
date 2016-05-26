@@ -49,6 +49,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
     };
 
+    var userUpdatedPublicName = false;
     $scope.addVM = function () {
       $scope.newHost = {
         vmName: "",
@@ -61,7 +62,9 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         etcd: false,
         infrastructure: false
       };
+      userUpdatedPublicName = false;
       $scope.showAddDialog = true;
+
       $timeout(function() {
         $document[0].getElementById('add-private-name').focus();
       }, 200);
@@ -117,6 +120,21 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     $scope.toolbarConfig = {
       sortConfig: sortConfig,
       actionsConfig: actionsConfig
+    };
+
+
+    $scope.updateNewVMName = function () {
+      if (!userUpdatedPublicName) {
+        $scope.newHost.publicName = $scope.newHost.vmName;
+      }
+    };
+
+    $scope.updateNewVMPublicName = function () {
+      if ($scope.newHost.publicName != $scope.newHost.vmName) {
+        userUpdatedPublicName = true;
+      } else {
+        userUpdatedPublicName = false;
+      }
     };
   }
 ]);

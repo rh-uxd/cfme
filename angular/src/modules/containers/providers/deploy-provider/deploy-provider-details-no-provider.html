@@ -165,10 +165,10 @@
         <div class="miq-page-text">Enter a name or IP address</div>
         <form class="form-horizontal">
           <div pf-form-group pf-label="Private Host Name" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-            <input id="add-private-name" ng-model="newHost.vmName" type="text" ng-change="validateForm()" required/>
+            <input id="add-private-name" ng-model="newHost.vmName" type="text" ng-change="updateNewVMName()" required/>
           </div>
           <div pf-form-group pf-label="Public Host Name" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-            <input id="add-public-name" ng-model="newHost.publicName" type="text" ng-change="validateForm()"/>
+            <input id="add-public-name" ng-model="newHost.publicName" type="text" ng-change="updateNewVMPublicName()"/>
           </div>
         </form>
         <div class="miq-page-text">Specify role(s) for this host</div>
