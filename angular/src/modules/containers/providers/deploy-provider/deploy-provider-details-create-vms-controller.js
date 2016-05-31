@@ -46,7 +46,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
             infrastructure: false,
             cpus: $scope.data.createMastersCpu,
             memory: $scope.data.createMastersMemory,
-            network: $scope.data.createMasterNetwork
+            diskSize: $scope.data.createMastersDisk
           }
         );
       }
@@ -64,7 +64,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
             infrastructure: false,
             cpus: $scope.data.createNodesLikeMasters ? $scope.data.createMastersCpu : $scope.data.createNodesCpu,
             memory: $scope.data.createNodesLikeMasters ? $scope.data.createMastersMemory : $scope.data.createNodesMemory,
-            network: $scope.data.createNodesLikeMasters ? $scope.data.createMasterNetwork : $scope.data.createNodesNetwork
+            diskSize: $scope.data.createNodesLikeMasters ? $scope.data.createMastersDisk : $scope.data.createNodesDisk
           }
         );
       }
@@ -89,7 +89,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         validString($scope.data.createMasterBaseName) &&
         validString($scope.data.createMastersMemory) &&
         validString($scope.data.createMastersCpu) &&
-        validString($scope.data.createMastersNetwork) &&
+        validString($scope.data.createMastersDisk) &&
         validString($scope.data.createNodesBaseName);
 
 
@@ -97,7 +97,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         valid = valid &&
           validString($scope.data.createNodesMemory) &&
           validString($scope.data.createNodesCpu) &&
-          validString($scope.data.createNodesNetwork);
+          validString($scope.data.createNodesDisk);
       }
 
       if (valid) {
@@ -112,7 +112,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         $scope.data.nodeCreationTemplateId = $scope.data.masterCreationTemplateId;
         $scope.data.createNodesMemory = $scope.data.createMastersMemory;
         $scope.data.createNodesCpu = $scope.data.createMastersCpu;
-        $scope.data.createNodesNetwork = $scope.data.createMastersNetwork;
+        $scope.data.createNodesDisk = $scope.data.createMastersDisk;
       }
       $scope.validateForm();
     };

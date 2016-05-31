@@ -31,8 +31,8 @@
         <input ng-model="data.createMastersCpu" type="text" ng-change="validateForm()"
                ng-blur="updateNodesLikeMaster()" ng-enter="updateNodesLikeMaster()" required/>
       </div>
-      <div pf-form-group pf-label="Logical Network" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-        <input ng-model="data.createMastersNetwork" type="text" ng-change="validateForm()"
+      <div pf-form-group pf-label="Disk Size" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
+        <input ng-model="data.createMastersDisk" type="text" ng-change="validateForm()"
                ng-blur="updateNodesLikeMaster()" ng-enter="updateNodesLikeMaster()" required/>
       </div>
     </form>
@@ -70,8 +70,8 @@
       <div pf-form-group pf-label="CPU" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
         <input ng-model="data.createNodesCpu" type="text" ng-change="validateForm()" required ng-disabled="data.createNodesLikeMasters"/>
       </div>
-      <div pf-form-group pf-label="Logical Network" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
-        <input ng-model="data.createNodesNetwork" type="text" ng-change="validateForm()" required ng-disabled="data.createNodesLikeMasters"/>
+      <div pf-form-group pf-label="Disk Size" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
+        <input ng-model="data.createNodesDisk" type="text" ng-change="validateForm()" required ng-disabled="data.createNodesLikeMasters"/>
       </div>
     </form>
   </div>
