@@ -21,7 +21,7 @@
   <div class="nodes-table-container add-nodes-table">
     <div pf-toolbar config="toolbarConfig">
       <actions class="include-actions">
-        <div class="dropdown primary-action" dropdown auto-close="outsideClick" is-open="editRolesStatus.open">
+        <span class="dropdown primary-action" dropdown auto-close="outsideClick" is-open="editRolesStatus.open">
           <button class="btn btn-default dropdown-toggle" dropdown-toggle type="button"
                   ng-disabled="disableMasterNodeActions" ng-click="onToolbarMenuShow()">
             Edit Roles
@@ -53,7 +53,7 @@
               <button class="btn btn-primary btn-sm" type="button" ng-click="updateSelectedRoles()">Submit</button>
             </div>
           </div>
-        </div>
+        </span>
         <button class="btn btn-default primary-action" type="button" title="Remove all roles from the selected items"
                 ng-click="removeRoles()" ng-disabled="disableMasterNodeActions">
           Remove Roles
