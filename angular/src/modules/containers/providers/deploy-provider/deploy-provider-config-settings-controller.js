@@ -40,6 +40,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         $scope.data.configureRouter = false;
         return false;
       } else {
+        $scope.data.configureRouter = true;
         return true;
       }
     };
