@@ -154,14 +154,17 @@
         <span class="pficon pficon-warning-triangle-o" ng-if="dnsNodeWarning && dnsNodeWarning != ''"></span>
         <span>{{dnsCount}} DNS</span>
       </div>
-      <div class="badge" ng-if="loadBalancerCount > 0">
+      <div class="badge" tooltip="{{loadBalancerWarning}}" tooltip-placement="right" ng-if="loadBalancerCount > 0">
+        <span class="pficon pficon-warning-triangle-o" ng-if="loadBalancerWarning && loadBalancerWarning != ''"></span>
         <span ng-if="loadBalancerCount == 1">{{loadBalancerCount}} Load Balancer</span>
         <span ng-if="loadBalancerCount != 1">{{loadBalancerCount}} Load Balancers</span>
       </div>
-      <div class="badge" ng-if="etcdCount > 0">
+      <div class="badge" tooltip="{{etcdNodeWarning}}" tooltip-placement="right" ng-if="etcdCount > 0">
+        <span class="pficon pficon-warning-triangle-o" ng-if="etcdNodeWarning && etcdNodeWarning != ''"></span>
         <span>{{etcdCount}} Etcd</span>
       </div>
-      <div class="badge" ng-if="infrastructureCount > 0">
+      <div class="badge" tooltip="{{infrastructureWarning}}" tooltip-placement="right" ng-if="infrastructureCount > 0">
+        <span class="pficon pficon-warning-triangle-o" ng-if="infrastructureWarning && infrastructureWarning != ''"></span>
         <span>{{infrastructureCount}} Infrastructure</span>
       </div>
     </div>

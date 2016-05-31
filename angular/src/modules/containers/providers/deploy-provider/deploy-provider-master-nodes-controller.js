@@ -80,36 +80,80 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     };
 
     $scope.masterCountValid = function(count) {
-      var valid = count === 1 || count === 3 || count === 5;
-      $scope.mastersWarning = valid ? '' : "The number of Masters must be 1, 3, or 5";
-      return valid;
+      if (count !== 1 && count !== 3 && count !== 5) {
+        $scope.mastersWarning = "The number of Masters must be 1, 3, or 5";
+        return false;
+      } else {
+        return true;
+      }
     };
 
     $scope.nodeCountValid = function(count) {
-      var valid = count >= 1;
-      $scope.nodesWarning = valid ? '' : "You must select at least one Node";
-      return valid;
+      if (count < 1) {
+        $scope.nodesWarning = "You must select at least one Node";
+        return false;
+      } else {
+        return true;
+      }
     };
 
     $scope.storageNodeCountValid = function(count) {
-      var valid;
       if ($scope.data.serverConfigType == 'integratedNFS' &&  count != 1) {
-        valid = false;
         $scope.storageNodeWarning = "You must select one Storage Node when using Integrated NFS storage";
+        return false;
       } else if (count > 1) {
-        valid = false;
         $scope.storageNodeWarning = "You can only specify one Storage Node";
+        return false;
       } else {
-        valid = true;
-        $scope.storageNodeWarning = "";
+        return true;
       }
-
-      return valid;
     };
 
     $scope.dnsNodeCountValid = function(count) {
-      var valid = count <= 1;
-      $scope.dnsNodeWarning = valid ? '' : "You can specify at most one DNS Node";
+      if (count > 1) {
+        $scope.dnsNodeWarning = "You can specify at most one DNS Node";
+        return false;
+      } else {
+        return true;
+      }
+    };
+
+    $scope.validateNodeSettings = function () {
+      var valid = true;
+
+      if ($scope.data.loadBalancerNodes && $scope.data.loadBalancerNodes.length > 0) {
+        $scope.data.loadBalancerNodes.forEach(function (item) {
+          if (!item.node && !item.master) {
+            valid = false;
+            $scope.loadBalancerWarning = "Load balancers can only be assigned to Masters or Nodes";
+          }
+        });
+      }
+      if ($scope.data.dnsNodes && $scope.data.dnsNodes.length > 0) {
+        $scope.data.dnsNodes.forEach(function (item) {
+          if (!item.node && !item.master) {
+            valid = false;
+            $scope.dnsNodeWarning = "DNS can only be assigned to Masters or Nodes";
+          }
+        });
+      }
+      if ($scope.data.etcdNodes && $scope.data.etcdNodes.length > 0) {
+        $scope.data.etcdNodes.forEach(function (item) {
+          if (!item.node && !item.master) {
+            valid = false;
+            $scope.etcdNodeWarning = "Etcd can only be assigned to Masters or Nodes";
+          }
+        });
+      }
+      if ($scope.data.infrastructureNodes && $scope.data.infrastructureNodes.length > 0) {
+        $scope.data.infrastructureNodes.forEach(function (item) {
+          if (!item.node) {
+            valid = false;
+            $scope.infrastructureWarning = "Infrastructure can only be assigned to Nodes";
+          }
+        });
+      }
+
       return valid;
     };
 
@@ -122,11 +166,22 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       $scope.etcdCount = $scope.data.etcdNodes ? $scope.data.etcdNodes.length : 0;
       $scope.infrastructureCount = $scope.data.infrastructureNodes ? $scope.data.infrastructureNodes.length : 0;
 
+      $scope.mastersWarning = "";
+      $scope.nodesWarning = "";
+      $scope.storageNodeWarning = "";
+      $scope.dnsNodeWarning = "";
+      $scope.loadBalancerWarning = "";
+      $scope.dnsNodeWarning = "";
+      $scope.etcdNodeWarning = "";
+      $scope.infrastructureWarning = "";
+
       var mastersValid = $scope.masterCountValid($scope.mastersCount);
       var nodesValid = $scope.nodeCountValid($scope.nodesCount);
       var storageNodesValid = $scope.storageNodeCountValid($scope.storageCount);
       var dnsNodesValid = $scope.dnsNodeCountValid($scope.dnsCount);
-      return mastersValid && nodesValid && storageNodesValid && dnsNodesValid;
+      var settingsValid = $scope.validateNodeSettings ();
+
+      return mastersValid && nodesValid && storageNodesValid && dnsNodesValid && settingsValid;
     };
 
     $scope.setMasterNodesComplete = function(value) {
