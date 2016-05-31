@@ -761,7 +761,9 @@ $wz-substep-nav-width: 250px;
           cursor: default;
           display: inline-block;
           margin-right: 5px;
+          min-width: auto;
           padding-top: 4px;
+          width: auto !important;
 
           &:focus {
             outline: none;
@@ -785,7 +787,9 @@ $wz-substep-nav-width: 250px;
             cursor: pointer;
             display: block;
             margin-top: 5px;
+            min-width: auto;
             text-align: left;
+            width: auto !important;
             &[disabled] {
               background-color: #d1d1d1;
               color: #72767b;
