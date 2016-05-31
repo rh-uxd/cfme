@@ -157,6 +157,26 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         validGithub();
     };
 
+    $scope.clearAuthCA = function() {
+      $scope.authTypeString === 'LDAP' ? $scope.data.authentication.ldap.ca = '' : $scope.data.authentication.requestHeader.clientCA = ''
+      $scope.validateForm();
+    };
+
+    var onCAFileChosen = function(e) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        $scope.authTypeString === 'LDAP' ? $scope.data.authentication.ldap.ca = reader.result : $scope.data.authentication.requestHeader.clientCA = reader.result;
+        $scope.$apply();
+      };
+      reader.readAsText(e.target.files[0]);
+    };
+
+    $scope.browseCAFile = function() {
+      var uploadfile = $document[0].getElementById('browse-ca-input');
+      uploadfile.onchange = onCAFileChosen;
+      uploadfile.click();
+    };
+
     $scope.addHtpasswordUser = function () {
       $scope.data.authentication.htPassword.users.push({username: '', password: ''});
       $timeout(function() {
