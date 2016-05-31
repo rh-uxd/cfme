@@ -5,36 +5,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     $scope.showAddDialog = false;
     $scope.newItem = {};
-    $scope.data.deploymentKey = '';
-    $scope.data.deploymentUsername ='';
 
-    var validString = function(value) {
-      return angular.isDefined(value) && value.length > 0;
-    };
-
-    $scope.validateForm = function() {
-      $scope.updateNodeSettings();
-    };
-
-    $scope.clearDeploymentKey = function() {
-      $scope.data.deploymentKey = '';
-      $scope.validateForm();
-    };
-
-    var onKeyFileChosen = function(e) {
-      var reader = new FileReader();
-      reader.onload = function() {
-        $scope.data.deploymentKey = reader.result;
-        $scope.$apply();
-      };
-      reader.readAsText(e.target.files[0]);
-    };
-
-    $scope.browseKeyFile = function() {
-      var uploadfile = $document[0].getElementById('browse-key-input');
-      uploadfile.onchange = onKeyFileChosen;
-      uploadfile.click();
-    };
+    $scope.updateNodeSettings();
 
     $scope.cancelAddDialog = function () {
       $scope.showAddDialog = false;

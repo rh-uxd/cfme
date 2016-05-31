@@ -1,4 +1,22 @@
 <div ng-controller="containers.deployProviderDetailsExistingVMsController">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="miq-input-label-class miq-input-label-class-lg">Private SSH Key</label>
+      <div class="miq-input-class">
+        <input id="deploy-key" class="form-control" ng-model="data.deploymentKey" type="password" ng-change="validateForm()" required/>
+      </div>
+      <a class="miq-clear-input-button" ng-click="clearDeploymentKey()">
+        <span class="fa fa-close" aria-hidden="true"></span>
+      </a>
+      <button type="button" ng-click="browseKeyFile()">Browse</button>
+      <div style="display: none;">
+        <input id="browse-key-input" type="file">
+      </div>
+    </div>
+    <div pf-form-group pf-label="Username" required pf-label-class="miq-input-label-class miq-input-label-class-lg" pf-input-class="miq-input-class">
+      <input id="deploy-username" ng-model="data.deploymentUsername" type="text" ng-change="validateForm()" required/>
+    </div>
+  </form>
   <div class="miq-page-text">Add tags individually for each VM or select multiple rows and edit tags as a group.</div>
   <div class="nodes-table-container add-nodes-table">
     <div pf-toolbar config="toolbarConfig">

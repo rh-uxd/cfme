@@ -5,7 +5,8 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
     $scope.deploymentDetailsMasterNodesComplete = false;
     $scope.reviewTemplate = "/modules/containers/providers/deploy-provider/deploy-provider-master-nodes-review.html";
-
+    $scope.data.deploymentKey = '';
+    $scope.data.deploymentUsername = '';
 
     $scope.editRolesStatus = {
       open: false
@@ -319,8 +320,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         return node.infrastructure === true;
       });
 
-      var inputsValid =  $scope.data.provisionOn != 'noProvider' ||
-        (validString($scope.data.deploymentKey) && validString($scope.data.deploymentUsername));
+      var inputsValid = validString($scope.data.deploymentKey) && validString($scope.data.deploymentUsername);
 
       $scope.setMasterNodesComplete($scope.validateNodeCounts() && inputsValid);
       $scope.nodeData.allNodes.forEach(function (item) {
@@ -330,6 +330,30 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       applyFilters();
       $scope.sortChange();
       updateSetNodeTypeButtons();
+    };
+
+    $scope.validateForm = function() {
+      $scope.updateNodeSettings();
+    };
+
+    $scope.clearDeploymentKey = function() {
+      $scope.data.deploymentKey = '';
+      $scope.validateForm();
+    };
+
+    var onKeyFileChosen = function(e) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        $scope.data.deploymentKey = reader.result;
+        $scope.$apply();
+      };
+      reader.readAsText(e.target.files[0]);
+    };
+
+    $scope.browseKeyFile = function() {
+      var uploadfile = $document[0].getElementById('browse-key-input');
+      uploadfile.onchange = onKeyFileChosen;
+      uploadfile.click();
     };
 
     $scope.removeRoles = function () {
