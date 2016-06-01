@@ -87,17 +87,17 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
       valid = valid &&
         validString($scope.data.createMasterBaseName) &&
-        validString($scope.data.createMastersMemory) &&
-        validString($scope.data.createMastersCpu) &&
-        validString($scope.data.createMastersDisk) &&
+        angular.isDefined($scope.data.createMastersMemory) &&
+        angular.isDefined($scope.data.createMastersCpu) &&
+        angular.isDefined($scope.data.createMastersDisk) &&
         validString($scope.data.createNodesBaseName);
 
 
       if (!$scope.data.createNodesLikeMasters) {
         valid = valid &&
-          validString($scope.data.createNodesMemory) &&
-          validString($scope.data.createNodesCpu) &&
-          validString($scope.data.createNodesDisk);
+          angular.isDefined($scope.data.createNodesMemory) &&
+          angular.isDefined($scope.data.createNodesCpu) &&
+          angular.isDefined($scope.data.createNodesDisk);
       }
 
       if (valid) {
