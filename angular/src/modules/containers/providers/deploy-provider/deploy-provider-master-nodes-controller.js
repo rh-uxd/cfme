@@ -444,6 +444,16 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       $scope.editRolesStatus.open = false;
     };
 
+    $scope.toolbarMenuSelectAll = function () {
+      $scope.toolbarMenu.master = true;
+      $scope.toolbarMenu.node = true;
+      $scope.toolbarMenu.storage = true;
+      $scope.toolbarMenu.loadBalancer = true;
+      $scope.toolbarMenu.dns = true;
+      $scope.toolbarMenu.etcd = true;
+      $scope.toolbarMenu.infrastructure = true;
+    };
+
     $scope.onToolbarMenuShow = function() {
       var selectedNodes =  $scope.nodeData.allNodes.filter(function(node) {
         return node.selected === true;

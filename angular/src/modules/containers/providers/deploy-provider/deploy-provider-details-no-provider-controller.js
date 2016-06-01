@@ -42,6 +42,16 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }, 200);
     };
 
+    $scope.newVmSelectAll = function () {
+      $scope.newHost.master = true;
+      $scope.newHost.node = true;
+      $scope.newHost.storage = true;
+      $scope.newHost.loadBalancer = true;
+      $scope.newHost.dns = true;
+      $scope.newHost.etcd = true;
+      $scope.newHost.infrastructure = true;
+    };
+
     var removeItems = function () {
       $scope.nodeData.allNodes = $scope.nodeData.allNodes.filter(function(item) {
         return !item.selected;
