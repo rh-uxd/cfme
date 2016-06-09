@@ -2,10 +2,12 @@
    "data":[
       {
          "title":"Dashboard",
+         "iconClass": "fa fa-dashboard",
          "href":"#/dashboard"
       },
       {
          "title":"Compute",
+         "iconClass": "pficon pficon-container-node",
          "children": [
             {
                "title":"Clouds",
@@ -72,14 +74,17 @@
       },
       {
          "title":"Applications",
+         "iconClass": "pficon pficon-enterprise",
          "href":"#/applications"
       },
       {
          "title":"Events",
+         "iconClass": "fa fa-newspaper-o",
          "href":"#/events"
       },
       {
          "title":"Admin",
+         "iconClass": "pficon pficon-settings",
          "children": [
             {
                "title":"User Administration",
