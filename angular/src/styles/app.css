@@ -1,81 +1,92 @@
-/* line 2, scss/main.scss */
+/* line 1, scss/main.scss */
 .miq-fixed-body {
   padding-top: 125px;
 }
-/* line 5, scss/main.scss */
+/* line 4, scss/main.scss */
 .miq-fixed-body .modal {
   top: 85px;
 }
 
-/* line 11, scss/main.scss */
+/* line 10, scss/main.scss */
 .miq-modal .modal-header {
   border-bottom: solid 1px #d1d1d1;
   height: 60px;
   padding-top: 19px;
 }
 
-/* line 18, scss/main.scss */
+/* line 17, scss/main.scss */
 .breadcrumb {
   margin-top: -20px;
 }
 
-/* line 22, scss/main.scss */
+/* line 21, scss/main.scss */
+.miq-notificaton-list {
+  margin-top: 15px;
+  float: right;
+}
+
+/* line 26, scss/main.scss */
 .miq-body {
   background: #f5f5f5;
 }
-
 /* line 28, scss/main.scss */
+.miq-body .navbar-pf-vertical .navbar-brand .navbar-brand-icon {
+  height: 20px;
+  margin-top: 10px;
+}
+
+/* line 36, scss/main.scss */
 .miq-dashboard-view .card-pf-aggregate-status .card-pf-title .pficon, .miq-dashboard-view .card-pf-aggregate-status .fa, .miq-objects-view .card-pf-aggregate-status .card-pf-title .pficon, .miq-objects-view .card-pf-aggregate-status .fa {
   color: #1186C1 !important;
 }
-/* line 33, scss/main.scss */
+/* line 41, scss/main.scss */
 .miq-dashboard-view .list-view-pf .list-group-item.active .pficon, .miq-dashboard-view .list-view-pf .list-group-item.active:hover .pficon, .miq-dashboard-view .list-view-pf .list-group-item.active:focus .pficon, .miq-objects-view .list-view-pf .list-group-item.active .pficon, .miq-objects-view .list-view-pf .list-group-item.active:hover .pficon, .miq-objects-view .list-view-pf .list-group-item.active:focus .pficon {
   color: #1186C1;
 }
-/* line 36, scss/main.scss */
+/* line 44, scss/main.scss */
 .miq-dashboard-view .list-view-pf .list-group-item .pficon, .miq-objects-view .list-view-pf .list-group-item .pficon {
   font-size: 18px;
 }
-/* line 39, scss/main.scss */
+/* line 47, scss/main.scss */
 .miq-dashboard-view .card-view-pf .card.active .pficon, .miq-dashboard-view .card-view-pf .card.active:hover .pficon, .miq-dashboard-view .card-view-pf .card.active:focus .pficon, .miq-objects-view .card-view-pf .card.active .pficon, .miq-objects-view .card-view-pf .card.active:hover .pficon, .miq-objects-view .card-view-pf .card.active:focus .pficon {
   color: #1186C1;
 }
-/* line 43, scss/main.scss */
+/* line 51, scss/main.scss */
 .miq-dashboard-view .card-pf .loading, .miq-objects-view .card-pf .loading {
   margin: 10px auto;
 }
-/* line 47, scss/main.scss */
+/* line 55, scss/main.scss */
 .miq-dashboard-view .pficon-kubernetes::before, .miq-objects-view .pficon-kubernetes::before {
   color: #326de6;
 }
-/* line 51, scss/main.scss */
+/* line 59, scss/main.scss */
 .miq-dashboard-view .pficon-openshift::before, .miq-objects-view .pficon-openshift::before {
   color: #da2430;
 }
 
-/* line 56, scss/main.scss */
+/* line 64, scss/main.scss */
 .provider-card {
   min-height: 144px;
 }
-/* line 59, scss/main.scss */
+/* line 67, scss/main.scss */
 .provider-card .providers {
   padding: 20px 0;
 }
-/* line 62, scss/main.scss */
+/* line 70, scss/main.scss */
 .provider-card .providers a {
   color: #000000;
   text-decoration: none;
 }
-/* line 67, scss/main.scss */
+/* line 75, scss/main.scss */
 .provider-card .providers a:hover {
   color: #00618a;
   text-decoration: underline;
 }
-/* line 71, scss/main.scss */
+/* line 79, scss/main.scss */
 .provider-card .providers .count {
   margin: 0 5px;
 }
-/* line 75, scss/main.scss */
+/* line 83, scss/main.scss */
 .provider-card .providers .provider-icon {
   font-size: 22px;
   position: relative;
@@ -83,11 +94,11 @@
   padding-right: 5px;
   opacity: .9;
 }
-/* line 82, scss/main.scss */
+/* line 90, scss/main.scss */
 .provider-card .providers .provider-icon:hover {
   opacity: 1;
 }
-/* line 88, scss/main.scss */
+/* line 96, scss/main.scss */
 .provider-card .provider-icon-large {
   font-size: 100px;
   position: relative;
@@ -96,12 +107,12 @@
   text-align: center;
 }
 
-/* line 97, scss/main.scss */
+/* line 105, scss/main.scss */
 .providers-status {
   padding-bottom: 9px !important;
 }
 
-/* line 101, scss/main.scss */
+/* line 109, scss/main.scss */
 .aggregate-status-card-full-image {
   display: block;
   height: 48px;
@@ -110,7 +121,7 @@
   width: 48px;
 }
 
-/* line 109, scss/main.scss */
+/* line 117, scss/main.scss */
 .aggregate-status-card-title-image {
   height: 15px;
   width: 15px;
@@ -118,7 +129,7 @@
   margin-right: 7px;
 }
 
-/* line 116, scss/main.scss */
+/* line 124, scss/main.scss */
 .aggregate-status-card-notification-image {
   height: 18px;
   width: 18px;
@@ -126,180 +137,180 @@
   margin-right: 7px;
 }
 
-/* line 123, scss/main.scss */
+/* line 131, scss/main.scss */
 .product-vendor-kubernetes {
   background: url("images/vendor-kubernetes.svg") left top;
 }
 
-/* line 127, scss/main.scss */
+/* line 135, scss/main.scss */
 .product-vendor-atomic-enterprise {
   background: url("images/vendor-atomic.svg") left top;
 }
 
-/* line 131, scss/main.scss */
+/* line 139, scss/main.scss */
 .containers-dashboard .card-pf.card-pf-aggregate-status-mini {
   height: 60px;
 }
 
-/* line 135, scss/main.scss */
+/* line 143, scss/main.scss */
 .container-providers .card-pf.card-pf-aggregate-status-mini {
   height: 63px;
 }
 
-/* line 139, scss/main.scss */
+/* line 147, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini {
   height: 103px;
 }
-/* line 141, scss/main.scss */
+/* line 149, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title {
   margin-top: 24px;
 }
-/* line 144, scss/main.scss */
+/* line 152, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title .pficon, .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title .fa {
   top: 30px;
 }
-/* line 148, scss/main.scss */
+/* line 156, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-body {
   margin-top: 18px;
 }
 
-/* line 154, scss/main.scss */
+/* line 162, scss/main.scss */
 .card-view-pf .card {
   overflow: visible;
 }
-/* line 157, scss/main.scss */
+/* line 165, scss/main.scss */
 .card-view-pf .card-content {
   overflow: visible;
 }
-/* line 161, scss/main.scss */
+/* line 169, scss/main.scss */
 .card-view-pf .progress {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/* line 166, scss/main.scss */
+/* line 174, scss/main.scss */
 .card-view-pf .card-title .miq-icon-label {
   padding-left: 5px;
   padding-bottom: 15px;
 }
-/* line 171, scss/main.scss */
+/* line 179, scss/main.scss */
 .card-view-pf .card-row {
   padding: 0;
   margin: 0;
 }
-/* line 175, scss/main.scss */
+/* line 183, scss/main.scss */
 .card-view-pf .card-row .card-view-pf {
   overflow: visible;
 }
-/* line 180, scss/main.scss */
+/* line 188, scss/main.scss */
 .card-view-pf .card-column {
   width: 50%;
   float: left;
 }
-/* line 185, scss/main.scss */
+/* line 193, scss/main.scss */
 .card-view-pf .status-object {
   text-align: left;
   margin: 5px 20px;
 }
-/* line 189, scss/main.scss */
+/* line 197, scss/main.scss */
 .card-view-pf .status-object .pficon {
   font-size: 20px;
   width: 26px;
   color: #1186C1;
 }
-/* line 194, scss/main.scss */
+/* line 202, scss/main.scss */
 .card-view-pf .status-object .status-count {
   font-size: 18px;
   color: #515151;
 }
-/* line 198, scss/main.scss */
+/* line 206, scss/main.scss */
 .card-view-pf .status-object .status-text {
   font-size: 12px;
   color: #515151;
 }
-/* line 204, scss/main.scss */
+/* line 212, scss/main.scss */
 .card-view-pf .miq-icon-label {
   color: #515151;
   font-size: 18px;
   white-space: nowrap;
 }
-/* line 209, scss/main.scss */
+/* line 217, scss/main.scss */
 .card-view-pf .pficon.miq-icon-label {
   color: #1186C1;
 }
-/* line 213, scss/main.scss */
+/* line 221, scss/main.scss */
 .card-view-pf .miq-label {
   color: #515151;
   font-size: 12px;
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 220, scss/main.scss */
+/* line 228, scss/main.scss */
 .card-view-pf .miq-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 227, scss/main.scss */
+/* line 235, scss/main.scss */
 .card-view-pf .miq-icon-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 234, scss/main.scss */
+/* line 242, scss/main.scss */
 .card-view-pf .miq-label.miq-count {
   float: left;
   text-align: right;
   text-align: right;
   width: 32px;
 }
-/* line 241, scss/main.scss */
+/* line 249, scss/main.scss */
 .card-view-pf .miq-column.usage-column .miq-title {
   text-align: right;
 }
-/* line 244, scss/main.scss */
+/* line 252, scss/main.scss */
 .card-view-pf .cpu-usage-column {
   width: 150px;
 }
-/* line 246, scss/main.scss */
+/* line 254, scss/main.scss */
 .card-view-pf .cpu-usage-column .miq-title {
   text-align: right;
   width: 95px;
 }
-/* line 251, scss/main.scss */
+/* line 259, scss/main.scss */
 .card-view-pf .memory-usage-column {
   width: 180px;
 }
-/* line 253, scss/main.scss */
+/* line 261, scss/main.scss */
 .card-view-pf .memory-usage-column .miq-title {
   text-align: right;
   width: 135px;
 }
 
-/* line 261, scss/main.scss */
+/* line 269, scss/main.scss */
 .list-view-pf .miq-list-row {
   width: 100%;
 }
-/* line 265, scss/main.scss */
+/* line 273, scss/main.scss */
 .list-view-pf .miq-row-column {
   padding-right: 5px;
 }
-/* line 270, scss/main.scss */
+/* line 278, scss/main.scss */
 .list-view-pf .list-group-item .miq-column {
   float: left;
   padding: 5px 5px;
   margin-right: 10px;
 }
-/* line 276, scss/main.scss */
+/* line 284, scss/main.scss */
 .list-view-pf .list-group-item .miq-object-column {
   padding-top: 1px !important;
 }
-/* line 278, scss/main.scss */
+/* line 286, scss/main.scss */
 .list-view-pf .list-group-item .miq-object-column .miq-label {
   vertical-align: middle;
 }
-/* line 284, scss/main.scss */
+/* line 292, scss/main.scss */
 .list-view-pf .list-group-item .miq-icon-label {
   color: #515151;
   font-size: 18px;
@@ -307,159 +318,159 @@
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 291, scss/main.scss */
+/* line 299, scss/main.scss */
 .list-view-pf .list-group-item .pficon.miq-icon-label {
   color: #1186C1;
 }
-/* line 295, scss/main.scss */
+/* line 303, scss/main.scss */
 .list-view-pf .list-group-item .miq-label {
   color: #515151;
   font-size: 12px;
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 302, scss/main.scss */
+/* line 310, scss/main.scss */
 .list-view-pf .list-group-item .miq-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 309, scss/main.scss */
+/* line 317, scss/main.scss */
 .list-view-pf .list-group-item .miq-icon-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 316, scss/main.scss */
+/* line 324, scss/main.scss */
 .list-view-pf .list-group-item .miq-label.miq-count {
   float: left;
   text-align: right;
   text-align: right;
   width: 32px;
 }
-/* line 323, scss/main.scss */
+/* line 331, scss/main.scss */
 .list-view-pf .list-group-item .miq-column.usage-column .miq-title {
   text-align: right;
 }
-/* line 328, scss/main.scss */
+/* line 336, scss/main.scss */
 .list-view-pf .provider-column {
   padding-top: 5px !important;
 }
 
-/* line 333, scss/main.scss */
+/* line 341, scss/main.scss */
 .providers-cards .card-view-pf .card {
   height: 250px;
   width: 355px;
 }
 
-/* line 338, scss/main.scss */
+/* line 346, scss/main.scss */
 .projects-cards .card-view-pf .card {
   height: 270px;
   width: 355px;
 }
 
-/* line 342, scss/main.scss */
+/* line 350, scss/main.scss */
 .projects-cards .status-object.provider-object {
   text-align: center;
 }
 
-/* line 346, scss/main.scss */
+/* line 354, scss/main.scss */
 .pods-cards .card-view-pf .card {
   height: 230px;
   width: 355px;
 }
 
-/* line 353, scss/main.scss */
+/* line 361, scss/main.scss */
 .pods-containers-info .containers-heading {
   text-align: center;
 }
-/* line 355, scss/main.scss */
+/* line 363, scss/main.scss */
 .pods-containers-info .containers-heading .pficon {
   color: #1186C1;
   font-size: 64px;
   padding: 10px 20px;
 }
-/* line 360, scss/main.scss */
+/* line 368, scss/main.scss */
 .pods-containers-info .containers-heading .containers-count {
   border-left: 1px solid #d1d1d1;
   color: #515151;
   font-weight: 300;
 }
-/* line 365, scss/main.scss */
+/* line 373, scss/main.scss */
 .pods-containers-info .containers-heading .containers-label {
   font-size: 26px;
 }
-/* line 369, scss/main.scss */
+/* line 377, scss/main.scss */
 .pods-containers-info .containers-counter {
   font-size: 32px;
 }
-/* line 373, scss/main.scss */
+/* line 381, scss/main.scss */
 .pods-containers-info .containers-list {
   margin-top: 10px;
   border: 1px solid #d1d1d1;
 }
-/* line 376, scss/main.scss */
+/* line 384, scss/main.scss */
 .pods-containers-info .containers-list .toolbar-pf {
   padding-bottom: 10px;
 }
-/* line 379, scss/main.scss */
+/* line 387, scss/main.scss */
 .pods-containers-info .containers-list .list-view-container {
   height: 264px;
 }
-/* line 383, scss/main.scss */
+/* line 391, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column {
   width: 190px;
 }
-/* line 385, scss/main.scss */
+/* line 393, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column .miq-title {
   text-align: right;
   width: 105px;
 }
-/* line 389, scss/main.scss */
+/* line 397, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column .miq-count {
   width: 30px;
   text-align: right;
 }
-/* line 394, scss/main.scss */
+/* line 402, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column {
   width: 225px;
 }
-/* line 396, scss/main.scss */
+/* line 404, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column .miq-title {
   text-align: right;
   width: 130px;
 }
-/* line 400, scss/main.scss */
+/* line 408, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column .miq-count {
   width: 30px;
   text-align: right;
 }
 
-/* line 408, scss/main.scss */
+/* line 416, scss/main.scss */
 .pod-metrics {
   height: 392px;
   overflow-y: auto;
 }
-/* line 412, scss/main.scss */
+/* line 420, scss/main.scss */
 .pod-metrics .metric-row {
   padding: 10px 5px;
   margin: 0;
 }
-/* line 417, scss/main.scss */
+/* line 425, scss/main.scss */
 .pod-metrics .metric-row:first-of-type {
   padding-top: 5px;
 }
-/* line 421, scss/main.scss */
+/* line 429, scss/main.scss */
 .pod-metrics .metric-row:last-of-type {
   padding-bottom: 5px;
 }
-/* line 425, scss/main.scss */
+/* line 433, scss/main.scss */
 .pod-metrics .metric-col {
   float: left;
 }
-/* line 429, scss/main.scss */
+/* line 437, scss/main.scss */
 .pod-metrics .metric-title {
   text-align: right;
   font-weight: 700;
@@ -467,7 +478,7 @@
   width: 175px;
   padding: 0 5px;
 }
-/* line 437, scss/main.scss */
+/* line 445, scss/main.scss */
 .pod-metrics .metric-value {
   float: left;
   padding: 0 5px;
@@ -548,10 +559,872 @@
   color: #1186C1 !important;
 }
 ****/
-/* line 519, scss/main.scss */
+/* line 527, scss/main.scss */
 .icon-atomic:before {
   content: "\e62d";
   color: #0088ce;
+}
+
+/* line 24, scss/vertical-nav-tertiary.scss */
+.layout-pf.layout-pf-fixed .container-pf-nav-pf-vertical {
+  -webkit-transition: margin-left 0.25s;
+  -moz-transition: margin-left 0.25s;
+  -o-transition: margin-left 0.25s;
+  transition: margin-left 0.25s;
+}
+/* line 30, scss/vertical-nav-tertiary.scss */
+.layout-pf.layout-pf-fixed .container-pf-nav-pf-vertical.container-pf-nav-pf-vertical-with-tertiary.collapsed-nav {
+  margin-left: 75px;
+}
+/* line 32, scss/vertical-nav-tertiary.scss */
+.layout-pf.layout-pf-fixed .container-pf-nav-pf-vertical.container-pf-nav-pf-vertical-with-tertiary.collapsed-nav.hidden-icons-pf {
+  margin-left: 0;
+}
+/* line 36, scss/vertical-nav-tertiary.scss */
+.layout-pf.layout-pf-fixed .container-pf-nav-pf-vertical.container-pf-nav-pf-vertical-with-tertiary.hide-nav-pf {
+  margin-left: 0 !important;
+}
+/* line 39, scss/vertical-nav-tertiary.scss */
+.layout-pf.layout-pf-fixed .container-pf-nav-pf-vertical.container-pf-nav-pf-vertical-with-tertiary.collapsed-secondary-nav-pf, .layout-pf.layout-pf-fixed .container-pf-nav-pf-vertical.container-pf-nav-pf-vertical-with-tertiary.collapsed-tertiary-nav-pf {
+  margin-left: 200px;
+}
+/* line 42, scss/vertical-nav-tertiary.scss */
+.layout-pf.layout-pf-fixed .container-pf-nav-pf-vertical.container-pf-nav-pf-vertical-with-tertiary.hidden-nav {
+  margin-left: 0;
+}
+
+/* line 50, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical {
+  -webkit-transition: width 0.1s;
+  -moz-transition: width 0.1s;
+  -o-transition: width 0.1s;
+  transition: width 0.1s;
+}
+/* line 57, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.collapsed:not(.nav-pf-vertical-with-secondary-nav).nav-pf-vertical-with-tertiary-nav {
+  display: block;
+}
+
+/* line 63, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav {
+  width: 200px;
+}
+/* line 67, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.collapsed-secondary-nav-pf {
+  width: 200px;
+}
+/* line 72, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hover-secondary-nav-pf {
+  width: 400px;
+}
+/* line 74, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hover-secondary-nav-pf .nav-pf-secondary-nav {
+  left: 200px;
+}
+/* line 78, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hover-tertiary-nav-pf {
+  width: 600px;
+}
+/* line 80, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hover-tertiary-nav-pf .nav-pf-secondary-nav {
+  width: 400px;
+}
+/* line 82, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hover-tertiary-nav-pf .nav-pf-secondary-nav .collapsed-tertiary-nav-pf {
+  width: 200px;
+}
+/* line 86, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hover-tertiary-nav-pf .nav-pf-tertiary-nav {
+  left: 400px;
+}
+/* line 91, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hidden-icons-pf {
+  width: 176px;
+}
+/* line 93, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hidden-icons-pf.hover-secondary-nav-pf {
+  width: 376px;
+}
+/* line 95, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hidden-icons-pf.hover-secondary-nav-pf .nav-pf-secondary-nav {
+  left: 176px;
+}
+/* line 99, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hidden-icons-pf.hover-tertiary-nav-pf {
+  width: 576px;
+}
+/* line 101, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hidden-icons-pf.hover-tertiary-nav-pf .nav-pf-tertiary-nav {
+  left: 376px;
+}
+/* line 112, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.hidden > .list-group > .list-group-item.persistent-tertiary:hover > a {
+  z-index: 1030;
+}
+/* line 121, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav.show-mobile-secondary {
+  width: 200px;
+}
+/* line 124, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav.show-mobile-tertiary {
+  width: 200px;
+}
+/* line 129, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .mobile-nav-item-pf > .nav-pf-secondary-nav, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .mobile-secondary-item-pf > .nav-pf-secondary-nav {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1034;
+}
+/* line 135, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .mobile-nav-item-pf.secondary-nav-item:hover .nav-pf-secondary-nav, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .mobile-secondary-item-pf.secondary-nav-item:hover .nav-pf-secondary-nav {
+  visibility: visible;
+  opacity: 1;
+}
+/* line 140, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .mobile-nav-item-pf > .nav-pf-tertiary-nav, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .mobile-secondary-item-pf > .nav-pf-tertiary-nav {
+  visibility: visible;
+  opacity: 1;
+}
+/* line 145, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .mobile-nav-item-pftertiary-nav-item:hover .nav-pf-tertiary-nav, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .mobile-secondary-item-pftertiary-nav-item:hover .nav-pf-tertiary-nav {
+  visibility: visible;
+  opacity: 1;
+}
+/* line 151, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .nav-pf-secondary-nav {
+  left: 0;
+}
+/* line 153, scss/vertical-nav-tertiary.scss */
+.secondary-nav-item-pf:hover .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .nav-pf-secondary-nav {
+  visibility: hidden;
+  opacity: 0;
+}
+/* line 158, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .nav-pf-tertiary-nav {
+  left: 0;
+  z-index: 1038;
+}
+/* line 163, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .tertiary-nav-item-pf:hover .nav-pf-tertiary-nav {
+  visibility: hidden;
+  opacity: 0;
+}
+/* line 169, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.show-mobile-nav .tertiary-nav-item-pf.mobile-nav-item-pf:hover .nav-pf-tertiary-nav {
+  visibility: visible;
+  opacity: 1;
+}
+/* line 176, scss/vertical-nav-tertiary.scss */
+.layout-pf-fixed-with-footer .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav {
+  bottom: 37px;
+}
+/* line 179, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group {
+  border-top: 0;
+  margin-bottom: 0;
+}
+/* line 182, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item {
+  background-color: transparent;
+  border-color: #030303;
+  padding: 0;
+}
+/* line 186, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item > a {
+  background-color: transparent;
+  color: #d1d1d1;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  height: 63px;
+  outline: 0;
+  padding: 17px 20px 17px 25px;
+  position: relative;
+  white-space: nowrap;
+  width: 200px;
+}
+/* line 199, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item > a .fa,
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item > a .glyphicon,
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item > a .pficon {
+  color: #72767b;
+  float: left;
+  font-size: 20px;
+  line-height: 26px;
+  margin-right: 10px;
+  text-align: center;
+  width: 24px;
+}
+/* line 211, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item > a:hover .list-group-item-value {
+  text-decoration: underline;
+}
+/* line 217, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.active > a, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item:hover > a {
+  background-color: #393f44;
+  color: #fff;
+  font-weight: 600;
+}
+/* line 221, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.active > a .fa,
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.active > a .glyphicon,
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.active > a .pficon, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item:hover > a .fa,
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item:hover > a .glyphicon,
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item:hover > a .pficon {
+  color: #39a5dc;
+}
+/* line 230, scss/vertical-nav-tertiary.scss */
+.show-mobile-nav .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.active > a {
+  z-index: 1030;
+}
+/* line 234, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.active > a:before {
+  background: #39a5dc;
+  content: " ";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 3px;
+}
+/* line 244, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item > .list-group-item-value {
+  display: block;
+  line-height: 30px;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+/* line 253, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf > a {
+  cursor: default;
+}
+/* line 255, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf > a:after {
+  color: #72767b;
+  content: "\f105";
+  display: block;
+  font-family: "FontAwesome";
+  font-size: 24px;
+  line-height: 30px;
+  padding: 17px 0;
+  position: absolute;
+  right: 20px;
+  top: 0;
+}
+/* line 268, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf > a:hover .list-group-item-value {
+  text-decoration: none;
+}
+/* line 274, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf.active > a, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf:hover > a {
+  width: 201px;
+  z-index: 1032;
+}
+/* line 277, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf.active > a:after, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf:hover > a:after {
+  right: 21px;
+}
+/* line 280, scss/vertical-nav-tertiary.scss */
+.collapsed-secondary-nav-pf .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf.active > a, .collapsed-secondary-nav-pf .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf:hover > a {
+  z-index: 1030;
+}
+/* line 283, scss/vertical-nav-tertiary.scss */
+.collapsed-tertiary-nav-pf .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf.active > a, .collapsed-tertiary-nav-pf .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav > .list-group > .list-group-item.secondary-nav-item-pf:hover > a {
+  z-index: 1030;
+}
+/* line 291, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav .list-group-item-separator {
+  border-top-width: 2px;
+  border-top-color: #030303;
+}
+/* line 296, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed-secondary-nav-pf {
+  width: 200px;
+}
+/* line 301, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed-secondary-nav-pf > .list-group > .list-group-item.secondary-nav-item-pf.active > a, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed-secondary-nav-pf > .list-group > .list-group-item.secondary-nav-item-pf.hover > a {
+  z-index: 1030;
+}
+/* line 306, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed-secondary-nav-pf.hover-tertiary-nav-pf {
+  width: 400px;
+}
+/* line 310, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed-secondary-nav-pf .nav-pf-tertiary-nav {
+  left: 200px;
+}
+/* line 314, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed-tertiary-nav-pf {
+  width: 200px;
+}
+/* line 318, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed-tertiary-nav-pf > .list-group > .list-group-item.secondary-nav-item-pf.active > a, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed-tertiary-nav-pf > .list-group > .list-group-item.secondary-nav-item-pf.hover > a {
+  z-index: 1030;
+}
+/* line 323, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed-tertiary-nav-pf .nav-pf-secondary-nav {
+  width: 200px;
+}
+
+/* line 329, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed {
+  width: 75px;
+}
+/* line 334, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed > .list-group > .list-group-item > a {
+  width: 75px;
+}
+/* line 336, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed > .list-group > .list-group-item > a > .list-group-item-value {
+  display: none;
+  width: 0;
+}
+/* line 342, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed > .list-group > .list-group-item.secondary-nav-item-pf.active > a, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed > .list-group > .list-group-item.secondary-nav-item-pf > a {
+  width: 75px;
+}
+/* line 344, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed > .list-group > .list-group-item.secondary-nav-item-pf.active > a:after, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed > .list-group > .list-group-item.secondary-nav-item-pf > a:after {
+  right: 10px;
+}
+/* line 349, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed > .list-group > .list-group-item.secondary-nav-item-pf:hover > a {
+  width: 77px;
+  z-index: 1032;
+}
+/* line 352, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed > .list-group > .list-group-item.secondary-nav-item-pf:hover > a:after {
+  right: 11px;
+}
+/* line 361, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed .nav-pf-secondary-nav {
+  left: 75px;
+}
+/* line 364, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed .nav-pf-tertiary-nav {
+  left: 275px;
+}
+/* line 373, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.collapsed-secondary-nav-pf > .list-group > .list-group-item.secondary-nav-item-pf:hover > a, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.collapsed-tertiary-nav-pf > .list-group > .list-group-item.secondary-nav-item-pf:hover > a {
+  z-index: 1030;
+}
+/* line 382, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.collapsed-secondary-nav-pf {
+  width: 200px;
+}
+/* line 384, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.collapsed-secondary-nav-pf .nav-pf-secondary-nav {
+  left: 0;
+}
+/* line 387, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.collapsed-secondary-nav-pf .nav-pf-tertiary-nav {
+  left: 200px;
+}
+/* line 392, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.collapsed-tertiary-nav-pf {
+  width: 200px;
+}
+/* line 394, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.collapsed-tertiary-nav-pf .nav-pf-secondary-nav {
+  left: 0;
+  width: 200px;
+}
+/* line 398, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.collapsed-tertiary-nav-pf .nav-pf-tertiary-nav {
+  left: 0;
+}
+/* line 403, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.hover-secondary-nav-pf {
+  width: 275px;
+}
+/* line 405, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.hover-secondary-nav-pf.collapsed-secondary-nav-pf {
+  width: 200px;
+}
+/* line 408, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.hover-secondary-nav-pf.collapsed-tertiary-nav-pf {
+  width: 200px;
+}
+/* line 413, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.hover-tertiary-nav-pf, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.hover-secondary-nav-pf.hover-tertiary-nav-pf {
+  width: 475px;
+}
+/* line 415, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.hover-tertiary-nav-pf.collapsed-secondary-nav-pf, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.hover-secondary-nav-pf.hover-tertiary-nav-pf.collapsed-secondary-nav-pf {
+  width: 400px;
+}
+/* line 419, scss/vertical-nav-tertiary.scss */
+.nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.hover-tertiary-nav-pf.collapsed-tertiary-nav-pf, .nav-pf-vertical.nav-pf-vertical-with-tertiary-nav.collapsed.hover-secondary-nav-pf.hover-tertiary-nav-pf.collapsed-tertiary-nav-pf {
+  width: 200px;
+}
+
+/* line 425, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav {
+  -webkit-transition: visibility 0.1s, opacity 0.1s linear;
+  -moz-transition: visibility ease-in-out 0.1s, opacity ease-in-out 0.1s linear;
+  -o-transition: visibility 0.1s, opacity 0.1s linear;
+  transition: visibility 0.1s, opacity 0.1s linear;
+  background: #393f44;
+  border: 1px solid #292e34;
+  border-bottom: none;
+  border-top: none;
+  bottom: 0;
+  display: block;
+  left: 200px;
+  visibility: hidden;
+  opacity: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 60px;
+  width: 200px;
+  z-index: 1030;
+}
+/* line 447, scss/vertical-nav-tertiary.scss */
+.hover-tertiary-nav-pf .nav-pf-secondary-nav {
+  width: 400px;
+}
+/* line 451, scss/vertical-nav-tertiary.scss */
+.show-mobile-nav .secondary-nav-item-pf.active .nav-pf-secondary-nav, .show-mobile-nav .secondary-nav-item-pf.mobile-nav-item-pf .nav-pf-secondary-nav {
+  left: 0;
+  z-index: 1032;
+}
+/* line 455, scss/vertical-nav-tertiary.scss */
+.collapsed-secondary-nav-pf .secondary-nav-item-pf.active .nav-pf-secondary-nav, .collapsed-secondary-nav-pf .secondary-nav-item-pf.mobile-nav-item-pf .nav-pf-secondary-nav {
+  left: 0;
+  visibility: visible;
+  opacity: 1;
+}
+/* line 460, scss/vertical-nav-tertiary.scss */
+.collapsed-tertiary-nav-pf .secondary-nav-item-pf.active .nav-pf-secondary-nav, .collapsed-tertiary-nav-pf .secondary-nav-item-pf.mobile-nav-item-pf .nav-pf-secondary-nav {
+  left: 0;
+  visibility: visible;
+  opacity: 1;
+}
+/* line 467, scss/vertical-nav-tertiary.scss */
+.hover-secondary-nav-pf .secondary-nav-item-pf.is-hover .nav-pf-secondary-nav {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1031;
+}
+/* line 471, scss/vertical-nav-tertiary.scss */
+.show-mobile-nav .hover-secondary-nav-pf .secondary-nav-item-pf.is-hover .nav-pf-secondary-nav {
+  visibility: hidden;
+  opacity: 0;
+}
+/* line 477, scss/vertical-nav-tertiary.scss */
+.ie9.layout-pf-fixed .nav-pf-secondary-nav {
+  box-sizing: content-box;
+}
+/* line 480, scss/vertical-nav-tertiary.scss */
+.layout-pf-fixed-with-footer .nav-pf-secondary-nav {
+  bottom: 37px;
+}
+/* line 483, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav .nav-item-pf-header {
+  color: #fff;
+  font-size: 16px;
+  margin: 18px 20px 10px 20px;
+}
+/* line 487, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav .nav-item-pf-header > a {
+  cursor: pointer;
+  margin-right: 7px;
+}
+/* line 490, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav .nav-item-pf-header > a:hover, .nav-pf-secondary-nav .nav-item-pf-header > a:focus {
+  text-decoration: none;
+  color: #0088ce;
+}
+/* line 496, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav h5 {
+  color: #fff;
+  cursor: default;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 30px 20px 10px 20px;
+}
+/* line 503, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group {
+  border-top: 0;
+  margin-bottom: 0;
+}
+/* line 506, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item {
+  background-color: transparent;
+  border: none;
+  padding: 0 0 5px 0;
+  width: 200px;
+}
+/* line 511, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item > a {
+  background-color: #393f44;
+  color: #d1d1d1;
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  outline: 0;
+  padding: 4px 0 2px 0;
+  margin-left: 20px;
+  position: relative;
+  white-space: nowrap;
+}
+/* line 523, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item > a:hover .list-group-item-value {
+  text-decoration: underline;
+}
+/* line 529, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item.active .list-group-item-value, .nav-pf-secondary-nav > .list-group > .list-group-item:hover .list-group-item-value {
+  color: #fff;
+}
+/* line 532, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item.active .fa,
+.nav-pf-secondary-nav > .list-group > .list-group-item.active .glyphicon,
+.nav-pf-secondary-nav > .list-group > .list-group-item.active .pficon, .nav-pf-secondary-nav > .list-group > .list-group-item:hover .fa,
+.nav-pf-secondary-nav > .list-group > .list-group-item:hover .glyphicon,
+.nav-pf-secondary-nav > .list-group > .list-group-item:hover .pficon {
+  color: #39a5dc;
+}
+/* line 537, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item.active > a, .nav-pf-secondary-nav > .list-group > .list-group-item:hover > a {
+  background-color: #4d5258;
+}
+/* line 541, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item .badge-container-pf {
+  background-color: #292e34;
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+/* line 546, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item .badge-container-pf .badge {
+  background: #292e34;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  float: left;
+  line-height: 1.66667;
+  margin: 0;
+  padding: 0 7px;
+  text-align: center;
+}
+/* line 556, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item .badge-container-pf .badge .pficon, .nav-pf-secondary-nav > .list-group > .list-group-item .badge-container-pf .badge .fa {
+  font-size: 14px;
+  height: 20px;
+  line-height: 1.66667;
+  margin-right: 3px;
+  margin-top: -1px;
+}
+/* line 565, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item .fa,
+.nav-pf-secondary-nav > .list-group > .list-group-item .glyphicon,
+.nav-pf-secondary-nav > .list-group > .list-group-item .pficon {
+  float: left;
+  font-size: 18px;
+  line-height: 30px;
+  margin-right: 10px;
+  text-align: center;
+  width: 18px;
+}
+/* line 575, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item .list-group-item-value {
+  display: inline-block;
+  line-height: 20px;
+  max-width: none;
+  opacity: 1;
+  overflow: hidden;
+  padding-left: 5px;
+  text-overflow: ellipsis;
+}
+/* line 585, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item.tertiary-nav-item-pf > a {
+  cursor: default;
+}
+/* line 587, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item.tertiary-nav-item-pf > a:after {
+  color: #72767b;
+  content: "\f105";
+  display: block;
+  font-family: "FontAwesome";
+  font-size: 20px;
+  line-height: 20px;
+  padding: 0;
+  position: absolute;
+  right: 20px;
+  top: 4px;
+}
+/* line 600, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item.tertiary-nav-item-pf > a:hover .list-group-item-value {
+  text-decoration: none;
+}
+/* line 606, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item.tertiary-nav-item-pf.active > a, .nav-pf-secondary-nav > .list-group > .list-group-item.tertiary-nav-item-pf:hover > a {
+  width: 181px;
+  z-index: 1033;
+}
+/* line 609, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav > .list-group > .list-group-item.tertiary-nav-item-pf.active > a:after, .nav-pf-secondary-nav > .list-group > .list-group-item.tertiary-nav-item-pf:hover > a:after {
+  right: 21px;
+}
+/* line 617, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav .secondary-collapse-toggle-pf {
+  display: inline-block;
+  font-family: "FontAwesome";
+  font-size: inherit;
+  -webkit-font-smoothing: antialiased;
+  opacity: 0;
+  pointer-events: none;
+}
+/* line 624, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav .secondary-collapse-toggle-pf:before {
+  content: '\f08d';
+}
+/* line 628, scss/vertical-nav-tertiary.scss */
+.nav-pf-secondary-nav .secondary-collapse-toggle-pf.collapsed:before {
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(deg);
+  content: '\f08d';
+  display: inline-block;
+}
+/* line 636, scss/vertical-nav-tertiary.scss */
+.secondary-nav-item-pf.active .nav-pf-secondary-nav .secondary-collapse-toggle-pf {
+  opacity: 1;
+  pointer-events: all;
+}
+/* line 640, scss/vertical-nav-tertiary.scss */
+.show-mobile-nav .nav-pf-secondary-nav .secondary-collapse-toggle-pf {
+  opacity: 1;
+  pointer-events: all;
+}
+/* line 643, scss/vertical-nav-tertiary.scss */
+.show-mobile-nav .nav-pf-secondary-nav .secondary-collapse-toggle-pf:before {
+  content: '\f190';
+}
+/* line 648, scss/vertical-nav-tertiary.scss */
+.collapsed-tertiary-nav-pf .nav-pf-secondary-nav {
+  width: 200px;
+}
+/* line 652, scss/vertical-nav-tertiary.scss */
+.collapsed-tertiary-nav-pf .nav-pf-secondary-nav > .list-group > .list-group-item.tertiary-nav-item-pf.active > a, .collapsed-tertiary-nav-pf .nav-pf-secondary-nav > .list-group > .list-group-item.tertiary-nav-item-pf.hover > a {
+  z-index: 1030;
+}
+
+/* line 659, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav {
+  -webkit-transition: visibility 0.1s, opacity 0.1s linear;
+  -moz-transition: visibility 0.1s, opacity 0.1s linear;
+  -o-transition: visibility 0.1s, opacity 0.1s linear;
+  transition: visibility 0.1s, opacity 0.1s linear;
+  background: #4d5258;
+  border: 1px solid #292e34;
+  border-bottom: none;
+  border-top: none;
+  bottom: 0;
+  display: block;
+  left: 400px;
+  visibility: hidden;
+  opacity: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 60px;
+  width: 200px;
+  z-index: 1030;
+}
+/* line 682, scss/vertical-nav-tertiary.scss */
+.show-mobile-nav .tertiary-nav-item-pf.active .nav-pf-tertiary-nav, .show-mobile-nav .tertiary-nav-item-pf.mobile-nav-item-pf .nav-pf-tertiary-nav {
+  left: 0;
+  z-index: 1033;
+}
+/* line 686, scss/vertical-nav-tertiary.scss */
+.collapsed-tertiary-nav-pf .tertiary-nav-item-pf.active .nav-pf-tertiary-nav, .collapsed-tertiary-nav-pf .tertiary-nav-item-pf.mobile-nav-item-pf .nav-pf-tertiary-nav {
+  left: 0;
+  visibility: visible;
+  opacity: 1;
+}
+/* line 693, scss/vertical-nav-tertiary.scss */
+.hover-tertiary-nav-pf .tertiary-nav-item-pf.is-hover .nav-pf-tertiary-nav {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1032;
+}
+/* line 697, scss/vertical-nav-tertiary.scss */
+.collapsed.collapsed-tertiary-nav-pf .hover-tertiary-nav-pf .tertiary-nav-item-pf.is-hover .nav-pf-tertiary-nav {
+  left: 0;
+}
+/* line 702, scss/vertical-nav-tertiary.scss */
+.ie9.layout-pf-fixed .nav-pf-tertiary-nav {
+  box-sizing: content-box;
+}
+/* line 705, scss/vertical-nav-tertiary.scss */
+.layout-pf-fixed-with-footer .nav-pf-tertiary-nav {
+  bottom: 37px;
+}
+/* line 708, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav .nav-item-pf-header {
+  color: #fff;
+  font-size: 16px;
+  margin: 18px 20px 10px 20px;
+}
+/* line 712, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav .nav-item-pf-header > a {
+  margin-right: 7px;
+}
+/* line 714, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav .nav-item-pf-header > a:hover, .nav-pf-tertiary-nav .nav-item-pf-header > a:focus {
+  text-decoration: none;
+  color: #0088ce;
+}
+/* line 720, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav h5 {
+  color: #fff;
+  cursor: default;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 30px 20px 10px 20px;
+}
+/* line 727, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group {
+  border-top: 0;
+  margin-bottom: 0;
+}
+/* line 730, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item {
+  background-color: transparent;
+  border: none;
+  padding: 0 0 5px 0;
+}
+/* line 734, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item > a {
+  background-color: transparent;
+  color: #dbdada;
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  outline: 0;
+  margin: 0 20px 0 20px;
+  padding: 4px 0 2px 0;
+  position: relative;
+  white-space: nowrap;
+}
+/* line 746, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item > a:hover > .list-group-item-value {
+  text-decoration: underline;
+}
+/* line 752, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item.active > a, .nav-pf-tertiary-nav > .list-group > .list-group-item:hover > a {
+  background-color: #393f44;
+  color: #fff;
+}
+/* line 756, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item.active .fa,
+.nav-pf-tertiary-nav > .list-group > .list-group-item.active .glyphicon,
+.nav-pf-tertiary-nav > .list-group > .list-group-item.active .pficon, .nav-pf-tertiary-nav > .list-group > .list-group-item:hover .fa,
+.nav-pf-tertiary-nav > .list-group > .list-group-item:hover .glyphicon,
+.nav-pf-tertiary-nav > .list-group > .list-group-item:hover .pficon {
+  color: #39a5dc;
+}
+/* line 762, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item .badge-container-pf {
+  background-color: #292e34;
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+/* line 767, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item .badge-container-pf .badge {
+  background: #292e34;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  float: left;
+  line-height: 1.66667;
+  margin: 0;
+  padding: 0 7px;
+  text-align: center;
+}
+/* line 777, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item .badge-container-pf .badge .pficon, .nav-pf-tertiary-nav > .list-group > .list-group-item .badge-container-pf .badge .fa {
+  font-size: 14px;
+  height: 20px;
+  line-height: 1.66667;
+  margin-right: 3px;
+  margin-top: -1px;
+}
+/* line 786, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item .fa,
+.nav-pf-tertiary-nav > .list-group > .list-group-item .glyphicon,
+.nav-pf-tertiary-nav > .list-group > .list-group-item .pficon {
+  float: left;
+  font-size: 18px;
+  line-height: 30px;
+  margin-right: 10px;
+  text-align: center;
+  width: 18px;
+}
+/* line 796, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav > .list-group > .list-group-item .list-group-item-value {
+  display: inline-block;
+  line-height: 20px;
+  max-width: none;
+  opacity: 1;
+  overflow: hidden;
+  padding-left: 5px;
+  text-overflow: ellipsis;
+}
+/* line 807, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav .tertiary-collapse-toggle-pf {
+  display: inline-block;
+  font-family: "FontAwesome";
+  font-size: inherit;
+  -webkit-font-smoothing: antialiased;
+  opacity: 0;
+  pointer-events: none;
+}
+/* line 814, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav .tertiary-collapse-toggle-pf:before {
+  content: '\f08d';
+}
+/* line 818, scss/vertical-nav-tertiary.scss */
+.nav-pf-tertiary-nav .tertiary-collapse-toggle-pf.collapsed:before {
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(deg);
+  content: '\f08d';
+  display: inline-block;
+}
+/* line 826, scss/vertical-nav-tertiary.scss */
+.tertiary-nav-item-pf.active .nav-pf-tertiary-nav .tertiary-collapse-toggle-pf {
+  opacity: 1;
+  pointer-events: all;
+}
+/* line 830, scss/vertical-nav-tertiary.scss */
+.show-mobile-nav .nav-pf-tertiary-nav .tertiary-collapse-toggle-pf {
+  opacity: 1;
+  pointer-events: all;
+}
+/* line 833, scss/vertical-nav-tertiary.scss */
+.show-mobile-nav .nav-pf-tertiary-nav .tertiary-collapse-toggle-pf:before {
+  content: '\f190';
+}
+
+/* line 840, scss/vertical-nav-tertiary.scss */
+.force-hide-secondary-nav-pf .nav-pf-secondary-nav {
+  display: none !important;
+}
+/* line 843, scss/vertical-nav-tertiary.scss */
+.force-hide-secondary-nav-pf .nav-pf-tertiary-nav {
+  display: none !important;
+}
+
+/* line 848, scss/vertical-nav-tertiary.scss */
+.hide-nav-pf.nav-pf-vertical {
+  visibility: hidden !important;
 }
 
 /*

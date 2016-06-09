@@ -1,0 +1,32 @@
+<div class="dropdown pull-right dropdown-kebab-pf">
+  <button class="btn btn-link dropdown-toggle" type="button" id="dropdownKebabRight" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="fa fa-ellipsis-v"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownKebabRight">
+    <li role="menuitem" ng-class="{'disabled': notification.unread === false}">
+      <a class="secondary-action" title="Mark Read" ng-click="customScope.markRead(notification, notificationGroup)">Mark Read</a>
+    </li>
+    <li role="menuitem" ng-class="{'disabled': notification.unread === true}">
+      <a class="secondary-action" title="Mark Unread" ng-click="customScope.markUnread(notification, notificationGroup)">Mark Unead</a>
+    </li>
+    <li role="menuitem">
+      <a class="secondary-action">Action</a>
+    </li>
+    <li role="menuitem">
+      <a class="secondary-action">Another Action</a>
+    </li>
+    <li role="separator" class="divider"></li>
+    <li role="menuitem">
+      <a class="secondary-action">Grouped Action</a>
+    </li>
+    <li role="menuitem">
+      <a class="secondary-action">Another Grouped Action</a>
+    </li>
+  </ul>
+</div>
+<span ng-if="notification.status" class="{{'pull-left ' + customScope.getNotficationStatusIconClass(notification)}}" ng-click="customScope.markRead(notification, notificationGroup)"></span>
+<span class="drawer-pf-notification-message" ng-click="customScope.markRead(notification, notificationGroup)">{{notification.message}}</span>
+<div class="drawer-pf-notification-info" ng-click="customScope.markRead(notification, notificationGroup)">
+  <span class="date">{{notification.timeStamp | date:'MM/dd/yyyy'}}</span>
+  <span class="time">{{notification.timeStamp | date:'h:mm:ss a'}}</span>
+</div>

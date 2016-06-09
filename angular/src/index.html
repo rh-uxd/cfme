@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="miq.appModule">
+<html ng-app="miq.appModule" class="layout-pf layout-pf-fixed transitions">
 <head>
     <meta charset="utf-8"/>
 
@@ -23,67 +23,53 @@
     <!-- endbuild -->
 
 </head>
-<body id="pf-app" class="pf-body miq-body ng-cloak>
-
-<div class="pf-framework">
-    <header class="pf-framework-header">
-        <nav class="navbar navbar-default navbar-pf navbar-fixed-top" role="navigation" ng-controller="miq.appController">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img src="styles/images/brand.svg" alt="PatternFly" />
-                </a>
-            </div>
-            <div class="collapse navbar-collapse navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-utility">
-                    <li class="dropdown" dropdown>
-                        <a href dropdown-toggle>
-                            <span class="pficon pficon-info"></span> Messages: <strong>{{ notifications.length }}</strong>
-                        </a>
-                        <div class="dropdown-menu infotip bottom-right">
-                            <div class="arrow"></div>
-                            <ul class="list-group">
-                                <li class="list-group-item" ng-repeat="notification in notifications">
-                                    <span class="i pficon pficon-info"></span> {{ notification.text }}
-                                </li>
-                            </ul>
-                            <div class="footer">
-                                <a ng-click="clearNotifications()" ng-if="notifications.length > 0">Clear Messages</a>
-                                <span ng-if="notifications.length === 0">No Messages</span>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="dropdown" dropdown>
-                        <a class="dropdown-toggle" dropdown-toggle>
-                            <span class="pficon pficon-user"></span>
-                            {{ username }} <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a>About Me</a>
-                            </li>
-                            <li>
-                                <a>Log Out</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <div miq-navigation items="navigationItems"></div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="miq-fixed-body" id="centralPanel">
-        <div class="pf-framework-content">
-            <main ng-view class="pf-framework-view"></main>
-        </div>
+<body id="pf-app" class="pf-body miq-body ng-cloak">
+  <div miq-vertical-navigation items="navigationItems" brand-src="styles/images/brand.svg" brand-alt="ManageIQ" ng-controller="miq.appController">
+    <div ng-controller="miq.navBarController">
+      <div miq-notification-list></div>
+      <ul class="nav navbar-nav">
+        <li><a href="#" target="_blank" class="nav-item-iconic nav-item-iconic-new-window"><span title="Launch" class="fa fa-external-link"></span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right navbar-iconic">
+        <li class="dropdown">
+          <a class="nav-item-iconic" id="notifications" ng-click="toggleNotificationDrawer()">
+            <span title="Notifications" class="fa" ng-class="{'fa-bell': newNotifications === true, 'fa-bell-o': newNotifications === false}"></span>
+          </a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span title="Help" class="fa pficon-help"></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle nav-item-iconic" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span title="Username" class="fa pficon-user"></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><a href="#">Preferences</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-</div>
+    <div pf-notification-drawer drawer-hidden="hideDrawer" drawer-title="{{drawerTitle}}"
+         action-button-title="{{markAllReadTitle}}" action-button-callback="markAllReadCB" notification-groups="groups"
+         heading-include="{{headingHTML}}" subheading-include="{{subHeadingHTML}}" notification-body-include="{{notificationHTML}}"
+         custom-scope="customScope" ng-controller="miq.notificationsController">
+    </div>
+  </div>
+
+  <div id="centralPanel" class="container-fluid container-cards-pf container-pf-nav-pf-vertical container-pf-nav-pf-vertical-with-tertiary">
+    <div class="pf-framework-content">
+        <main ng-view class="pf-framework-view"></main>
+    </div>
+  </div>
 
 <!-- build:js js/libraries.js -->
 <script src="libraries/jquery/dist/jquery.min.js"></script>
@@ -112,7 +98,9 @@
 <script src="modules/app/util/dashboard-utils.js"></script>
 <script src="modules/app/util/list-utils.js"></script>
 
+<script src="modules/app/directives/navigation/navigation.module.js"></script>
 <script src="modules/app/directives/navigation/navigation-directive.js"></script>
+<script src="modules/app/directives/navigation/vertical-navigation-directive.js"></script>
 
 <script src="modules/app/directives/card/card.module.js"></script>
 <script src="modules/app/directives/card/heatmaps/heatmaps-card-directive.js"></script>
@@ -134,6 +122,13 @@
 
 <script src="modules/app/directives/lists/object-list-directive.js"></script>
 <script src="modules/app/directives/lists/list-columns-directive.js"></script>
+
+<script src="modules/dashboard/dashboard-module.js"></script>
+<script src="modules/admin/admin-module.js"></script>
+<script src="modules/admin/user-admin/user-admin-module.js"></script>
+<script src="modules/applications/applications-module.js"></script>
+<script src="modules/clouds/clouds-module.js"></script>
+<script src="modules/events/events-module.js"></script>
 
 <script src="modules/containers/containers-module.js"></script>
 
@@ -169,6 +164,12 @@
 
 <script src="modules/app/app-module.js"></script>
 <script src="modules/app/controllers/app-controller.js"></script>
+<script src="modules/app/controllers/notifications-controller.js"></script>
+<script src="modules/app/controllers/nav-bar-controller.js"></script>
+<script src="modules/app/services/notification-service.js"></script>
+<script src="modules/app/directives/notifications/toast-notification-directive.js"></script>
+<script src="modules/app/directives/notifications/notification-list-directive.js"></script>
+<script src="modules/app/services/notification-service.js"></script>
 <script src="modules/app/fixes.js"></script>
 
 <!-- endbuild -->

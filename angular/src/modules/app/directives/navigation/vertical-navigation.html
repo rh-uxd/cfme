@@ -1,0 +1,72 @@
+<div>
+  <nav class="navbar navbar-pf-vertical">
+    <div class="navbar-header">
+      <button ng-if="inMobileState" type="button" class="navbar-toggle" ng-click="handleNavBarToggleClick()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img class="navbar-brand-icon" src="{{brandSrc}}" alt="{{brandAlt}}"/>
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse" ng-transclude></nav>
+    <div class="nav-pf-vertical nav-pf-vertical-with-tertiary-nav"
+         ng-class="{'show-mobile-secondary': showMobileSecondary,
+                    'show-mobile-tertiary': showMobileTertiary,
+                    'hover-secondary-nav-pf': hoverSecondaryNav,
+                    'hover-tertiary-nav-pf': hoverTertiaryNav,
+                    'collapsed-secondary-nav-pf': collapsedSecondaryNav,
+                    'collapsed-tertiary-nav-pf': collapsedTertiaryNav,
+                    'hidden': inMobileState,
+                    'collapsed': navCollapsed,
+                    'force-hide-secondary-nav-pf': forceHidden,
+                    'show-mobile-nav': showMobileNav}">
+      <ul class="list-group">
+        <li ng-repeat="item in items" class="list-group-item"
+            ng-class="{'secondary-nav-item-pf': item.children && item.children.length > 0,
+                       'active': item.isActive,
+                       'is-hover': item.isHover,
+                       'mobile-nav-item-pf': item.isMobileItem}"
+            ng-mouseenter="handlePrimaryHover(item)" ng-mouseleave="handlePrimaryUnHover(item)">
+          <a ng-click="handlePrimaryClick(item, $event)">
+            <span class="{{item.iconClass}}"></span>
+            <span class="list-group-item-value">{{item.title}}</span>
+          </a>
+          <div ng-if="item.children && item.children.length > 0" class="nav-pf-secondary-nav">
+            <div class="nav-item-pf-header">
+              <a class="secondary-collapse-toggle-pf" ng-click="collapseSecondaryNav(item, $event)" ng-class="{'collapsed': item.secondaryCollapsed}"></a>
+              <span>{{item.title}}</span>
+            </div>
+            <ul class="list-group">
+              <li ng-repeat="secondaryItem in item.children" class="list-group-item"
+                  ng-class="{'tertiary-nav-item-pf': secondaryItem.children && secondaryItem.children.length > 0,
+                             'active': secondaryItem.isActive,
+                             'is-hover': secondaryItem.isHover,
+                             'mobile-nav-item-pf': secondary.isMobileItem}"
+                  ng-mouseenter="handleSecondaryHover(secondaryItem)" ng-mouseleave="handleSecondaryUnHover(secondaryItem)">
+                <a ng-click="handleSecondaryClick(item, secondaryItem, $event)">
+                  <span class="list-group-item-value">{{secondaryItem.title}}</span>
+                </a>
+                <div ng-if="secondaryItem.children && secondaryItem.children.length > 0" class="nav-pf-tertiary-nav">
+                  <div class="nav-item-pf-header">
+                    <a class="tertiary-collapse-toggle-pf" ng-click="collapseTertiaryNav(secondaryItem, $event)" ng-class="{'collapsed': secondaryItem.tertiaryCollapsed}"></a>
+                    <span>{{secondaryItem.title}}</span>
+                  </div>
+                  <ul class="list-group">
+                    <li ng-repeat="tertiaryItem in secondaryItem.children" class="list-group-item" ng-class="{'active': tertiaryItem.active}">
+                      <a ng-click="handleTertiaryClick(item, secondaryItem, tertiaryItem, $event)">
+                        <span class="list-group-item-value">{{tertiaryItem.title}}</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

@@ -1,9 +1,9 @@
 
-angular.module( 'miq.infrastructureModule',
-  ['miq.infrastructure.providersModule'])
+angular.module( 'miq.eventsModule',
+  [])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/compute/infrastructure', {
+      .when('/events', {
         templateUrl: 'modules/infrastructure/providers/provider.html',
         controller: 'infrastructure.providerController'
       })

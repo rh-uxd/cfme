@@ -1,0 +1,10 @@
+<div class="miq-notificaton-list" data-ng-show="notifications.data.length > 0">
+  <div ng-repeat="notification in notifications.data">
+    <div miq-toast-notification notification-type="notification.type"
+                                notification-header="notification.header"
+                                notification-message="notification.message"
+                                notification-persistent="notification.isPersistent"
+                                notification-index="$index">
+    </div>
+  </div>
+</div>
