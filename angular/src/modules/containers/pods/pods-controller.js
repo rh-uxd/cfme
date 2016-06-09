@@ -17,7 +17,7 @@ angular.module('miq.containers.podsModule').controller('containers.podsControlle
 
 
     var handleClick = function(item) {
-      $location.path('/containers/pods/' + item.name);
+      $location.path('/compute/containers/pods/' + item.name);
     };
 
     var viewSelected = function(view) {

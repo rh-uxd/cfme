@@ -55,7 +55,7 @@
                     <span>{{secondaryItem.title}}</span>
                   </div>
                   <ul class="list-group">
-                    <li ng-repeat="tertiaryItem in secondaryItem.children" class="list-group-item" ng-class="{'active': tertiaryItem.active}">
+                    <li ng-repeat="tertiaryItem in secondaryItem.children" class="list-group-item" ng-class="{'active': tertiaryItem.isActive}">
                       <a ng-click="handleTertiaryClick(item, secondaryItem, tertiaryItem, $event)">
                         <span class="list-group-item-value">{{tertiaryItem.title}}</span>
                       </a>

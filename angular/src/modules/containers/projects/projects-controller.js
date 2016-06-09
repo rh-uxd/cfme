@@ -35,7 +35,7 @@ angular.module('miq.containers.projectsModule').controller('containers.projectsC
     };
 
     var handleClick = function(item) {
-      $location.path('/containers/projects/' + item.name);
+      $location.path('/compute/containers/projects/' + item.name);
     };
 
     var viewSelected = function(view) {

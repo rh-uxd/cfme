@@ -24,7 +24,7 @@ angular.module('miq.containers.providersModule').controller('containers.provider
 
     $scope.listId = 'containersProvidersList';
     var handleClick = function(item) {
-      $location.path('/containers/providers/provider/' + item.name);
+      $location.path('/compute/containers/providers/provider/' + item.name);
     };
 
     var viewSelected = function(view) {
