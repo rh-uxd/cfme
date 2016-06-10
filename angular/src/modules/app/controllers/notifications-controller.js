@@ -22,6 +22,7 @@ angular.module('miq.appModule').controller( 'miq.notificationsController', ['$sc
     function () {
       $scope.hideDrawer = notificationService.notificationDrawerHidden;
     });
+    $scope.toastNotifications = notificationService.toastNotifications;
 
     $scope.markAllReadCB = function (group) {
       notificationService.markAllNotificationsRead(group);

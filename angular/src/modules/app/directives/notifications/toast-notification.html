@@ -1,10 +1,12 @@
-<div class="toast-pf alert alert-{{notificationType}} pull-right" ng-class="{'alert-dismissable': notificationPersistent}">
-  <button ng-if="notificationPersistent" type="button" class="close" data-dismiss="alert" aria-hidden="true">
+<div class="toast-pf alert alert-{{notificationType}} pull-right"
+     ng-class="{'alert-dismissable': notification.persistent}"
+     ng-mouseenter="handleEnter()" ng-mouseleave="handleLeave()" ng-click="handleClick()">
+  <button ng-if="notification.persistent" type="button" class="close" data-dismiss="alert" aria-hidden="true">
     <span class="pficon pficon-close"></span>
   </button>
   <span class="pficon pficon-ok" ng-show="notificationType === 'success'"></span>
   <span class="pficon pficon-info" ng-show="notificationType === 'info'"></span>
   <span class="pficon pficon-error-circle-o" ng-show="notificationType === 'danger'"></span>
   <span class="pficon pficon-warning-triangle-o" ng-show="notificationType === 'warning'"></span>
-  <strong>{{notificationHeader}}</strong> {{notificationMessage}}
+  <strong>{{notification.header}}</strong> {{notification.message}}
 </div>

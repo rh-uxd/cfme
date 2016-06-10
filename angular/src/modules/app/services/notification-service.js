@@ -3,6 +3,7 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
     var $this = this;
 
     this.notificationDrawerHidden = true;
+    this.toastDelay = 8000;
 
     this.toggleNotficationDrawerHidden = function () {
       this.notificationDrawerHidden = !this.notificationDrawerHidden
@@ -230,6 +231,26 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
       }
     ];
 
+    this.toastNotifications = [];
+
+    this.removeToast = function (notification) {
+      var index = $this.toastNotifications.indexOf(notification);
+      if (index > -1) {
+        $this.toastNotifications.splice(index, 1);
+      }
+    };
+
+    this.showToast = function (notification) {
+      notification.show = true;
+      this.toastNotifications.push(notification);
+      $timeout(function () {
+        notification.show = false;
+        if (!notification.persist) {
+          $this.removeToast(notification);
+        }
+      }, this.toastDelay);
+    };
+
     var updateUnreadCount = function (group) {
       if (group) {
         group.unreadCount = group.notifications.filter(function (notification) {
@@ -241,6 +262,7 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
     this.addNotification = function (notificationType, message, status) {
       var newNotification = {
         unread: true,
+        header: notificationHeadingMap[notificationType],
         message: message,
         status: status,
         timeStamp: (new Date()).getTime()
@@ -259,8 +281,14 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
         updateUnreadCount(group);
       }
 
-      if (notificationType == 'system') {}
-      Notifications.message(status, notificationHeadingMap[notificationType], message, false);
+      this.showToast(newNotification);
+    };
+
+    this.setPersistToastNotification = function (notification, persist) {
+      notification.persist = persist;
+      if (!persist && !notification.show) {
+        this.removeToast(notification);
+      }
     };
 
     this.markNotificationRead = function (notification, group) {
@@ -310,6 +338,6 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
     this.addNotification('user', 'Login Successful', 'success');
     $timeout(function() {
       $this.addNotification('system', 'Error occurred while trying to contact server for user preferences', 'error');
-    }, 5000);
+    }, 4000);
   }
 ]);

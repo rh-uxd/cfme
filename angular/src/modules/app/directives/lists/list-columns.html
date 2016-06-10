@@ -9,7 +9,8 @@
         <span class="miq-label">{{item[column.field]}}</span>
       </div>
       <div class="miq-column" ng-class="column.columnClass" style="{{getColumnStyle(column, $index)}}" ng-switch-when="objectLabel">
-        <span class="pficon {{item[column.iconField]}} miq-icon-label"></span>
+        <span ng-if="item[column.iconField]" class="pficon {{item[column.iconField]}} miq-icon-label"></span>
+        <img  ng-if="item[column.iconImage]" src="{{item[column.iconImage]}}" class="miq-column-image">
         <span class="miq-label">{{item[column.field]}}</span>
       </div>
       <div class="miq-column usage-column" ng-class="column.columnClass" style="{{getColumnStyle(column, $index)}}" ng-switch-when="usage">

@@ -32,9 +32,10 @@ angular.module('miq.containers.dashboardModule').controller('containers.dashboar
         providers.forEach(function (item) {
           $scope.objectStatus.providers.notifications.push({
             iconClass: item.iconClass,
+            iconImage: item.iconImage,
             count: item.count,
-            href: "#containers/providers/?filter=" + item.providerType
-          })
+            href: "#compute/containers/providers/?filter=" + item.providerType
+          });
         });
       }
       dashboardUtils.updateStatus($scope.objectStatus.nodes, data.nodes);

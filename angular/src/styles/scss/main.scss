@@ -19,8 +19,10 @@
 }
 
 .miq-notificaton-list {
-  margin-top: 15px;
-  float: right;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 100;
 }
 
 .miq-body {
@@ -38,6 +40,25 @@
     }
   }
 
+  .miq-dashboard-full-image {
+    height: 104px;
+  }
+
+  .miq-card-title-img {
+    height: 18px;
+    margin-top: -5px;
+  }
+
+  .card-pf-icon-image {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .miq-column-image {
+    height: 18px;
+    margin-top: -2px;
+  }
+
   .list-view-pf .list-group-item.active .pficon, .list-view-pf .list-group-item.active:hover .pficon, .list-view-pf .list-group-item.active:focus .pficon {
     color: #1186C1;
   }
@@ -50,14 +71,6 @@
 
   .card-pf .loading {
     margin: 10px auto;
-  }
-
-  .pficon-kubernetes::before {
-    color: #326de6;
-  }
-
-  .pficon-openshift::before {
-    color: #da2430;
   }
 }
 

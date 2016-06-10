@@ -14,8 +14,16 @@ angular.module('miq.containers.providersModule').controller('containers.provider
       $scope.providerCount = 0;
       $scope.providerType = 'openshift';
 
-      $scope.getProviderTypeIconClass = function () {
-        return 'pficon-' + $scope.providerType;
+      $scope.getProviderTypeImage = function () {
+        if ($scope.providerType == 'openshift') {
+          return "libraries/patternfly/dist/img/Openshift-Logo-Notext.svg";
+        } else if ($scope.providerType == 'kubernetes') {
+          return "libraries/patternfly/dist/img/kubernetes.svg";
+        } else if ($scope.providerType == 'atomic') {
+          return "libraries/patternfly/dist/img/RH_Atomic-Logo-NoText.svg";
+        } else {
+          return ''
+        }
       };
 
       $scope.objectStatus = {

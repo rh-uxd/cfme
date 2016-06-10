@@ -3,7 +3,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
     return {
       title: "Providers",
       count: 0,
-      href: "#containers/providers",
+      href: "#compute/containers/providers",
       notifications: []
     };
   };
@@ -36,7 +36,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
       title: "Projects",
       iconClass: "pficon pficon-project",
       count: 0,
-      href: "#containers/projects",
+      href: "#compute/containers/projects",
       notification: {}
     };
   };
@@ -45,7 +45,7 @@ angular.module('miq.util').factory('DashboardUtils', [function dashboardUtilsFac
       title: "Pods",
       iconClass: "fa fa-cubes",
       count: 0,
-      href: "#containers/pods",
+      href: "#compute/containers/pods",
       notification: {}
     };
   };

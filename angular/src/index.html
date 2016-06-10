@@ -26,7 +26,6 @@
 <body id="pf-app" class="pf-body miq-body ng-cloak">
   <div miq-vertical-navigation items="navigationItems" brand-src="styles/images/brand.svg" brand-alt="ManageIQ" ng-controller="miq.appController">
     <div ng-controller="miq.navBarController">
-      <div miq-notification-list></div>
       <ul class="nav navbar-nav">
         <li><a href="#" target="_blank" class="nav-item-iconic nav-item-iconic-new-window"><span title="Launch" class="fa fa-external-link"></span></a></li>
       </ul>
@@ -58,10 +57,20 @@
         </li>
       </ul>
     </div>
-    <div pf-notification-drawer drawer-hidden="hideDrawer" drawer-title="{{drawerTitle}}"
-         action-button-title="{{markAllReadTitle}}" action-button-callback="markAllReadCB" notification-groups="groups"
-         heading-include="{{headingHTML}}" subheading-include="{{subHeadingHTML}}" notification-body-include="{{notificationHTML}}"
-         custom-scope="customScope" ng-controller="miq.notificationsController">
+    <div ng-controller="miq.notificationsController">
+      <div class="miq-notificaton-list" data-ng-show="toastNotifications.length > 0">
+        <div ng-repeat="notification in toastNotifications">
+          <div miq-toast-notification notification="notification"
+               notification-index="$index"
+               handle-enter="handleEnter(notification)" handle-leave="handleLeave(notification)">
+          </div>
+        </div>
+      </div>
+      <div pf-notification-drawer drawer-hidden="hideDrawer" drawer-title="{{drawerTitle}}"
+           action-button-title="{{markAllReadTitle}}" action-button-callback="markAllReadCB" notification-groups="groups"
+           heading-include="{{headingHTML}}" subheading-include="{{subHeadingHTML}}" notification-body-include="{{notificationHTML}}"
+           custom-scope="customScope">
+      </div>
     </div>
   </div>
 

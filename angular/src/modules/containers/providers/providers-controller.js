@@ -122,11 +122,14 @@ angular.module('miq.containers.providersModule').controller('containers.provider
       $scope.allProviders = data.data;
       $scope.allProviders.forEach(function(provider){
         provider.providerName = provider.name;
-        if (provider.providerType === 'openshift') {
-          provider.providerIcon = 'pficon-openshift';
-        }
-        else {
-          provider.providerIcon = 'pficon-kubernetes';
+        if (provider.providerType == 'openshift') {
+          provider.providerImg = "libraries/patternfly/dist/img/Openshift-Logo-Notext.svg";
+        } else if (provider.providerType == 'kubernetes') {
+          provider.providerImg = "libraries/patternfly/dist/img/kubernetes.svg";
+        } else if (provider.providerType == 'atomic') {
+          provider.providerImg = "libraries/patternfly/dist/img/RH_Atomic-Logo-NoText.svg";
+        } else {
+          provider.providerImg = ''
         }
         provider.cpuTitle = 'CPU Usage';
         provider.cpuUnits = 'MHz';

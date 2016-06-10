@@ -8,7 +8,7 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     columnType: 'objectLabel',
     columnClass: 'provider-column',
     field: 'providerName',
-    iconField: 'providerIcon',
+    iconImage: 'providerImg',
     width: columnsConfig.providerColumnWidth
   };
 
