@@ -836,6 +836,22 @@ $nav-pf-menu-transition-period:                                     0.1s;
     }
   }
 }
+
+.tooltip.nav-pf-vertical-primary-tooltip {
+  margin-left: 15px;
+  z-index: ($zindex-navbar-fixed + 4);
+
+  .tooltip-inner {
+    background-color: $color-pf-white;
+    color: $color-pf-black-900;
+  }
+
+  .tooltip-arrow {
+    border-bottom-color: $color-pf-white;
+    left: calc(50% - 15px);
+  }
+}
+
 .force-hide-secondary-nav-pf {
   .nav-pf-secondary-nav {
     display: none !important;

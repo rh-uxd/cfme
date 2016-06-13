@@ -31,7 +31,7 @@
                        'mobile-nav-item-pf': item.isMobileItem}"
             ng-mouseenter="handlePrimaryHover(item)" ng-mouseleave="handlePrimaryUnHover(item)">
           <a ng-click="handlePrimaryClick(item, $event)">
-            <span class="{{item.iconClass}}"></span>
+            <span class="{{item.iconClass}}" tooltip-append-to-body="true" tooltip-placement="bottom" tooltip="{{item.title}}" tooltip-class="nav-pf-vertical-primary-tooltip"></span>
             <span class="list-group-item-value">{{item.title}}</span>
           </a>
           <div ng-if="item.children && item.children.length > 0" class="nav-pf-secondary-nav">

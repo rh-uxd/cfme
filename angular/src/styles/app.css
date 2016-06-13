@@ -1434,15 +1434,31 @@
 }
 
 /* line 840, scss/vertical-nav-tertiary.scss */
+.tooltip.nav-pf-vertical-primary-tooltip {
+  margin-left: 15px;
+  z-index: 1034;
+}
+/* line 844, scss/vertical-nav-tertiary.scss */
+.tooltip.nav-pf-vertical-primary-tooltip .tooltip-inner {
+  background-color: #fff;
+  color: #292e34;
+}
+/* line 849, scss/vertical-nav-tertiary.scss */
+.tooltip.nav-pf-vertical-primary-tooltip .tooltip-arrow {
+  border-bottom-color: #fff;
+  left: calc(50% - 15px);
+}
+
+/* line 856, scss/vertical-nav-tertiary.scss */
 .force-hide-secondary-nav-pf .nav-pf-secondary-nav {
   display: none !important;
 }
-/* line 843, scss/vertical-nav-tertiary.scss */
+/* line 859, scss/vertical-nav-tertiary.scss */
 .force-hide-secondary-nav-pf .nav-pf-tertiary-nav {
   display: none !important;
 }
 
-/* line 848, scss/vertical-nav-tertiary.scss */
+/* line 864, scss/vertical-nav-tertiary.scss */
 .hide-nav-pf.nav-pf-vertical {
   visibility: hidden !important;
 }
