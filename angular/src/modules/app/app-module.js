@@ -9,7 +9,6 @@ angular.module ('miq.appModule', [
   'miq.util',
   'miq.charts',
   'miq.card',
-  'miq.dialogs',
   'miq.navigation',
   'miq.wizard',
   'miq.dashboardModule',

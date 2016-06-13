@@ -114,34 +114,21 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
       }
     });
 
-
-    $scope.showDeploymentWizard = false;
-    var showListener =  function() {
-      if (!$scope.showDeploymentWizard) {
-        initializeDeploymentWizard();
-        $scope.showDeploymentWizard = true;
-      }
-    };
-    $rootScope.$on('deployProvider.show', showListener);
-
     $scope.cancelDeploymentWizard = function () {
       if (!$scope.deployInProgress) {
-        $scope.showDeploymentWizard = false;
+        $rootScope.$emit('deployProvider.done', 'cancel');
       }
-    };
-
-    $scope.$on('$destroy', showListener);
-
-
-    $scope.cancelWizard = function () {
-      $scope.showDeploymentWizard = false;
-      return true;
     };
 
     $scope.finishedWizard = function () {
-      $rootScope.$emit('deployProvider.finished');
-      $scope.showDeploymentWizard = false;
+      if ($scope.deploySuccess) {
+        $rootScope.$emit('deployProvider.done', 'done');
+      } else {
+        $rootScope.$emit('deployProvider.done', 'error');
+      }
       return true;
     };
+
+    initializeDeploymentWizard();
   }
 ]);

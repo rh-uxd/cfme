@@ -68,10 +68,10 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
 
       $timeout(function() {
         var queryResult;
-        if ($scope.data.provisionOn == 'noProvider') {
-          queryResult = $document[0].getElementById('deploy-key');
-        } else if ($scope.data.provisionOn == 'newVms') {
+        if ($scope.data.provisionOn == 'newVms') {
           queryResult = $document[0].getElementById('create-master-base-name');
+        } else {
+          queryResult = $document[0].getElementById('deploy-key');
         }
         if (queryResult) {
           queryResult.focus();

@@ -1,6 +1,6 @@
 angular.module('miq.containers.providersModule').controller('containers.providersController',
-  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ListUtils', 'pfViewUtils', '$routeParams',
-  function($rootScope, $scope, $resource, $location, chartsDataMixin, listUtils, pfViewUtils, $routeParams) {
+  ['$rootScope', '$scope', '$resource', '$location', 'ChartsDataMixin', 'ListUtils', 'pfViewUtils', '$routeParams', '$modal',
+  function($rootScope, $scope, $resource, $location, chartsDataMixin, listUtils, pfViewUtils, $routeParams, $modal) {
     'use strict';
 
     $scope.columns = [
@@ -73,9 +73,25 @@ angular.module('miq.containers.providersModule').controller('containers.provider
       onSortChange: sortChange
     };
 
-    $scope.showDeploymentWizard = false;
     var doShowDeploymentWizard = function () {
-      $rootScope.$emit('deployProvider.show');
+      var modalInstance = $modal.open({
+        animation: true,
+        backdrop: 'static',
+        templateUrl: 'modules/containers/providers/deploy-provider/deploy-provider.html',
+        controller: 'containers.deployProviderController',
+        size: 'lg'
+      });
+
+      modalInstance.result.then(function () {
+      }, function () {
+      });
+
+      var wizardDoneListener;
+      var closeWizard = function(e, reason) {
+        modalInstance.dismiss(reason);
+        wizardDoneListener();
+      };
+      wizardDoneListener = $rootScope.$on('deployProvider.done', closeWizard);
     };
 
     $scope.actionsConfig = {

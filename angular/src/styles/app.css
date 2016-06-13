@@ -2544,3 +2544,7 @@
 .miq-add-dialog-content {
   padding: 20px 20px 0 20px;
 }
+/* line 947, scss/wizard.scss */
+.miq-add-dialog-content .miq-page-text {
+  padding-bottom: 10px;
+}

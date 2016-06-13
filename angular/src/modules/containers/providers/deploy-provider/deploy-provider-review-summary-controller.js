@@ -1,6 +1,6 @@
 angular.module('miq.containers.providersModule').controller('containers.deployProviderReviewSummaryController',
-  ['$rootScope', '$scope', '$timeout', '$document',
-  function($rootScope, $scope, $timeout, $document) {
+  ['$rootScope', '$scope', '$timeout', '$modal',
+  function($rootScope, $scope, $timeout, $modal) {
     'use strict';
 
     var firstShow = true;
@@ -17,13 +17,23 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         $scope.pageShown = false;  // done so the next time the page is shown it updates
       });
 
-      // Simulate retrieving inventory text
-      $scope.showWaitDialog = true;
+      $scope.waitText = 'Loading summary..';
+      var modalOptions = {
+        animation: true,
+        backdrop: 'static',
+        templateUrl: 'modules/containers/providers/deploy-provider/wait-dialog.html',
+        scope: $scope,
+        size: 'sm'
+      };
+
+      var modalInstance = $modal.open(modalOptions);
+
+        // Simulate retrieving inventory text
       $timeout(function() {
         $scope.data.inventoryText = "Text of the Inventory goes here";
         $scope.data.editedInventoryText = $scope.data.inventoryText;
         //$scope.onInventoryTextChange();
-        $scope.showWaitDialog = false;
+        modalInstance.dismiss();
       }, 2000);
     };
 

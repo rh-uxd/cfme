@@ -1,55 +1,32 @@
 angular.module('miq.containers.providersModule').controller('containers.deployProviderDetailsNoProviderController',
-  ['$rootScope', '$scope', '$timeout', '$document',
-  function($rootScope, $scope, $timeout, $document) {
+  ['$rootScope', '$scope', '$document', '$modal',
+  function($rootScope, $scope, $document, $modal) {
     'use strict';
 
-    $scope.showAddDialog = false;
-    $scope.newItem = {};
+    var modalInstance;
 
     $scope.updateNodeSettings();
 
-    $scope.cancelAddDialog = function () {
-      $scope.showAddDialog = false;
-    };
+    $scope.addVM = function () {
+      var modalInstance = $modal.open({
+        animation: true,
+        backdrop: 'static',
+        templateUrl: 'modules/containers/providers/deploy-provider/add-host-dialog.html',
+        controller: 'containers.addHostDialogController',
+        size: 'md'
+      });
 
-    $scope.saveAddDialog = function () {
-      if ($scope.newHost.vmName && $scope.newHost.vmName.length > 0) {
-        $scope.nodeData.allNodes.push($scope.newHost);
-        $scope.showAddDialog = false;
+      modalInstance.rendered.then(function () {
+        $document[0].getElementById('add-private-name').focus();
+      });
+
+      modalInstance.result.then(function () {
+      }, function (newHost) {
+        $scope.nodeData.allNodes.push(newHost);
         $scope.updateNodeSettings();
         $scope.nodeData.userDefinedVMs = $scope.nodeData.allNodes;
-      }
-    };
-
-    var userUpdatedPublicName = false;
-    $scope.addVM = function () {
-      $scope.newHost = {
-        vmName: "",
-        publicName: "",
-        master: false,
-        node: false,
-        storage: false,
-        loadBalancer: false,
-        dns: false,
-        etcd: false,
-        infrastructure: false
-      };
-      userUpdatedPublicName = false;
-      $scope.showAddDialog = true;
-
-      $timeout(function() {
-        $document[0].getElementById('add-private-name').focus();
-      }, 200);
-    };
-
-    $scope.newVmSelectAll = function () {
-      $scope.newHost.master = true;
-      $scope.newHost.node = true;
-      $scope.newHost.storage = true;
-      $scope.newHost.loadBalancer = true;
-      $scope.newHost.dns = true;
-      $scope.newHost.etcd = true;
-      $scope.newHost.infrastructure = true;
+      }, function (reason) {
+      });
     };
 
     var removeItems = function () {
@@ -102,21 +79,6 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
     $scope.toolbarConfig = {
       sortConfig: sortConfig,
       actionsConfig: actionsConfig
-    };
-
-
-    $scope.updateNewVMName = function () {
-      if (!userUpdatedPublicName) {
-        $scope.newHost.publicName = $scope.newHost.vmName;
-      }
-    };
-
-    $scope.updateNewVMPublicName = function () {
-      if ($scope.newHost.publicName != $scope.newHost.vmName) {
-        userUpdatedPublicName = true;
-      } else {
-        userUpdatedPublicName = false;
-      }
     };
   }
 ]);
