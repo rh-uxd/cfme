@@ -1,7 +1,7 @@
 <div class="toast-pf alert alert-{{notificationType}} pull-right"
      ng-class="{'alert-dismissable': notification.persistent}"
      ng-mouseenter="handleEnter()" ng-mouseleave="handleLeave()" ng-click="handleClick()">
-  <button ng-if="notification.persistent" type="button" class="close" data-dismiss="alert" aria-hidden="true">
+  <button ng-if="notification.persistent" type="button" class="close" ng-click="handleDismiss()" aria-hidden="true">
     <span class="pficon pficon-close"></span>
   </button>
   <span class="pficon pficon-ok" ng-show="notificationType === 'success'"></span>

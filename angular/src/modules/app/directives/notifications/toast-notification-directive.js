@@ -18,13 +18,15 @@ angular.module( 'miq.appModule' ).directive('miqToastNotification', ['miq.notifi
         }
 
         $scope.handleEnter = function () {
-          console.log("Enter");
-          notificationService.setPersistToastNotification($scope.notification, true);
+          notificationService.setViewingToastNotification($scope.notification, true);
         };
 
         $scope.handleLeave = function () {
-          console.log("Leave");
-          notificationService.setPersistToastNotification($scope.notification, false);
+          notificationService.setViewingToastNotification($scope.notification, false);
+        };
+
+        $scope.handleDismiss = function () {
+          notificationService.dismissToastNotification($scope.notification, false);
         };
       }
     };

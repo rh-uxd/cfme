@@ -72,6 +72,13 @@
   .card-pf .loading {
     margin: 10px auto;
   }
+
+  .blank-slate-pf {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 0 0 0 -20px;
+  }
 }
 
 .provider-card {

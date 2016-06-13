@@ -12,6 +12,13 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     width: columnsConfig.providerColumnWidth
   };
 
+  var cpuUsedPercentColumn = {
+    columnType: 'titleLabel',
+    title: 'CPU Used (%)',
+    field: 'cpuUsed',
+    titleWidth: columnsConfig.cpuUsageTitleWidth
+  };
+
   var cpuCoresUsageColumn = {
     columnType: 'usage',
     usedLabel: 'CPU Used (c)',
@@ -105,11 +112,24 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     width: columnsConfig.uptimeColumnWidth
   };
 
+  var sessionsInfoColumn = {
+    columnType: 'objectCount',
+    infoField: 'sessionsInfo',
+    width: columnsConfig.sessionsColumnWidth
+  };
+
+  var serverGroupsInfoColumn = {
+    columnType: 'objectCount',
+    infoField: 'serverGroupsInfo',
+    width: columnsConfig.serverGroupsColumnWidth
+  };
+
+
   var nameFilter = {
     id: 'name',
-      title:  'Name',
-      placeholder: 'Filter by Name',
-      filterType: 'text'
+    title:  'Name',
+    placeholder: 'Filter by Name',
+    filterType: 'text'
   };
 
   var providerFilter = {
@@ -185,6 +205,12 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     sortType: 'alpha'
   };
 
+  var cpuPercentUsedSort = {
+    id: 'cpuPercentUsed',
+    title:  'CPU Used',
+    sortType: 'numeric'
+  };
+
   var cpuUsageSort = {
     id: 'cpuUsage',
     title:  'CPU Used',
@@ -245,12 +271,6 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     sortType: 'numeric'
   };
 
-  var registriesSort = {
-    id: 'registries',
-    title: 'Registries Count',
-    sortType: 'numeric'
-  };
-
   var uptimeSort = {
     id: 'uptime',
     title:  'Uptime',
@@ -267,6 +287,8 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
         compValue = item1.providerName.localeCompare(item2.providerName);
       } else if (sortId === 'providerType') {
         compValue = item1.providerType.localeCompare(item2.providerType);
+      } else if (sortId === 'cpuPercentUsed') {
+        compValue = item1.cpuUsed - item2.cpuUsed;
       } else if (sortId === 'cpuUsage') {
         compValue = item1.cpuUsageData.used - item2.cpuUsageData.used;
       } else if (sortId === 'memoryUsage') {
@@ -289,6 +311,17 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
         compValue = item1.registriesInfo.count - item2.registriesInfo.count;
       } else if (sortId === 'uptime') {
         compValue = item1.uptime.localeCompare(item2.uptime);
+      } else if (angular.isDefined(item1[sortId])) {
+        if (sortField.sortType == 'numeric') {
+          compValue = item1[sortId] - item2[sortId];
+        } else {
+          compValue = item1[sortId].localeCompare(item2[sortId]);
+        }
+      }
+
+
+      if (compValue === 0 && angular.isDefined(item1.name)) {
+        compValue = item1.name.localeCompare(item2.name);
       }
 
       if (!isAscending) {
@@ -306,6 +339,7 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
   return {
     nameColumn:               nameColumn,
     providerColumn:           providerColumn,
+    cpuUsedPercentColumn:     cpuUsedPercentColumn,
     cpuCoresUsageColumn:      cpuCoresUsageColumn,
     cpuMilliCoresUsageColumn: cpuMilliCoresUsageColumn,
     memoryMBUsageColumn:      memoryMBUsageColumn,
@@ -319,6 +353,8 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     routesInfoColumn:         routesInfoColumn,
     registriesInfoColumn:     registriesInfoColumn,
     uptimeColumn:             uptimeColumn,
+    sessionsInfoColumn:       sessionsInfoColumn,
+    serverGroupsInfoColumn:   serverGroupsInfoColumn,
     nameFilter:               nameFilter,
     providerFilter:           providerFilter,
     providerTypeFilter:       providerTypeFilter,
@@ -326,13 +362,13 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     nameSort:                 nameSort,
     providerSort:             providerSort,
     providerTypeSort:         providerTypeSort,
+    cpuPercentUsedSort:       cpuPercentUsedSort,
     cpuUsageSort:             cpuUsageSort,
     memoryUsageSort:          memoryUsageSort,
     nodesSort:                nodesSort,
     podsSort:                 podsSort,
     containersSort:           containersSort,
     servicesSort:             servicesSort,
-    registriesSort:           registriesSort,
     imagesSort:               imagesSort,
     projectsSort:             projectsSort,
     routesSort:               routesSort,

@@ -1,5 +1,5 @@
-<div class="container-fluid container-tiles-pf containers-dashboard miq-dashboard-view">
-    <div class="row row-tile-pf" >
+<div class="container-fluid container-cards-pf container-cards-pf containers-dashboard miq-dashboard-view">
+    <div class="row row-cards-pf" >
         <div class="col-xs-6 col-sm-4 col-md-2">
             <div pf-aggregate-status-card status="objectStatus.providers" show-top-border="true" layout="tall"></div>
         </div>
@@ -32,7 +32,7 @@
             </div><!-- /row -->
         </div>
     </div><!-- /row -->
-    <div class="row row-tile-pf">
+    <div class="row row-cards-pf" >
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div pf-card head-title="Node Utilization" hidetopborder="true">
                 <div class="row multi-chart-body" ng-if="utilizationLoadingDone">
@@ -55,7 +55,7 @@
           </div>
         </div>
     </div><!-- /row -->
-    <div class="row row-tile-pf row-tile-pf-last">
+    <div class="row row-cards-pf row-cards-pf-last">
       <div class="col-md-6">
         <div pf-card head-title="{{networkUtilizationCurrentConfig.headTitle}}">
           <div pf-trends-chart config="networkUtilizationCurrentConfig" chart-data="currentNetworkUtilization" chart-height="chartHeight">

@@ -28,12 +28,7 @@ angular.module ('miq.appModule', [
         redirectTo: '/dashboard'
       })
       .when('/dashboard', {
-        templateUrl: 'modules/containers/dashboard/dashboard.html',
-        controller: 'containers.dashboardController'
-      })
-      .when('/applications', {
-        templateUrl: 'modules/containers/dashboard/dashboard.html',
-        controller: 'containers.dashboardController'
+        templateUrl: 'modules/dashboard/dashboard.html'
       })
       .when('/events', {
         templateUrl: 'modules/containers/dashboard/dashboard.html',

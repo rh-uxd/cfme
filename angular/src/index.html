@@ -74,114 +74,116 @@
     </div>
   </div>
 
-  <div id="centralPanel" class="container-fluid container-cards-pf container-pf-nav-pf-vertical container-pf-nav-pf-vertical-with-tertiary">
+  <div id="centralPanel" class="container-pf-nav-pf-vertical container-pf-nav-pf-vertical-with-tertiary">
     <div class="pf-framework-content">
         <main ng-view class="pf-framework-view"></main>
     </div>
   </div>
 
-<!-- build:js js/libraries.js -->
-<script src="libraries/jquery/dist/jquery.min.js"></script>
-<script src="libraries/bootstrap-select/js/bootstrap-select.js"></script>
-<script src="libraries/moment/min/moment.min.js"></script>
-<script src="libraries/angular/angular.js"></script>
-<script src="libraries/angular-route/angular-route.min.js"></script>
-<script src="libraries/angular-resource/angular-resource.min.js"></script>
-<script src="libraries/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="libraries/patternfly/dist/js/patternfly.min.js"></script>
-<script src="libraries/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script src="libraries/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="libraries/angular-translate/angular-translate.min.js"></script>
-<script src="libraries/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-<script src="libraries/d3/d3.js"></script>
-<script src="libraries/c3/c3.js"></script>
-<script src="libraries/angular-patternfly/dist/angular-patternfly.js"></script>
-<script src="libraries/lodash/lodash.min.js"></script>
-<!-- endbuild -->
+  <!-- build:js js/libraries.js -->
+  <script src="libraries/jquery/dist/jquery.min.js"></script>
+  <script src="libraries/bootstrap-select/js/bootstrap-select.js"></script>
+  <script src="libraries/moment/min/moment.min.js"></script>
+  <script src="libraries/angular/angular.js"></script>
+  <script src="libraries/angular-route/angular-route.min.js"></script>
+  <script src="libraries/angular-resource/angular-resource.min.js"></script>
+  <script src="libraries/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="libraries/patternfly/dist/js/patternfly.min.js"></script>
+  <script src="libraries/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="libraries/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="libraries/angular-translate/angular-translate.min.js"></script>
+  <script src="libraries/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+  <script src="libraries/d3/d3.js"></script>
+  <script src="libraries/c3/c3.js"></script>
+  <script src="libraries/angular-patternfly/dist/angular-patternfly.js"></script>
+  <script src="libraries/lodash/lodash.min.js"></script>
+  <!-- endbuild -->
 
-<!-- build:js js/app.js -->
-<script src="modules/app/util/util-module.js"></script>
-<script src="modules/app/util/chart-data-mixin.js"></script>
-<script src="modules/app/util/chart-config-util.js"></script>
-<script src="modules/app/util/column-config.js"></script>
-<script src="modules/app/util/dashboard-utils.js"></script>
-<script src="modules/app/util/list-utils.js"></script>
+  <!-- build:js js/app.js -->
+  <script src="modules/app/util/util-module.js"></script>
+  <script src="modules/app/util/chart-data-mixin.js"></script>
+  <script src="modules/app/util/chart-config-util.js"></script>
+  <script src="modules/app/util/column-config.js"></script>
+  <script src="modules/app/util/dashboard-utils.js"></script>
+  <script src="modules/app/util/list-utils.js"></script>
 
-<script src="modules/app/directives/navigation/navigation.module.js"></script>
-<script src="modules/app/directives/navigation/navigation-directive.js"></script>
-<script src="modules/app/directives/navigation/vertical-navigation-directive.js"></script>
+  <script src="modules/app/directives/navigation/navigation.module.js"></script>
+  <script src="modules/app/directives/navigation/navigation-directive.js"></script>
+  <script src="modules/app/directives/navigation/vertical-navigation-directive.js"></script>
 
-<script src="modules/app/directives/card/card.module.js"></script>
-<script src="modules/app/directives/card/heatmaps/heatmaps-card-directive.js"></script>
+  <script src="modules/app/directives/card/card.module.js"></script>
+  <script src="modules/app/directives/card/heatmaps/heatmaps-card-directive.js"></script>
 
-<script src="modules/app/directives/dialogs/dialogs.module.js"></script>
-<script src="modules/app/directives/dialogs/modal-dialog-directive.js"></script>
+  <script src="modules/app/directives/dialogs/dialogs.module.js"></script>
+  <script src="modules/app/directives/dialogs/modal-dialog-directive.js"></script>
 
-<script src="modules/app/directives/wizard/wizard-module.js"></script>
-<script src="modules/app/directives/wizard/wizard-directive.js"></script>
-<script src="modules/app/directives/wizard/wizard-step-directive.js"></script>
-<script src="modules/app/directives/wizard/wizard-substep-directive.js"></script>
-<script src="modules/app/directives/wizard/wizard-review-page-directive.js"></script>
-<script src="modules/app/directives/wizard/wizard-buttons.js"></script>
+  <script src="modules/app/directives/wizard/wizard-module.js"></script>
+  <script src="modules/app/directives/wizard/wizard-directive.js"></script>
+  <script src="modules/app/directives/wizard/wizard-step-directive.js"></script>
+  <script src="modules/app/directives/wizard/wizard-substep-directive.js"></script>
+  <script src="modules/app/directives/wizard/wizard-review-page-directive.js"></script>
+  <script src="modules/app/directives/wizard/wizard-buttons.js"></script>
 
-<script src="modules/app/directives/charts/charts-module.js"></script>
-<script src="modules/app/directives/charts/progress/progress-chart-directive.js"></script>
-<script src="modules/app/directives/charts/data-list-usage-chart-directive.js"></script>
-<script src="modules/app/directives/charts/inline-object-status-directive.js"></script>
+  <script src="modules/app/directives/charts/charts-module.js"></script>
+  <script src="modules/app/directives/charts/progress/progress-chart-directive.js"></script>
+  <script src="modules/app/directives/charts/data-list-usage-chart-directive.js"></script>
+  <script src="modules/app/directives/charts/inline-object-status-directive.js"></script>
 
-<script src="modules/app/directives/lists/object-list-directive.js"></script>
-<script src="modules/app/directives/lists/list-columns-directive.js"></script>
+  <script src="modules/app/directives/lists/object-list-directive.js"></script>
+  <script src="modules/app/directives/lists/list-columns-directive.js"></script>
 
-<script src="modules/dashboard/dashboard-module.js"></script>
-<script src="modules/admin/admin-module.js"></script>
-<script src="modules/admin/user-admin/user-admin-module.js"></script>
-<script src="modules/applications/applications-module.js"></script>
-<script src="modules/clouds/clouds-module.js"></script>
-<script src="modules/events/events-module.js"></script>
+  <script src="modules/dashboard/dashboard-module.js"></script>
+  <script src="modules/admin/admin-module.js"></script>
+  <script src="modules/admin/user-admin/user-admin-module.js"></script>
+  <script src="modules/applications/applications-module.js"></script>
+  <script src="modules/applications/applications-controller.js"></script>
 
-<script src="modules/containers/containers-module.js"></script>
+  <script src="modules/clouds/clouds-module.js"></script>
+  <script src="modules/events/events-module.js"></script>
 
-<script src="modules/containers/dashboard/dashboard-module.js"></script>
-<script src="modules/containers/dashboard/dashboard-controller.js"></script>
-<script src="modules/containers/providers/providers-module.js"></script>
-<script src="modules/containers/providers/providers-controller.js"></script>
-<script src="modules/containers/providers/provider-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-details-general-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-details-cdn-channel-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-master-nodes-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-details-existing-vms-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-details-create-vms-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-details-no-provider-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-config-auth-settings-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-config-storage-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-config-settings-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-review-summary-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-review-controller.js"></script>
-<script src="modules/containers/providers/deploy-provider/deploy-provider-review-progress-controller.js"></script>
-<script src="modules/containers/projects/projects-module.js"></script>
-<script src="modules/containers/projects/projects-controller.js"></script>
-<script src="modules/containers/projects/project-controller.js"></script>
-<script src="modules/containers/pods/pods-module.js"></script>
-<script src="modules/containers/pods/pods-controller.js"></script>
-<script src="modules/containers/pods/pod-controller.js"></script>
+  <script src="modules/containers/containers-module.js"></script>
 
-<script src="modules/infrastructure/infrastructure-module.js"></script>
-<script src="modules/infrastructure/providers/providers-module.js"></script>
-<script src="modules/infrastructure/providers/provider-controller.js"></script>
+  <script src="modules/containers/dashboard/dashboard-module.js"></script>
+  <script src="modules/containers/dashboard/dashboard-controller.js"></script>
+  <script src="modules/containers/providers/providers-module.js"></script>
+  <script src="modules/containers/providers/providers-controller.js"></script>
+  <script src="modules/containers/providers/provider-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-details-general-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-details-cdn-channel-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-master-nodes-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-details-existing-vms-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-details-create-vms-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-details-no-provider-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-config-auth-settings-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-config-storage-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-config-settings-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-review-summary-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-review-controller.js"></script>
+  <script src="modules/containers/providers/deploy-provider/deploy-provider-review-progress-controller.js"></script>
+  <script src="modules/containers/projects/projects-module.js"></script>
+  <script src="modules/containers/projects/projects-controller.js"></script>
+  <script src="modules/containers/projects/project-controller.js"></script>
+  <script src="modules/containers/pods/pods-module.js"></script>
+  <script src="modules/containers/pods/pods-controller.js"></script>
+  <script src="modules/containers/pods/pod-controller.js"></script>
+
+  <script src="modules/infrastructure/infrastructure-module.js"></script>
+  <script src="modules/infrastructure/providers/providers-module.js"></script>
+  <script src="modules/infrastructure/providers/provider-controller.js"></script>
 
 
-<script src="modules/app/app-module.js"></script>
-<script src="modules/app/controllers/app-controller.js"></script>
-<script src="modules/app/controllers/notifications-controller.js"></script>
-<script src="modules/app/controllers/nav-bar-controller.js"></script>
-<script src="modules/app/services/notification-service.js"></script>
-<script src="modules/app/directives/notifications/toast-notification-directive.js"></script>
-<script src="modules/app/directives/notifications/notification-list-directive.js"></script>
-<script src="modules/app/services/notification-service.js"></script>
-<script src="modules/app/fixes.js"></script>
+  <script src="modules/app/app-module.js"></script>
+  <script src="modules/app/controllers/app-controller.js"></script>
+  <script src="modules/app/controllers/notifications-controller.js"></script>
+  <script src="modules/app/controllers/nav-bar-controller.js"></script>
+  <script src="modules/app/services/notification-service.js"></script>
+  <script src="modules/app/directives/notifications/toast-notification-directive.js"></script>
+  <script src="modules/app/directives/notifications/notification-list-directive.js"></script>
+  <script src="modules/app/services/notification-service.js"></script>
+  <script src="modules/app/fixes.js"></script>
 
-<!-- endbuild -->
+  <!-- endbuild -->
 
 
 </body>

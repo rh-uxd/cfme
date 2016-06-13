@@ -243,12 +243,15 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
     this.showToast = function (notification) {
       notification.show = true;
       this.toastNotifications.push(notification);
-      $timeout(function () {
-        notification.show = false;
-        if (!notification.persist) {
-          $this.removeToast(notification);
-        }
-      }, this.toastDelay);
+
+      if (notification.status != 'danger' && notification.status != 'error') {
+        $timeout(function () {
+          notification.show = false;
+          if (!notification.viewing) {
+            $this.removeToast(notification);
+          }
+        }, this.toastDelay);
+      }
     };
 
     var updateUnreadCount = function (group) {
@@ -265,6 +268,7 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
         header: notificationHeadingMap[notificationType],
         message: message,
         status: status,
+        persistent: true,
         timeStamp: (new Date()).getTime()
       };
 
@@ -284,11 +288,16 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
       this.showToast(newNotification);
     };
 
-    this.setPersistToastNotification = function (notification, persist) {
-      notification.persist = persist;
-      if (!persist && !notification.show) {
+    this.setViewingToastNotification = function (notification, viewing) {
+      notification.viewing = viewing;
+      if (!viewing && !notification.show) {
         this.removeToast(notification);
       }
+    };
+
+    this.dismissToastNotification = function (notification) {
+      notification.show = false;
+      this.removeToast(notification);
     };
 
     this.markNotificationRead = function (notification, group) {

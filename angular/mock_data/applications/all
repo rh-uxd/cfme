@@ -1,0 +1,84 @@
+{
+   "data": [
+       {
+          "uuid": "100001",
+          "name": "Application 1",
+          "cpuUsed": "12",
+          "memoryUsed" : 176,
+          "memoryTotal" : 256,
+          "sessionsCount": 3,
+          "servicesCount": 2,
+          "groupsCount": 11
+       },
+       {
+          "uuid": "100002",
+          "name": "Application 2",
+          "cpuUsed": "54",
+          "memoryUsed" : 376,
+          "memoryTotal" : 512,
+          "sessionsCount": 9,
+          "servicesCount": 12,
+          "groupsCount": 8
+       },
+       {
+          "uuid": "100003",
+          "name": "Application 3",
+          "cpuUsed": "31",
+          "memoryUsed" : 86,
+          "memoryTotal" : 256,
+          "sessionsCount": 1,
+          "servicesCount": 1,
+          "groupsCount": 2
+       },
+       {
+          "uuid": "100004",
+          "name": "Application 4",
+          "cpuUsed": "3",
+          "memoryUsed" : 156,
+          "memoryTotal" : 256,
+          "sessionsCount": 1,
+          "servicesCount": 1,
+          "groupsCount": 1
+       },
+       {
+          "uuid": "100005",
+          "name": "Application 5",
+          "cpuUsed": "82",
+          "memoryUsed" : 512,
+          "memoryTotal" : 512,
+          "sessionsCount": 16,
+          "servicesCount": 8,
+          "groupsCount": 10
+       },
+       {
+          "uuid": "100006",
+          "name": "Application 6",
+          "cpuUsed": "43",
+          "memoryUsed" : 45,
+          "memoryTotal" : 256,
+          "sessionsCount": 3,
+          "servicesCount": 6,
+          "groupsCount": 3
+       },
+       {
+          "uuid": "100007",
+          "name": "Application 7",
+          "cpuUsed": "78",
+          "memoryUsed" : 242,
+          "memoryTotal" : 256,
+          "sessionsCount": 5,
+          "servicesCount": 1,
+          "groupsCount": 2
+       },
+       {
+          "uuid": "100008",
+          "name": "Application 8",
+          "cpuUsed": "0",
+          "memoryUsed" : 0,
+          "memoryTotal" : 256,
+          "sessionsCount": 0,
+          "servicesCount": 0,
+          "groupsCount": 1
+       }
+   ]
+}
