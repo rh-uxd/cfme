@@ -1720,8 +1720,8 @@
 .wizard-miq-step-content .blank-slate-pf {
   background-color: transparent;
   border: none;
-  padding-left: 40px;
-  padding-right: 40px;
+  left: 0;
+  right: 0;
 }
 
 /* line 148, scss/wizard.scss */
