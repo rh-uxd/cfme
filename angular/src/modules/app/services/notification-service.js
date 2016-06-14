@@ -7,6 +7,17 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
 
     this.toggleNotficationDrawerHidden = function () {
       this.notificationDrawerHidden = !this.notificationDrawerHidden
+      if (!this.notificationDrawerHidden) {
+        var found = false;
+        this.notificationGroups.forEach(function(group) {
+          if (!found && group.unreadCount > 0) {
+            group.open = true;
+            found = true;
+          } else {
+            group.open = false;
+          }
+        })
+      }
     };
 
     var notificationHeadingMap = {
@@ -21,211 +32,64 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
 
     this.notificationGroups = [
       {
-        notificationType: 'system',
-        heading: "System Notifications",
-        unreadCount: 5,
+        notificationType: 'task',
+        heading: "Tasks",
+        unreadCount: 0,
         notifications: [
           {
-            unread: true,
-            message: "A New Event! Huzzah! Bold",
-            status: 'info',
-            timeStamp: currentTime - (1 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "Another Event Notification",
-            status: 'success',
-            timeStamp: currentTime - (2 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "Another Event Notification",
+            unread: false,
+            message: 'Deployment "OSE Deploy" was canceled',
             status: 'warning',
-            timeStamp: currentTime - (10 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "Another Event Notification",
-            status: 'error',
-            timeStamp: currentTime - (12 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "A New Event! Huzzah! Bold",
-            status: 'info',
-            timeStamp: currentTime - (1 * 60 * 60 * 1000)
-          },
-          {
-            unread: false,
-            message: "Another Event Notification",
-            status: 'error',
-            timeStamp: currentTime - (2 * 60 * 60 * 1000)
-          },
-          {
-            unread: false,
-            message: "Another Event Notification",
-            status: 'success',
-            timeStamp: currentTime - (10 * 60 * 60 * 1000)
-          },
-          {
-            unread: false,
-            message: "Another Event Notification",
-            status: 'warning',
-            timeStamp: currentTime - (12 * 60 * 60 * 1000)
-          },
-          {
-            unread: false,
-            message: "Another Event Notification",
-            status: 'info',
-            timeStamp: currentTime - (240 * 60 * 60 * 1000)
+            timeStamp: currentTime - (24 * 60 * 60 * 1000)
           }
         ]
       },
       {
-        notificationType: 'user',
-        heading: "User Notifications",
-        unreadCount: 3,
+        notificationType: 'event',
+        heading: "Events",
+        unreadCount: 0,
         notifications: [
           {
-            unread: true,
-            message: "A New Event! Huzzah! Bold",
+            unread: false,
+            message: '2 Servers with RHEL 7.2 were retired',
             status: 'info',
             timeStamp: currentTime - (1 * 60 * 60 * 1000)
           },
           {
-            unread: true,
-            message: "Another Event Notification",
+            unread: false,
+            message: 'Request denied for provisioning a server',
             status: 'error',
             timeStamp: currentTime - (2 * 60 * 60 * 1000)
           },
           {
-            unread: true,
-            message: "Another Event Notification",
-            status: 'warning',
-            timeStamp: currentTime - (10 * 60 * 60 * 1000)
-          },
-          {
             unread: false,
-            message: "Another Event Notification",
-            status: 'success',
-            timeStamp: currentTime - (12 * 60 * 60 * 1000)
-          },
-          {
-            unread: false,
-            message: "Another Event Notification",
-            status: 'warning',
-            timeStamp: currentTime - (240 * 60 * 60 * 1000)
-          }
-        ]
-      },
-      {
-        notificationType: 'other',
-        heading: "Other Notifications",
-        unreadCount: 3,
-        notifications: [
-          {
-            unread: true,
-            message: "A New Event! Huzzah! Bold",
-            status: 'success',
-            timeStamp: currentTime - (1 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "Another Event Notification",
-            status: 'warning',
-            timeStamp: currentTime - (2 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "Another Event Notification",
+            message: '2 Servers with RHEL 7.2 were edited',
             status: 'info',
             timeStamp: currentTime - (10 * 60 * 60 * 1000)
           },
           {
             unread: false,
-            message: "Another Event Notification",
-            status: 'success',
-            timeStamp: currentTime - (12 * 60 * 60 * 1000)
-          },
-          {
-            unread: false,
-            message: "Another Event Notification",
-            status: 'error',
-            timeStamp: currentTime - (240 * 60 * 60 * 1000)
-          }
-        ]
-      },
-      {
-        notificationType: 'custom',
-        heading: "Custom Notifications",
-        unreadCount: 3,
-        notifications: [
-          {
-            unread: true,
-            message: "A New Event! Huzzah! Bold",
-            status: 'warning',
-            timeStamp: currentTime - (1 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "Another Event Notification",
-            status: 'success',
-            timeStamp: currentTime - (2 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "Another Event Notification",
-            status: 'success',
-            timeStamp: currentTime - (10 * 60 * 60 * 1000)
-          },
-          {
-            unread: false,
-            message: "Another Event Notification",
-            status: 'error',
-            timeStamp: currentTime - (12 * 60 * 60 * 1000)
-          },
-          {
-            unread: false,
-            message: "Another Event Notification",
+            message: 'Request create for provisioning a server',
             status: 'info',
-            timeStamp: currentTime - (240 * 60 * 60 * 1000)
-          }
-        ]
-      },
-      {
-        notificationType: 'more',
-        heading: "More Notifications",
-        unreadCount: 3,
-        notifications: [
-          {
-            unread: true,
-            message: "A New Event! Huzzah! Bold",
-            status: 'error',
-            timeStamp: currentTime - (1 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "Another Event Notification",
-            status: 'error',
-            timeStamp: currentTime - (2 * 60 * 60 * 1000)
-          },
-          {
-            unread: true,
-            message: "Another Event Notification",
-            status: 'warning',
-            timeStamp: currentTime - (10 * 60 * 60 * 1000)
-          },
-          {
-            unread: false,
-            message: "Another Event Notification",
-            status: 'warning',
             timeStamp: currentTime - (12 * 60 * 60 * 1000)
           },
           {
             unread: false,
-            message: "Another Event Notification",
-            status: 'error',
-            timeStamp: currentTime - (240 * 60 * 60 * 1000)
+            message: '2 Servers with RHEL 7.2 will retire in 10 days',
+            status: 'warning',
+            timeStamp: currentTime - ((24 * 10 + 1) * 60 * 60 * 1000)
+          },
+          {
+            unread: false,
+            message: '2 Servers with RHEL 7.2 were scheduled to be retired in 14 days',
+            status: 'info',
+            timeStamp: currentTime - ((24 * 14 + 1) * 60 * 60 * 1000)
+          },
+          {
+            unread: false,
+            message: 'Request to provision a server succeeded',
+            status: 'success',
+            timeStamp: currentTime - ((24 * 16 - 5) * 60 * 60 * 1000)
           }
         ]
       }
@@ -344,9 +208,29 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
       }
     };
 
-    this.addNotification('user', 'Login Successful', 'success');
-    $timeout(function() {
-      $this.addNotification('system', 'Error occurred while trying to contact server for user preferences', 'error');
-    }, 4000);
+    this.clearNotifcation = function (notification, group) {
+      if (!group) {
+        group = this.notificationGroups.find(function (nextGroup) {
+          return nextGroup.notifications.find(function (nextNotification) {
+            return nextNotification == notificationHeadingMap;
+          })
+        });
+      }
+
+      if (group) {
+        var index = group.notifications.indexOf(notification);
+        if (index > -1) {
+          group.notifications.splice(index, 1);
+          updateUnreadCount(group);
+        }
+      }
+    };
+
+    this.clearAllNotifications = function (group) {
+      if (group) {
+        group.notifications = [];
+        updateUnreadCount(group);
+      };
+    }
   }
 ]);
