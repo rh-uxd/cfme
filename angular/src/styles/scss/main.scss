@@ -23,11 +23,12 @@
   right: 15px;
   top: 15px;
   z-index: 100;
+
 }
 
-.drawer-pf.drawer-pf-expanded {
+.miq-notification-drawer-expanded .drawer-pf {
   width: inherit;
-  left: 10px;
+  left: 220px;
 }
 
 .drawer-pf .drawer-pf-title .drawer-pf-toggle-expand {
@@ -36,17 +37,38 @@
   position: absolute;
   padding: 2px 5px;
 }
-.drawer-pf-title h5 {
-  font-size: 12px;
-  margin: 0;
-  padding: 6px 15px;
-}
+
 .drawer-pf .drawer-pf-title .drawer-pf-toggle-expand:before {
   font-family: "FontAwesome";
   content: "\f100";
 }
 
-.drawer-pf.drawer-pf-expanded .drawer-pf-title a.drawer-pf-toggle-expand:before {
+.drawer-pf .panel-counter.sub-heading {
+  font-size: 12px;
+  font-weight: normal;
+}
+.drawer-pf-notification {
+  .expanded-notification {
+    .drawer-pf-notification-info {
+      .date {
+        border-right: none;
+        padding-right: 0;
+      }
+
+      .info-title {
+        margin-right: 5px;
+      }
+    }
+
+    .dropdown-kebab-pf {
+      position: absolute;
+      right: 10px;
+      margin-top: -5px;
+    }
+  }
+}
+
+.miq-notification-drawer-expanded .drawer-pf .drawer-pf-title a.drawer-pf-toggle-expand:before {
   content: "\f101";
 }
 
@@ -59,6 +81,7 @@
 
   .drawer-pf {
     .miq-notification-message {
+      padding-left: 12px;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
@@ -70,6 +93,15 @@
     }
     .panel-group .panel-default .panel-title > a:before {
       content: "\f107";
+    }
+  }
+
+  .miq-notification-drawer-expanded {
+    .drawer-pf-notification-info {
+      padding: 0;
+    }
+    .miq-notification-message {
+      padding-right: 0;
     }
   }
 }

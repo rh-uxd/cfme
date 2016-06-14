@@ -40,6 +40,8 @@ angular.module('miq.appModule').service( 'miq.notificationService', ['Notificati
             unread: false,
             message: 'Deployment "OSE Deploy" was canceled',
             status: 'warning',
+            startTime: currentTime - (22 * 60 * 60 * 1000),
+            endTime: currentTime - (24 * 60 * 60 * 1000),
             timeStamp: currentTime - (24 * 60 * 60 * 1000)
           }
         ]

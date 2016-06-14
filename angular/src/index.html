@@ -57,7 +57,7 @@
         </li>
       </ul>
     </div>
-    <div ng-controller="miq.notificationsController">
+    <div ng-controller="miq.notificationsController" ng-class="{'miq-notification-drawer-expanded': customScope.drawerExpanded}">
       <div class="miq-notificaton-list" data-ng-show="toastNotifications.length > 0">
         <div ng-repeat="notification in toastNotifications">
           <div miq-toast-notification notification="notification"
@@ -66,9 +66,9 @@
           </div>
         </div>
       </div>
-      <div pf-notification-drawer drawer-hidden="hideDrawer" drawer-title="{{drawerTitle}}"
-           action-button-title="{{clearAllTitle}}" action-button-callback="clearAllCB" notification-groups="groups"
-           heading-include="{{headingHTML}}" subheading-include="{{subHeadingHTML}}" notification-body-include="{{notificationHTML}}"
+      <div pf-notification-drawer drawer-hidden="hideDrawer" notification-groups="groups"
+           title-include="{{titleHtml}}" heading-include="{{headingHTML}}" subheading-include="{{subHeadingHTML}}"
+           notification-body-include="{{notificationHTML}}" notification-footer-include="{{notificationFooterHTML}}"
            custom-scope="customScope">
       </div>
     </div>
