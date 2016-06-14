@@ -48,109 +48,124 @@
 }
 
 /* line 46, scss/main.scss */
+.drawer-pf .miq-notification-actions {
+  padding: 10px 0;
+  border-bottom: solid 1px #bbb;
+}
+/* line 49, scss/main.scss */
+.drawer-pf .miq-notification-actions .center-button {
+  display: block;
+  margin: 0 auto;
+}
+/* line 53, scss/main.scss */
+.drawer-pf .miq-notification-actions .center-button:focus, .drawer-pf .miq-notification-actions .center-button:hover {
+  outline: none;
+}
+
+/* line 59, scss/main.scss */
 .drawer-pf .panel-counter.sub-heading {
   font-size: 12px;
   font-weight: normal;
 }
 
-/* line 53, scss/main.scss */
+/* line 66, scss/main.scss */
 .drawer-pf-notification .expanded-notification .drawer-pf-notification-info .date {
   border-right: none;
   padding-right: 0;
 }
-/* line 58, scss/main.scss */
+/* line 71, scss/main.scss */
 .drawer-pf-notification .expanded-notification .drawer-pf-notification-info .info-title {
   margin-right: 5px;
 }
-/* line 63, scss/main.scss */
+/* line 76, scss/main.scss */
 .drawer-pf-notification .expanded-notification .dropdown-kebab-pf {
   position: absolute;
   right: 10px;
   margin-top: -5px;
 }
 
-/* line 71, scss/main.scss */
+/* line 84, scss/main.scss */
 .miq-notification-drawer-expanded .drawer-pf .drawer-pf-title a.drawer-pf-toggle-expand:before {
   content: "\f101";
 }
 
-/* line 75, scss/main.scss */
+/* line 88, scss/main.scss */
 .miq-body {
   background: #f5f5f5;
 }
-/* line 77, scss/main.scss */
+/* line 90, scss/main.scss */
 .miq-body .navbar-pf-vertical .navbar-brand .navbar-brand-icon {
   height: 20px;
   margin-top: 10px;
 }
-/* line 82, scss/main.scss */
+/* line 95, scss/main.scss */
 .miq-body .drawer-pf {
   /* This is temporary until the fix is in Angular-Patternfly */
 }
-/* line 83, scss/main.scss */
+/* line 96, scss/main.scss */
 .miq-body .drawer-pf .miq-notification-message {
   padding-left: 12px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-/* line 91, scss/main.scss */
+/* line 104, scss/main.scss */
 .miq-body .drawer-pf .panel-group .panel-default .panel-title > a.collapsed:before {
   content: "\f105";
 }
-/* line 94, scss/main.scss */
+/* line 107, scss/main.scss */
 .miq-body .drawer-pf .panel-group .panel-default .panel-title > a:before {
   content: "\f107";
 }
-/* line 100, scss/main.scss */
+/* line 113, scss/main.scss */
 .miq-body .miq-notification-drawer-expanded .drawer-pf-notification-info {
   padding: 0;
 }
-/* line 103, scss/main.scss */
+/* line 116, scss/main.scss */
 .miq-body .miq-notification-drawer-expanded .miq-notification-message {
   padding-right: 0;
 }
 
-/* line 111, scss/main.scss */
+/* line 124, scss/main.scss */
 .miq-dashboard-view .card-pf-aggregate-status .card-pf-title .pficon, .miq-dashboard-view .card-pf-aggregate-status .fa, .miq-objects-view .card-pf-aggregate-status .card-pf-title .pficon, .miq-objects-view .card-pf-aggregate-status .fa {
   color: #1186C1 !important;
 }
-/* line 116, scss/main.scss */
+/* line 129, scss/main.scss */
 .miq-dashboard-view .miq-dashboard-full-image, .miq-objects-view .miq-dashboard-full-image {
   height: 104px;
 }
-/* line 120, scss/main.scss */
+/* line 133, scss/main.scss */
 .miq-dashboard-view .miq-card-title-img, .miq-objects-view .miq-card-title-img {
   height: 18px;
   margin-top: -5px;
 }
-/* line 125, scss/main.scss */
+/* line 138, scss/main.scss */
 .miq-dashboard-view .card-pf-icon-image, .miq-objects-view .card-pf-icon-image {
   margin-left: 0;
   margin-right: 0;
 }
-/* line 130, scss/main.scss */
+/* line 143, scss/main.scss */
 .miq-dashboard-view .miq-column-image, .miq-objects-view .miq-column-image {
   height: 18px;
   margin-top: -2px;
 }
-/* line 135, scss/main.scss */
+/* line 148, scss/main.scss */
 .miq-dashboard-view .list-view-pf .list-group-item.active .pficon, .miq-dashboard-view .list-view-pf .list-group-item.active:hover .pficon, .miq-dashboard-view .list-view-pf .list-group-item.active:focus .pficon, .miq-objects-view .list-view-pf .list-group-item.active .pficon, .miq-objects-view .list-view-pf .list-group-item.active:hover .pficon, .miq-objects-view .list-view-pf .list-group-item.active:focus .pficon {
   color: #1186C1;
 }
-/* line 138, scss/main.scss */
+/* line 151, scss/main.scss */
 .miq-dashboard-view .list-view-pf .list-group-item .pficon, .miq-objects-view .list-view-pf .list-group-item .pficon {
   font-size: 18px;
 }
-/* line 141, scss/main.scss */
+/* line 154, scss/main.scss */
 .miq-dashboard-view .card-view-pf .card.active .pficon, .miq-dashboard-view .card-view-pf .card.active:hover .pficon, .miq-dashboard-view .card-view-pf .card.active:focus .pficon, .miq-objects-view .card-view-pf .card.active .pficon, .miq-objects-view .card-view-pf .card.active:hover .pficon, .miq-objects-view .card-view-pf .card.active:focus .pficon {
   color: #1186C1;
 }
-/* line 145, scss/main.scss */
+/* line 158, scss/main.scss */
 .miq-dashboard-view .card-pf .loading, .miq-objects-view .card-pf .loading {
   margin: 10px auto;
 }
-/* line 149, scss/main.scss */
+/* line 162, scss/main.scss */
 .miq-dashboard-view .blank-slate-pf, .miq-objects-view .blank-slate-pf {
   position: absolute;
   top: 0;
@@ -158,29 +173,29 @@
   margin: 0 0 0 -20px;
 }
 
-/* line 157, scss/main.scss */
+/* line 170, scss/main.scss */
 .provider-card {
   min-height: 144px;
 }
-/* line 160, scss/main.scss */
+/* line 173, scss/main.scss */
 .provider-card .providers {
   padding: 20px 0;
 }
-/* line 163, scss/main.scss */
+/* line 176, scss/main.scss */
 .provider-card .providers a {
   color: #000000;
   text-decoration: none;
 }
-/* line 168, scss/main.scss */
+/* line 181, scss/main.scss */
 .provider-card .providers a:hover {
   color: #00618a;
   text-decoration: underline;
 }
-/* line 172, scss/main.scss */
+/* line 185, scss/main.scss */
 .provider-card .providers .count {
   margin: 0 5px;
 }
-/* line 176, scss/main.scss */
+/* line 189, scss/main.scss */
 .provider-card .providers .provider-icon {
   font-size: 22px;
   position: relative;
@@ -188,11 +203,11 @@
   padding-right: 5px;
   opacity: .9;
 }
-/* line 183, scss/main.scss */
+/* line 196, scss/main.scss */
 .provider-card .providers .provider-icon:hover {
   opacity: 1;
 }
-/* line 189, scss/main.scss */
+/* line 202, scss/main.scss */
 .provider-card .provider-icon-large {
   font-size: 100px;
   position: relative;
@@ -201,12 +216,12 @@
   text-align: center;
 }
 
-/* line 198, scss/main.scss */
+/* line 211, scss/main.scss */
 .providers-status {
   padding-bottom: 9px !important;
 }
 
-/* line 202, scss/main.scss */
+/* line 215, scss/main.scss */
 .aggregate-status-card-full-image {
   display: block;
   height: 48px;
@@ -215,7 +230,7 @@
   width: 48px;
 }
 
-/* line 210, scss/main.scss */
+/* line 223, scss/main.scss */
 .aggregate-status-card-title-image {
   height: 15px;
   width: 15px;
@@ -223,7 +238,7 @@
   margin-right: 7px;
 }
 
-/* line 217, scss/main.scss */
+/* line 230, scss/main.scss */
 .aggregate-status-card-notification-image {
   height: 18px;
   width: 18px;
@@ -231,180 +246,180 @@
   margin-right: 7px;
 }
 
-/* line 224, scss/main.scss */
+/* line 237, scss/main.scss */
 .product-vendor-kubernetes {
   background: url("images/vendor-kubernetes.svg") left top;
 }
 
-/* line 228, scss/main.scss */
+/* line 241, scss/main.scss */
 .product-vendor-atomic-enterprise {
   background: url("images/vendor-atomic.svg") left top;
 }
 
-/* line 232, scss/main.scss */
+/* line 245, scss/main.scss */
 .containers-dashboard .card-pf.card-pf-aggregate-status-mini {
   height: 60px;
 }
 
-/* line 236, scss/main.scss */
+/* line 249, scss/main.scss */
 .container-providers .card-pf.card-pf-aggregate-status-mini {
   height: 63px;
 }
 
-/* line 240, scss/main.scss */
+/* line 253, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini {
   height: 103px;
 }
-/* line 242, scss/main.scss */
+/* line 255, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title {
   margin-top: 24px;
 }
-/* line 245, scss/main.scss */
+/* line 258, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title .pficon, .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-title .fa {
   top: 30px;
 }
-/* line 249, scss/main.scss */
+/* line 262, scss/main.scss */
 .project-dashboard .card-pf.card-pf-aggregate-status-mini .card-pf-body {
   margin-top: 18px;
 }
 
-/* line 255, scss/main.scss */
+/* line 268, scss/main.scss */
 .card-view-pf .card {
   overflow: visible;
 }
-/* line 258, scss/main.scss */
+/* line 271, scss/main.scss */
 .card-view-pf .card-content {
   overflow: visible;
 }
-/* line 262, scss/main.scss */
+/* line 275, scss/main.scss */
 .card-view-pf .progress {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/* line 267, scss/main.scss */
+/* line 280, scss/main.scss */
 .card-view-pf .card-title .miq-icon-label {
   padding-left: 5px;
   padding-bottom: 15px;
 }
-/* line 272, scss/main.scss */
+/* line 285, scss/main.scss */
 .card-view-pf .card-row {
   padding: 0;
   margin: 0;
 }
-/* line 276, scss/main.scss */
+/* line 289, scss/main.scss */
 .card-view-pf .card-row .card-view-pf {
   overflow: visible;
 }
-/* line 281, scss/main.scss */
+/* line 294, scss/main.scss */
 .card-view-pf .card-column {
   width: 50%;
   float: left;
 }
-/* line 286, scss/main.scss */
+/* line 299, scss/main.scss */
 .card-view-pf .status-object {
   text-align: left;
   margin: 5px 20px;
 }
-/* line 290, scss/main.scss */
+/* line 303, scss/main.scss */
 .card-view-pf .status-object .pficon {
   font-size: 20px;
   width: 26px;
   color: #1186C1;
 }
-/* line 295, scss/main.scss */
+/* line 308, scss/main.scss */
 .card-view-pf .status-object .status-count {
   font-size: 18px;
   color: #515151;
 }
-/* line 299, scss/main.scss */
+/* line 312, scss/main.scss */
 .card-view-pf .status-object .status-text {
   font-size: 12px;
   color: #515151;
 }
-/* line 305, scss/main.scss */
+/* line 318, scss/main.scss */
 .card-view-pf .miq-icon-label {
   color: #515151;
   font-size: 18px;
   white-space: nowrap;
 }
-/* line 310, scss/main.scss */
+/* line 323, scss/main.scss */
 .card-view-pf .pficon.miq-icon-label {
   color: #1186C1;
 }
-/* line 314, scss/main.scss */
+/* line 327, scss/main.scss */
 .card-view-pf .miq-label {
   color: #515151;
   font-size: 12px;
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 321, scss/main.scss */
+/* line 334, scss/main.scss */
 .card-view-pf .miq-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 328, scss/main.scss */
+/* line 341, scss/main.scss */
 .card-view-pf .miq-icon-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 335, scss/main.scss */
+/* line 348, scss/main.scss */
 .card-view-pf .miq-label.miq-count {
   float: left;
   text-align: right;
   text-align: right;
   width: 32px;
 }
-/* line 342, scss/main.scss */
+/* line 355, scss/main.scss */
 .card-view-pf .miq-column.usage-column .miq-title {
   text-align: right;
 }
-/* line 345, scss/main.scss */
+/* line 358, scss/main.scss */
 .card-view-pf .cpu-usage-column {
   width: 150px;
 }
-/* line 347, scss/main.scss */
+/* line 360, scss/main.scss */
 .card-view-pf .cpu-usage-column .miq-title {
   text-align: right;
   width: 95px;
 }
-/* line 352, scss/main.scss */
+/* line 365, scss/main.scss */
 .card-view-pf .memory-usage-column {
   width: 180px;
 }
-/* line 354, scss/main.scss */
+/* line 367, scss/main.scss */
 .card-view-pf .memory-usage-column .miq-title {
   text-align: right;
   width: 135px;
 }
 
-/* line 362, scss/main.scss */
+/* line 375, scss/main.scss */
 .list-view-pf .miq-list-row {
   width: 100%;
 }
-/* line 366, scss/main.scss */
+/* line 379, scss/main.scss */
 .list-view-pf .miq-row-column {
   padding-right: 5px;
 }
-/* line 371, scss/main.scss */
+/* line 384, scss/main.scss */
 .list-view-pf .list-group-item .miq-column {
   float: left;
   padding: 5px 5px;
   margin-right: 10px;
 }
-/* line 377, scss/main.scss */
+/* line 390, scss/main.scss */
 .list-view-pf .list-group-item .miq-object-column {
   padding-top: 1px !important;
 }
-/* line 379, scss/main.scss */
+/* line 392, scss/main.scss */
 .list-view-pf .list-group-item .miq-object-column .miq-label {
   vertical-align: middle;
 }
-/* line 385, scss/main.scss */
+/* line 398, scss/main.scss */
 .list-view-pf .list-group-item .miq-icon-label {
   color: #515151;
   font-size: 18px;
@@ -412,159 +427,159 @@
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 392, scss/main.scss */
+/* line 405, scss/main.scss */
 .list-view-pf .list-group-item .pficon.miq-icon-label {
   color: #1186C1;
 }
-/* line 396, scss/main.scss */
+/* line 409, scss/main.scss */
 .list-view-pf .list-group-item .miq-label {
   color: #515151;
   font-size: 12px;
   white-space: nowrap;
   padding-left: 5px;
 }
-/* line 403, scss/main.scss */
+/* line 416, scss/main.scss */
 .list-view-pf .list-group-item .miq-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 410, scss/main.scss */
+/* line 423, scss/main.scss */
 .list-view-pf .list-group-item .miq-icon-label.miq-title {
   float: left;
   color: #515151;
   font-size: 13px;
   font-weight: 700;
 }
-/* line 417, scss/main.scss */
+/* line 430, scss/main.scss */
 .list-view-pf .list-group-item .miq-label.miq-count {
   float: left;
   text-align: right;
   text-align: right;
   width: 32px;
 }
-/* line 424, scss/main.scss */
+/* line 437, scss/main.scss */
 .list-view-pf .list-group-item .miq-column.usage-column .miq-title {
   text-align: right;
 }
-/* line 429, scss/main.scss */
+/* line 442, scss/main.scss */
 .list-view-pf .provider-column {
   padding-top: 5px !important;
 }
 
-/* line 434, scss/main.scss */
+/* line 447, scss/main.scss */
 .providers-cards .card-view-pf .card {
   height: 250px;
   width: 355px;
 }
 
-/* line 439, scss/main.scss */
+/* line 452, scss/main.scss */
 .projects-cards .card-view-pf .card {
   height: 270px;
   width: 355px;
 }
 
-/* line 443, scss/main.scss */
+/* line 456, scss/main.scss */
 .projects-cards .status-object.provider-object {
   text-align: center;
 }
 
-/* line 447, scss/main.scss */
+/* line 460, scss/main.scss */
 .pods-cards .card-view-pf .card {
   height: 230px;
   width: 355px;
 }
 
-/* line 454, scss/main.scss */
+/* line 467, scss/main.scss */
 .pods-containers-info .containers-heading {
   text-align: center;
 }
-/* line 456, scss/main.scss */
+/* line 469, scss/main.scss */
 .pods-containers-info .containers-heading .pficon {
   color: #1186C1;
   font-size: 64px;
   padding: 10px 20px;
 }
-/* line 461, scss/main.scss */
+/* line 474, scss/main.scss */
 .pods-containers-info .containers-heading .containers-count {
   border-left: 1px solid #d1d1d1;
   color: #515151;
   font-weight: 300;
 }
-/* line 466, scss/main.scss */
+/* line 479, scss/main.scss */
 .pods-containers-info .containers-heading .containers-label {
   font-size: 26px;
 }
-/* line 470, scss/main.scss */
+/* line 483, scss/main.scss */
 .pods-containers-info .containers-counter {
   font-size: 32px;
 }
-/* line 474, scss/main.scss */
+/* line 487, scss/main.scss */
 .pods-containers-info .containers-list {
   margin-top: 10px;
   border: 1px solid #d1d1d1;
 }
-/* line 477, scss/main.scss */
+/* line 490, scss/main.scss */
 .pods-containers-info .containers-list .toolbar-pf {
   padding-bottom: 10px;
 }
-/* line 480, scss/main.scss */
+/* line 493, scss/main.scss */
 .pods-containers-info .containers-list .list-view-container {
   height: 264px;
 }
-/* line 484, scss/main.scss */
+/* line 497, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column {
   width: 190px;
 }
-/* line 486, scss/main.scss */
+/* line 499, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column .miq-title {
   text-align: right;
   width: 105px;
 }
-/* line 490, scss/main.scss */
+/* line 503, scss/main.scss */
 .pods-containers-info .containers-list .cpu-usage-column .miq-count {
   width: 30px;
   text-align: right;
 }
-/* line 495, scss/main.scss */
+/* line 508, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column {
   width: 225px;
 }
-/* line 497, scss/main.scss */
+/* line 510, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column .miq-title {
   text-align: right;
   width: 130px;
 }
-/* line 501, scss/main.scss */
+/* line 514, scss/main.scss */
 .pods-containers-info .containers-list .memory-usage-column .miq-count {
   width: 30px;
   text-align: right;
 }
 
-/* line 509, scss/main.scss */
+/* line 522, scss/main.scss */
 .pod-metrics {
   height: 392px;
   overflow-y: auto;
 }
-/* line 513, scss/main.scss */
+/* line 526, scss/main.scss */
 .pod-metrics .metric-row {
   padding: 10px 5px;
   margin: 0;
 }
-/* line 518, scss/main.scss */
+/* line 531, scss/main.scss */
 .pod-metrics .metric-row:first-of-type {
   padding-top: 5px;
 }
-/* line 522, scss/main.scss */
+/* line 535, scss/main.scss */
 .pod-metrics .metric-row:last-of-type {
   padding-bottom: 5px;
 }
-/* line 526, scss/main.scss */
+/* line 539, scss/main.scss */
 .pod-metrics .metric-col {
   float: left;
 }
-/* line 530, scss/main.scss */
+/* line 543, scss/main.scss */
 .pod-metrics .metric-title {
   text-align: right;
   font-weight: 700;
@@ -572,7 +587,7 @@
   width: 175px;
   padding: 0 5px;
 }
-/* line 538, scss/main.scss */
+/* line 551, scss/main.scss */
 .pod-metrics .metric-value {
   float: left;
   padding: 0 5px;
@@ -653,7 +668,7 @@
   color: #1186C1 !important;
 }
 ****/
-/* line 620, scss/main.scss */
+/* line 633, scss/main.scss */
 .icon-atomic:before {
   content: "\e62d";
   color: #0088ce;
