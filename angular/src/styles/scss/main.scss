@@ -43,6 +43,19 @@
   content: "\f100";
 }
 
+.drawer-pf .miq-notification-actions {
+  padding: 10px 0;
+  border-bottom: solid 1px #bbb;
+  .center-button {
+    display: block;
+    margin: 0 auto;
+
+    &:focus, &:hover {
+      outline: none;
+    }
+  }
+}
+
 .drawer-pf .panel-counter.sub-heading {
   font-size: 12px;
   font-weight: normal;
