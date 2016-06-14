@@ -5,9 +5,11 @@ angular.module('miq.appModule').controller( 'miq.notificationsController', ['$sc
     $scope.drawerTitle = 'Notifications Drawer';
     $scope.clearAllTitle = 'Clear All';
 
+    $scope.titleHtml = 'modules/app/controllers/drawer-title.html';
     $scope.headingHTML = 'modules/app/controllers/heading.html';
-    $scope.subHeadingHTML = 'modules/app/controllers/subheading.html';
+//    $scope.subHeadingHTML = 'modules/app/controllers/subheading.html';
     $scope.notificationHTML = 'modules/app/controllers/notification-body.html';
+    $scope.notificationFooterHTML = 'modules/app/controllers/notification-footer.html';
 
     $scope.hideDrawer = true;
     $rootScope.$on('toggle-notification-drawer', function () {
@@ -24,11 +26,8 @@ angular.module('miq.appModule').controller( 'miq.notificationsController', ['$sc
     });
     $scope.toastNotifications = notificationService.toastNotifications;
 
-    $scope.clearAllCB = function (group) {
-      notificationService.clearAllNotifications(group);
-    };
-
     $scope.customScope = {
+      drawerExpanded: false,
       getNotficationStatusIconClass: function (notification) {
         var retClass = '';
         if (notification && notification.status) {
@@ -44,8 +43,18 @@ angular.module('miq.appModule').controller( 'miq.notificationsController', ['$sc
         }
         return retClass;
       },
+      markNotificationRead: function (notification, group) {
+        notificationService.markNotificationRead(notification, group);
+      },
       clearNotification: function (notification, group) {
         notificationService.clearNotifcation(notification, group);
+      },
+      clearAllNotifications: function (group) {
+        notificationService.clearAllNotifications(group);
+      },
+      toggleExpandDrawer: function () {
+        $scope.customScope.drawerExpanded = !$scope.customScope.drawerExpanded;
+
       }
     };
   }

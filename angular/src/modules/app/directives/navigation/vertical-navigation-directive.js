@@ -174,9 +174,7 @@ angular.module('miq.navigation').directive('miqVerticalNavigation', ['$location'
 
         // Dispatch a resize event when showing the expanding then menu to
         // allow content to adjust to the menu sizing
-        if (!subDesktop) {
-          angular.element($window).triggerHandler('resize');
-        }
+        angular.element($window).triggerHandler('resize');
       };
 
       var forceHideSecondaryMenu = function () {
