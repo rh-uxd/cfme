@@ -25,11 +25,52 @@
   z-index: 100;
 }
 
+.drawer-pf.drawer-pf-expanded {
+  width: inherit;
+  left: 10px;
+}
+
+.drawer-pf .drawer-pf-title .drawer-pf-toggle-expand {
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  padding: 2px 5px;
+}
+.drawer-pf-title h5 {
+  font-size: 12px;
+  margin: 0;
+  padding: 6px 15px;
+}
+.drawer-pf .drawer-pf-title .drawer-pf-toggle-expand:before {
+  font-family: "FontAwesome";
+  content: "\f100";
+}
+
+.drawer-pf.drawer-pf-expanded .drawer-pf-title a.drawer-pf-toggle-expand:before {
+  content: "\f101";
+}
+
 .miq-body {
   background: #f5f5f5;
   .navbar-pf-vertical .navbar-brand .navbar-brand-icon {
     height: 20px;
     margin-top: 10px;
+  }
+
+  .drawer-pf {
+    .miq-notification-message {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    /* This is temporary until the fix is in Angular-Patternfly */
+    .panel-group .panel-default .panel-title > a.collapsed:before {
+      content: "\f105";
+    }
+    .panel-group .panel-default .panel-title > a:before {
+      content: "\f107";
+    }
   }
 }
 

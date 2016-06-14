@@ -3,7 +3,7 @@
 angular.module('miq.appModule').controller( 'miq.notificationsController', ['$scope', '$rootScope', 'miq.notificationService',
   function( $scope, $rootScope, notificationService ) {
     $scope.drawerTitle = 'Notifications Drawer';
-    $scope.markAllReadTitle = 'Mark All Read';
+    $scope.clearAllTitle = 'Clear All';
 
     $scope.headingHTML = 'modules/app/controllers/heading.html';
     $scope.subHeadingHTML = 'modules/app/controllers/subheading.html';
@@ -24,8 +24,8 @@ angular.module('miq.appModule').controller( 'miq.notificationsController', ['$sc
     });
     $scope.toastNotifications = notificationService.toastNotifications;
 
-    $scope.markAllReadCB = function (group) {
-      notificationService.markAllNotificationsRead(group);
+    $scope.clearAllCB = function (group) {
+      notificationService.clearAllNotifications(group);
     };
 
     $scope.customScope = {
@@ -44,11 +44,8 @@ angular.module('miq.appModule').controller( 'miq.notificationsController', ['$sc
         }
         return retClass;
       },
-      markRead: function (notification, group) {
-        notificationService.markNotificationRead(notification, group);
-      },
-      markUnread: function (notification, group) {
-        notificationService.markNotificationUnread(notification, group);
+      clearNotification: function (notification, group) {
+        notificationService.clearNotifcation(notification, group);
       }
     };
   }
