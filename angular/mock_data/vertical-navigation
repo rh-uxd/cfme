@@ -11,11 +11,35 @@
          "children": [
             {
                "title":"Clouds",
-               "href":"#/compute/clouds"
+               "href":"#/compute/clouds",
+               "children":[
+                  {
+                     "title":"Tenants",
+                     "href":"#/compute/clouds/tenants"
+                  },
+                  {
+                     "title":"Volumes",
+                     "href":"#/compute/clouds/volumes"
+                  }
+                ]
             },
             {
                "title":"Infrastructure",
-               "href":"#/compute/infrastructure"
+               "href":"#/compute/infrastructure",
+               "children":[
+                  {
+                     "title":"Providers",
+                     "href":"#/compute/infrastructure/providers"
+                  },
+                  {
+                     "title":"Clusters",
+                     "href":"#/compute/infrastructure/clusters"
+                  },
+                  {
+                     "title":"Hosts",
+                     "href":"#/compute/infrastructure/tenants"
+                  }
+                ]
             },
             {
                "title":"Containers",
@@ -76,11 +100,6 @@
          "title":"Applications",
          "iconClass": "fa fa-cogs",
          "href":"#/applications"
-      },
-      {
-         "title":"Events",
-         "iconClass": "fa fa-newspaper-o",
-         "href":"#/events"
       },
       {
          "title":"Admin",

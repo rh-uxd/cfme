@@ -1,0 +1,34 @@
+{
+   "data": [
+       {
+          "uuid": "100001",
+          "name": "San Francisco Office",
+          "defaultRole" : "Monitor",
+          "usersCount": 25
+       },
+       {
+          "uuid": "100002",
+          "name": "New York Office",
+          "defaultRole" : "Administrator",
+          "usersCount": 43
+       },
+       {
+          "uuid": "100003",
+          "name": "Boston Office",
+          "defaultRole" : "Monitor",
+          "usersCount": 19
+       },
+       {
+          "uuid": "100004",
+          "name": "St. Louis Office",
+          "defaultRole" : "Editor",
+          "usersCount": 33
+       },
+       {
+          "uuid": "100005",
+          "name": "London Office",
+          "defaultRole" : "Monitor",
+          "usersCount": 25
+       }
+   ]
+}

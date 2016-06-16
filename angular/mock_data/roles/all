@@ -1,0 +1,28 @@
+{
+   "data": [
+       {
+          "uuid": "100001",
+          "name": "Monitor",
+          "usersCount": 25,
+          "permissionsCount": 3
+       },
+       {
+          "uuid": "100002",
+          "name": "Editor",
+          "usersCount": 15,
+          "permissionsCount": 7
+       },
+       {
+          "uuid": "100003",
+          "name": "Auditor",
+          "usersCount": 25,
+          "permissionsCount": 4
+       },
+       {
+          "uuid": "100004",
+          "name": "Administrator",
+          "usersCount": 5,
+          "permissionsCount": 10
+       }
+   ]
+}

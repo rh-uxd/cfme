@@ -10,23 +10,23 @@ angular.module( 'miq.adminModule',
         redirectTo: '/admin/user-admin/users'
       })
       .when('/admin/user-admin/users', {
-        templateUrl: 'modules/infrastructure/providers/provider.html',
-        controller: 'infrastructure.providerController'
+        templateUrl: 'modules/admin/user-admin/users.html',
+        controller: 'userAdmin.usersController'
       })
       .when('/admin/user-admin/groups', {
-        templateUrl: 'modules/infrastructure/providers/provider.html',
-        controller: 'infrastructure.providerController'
+        templateUrl: 'modules/admin/user-admin/groups.html',
+        controller: 'userAdmin.groupsController'
       })
       .when('/admin/user-admin/roles', {
-        templateUrl: 'modules/infrastructure/providers/provider.html',
-        controller: 'infrastructure.providerController'
+        templateUrl: 'modules/admin/user-admin/roles.html',
+        controller: 'userAdmin.rolesController'
       })
       .when('/admin/backups', {
-        templateUrl: 'modules/infrastructure/providers/provider.html',
-        controller: 'infrastructure.providerController'
+        templateUrl: 'modules/admin/backups.html',
+        controller: 'admin.backupsController'
       })
       .when('/admin/automated-tasks', {
-        templateUrl: 'modules/infrastructure/providers/provider.html',
-        controller: 'infrastructure.providerController'
+        templateUrl: 'modules/admin/automated-tasks.html',
+        controller: 'admin.automatedTasksController'
       })
   }]);

@@ -1,0 +1,76 @@
+{
+   "data": [
+       {
+          "uuid": "100001",
+          "username": "jodoe",
+          "name": "John Doe",
+          "email" : "jodoe@acme.com",
+          "role" : "Administrator",
+          "groupsCount": 2
+       },
+       {
+          "uuid": "100002",
+          "username": "jadoe",
+          "name": "Jane Doe",
+          "email" : "jadoe@acme.com",
+          "role" : "Administrator",
+          "groupsCount": 2
+       },
+       {
+          "uuid": "100003",
+          "username": "pepiper",
+          "name": "Peter Piper",
+          "email" : "pepiper@acme.com",
+          "role" : "Auditor",
+          "groupsCount": 1
+       },
+       {
+          "uuid": "100004",
+          "username": "jasprat",
+          "name": "Jack Sprat",
+          "email" : "jasprat@acme.com",
+          "role" : "Monitor",
+          "groupsCount": 2
+       },
+       {
+          "uuid": "100005",
+          "username": "mimouse",
+          "name": "Minnie Mouse",
+          "email" : "mimouse@acme.com",
+          "role" : "Editor",
+          "groupsCount": 3
+       },
+       {
+          "uuid": "100006",
+          "username": "hapotter",
+          "name": "Harry Potter",
+          "email" : "hapotter@acme.com",
+          "role" : "Monitor",
+          "groupsCount": 1
+       },
+       {
+          "uuid": "100007",
+          "username": "luskywal",
+          "name": "Luke Skywalker",
+          "email" : "luskywal@acme.com",
+          "role" : "Editor",
+          "groupsCount": 2
+       },
+       {
+          "uuid": "100008",
+          "username": "doduque",
+          "name": "Donald Duque",
+          "email" : "doduque@acme.com",
+          "role" : "Administrator",
+          "groupsCount": 2
+       },
+       {
+          "uuid": "100009",
+          "username": "hosimpso",
+          "name": "Homer Simpsom",
+          "email" : "hosimpso@acme.com",
+          "role" : "Administrator",
+          "groupsCount": 1
+       }
+   ]
+}

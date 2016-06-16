@@ -19,6 +19,11 @@ angular.module('miq.util').factory('ColumnsConfig', [function columnsConfigFacto
     uptimeColumnWidth: 150,
     providerColumnWidth: 160,
     sessionsColumnWidth: 125,
-    serverGroupsColumnWidth: 175
+    serverGroupsColumnWidth: 175,
+    clustersColumnWidth: 140,
+    hostsColumnWidth: 140,
+    dataStoresColumnWidth: 140,
+    vmsColumnWidth: 140,
+    templatesColumnWidth: 140
   };
 }]);
