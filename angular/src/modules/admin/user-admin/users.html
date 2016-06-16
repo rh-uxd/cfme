@@ -1,0 +1,28 @@
+<div class="container-fluid container-cards-pf miq-objects-view">
+  <ol class="breadcrumb" style="margin-bottom: 0px;">
+    <li>Admin</li>
+    <li>User Admin</li>
+    <li>Users</li>
+  </ol>
+  <div ng-if="usersLoaded">
+    <div ng-if="users && users.length > 0">
+      <div pf-toolbar class="row" config="toolbarConfig"></div>
+      <div object-list list-class="row" list-id="{{listId}}"
+           list-config="listConfig" items="users" columns="columns">
+      </div>
+    </div>
+    <div ng-if="!users || users.length < 1">
+      <div class="blank-slate-pf" style="">
+        <div class="blank-slate-pf-icon">
+          <i class="fa fa-cogs"></i>
+        </div>
+        <h1>Add Users</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="blank-slate-pf-main-action">
+          <button class="btn btn-primary btn-lg">
+            Add Users
+          </button>
+        </div>
+      </div>
+    </div>
+</div>

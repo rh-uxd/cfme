@@ -124,6 +124,36 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     width: columnsConfig.serverGroupsColumnWidth
   };
 
+  var clustersInfoColumn = {
+    columnType: 'objectCount',
+    infoField: 'clustersInfo',
+    width: columnsConfig.clustersColumnWidth
+  };
+
+  var hostsInfoColumn = {
+    columnType: 'objectCount',
+    infoField: 'hostsInfo',
+    width: columnsConfig.hostsColumnWidth
+  };
+
+  var dataStoresInfoColumn = {
+    columnType: 'objectCount',
+    infoField: 'dataStoresInfo',
+    width: columnsConfig.dataStoresColumnWidth
+  };
+
+  var vmsInfoColumn = {
+    columnType: 'objectCount',
+    infoField: 'vmsInfo',
+    width: columnsConfig.vmsColumnWidth
+  };
+
+  var templatesInfoColumn = {
+    columnType: 'objectCount',
+    infoField: 'templatesInfo',
+    width: columnsConfig.templatesColumnWidth
+  };
+
 
   var nameFilter = {
     id: 'name',
@@ -277,6 +307,31 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     sortType: 'numeric'
   };
 
+  var clustersSort = {
+    id: 'clustersInfo.count',
+    title:  'Clusters Count',
+    sortType: 'numeric'
+  };
+  var hostsSort = {
+    id: 'hostsInfo.count',
+    title:  'Hosts Count',
+    sortType: 'numeric'
+  };
+  var dataStoresSort = {
+    id: 'dataStoresInfo.count',
+    title:  'Datastores Count',
+    sortType: 'numeric'
+  };
+  var vmsSort = {
+    id: 'vmsInfo.count',
+    title:  'VMs Count',
+    sortType: 'numeric'
+  };
+  var templatesSort = {
+    id: 'templatesInfo.count',
+    title:  'Templates Count',
+    sortType: 'numeric'
+  };
   var sortList = function (items, sortField, isAscending) {
     var sortId = sortField.id;
     var compareFn = function(item1, item2) {
@@ -355,6 +410,11 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     uptimeColumn:             uptimeColumn,
     sessionsInfoColumn:       sessionsInfoColumn,
     serverGroupsInfoColumn:   serverGroupsInfoColumn,
+    clustersInfoColumn:       clustersInfoColumn,
+    hostsInfoColumn:          hostsInfoColumn,
+    dataStoresInfoColumn:     dataStoresInfoColumn,
+    vmsInfoColumn:            vmsInfoColumn,
+    templatesInfoColumn:      templatesInfoColumn,
     nameFilter:               nameFilter,
     providerFilter:           providerFilter,
     providerTypeFilter:       providerTypeFilter,
@@ -374,6 +434,11 @@ angular.module('miq.util').factory('ListUtils', ['ColumnsConfig', function listU
     routesSort:               routesSort,
     registriesSort:           registriesSort,
     uptimeSort:               uptimeSort,
+    clustersSort:             clustersSort,
+    hostsSort:                hostsSort,
+    dataStoresSort:           dataStoresSort,
+    vmsSort:                  vmsSort,
+    templatesSort:            templatesSort,
     sortList:                 sortList
   };
 }]);

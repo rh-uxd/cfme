@@ -10,7 +10,7 @@
   </div>
   <div pf-card-view id="{{listId}}" class="providers-cards" config="listConfig" items="providers" ng-if="providersLoaded && providersViewType == 'cardView'">
     <div class="card-title">
-      <img class="miq-card-title-img" src="{{item.providerImg}}">
+      <img class="miq-card-title-img" ng-src="{{item.providerImg}}">
       <span class="miq-icon-label">{{item.name}}</span>
     </div>
     <div class="row card-row">

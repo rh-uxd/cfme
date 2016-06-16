@@ -15,7 +15,6 @@ angular.module ('miq.appModule', [
   'miq.containersModule',
   'miq.infrastructureModule',
   'miq.cloudsModule',
-  'miq.eventsModule',
   'miq.applicationsModule',
   'miq.adminModule'
 ]).config(['$routeProvider', '$translateProvider',
@@ -28,10 +27,6 @@ angular.module ('miq.appModule', [
       })
       .when('/dashboard', {
         templateUrl: 'modules/dashboard/dashboard.html'
-      })
-      .when('/events', {
-        templateUrl: 'modules/containers/dashboard/dashboard.html',
-        controller: 'containers.dashboardController'
       })
 
       // Default
