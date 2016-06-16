@@ -43,19 +43,6 @@
   content: "\f100";
 }
 
-.drawer-pf .miq-notification-actions {
-  padding: 10px 0;
-  border-bottom: solid 1px #bbb;
-  .center-button {
-    display: block;
-    margin: 0 auto;
-
-    &:focus, &:hover {
-      outline: none;
-    }
-  }
-}
-
 .drawer-pf .panel-counter.sub-heading {
   font-size: 12px;
   font-weight: normal;
@@ -232,14 +219,6 @@
   width: 18px;
   display: inline-block;
   margin-right: 7px;
-}
-
-.product-vendor-kubernetes {
-  background: url('images/vendor-kubernetes.svg') left top;
-}
-
-.product-vendor-atomic-enterprise {
-  background: url('images/vendor-atomic.svg') left top;
 }
 
 .containers-dashboard .card-pf.card-pf-aggregate-status-mini {
