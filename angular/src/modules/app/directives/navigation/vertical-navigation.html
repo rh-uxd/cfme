@@ -28,7 +28,8 @@
             ng-class="{'secondary-nav-item-pf': item.children && item.children.length > 0,
                        'active': item.isActive,
                        'is-hover': item.isHover,
-                       'mobile-nav-item-pf': item.isMobileItem}"
+                       'mobile-nav-item-pf': item.isMobileItem && showMobileSecondary,
+                       'mobile-secondary-item-pf': item.isMobileItem && showMobileTertiary}"
             ng-mouseenter="handlePrimaryHover(item)" ng-mouseleave="handlePrimaryUnHover(item)">
           <a ng-click="handlePrimaryClick(item, $event)">
             <span class="{{item.iconClass}}" tooltip-append-to-body="true" tooltip-placement="bottom" tooltip="{{item.title}}" tooltip-class="nav-pf-vertical-primary-tooltip"></span>
@@ -44,7 +45,7 @@
                   ng-class="{'tertiary-nav-item-pf': secondaryItem.children && secondaryItem.children.length > 0,
                              'active': secondaryItem.isActive,
                              'is-hover': secondaryItem.isHover,
-                             'mobile-nav-item-pf': secondary.isMobileItem}"
+                             'mobile-nav-item-pf': secondaryItem.isMobileItem}"
                   ng-mouseenter="handleSecondaryHover(secondaryItem)" ng-mouseleave="handleSecondaryUnHover(secondaryItem)">
                 <a ng-click="handleSecondaryClick(item, secondaryItem, $event)">
                   <span class="list-group-item-value">{{secondaryItem.title}}</span>
