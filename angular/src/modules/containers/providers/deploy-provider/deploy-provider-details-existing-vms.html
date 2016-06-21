@@ -1,5 +1,5 @@
 <div ng-controller="containers.deployProviderDetailsExistingVMsController">
-  <form class="form-horizontal">
+  <form class="form-horizontal" ng-if="data.provisionOn == 'existingVms'">
     <div class="form-group">
       <label class="miq-input-label-class miq-input-label-class-lg">Private SSH Key</label>
       <div class="miq-input-class">
