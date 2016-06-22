@@ -21,16 +21,18 @@
           <input type="radio" ng-model="data.provisionOn" value="existingVms">Use existing VMs from an existing provider
         </label>
         <div class="form-group  sub-group">
-          <select pf-select ng-model="data.existingProviderId" id="exitingProviderType" ng-disabled="data.provisionOn != 'existingVms'">
-            <option ng-repeat="provider in existingProviders" value="{{provider.id}}">{{provider.name}}</option>
+          <select pf-select ng-model="data.existingProviderId" id="exitingProviderType"
+                  ng-disabled="data.provisionOn != 'existingVms'"
+                  ng-options="provider.id as provider.name for provider in existingProviders">
           </select>
         </div>
         <label class="radio">
           <input type="radio" ng-model="data.provisionOn" value="newVms">Create new VMs on provider
         </label>
         <div class="form-group sub-group">
-          <select pf-select ng-model="data.newVmProviderId" id="newVmProviders" ng-disabled="data.provisionOn != 'newVms'">
-            <option ng-repeat="provider in newVmProviders" value="{{provider.id}}">{{provider.name}}</option>
+          <select pf-select ng-model="data.newVmProviderId" id="newVmProviders"
+                  ng-disabled="data.provisionOn != 'newVms'"
+                  ng-options="provider.id as provider.name for provider in newVmProviders">
           </select>
         </div>
         <label class="radio">
