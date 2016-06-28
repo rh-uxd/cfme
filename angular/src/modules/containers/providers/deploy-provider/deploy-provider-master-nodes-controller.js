@@ -375,7 +375,7 @@ angular.module('miq.containers.providersModule').controller('containers.deployPr
         return node.infrastructure === true;
       });
 
-      var inputsValid = validString($scope.data.deploymentKey) && validString($scope.data.deploymentUsername);
+      var inputsValid = $scope.data.provisionOn == 'newVms'? true : validString($scope.data.deploymentKey) && validString($scope.data.deploymentUsername);
 
       $scope.setMasterNodesComplete($scope.validateNodeCounts() && inputsValid);
       $scope.nodeData.allNodes.forEach(function (item) {
